@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<data>
+    <dish>
+        <countList>9.0</countList>
+        <countList>8.0</countList>
+        <countList>5.0</countList>
+        <description>аіав</description>
+        <groceryList>пав</groceryList>
+        <groceryList>павп</groceryList>
+        <groceryList>пвап</groceryList>
+        <liked>false</liked>
+        <numberOfLikes>0</numberOfLikes>
+        <photo>6346.png</photo>
+        <recipe>віппав</recipe>
+        <title>Кукс</title>
+        <unitsOfMeasurementList>іпу</unitsOfMeasurementList>
+        <unitsOfMeasurementList>павп</unitsOfMeasurementList>
+        <unitsOfMeasurementList>апав</unitsOfMeasurementList>
+    </dish>
+</data>
