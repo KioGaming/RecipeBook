@@ -1,6 +1,5 @@
 package saveload;
 
-import model.Dish;
 import model.ShoppingList;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -10,18 +9,8 @@ import java.util.List;
 @XmlRootElement(name = "data")
 public class Wrapper {
 
-    private Dish dish;
     private List<String> likedDishes;
     private ShoppingList shoppingList;
-
-    @XmlElement(name = "dish")
-    public Dish getDish() {
-        return dish;
-    }
-
-    public void setDishes(Dish dish){
-        this.dish = dish;
-    }
 
     @XmlElement(name = "likedDishes")
     public List<String> getLikedDishes() {
