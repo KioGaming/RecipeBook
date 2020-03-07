@@ -73,6 +73,11 @@ public class SignUpController {
                     Stage stage = new Stage();
                     stage.setTitle(Text.get("PROGRAM_NAME"));
                     stage.setScene(new Scene(root));
+                    stage.setResizable(false);
+                    stage.setMaxHeight(700);
+                    stage.setMinHeight(700);
+                    stage.setMaxWidth(1200);
+                    stage.setMinWidth(1200);
                     stage.show();
                 } else {
                     signUpErrorMessages.setText(Text.get("SIGN_UP_REPEAT_ERROR"));
@@ -95,6 +100,11 @@ public class SignUpController {
             Stage stage = new Stage();
             stage.setTitle(Text.get("PROGRAM_NAME"));
             stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.setMaxHeight(700);
+            stage.setMinHeight(700);
+            stage.setMaxWidth(1200);
+            stage.setMinWidth(1200);
             stage.show();
         });
     }

@@ -1,12 +1,5 @@
 package gui;
 
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.ResourceBundle;
-
 import exception.ModelException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,12 +8,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import login.Account;
-import login.Login;
 import model.Dish;
-import saveload.SaveData;
 import saveload.SaveLoad;
 import settings.Text;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class AdminController {
 
@@ -72,7 +67,7 @@ public class AdminController {
 
             if (!title.equals("") && !photo.equals("") && !groceryList.equals("") && !recipe.equals(""))
             {
-                String tmp1[] = groceryList.split("/");
+                String[] tmp1 = groceryList.split("/");
                 ArrayList<String> gl = new ArrayList<>();
                 for (int i = 0; i < tmp1.length;i++)
                 {
@@ -80,20 +75,20 @@ public class AdminController {
                 }
 
                 ArrayList<Double> cl = new ArrayList<>();
-                String tmp2[] = countList.split("/");
+                String[] tmp2 = countList.split("/");
                 for (int i = 0; i < tmp2.length; i++)
                 {
                      cl.add(Double.parseDouble(tmp2[i]));
                 }
 
-                String tmp3[] = unitsOfMeasurementList.split("/");
+                String[] tmp3 = unitsOfMeasurementList.split("/");
                 ArrayList<String> ul = new ArrayList<>();
                 for (int i = 0; i < tmp3.length;i++)
                 {
                     ul.add(tmp3[i]);
                 }
 
-                String tmp4[] = recipe.split("/");
+                String[] tmp4 = recipe.split("/");
                 ArrayList<String> r = new ArrayList<>();
                 for (int i = 0; i < tmp4.length;i++)
                 {
@@ -103,7 +98,7 @@ public class AdminController {
                 try
                 {
                     SaveLoad saveLoad = new SaveLoad();
-                    saveLoad.saveRecipe(new Dish(title, photo, description, r, gl, cl, ul, 0));
+                    SaveLoad.saveRecipe(new Dish(title, photo, description, r, gl, cl, ul, 0));
                 } catch (ModelException e)
                 {
                     e.printStackTrace();
@@ -134,6 +129,11 @@ public class AdminController {
             Stage stage = new Stage();
             stage.setTitle(Text.get("PROGRAM_NAME"));
             stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.setMaxHeight(700);
+            stage.setMinHeight(700);
+            stage.setMaxWidth(1200);
+            stage.setMinWidth(1200);
             stage.show();
         });
     }
