@@ -36,13 +36,13 @@
                                         <Font name="Lobster" size="20.0"/>
                                     </font>
                                 </Label>
-                                <Label alignment="CENTER" layoutX="448.0" layoutY="346.0" prefHeight="62.0"
+                                <Label alignment="CENTER" layoutX="441.0" layoutY="347.0" prefHeight="62.0"
                                        prefWidth="140.0" text="Напитки" textFill="WHITE">
                                     <font>
                                         <Font name="Lobster" size="20.0"/>
                                     </font>
                                 </Label>
-                                <Label alignment="CENTER" layoutX="447.0" layoutY="517.0" prefHeight="62.0"
+                                <Label alignment="CENTER" layoutX="441.0" layoutY="515.0" prefHeight="62.0"
                                        prefWidth="140.0" text="Соусы" textFill="WHITE">
                                     <font>
                                         <Font name="Lobster" size="20.0"/>
@@ -90,73 +90,73 @@
                                 <ImageView accessibleRole="BUTTON" fitHeight="139.0" fitWidth="139.0" layoutX="217.0"
                                            layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../images/sup.png"/>
+                                        <Image url="@../../images/soup.png"/>
                                     </image>
                                 </ImageView>
                                 <ImageView accessibleRole="BUTTON" fitHeight="139.0" fitWidth="139.0" layoutX="225.0"
                                            layoutY="312.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../images/sup.png"/>
+                                        <Image url="@../../images/salad.png"/>
                                     </image>
                                 </ImageView>
                                 <ImageView accessibleRole="BUTTON" fitHeight="139.0" fitWidth="139.0" layoutX="224.0"
                                            layoutY="477.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../images/sup.png"/>
+                                        <Image url="@../../images/appetizer.png"/>
                                     </image>
                                 </ImageView>
                                 <ImageView accessibleRole="BUTTON" fitHeight="139.0" fitWidth="139.0" layoutX="222.0"
                                            layoutY="169.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../images/sup.png"/>
+                                        <Image url="@../../images/menuTryPro.png"/>
                                     </image>
                                 </ImageView>
                                 <ImageView fitHeight="139.0" fitWidth="139.0" layoutX="604.0" layoutY="23.0"
                                            pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../images/sup.png"/>
+                                        <Image url="@../../images/baking.png"/>
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="139.0" fitWidth="139.0" layoutX="612.0" layoutY="317.0"
+                                <ImageView fitHeight="139.0" fitWidth="139.0" layoutX="609.0" layoutY="317.0"
                                            pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../images/sup.png"/>
+                                        <Image url="@../../images/images1.png"/>
                                     </image>
                                 </ImageView>
                                 <ImageView fitHeight="139.0" fitWidth="139.0" layoutX="611.0" layoutY="482.0"
                                            pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../images/sup.png"/>
+                                        <Image url="@../../images/sauces.png"/>
                                     </image>
                                 </ImageView>
                                 <ImageView fitHeight="139.0" fitWidth="139.0" layoutX="609.0" layoutY="174.0"
                                            pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../images/sup.png"/>
+                                        <Image url="@../../images/icecream.png"/>
                                     </image>
                                 </ImageView>
                                 <ImageView fitHeight="139.0" fitWidth="139.0" layoutX="1017.0" layoutY="15.0"
                                            pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../images/sup.png"/>
+                                        <Image url="@../../images/pickles.jpg"/>
                                     </image>
                                 </ImageView>
                                 <ImageView fitHeight="139.0" fitWidth="139.0" layoutX="1025.0" layoutY="309.0"
                                            pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../images/sup.png"/>
+                                        <Image url="@../../images/menuTryPro.png"/>
                                     </image>
                                 </ImageView>
                                 <ImageView fitHeight="139.0" fitWidth="139.0" layoutX="1024.0" layoutY="474.0"
                                            pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../images/sup.png"/>
+                                        <Image url="@../../images/milk.png"/>
                                     </image>
                                 </ImageView>
                                 <ImageView fitHeight="139.0" fitWidth="139.0" layoutX="1022.0" layoutY="166.0"
                                            pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../images/sup.png"/>
+                                        <Image url="@../../images/porridge.png"/>
                                     </image>
                                 </ImageView>
                             </children>
