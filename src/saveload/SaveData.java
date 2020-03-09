@@ -11,10 +11,16 @@ public final class SaveData {
     private List<String> likedDishes;
     private ShoppingList shoppingList;
 
-    public SaveData(){}
+    public SaveData() {
+        SaveLoad.load(this);
+    }
 
     public void load(String username){
         SaveLoad.load(this, username);
+    }
+
+    public void load() {
+        SaveLoad.load(this);
     }
 
     public void save(String username){

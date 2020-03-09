@@ -23,10 +23,8 @@ public class SaveLoad
     private static Wrapper wrapper;
 
 
-    public static void load(SaveData sd, String username)
-    {
-        try
-        {
+    public static void load(SaveData sd, String username) {
+        try {
             context = JAXBContext.newInstance(Wrapper.class);
             um = context.createUnmarshaller();
             wrapper = (Wrapper) um.unmarshal(Settings.getFileSave(username));
@@ -37,8 +35,7 @@ public class SaveLoad
             System.out.println("Даних нету!");
             e.printStackTrace();
         }
-        try
-        {
+        try {
             context = JAXBContext.newInstance(Wrapper.class);
             um = context.createUnmarshaller();
             wrapper = (Wrapper) um.unmarshal(Settings.getFileSave(username));
@@ -49,18 +46,21 @@ public class SaveLoad
             System.out.println("Даних нету!");
             e.printStackTrace();
         }
+    }
+
+    public static void load(SaveData sd) {
         ArrayList<Dish> dishes = new ArrayList<>();
         DatabaseHandler databaseHandler = new DatabaseHandler();
         ResultSet resultSet =  databaseHandler.getRecipe();
-        try
-        {
-            while (resultSet.next())
-            {
+        try {
+            while (resultSet.next()) {
                 String title = resultSet.getString("title");
 
                 String photo = resultSet.getString("photo");
 
                 String description = resultSet.getString("description");
+
+                String category = resultSet.getString("category");
 
                 ArrayList<String> recipe = new ArrayList<>();
                 Collections.addAll(recipe, resultSet.getString("recipe").split("/"));
@@ -75,12 +75,13 @@ public class SaveLoad
 
                 int numberOfLikes = Integer.parseInt(resultSet.getString("numberOfLikes"));
 
-                Dish dish = new Dish(title, photo, description, recipe, groceryList, countList, unitsOfMeasurementList, numberOfLikes);
+                Dish dish = new Dish(title, photo, description, category, recipe, groceryList, countList, unitsOfMeasurementList, numberOfLikes);
                 dishes.add(dish);
             }
             sd.setDishes(dishes);
-        } catch (SQLException e) { e.printStackTrace(); }
-          catch (ModelException e) { e.printStackTrace(); }
+        } catch (SQLException e) { e.printStackTrace(); } catch (ModelException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void save(SaveData sd, String username){

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,7 +12,19 @@
             <tabs>
                 <Tab text="Главная">
                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="701.0" prefWidth="1226.0" />
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1220.0">
+                            <children>
+                        <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="-6.0" minViewportHeight="600.0" minViewportWidth="1150.0" pannable="true" prefHeight="628.0" prefViewportHeight="600.0" prefViewportWidth="1150.0" prefWidth="1202.0" vbarPolicy="ALWAYS">
+                          <content>
+                            <AnchorPane fx:id="frameScrollPane" minHeight="0.0" minWidth="0.0" prefHeight="1400.0" prefWidth="1200.0" style="-fx-background-color: #2E3348;">
+                                 <children>
+                                    <ComboBox fx:id="filterComboBox" layoutX="838.0" layoutY="14.0" prefHeight="26.0" prefWidth="329.0" promptText="Фильтр" visibleRowCount="7" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                            </children>
+                        </AnchorPane>
                     </content>
                 </Tab>
                 <Tab text="Моя книга рецептов">

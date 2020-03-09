@@ -9,6 +9,7 @@ public class Dish {
     private String title;
     private String photo;
     private String description;
+    private String category;
     private ArrayList<String> recipe;
     private ArrayList<String> groceryList;
     private ArrayList<Double> countList;
@@ -18,7 +19,8 @@ public class Dish {
 
     public Dish(){}
 
-    public Dish(String title, String photo, String description, ArrayList<String> recipe, ArrayList<String> groceryList, ArrayList<Double> countList, ArrayList<String> unitsOfMeasurementList, int numberOfLikes) throws ModelException{
+    public Dish(String title, String photo, String description, String category, ArrayList<String> recipe, ArrayList<String> groceryList,
+                ArrayList<Double> countList, ArrayList<String> unitsOfMeasurementList, int numberOfLikes) throws ModelException {
         if (title.length() == 0) {throw new ModelException(ModelException.PROGRAM_ERROR);}
         if (photo.length() == 0) {throw new ModelException(ModelException.PROGRAM_ERROR);}
         if (description.length() == 0) {throw new ModelException(ModelException.PROGRAM_ERROR);}
@@ -28,6 +30,7 @@ public class Dish {
         this.title = title;
         this.photo = photo;
         this.description = description;
+        this.category = category;
         this.recipe = recipe;
         this.groceryList = groceryList;
         this.countList = countList;
@@ -109,6 +112,14 @@ public class Dish {
 
     @Override
     public String toString() {
-        return title + " " + photo + " " + description + " " + recipe.toString() + " " + groceryList.toString() + " " + countList.toString() + unitsOfMeasurementList.toString() + " " + numberOfLikes + " " + isLiked + "\n";
+        return title + " " + photo + " " + description + " " + category + " " + recipe.toString() + " " + groceryList.toString() + " " + countList.toString() + unitsOfMeasurementList.toString() + " " + numberOfLikes + " " + isLiked + "\n";
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
