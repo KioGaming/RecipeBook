@@ -18,8 +18,8 @@ import java.util.ResourceBundle;
 
 public class AppController {
 
-    ObservableList<String> comboBoxList = FXCollections.observableArrayList("Все блюда", "Бульоны и супы", "Горячие блюда", "Салаты", "Закуски", "Напитки", "Соусы",
-            "Выпечка", "Десерты", "Заготовки", "Каши", "Приготовление молочних продуктов");
+    ObservableList<String> comboBoxList = FXCollections.observableArrayList("Все блюда", "Бульоны и супы", "Горячие блюда", "Салаты", "Закуски", "Напитки",
+            "Соусы", "Выпечка", "Десерты", "Заготовки", "Каши", "Приготовление молочних продуктов");
 
     @FXML
     private ResourceBundle resources;

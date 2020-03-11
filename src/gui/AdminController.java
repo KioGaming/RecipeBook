@@ -46,6 +46,8 @@ public class AdminController {
     @FXML
     private Button exitButton;
 
+    @FXML
+    private TextField categoryField;
 
     @FXML
     private TextField countListField;
@@ -57,6 +59,7 @@ public class AdminController {
     void initialize() {
         addRecipe.setOnAction(event ->
         {
+            String category = categoryField.getText();
             String title = titleField.getText();
             String photo = photoField.getText();
             String description = descriptionField.getText();
@@ -65,8 +68,8 @@ public class AdminController {
             String unitsOfMeasurementList = unitsOfMeasurementListField.getText();
             String recipe = recipeField.getText();
 
-            if (!title.equals("") && !photo.equals("") && !groceryList.equals("") && !recipe.equals(""))
-            {
+            if (!title.equals("") && !photo.equals("") && !description.equals("") && !category.equals("") &&
+                    !groceryList.equals("") && !countList.equals("") && !unitsOfMeasurementList.equals("") && !recipe.equals("")) {
                 String[] tmp1 = groceryList.split("/");
                 ArrayList<String> gl = new ArrayList<>();
                 for (int i = 0; i < tmp1.length;i++)
@@ -97,8 +100,8 @@ public class AdminController {
 
                 try
                 {
-                    SaveLoad saveLoad = new SaveLoad();                         // нада помінятьььь
-                    SaveLoad.saveRecipe(new Dish(title, photo, description, "Бульоны и супы", r, gl, cl, ul, 0));
+                    SaveLoad saveLoad = new SaveLoad();
+                    SaveLoad.saveRecipe(new Dish(title, photo, description, category, r, gl, cl, ul, 0));
                 } catch (ModelException e)
                 {
                     e.printStackTrace();
