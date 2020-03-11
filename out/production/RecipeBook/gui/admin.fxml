@@ -10,7 +10,7 @@
     <children>
         <AnchorPane layoutY="158.0" prefHeight="542.0" prefWidth="1200.0" style="-fx-background-color: #fafafa;">
             <children>
-                <TextField fx:id="descriptionField" alignment="CENTER" layoutX="31.0" layoutY="183.0" prefHeight="219.0" prefWidth="368.0" promptText="Desription" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
+                <TextField fx:id="descriptionField" alignment="CENTER" layoutX="31.0" layoutY="158.0" prefHeight="219.0" prefWidth="368.0" promptText="Desription" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
                     <font>
                         <Font size="22.0" />
                     </font>
@@ -20,32 +20,37 @@
                         <Font name="Lobster" size="32.0" />
                     </font>
                 </Button>
-            <TextField fx:id="titleField" alignment="TOP_CENTER" layoutX="31.0" layoutY="29.0" prefHeight="50.0" prefWidth="368.0" promptText="Title" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
+            <TextField fx:id="titleField" alignment="TOP_CENTER" layoutX="31.0" layoutY="16.0" prefHeight="50.0" prefWidth="368.0" promptText="Title" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
                <font>
                   <Font size="22.0" />
                </font>
             </TextField>
-            <TextField fx:id="photoField" alignment="TOP_CENTER" layoutX="31.0" layoutY="104.0" prefHeight="50.0" prefWidth="368.0" promptText="Photo" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
+            <TextField fx:id="photoField" alignment="TOP_CENTER" layoutX="31.0" layoutY="85.0" prefHeight="50.0" prefWidth="368.0" promptText="Photo" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
                <font>
                   <Font size="22.0" />
                </font>
             </TextField>
-            <TextField fx:id="groceryListField" alignment="CENTER" layoutX="425.0" layoutY="271.0" prefHeight="50.0" prefWidth="730.0" promptText="GroceryList" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
+            <TextField fx:id="groceryListField" alignment="CENTER" layoutX="425.0" layoutY="256.0" prefHeight="50.0" prefWidth="730.0" promptText="GroceryList" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
                <font>
                   <Font size="22.0" />
                </font>
             </TextField>
-            <TextField fx:id="recipeField" alignment="CENTER" layoutX="425.0" layoutY="29.0" prefHeight="219.0" prefWidth="730.0" promptText="Recipe" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
+            <TextField fx:id="recipeField" alignment="CENTER" layoutX="425.0" layoutY="16.0" prefHeight="219.0" prefWidth="730.0" promptText="Recipe" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
                <font>
                   <Font size="22.0" />
                </font>
             </TextField>
-            <TextField fx:id="countListField" alignment="CENTER" layoutX="425.0" layoutY="335.0" prefHeight="50.0" prefWidth="730.0" promptText="CountList" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
+            <TextField fx:id="countListField" alignment="CENTER" layoutX="425.0" layoutY="326.0" prefHeight="50.0" prefWidth="730.0" promptText="CountList" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
                <font>
                   <Font size="22.0" />
                </font>
             </TextField>
-            <TextField fx:id="unitsOfMeasurementListField" alignment="CENTER" layoutX="425.0" layoutY="402.0" prefHeight="50.0" prefWidth="730.0" promptText="unitsOfMeasurementList" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
+            <TextField fx:id="unitsOfMeasurementListField" alignment="CENTER" layoutX="425.0" layoutY="391.0" prefHeight="50.0" prefWidth="730.0" promptText="unitsOfMeasurementList" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="categoryField" alignment="CENTER" layoutX="31.0" layoutY="391.0" prefHeight="50.0" prefWidth="368.0" promptText="Category" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
                <font>
                   <Font size="22.0" />
                </font>
