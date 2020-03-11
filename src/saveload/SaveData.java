@@ -7,6 +7,7 @@ import java.util.List;
 
 public final class SaveData {
 
+    private int counter = 0;
     private List<Dish> dishes;
     private List<String> likedDishes;
     private ShoppingList shoppingList;
@@ -56,4 +57,15 @@ public final class SaveData {
         return dishes.toString()  + "\n" + likedDishes.toString() + "\n" + shoppingList.toString() + "\n";
     }
 
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
+
+    public void addCounter() {
+        this.counter += 10;
+    }
 }

@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 
 public class AppController {
 
-    ObservableList<String> comboBoxList = FXCollections.observableArrayList("Бульоны и супы", "Горячие блюда", "Салаты", "Закуски", "Напитки", "Соусы",
+    ObservableList<String> comboBoxList = FXCollections.observableArrayList("Все блюда", "Бульоны и супы", "Горячие блюда", "Салаты", "Закуски", "Напитки", "Соусы",
             "Выпечка", "Десерты", "Заготовки", "Каши", "Приготовление молочних продуктов");
 
     @FXML
@@ -38,10 +38,8 @@ public class AppController {
 
     @FXML
     void initialize() {
-        SaveData sd = new SaveData();
-        frameScrollPane.setMinHeight(sd.getDishes().size() * 1000);
-        frameScrollPane.setMaxHeight(sd.getDishes().size() * 1000);
 //сначала инициализирувать
+
         filterComboBox.setItems(comboBoxList);
         filterComboBox.setOnAction(event -> {
             String str = filterComboBox.getValue();

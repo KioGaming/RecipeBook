@@ -54,26 +54,26 @@ public class SaveLoad
         ResultSet resultSet =  databaseHandler.getRecipe();
         try {
             while (resultSet.next()) {
-                String title = resultSet.getString("title");
+                String title = resultSet.getString(Settings.DISH_TITLE);
 
-                String photo = resultSet.getString("photo");
+                String photo = resultSet.getString(Settings.DISH_PHOTO);
 
-                String description = resultSet.getString("description");
+                String description = resultSet.getString(Settings.DISH_DESCRIPTION);
 
-                String category = resultSet.getString("category");
+                String category = resultSet.getString(Settings.DISH_CATEGORY);
 
                 ArrayList<String> recipe = new ArrayList<>();
-                Collections.addAll(recipe, resultSet.getString("recipe").split("/"));
+                Collections.addAll(recipe, resultSet.getString(Settings.DISH_RECIPE).split("/"));
 
                 ArrayList<String> groceryList = new ArrayList<>();
-                Collections.addAll(groceryList, resultSet.getString("groceryList").split("/"));
+                Collections.addAll(groceryList, resultSet.getString(Settings.DISH_GROCERYLIST).split("/"));
 
-                ArrayList<Double> countList = strListToDoubleList(resultSet.getString("countList").split("/"));
+                ArrayList<Double> countList = strListToDoubleList(resultSet.getString(Settings.DISH_COUNTLIST).split("/"));
 
                 ArrayList<String> unitsOfMeasurementList = new ArrayList<>();
-                Collections.addAll(unitsOfMeasurementList, resultSet.getString("unitsOfMeasurementList").split("/"));
+                Collections.addAll(unitsOfMeasurementList, resultSet.getString(Settings.DISH_UNITSOFMEASUREMENTLIST).split("/"));
 
-                int numberOfLikes = Integer.parseInt(resultSet.getString("numberOfLikes"));
+                int numberOfLikes = Integer.parseInt(resultSet.getString(Settings.DISH_NUMBER_OF_LIKES));
 
                 Dish dish = new Dish(title, photo, description, category, recipe, groceryList, countList, unitsOfMeasurementList, numberOfLikes);
                 dishes.add(dish);

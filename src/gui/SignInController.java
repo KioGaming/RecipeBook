@@ -78,10 +78,10 @@ public class SignInController {
                         stage.setTitle(Text.get("PROGRAM_NAME"));
                         stage.setScene(new Scene(root));
                         stage.setResizable(false);
-                        stage.setMaxHeight(700);
-                        stage.setMinHeight(700);
-                        stage.setMaxWidth(1200);
-                        stage.setMinWidth(1200);
+                        stage.setMaxHeight(729);
+                        stage.setMinHeight(729);
+                        stage.setMaxWidth(1205);
+                        stage.setMinWidth(1205);
                         stage.show();
                     }
                 } else {

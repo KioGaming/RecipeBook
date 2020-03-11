@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 
 public class SignUpController {
 
-    ObservableList<String> comboBoxList = FXCollections.observableArrayList("Россия, ru", "Україна, ua", "Англія, uk");
+    ObservableList<String> comboBoxList = FXCollections.observableArrayList("Россия, ru", "Україна, ua", "England, uk");
 
     @FXML
     private ResourceBundle resources;

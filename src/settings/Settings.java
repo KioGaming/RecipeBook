@@ -27,6 +27,7 @@ final public class Settings {
     public static final String DISH_COUNTLIST = "countList";
     public static final String DISH_UNITSOFMEASUREMENTLIST = "unitsOfMeasurementList";
     public static final String DISH_NUMBER_OF_LIKES = "numberOfLikes";
+    public static final String DISH_CATEGORY = "category";
 
     public static File getFileSave(String username){
         return new File( SAVE_DIR + "/" + username + "." + SAVE_FILE_EXT);
