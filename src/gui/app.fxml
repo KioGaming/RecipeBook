@@ -24,62 +24,67 @@
                                                 <ComboBox fx:id="filterComboBox" layoutX="838.0" layoutY="14.0"
                                                           prefHeight="26.0" prefWidth="329.0" promptText="Фильтр"
                                                           visibleRowCount="7"/>
-                                                <Label layoutX="60.0" layoutY="70.0" prefHeight="11.0" prefWidth="81.0"
-                                                       text="Title" textFill="WHITE">
+                                                <Label fx:id="title1" layoutX="60.0" layoutY="70.0" prefHeight="58.0"
+                                                       prefWidth="183.0" text="Title" textFill="WHITE">
                                                     <font>
                                                         <Font size="40.0"/>
                                                     </font>
                                                 </Label>
-                                                <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="59.0"
-                                                           layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="image1" fitHeight="150.0" fitWidth="150.0"
+                                                           layoutX="59.0" layoutY="129.0" pickOnBounds="true"
+                                                           preserveRatio="true">
                                                     <image>
                                                         <Image url="@../../images/appetizer.png"/>
                                                     </image>
                                                 </ImageView>
-                                                <Label layoutX="59.0" layoutY="285.0" prefHeight="11.0" prefWidth="81.0"
-                                                       text="Title" textFill="WHITE">
+                                                <Label fx:id="title2" layoutX="59.0" layoutY="285.0" prefHeight="58.0"
+                                                       prefWidth="183.0" text="Title" textFill="WHITE">
                                                     <font>
                                                         <Font size="40.0"/>
                                                     </font>
                                                 </Label>
-                                                <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="57.0"
-                                                           layoutY="344.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="image2" fitHeight="150.0" fitWidth="150.0"
+                                                           layoutX="57.0" layoutY="344.0" pickOnBounds="true"
+                                                           preserveRatio="true">
                                                     <image>
                                                         <Image url="@../../images/appetizer.png"/>
                                                     </image>
                                                 </ImageView>
-                                                <Label layoutX="59.0" layoutY="488.0" prefHeight="11.0" prefWidth="81.0"
-                                                       text="Title" textFill="WHITE">
+                                                <Label fx:id="title3" layoutX="59.0" layoutY="488.0" prefHeight="58.0"
+                                                       prefWidth="184.0" text="Title" textFill="WHITE">
                                                     <font>
                                                         <Font size="40.0"/>
                                                     </font>
                                                 </Label>
-                                                <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="66.0"
-                                                           layoutY="559.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="image3" fitHeight="150.0" fitWidth="150.0"
+                                                           layoutX="66.0" layoutY="559.0" pickOnBounds="true"
+                                                           preserveRatio="true">
                                                     <image>
                                                         <Image url="@../../images/appetizer.png"/>
                                                     </image>
                                                 </ImageView>
-                                                <Label layoutX="64.0" layoutY="722.0" prefHeight="11.0" prefWidth="81.0"
-                                                       text="Title" textFill="WHITE">
+                                                <Label fx:id="title4" layoutX="64.0" layoutY="722.0" prefHeight="58.0"
+                                                       prefWidth="182.0" text="Title" textFill="WHITE">
                                                     <font>
                                                         <Font size="40.0"/>
                                                     </font>
                                                 </Label>
-                                                <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="55.0"
-                                                           layoutY="795.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="image4" fitHeight="150.0" fitWidth="150.0"
+                                                           layoutX="55.0" layoutY="795.0" pickOnBounds="true"
+                                                           preserveRatio="true">
                                                     <image>
                                                         <Image url="@../../images/appetizer.png"/>
                                                     </image>
                                                 </ImageView>
-                                                <Label layoutX="70.0" layoutY="969.0" prefHeight="11.0" prefWidth="81.0"
-                                                       text="Title" textFill="WHITE">
+                                                <Label fx:id="title5" layoutX="70.0" layoutY="969.0" prefHeight="58.0"
+                                                       prefWidth="185.0" text="Title" textFill="WHITE">
                                                     <font>
                                                         <Font size="40.0"/>
                                                     </font>
                                                 </Label>
-                                                <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="59.0"
-                                                           layoutY="1079.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="image5" fitHeight="150.0" fitWidth="150.0"
+                                                           layoutX="59.0" layoutY="1079.0" pickOnBounds="true"
+                                                           preserveRatio="true">
                                                     <image>
                                                         <Image url="@../../images/appetizer.png"/>
                                                     </image>
@@ -91,7 +96,7 @@
                                                         <Font size="30.0"/>
                                                     </font>
                                                 </Button>
-                                                <Button fx:id="furtherButton" layoutX="734.0" layoutY="1227.0"
+                                                <Button fx:id="nextButton" layoutX="734.0" layoutY="1227.0"
                                                         mnemonicParsing="false" style="-fx-background-color: #F39C63;"
                                                         text="Вперед" textAlignment="CENTER" textFill="#ffffff">
                                                     <font>

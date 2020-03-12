@@ -9,9 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import login.Account;
-import login.DatabaseHandler;
-import login.Login;
 import settings.Text;
 
 import java.io.IOException;
@@ -44,7 +41,7 @@ public class SignInController {
     @FXML
     void initialize() {
 
-        authSignInButton.setOnAction(event -> {
+        authSignInButton.setOnAction(event -> {/*
             String mail = mailField.getText();
             String password = passwordField.getText();
             if (!mail.equals("") && !password.equals("")) {
@@ -90,7 +87,25 @@ public class SignInController {
                 }
             } else {
                 errorMessagesField.setText(Text.get("SIGN_IN_EMPTY_ERROR"));
+            }*/
+            authSignInButton.getScene().getWindow().hide();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/gui/app.fxml"));
+            try {
+                loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+            Parent root = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setTitle(Text.get("PROGRAM_NAME"));
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.setMaxHeight(729);
+            stage.setMinHeight(729);
+            stage.setMaxWidth(1205);
+            stage.setMinWidth(1205);
+            stage.show();
         });
 
         loginSignUpButton.setOnAction(event -> {

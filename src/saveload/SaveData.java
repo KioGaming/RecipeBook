@@ -8,6 +8,7 @@ import java.util.List;
 public final class SaveData {
 
     private int counter = 0;
+    private int lastCounterChange = 5;
     private List<Dish> dishes;
     private List<String> likedDishes;
     private ShoppingList shoppingList;
@@ -67,5 +68,13 @@ public final class SaveData {
 
     public void addCounter() {
         this.counter += 10;
+    }
+
+    public int getLastCounterChange() {
+        return lastCounterChange;
+    }
+
+    public void setLastCounterChange(int lastCounterChange) {
+        this.lastCounterChange = lastCounterChange;
     }
 }
