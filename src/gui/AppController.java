@@ -78,22 +78,37 @@ public class AppController {
     @FXML
     void initialize() {
         filterComboBox.setItems(comboBoxList);
+        backButton.setDisable(true);
         SaveData sd = new SaveData();
         next(sd);
 
         nextButton.setOnAction(actionEvent -> {
+            backButton.setDisable(false);
+            nextButton.setDisable(false);
+            scrollPane.setFitToHeight(false);
             if (filterComboBox.getValue() == null || filterComboBox.getValue() == "Все блюда")
                 next(sd);
             else next(sd, filterComboBox.getValue());
         });
 
         filterComboBox.setOnAction(event -> {
+            backButton.setDisable(true);
+            sd.setCounter(0);
+            sd.setLastCounterChange(5);
             nextButton.setDisable(false);
-            next(sd, filterComboBox.getValue());
+            scrollPane.setFitToHeight(false);
+            nextButton.setLayoutY(1300);
+            backButton.setLayoutY(1300);
+            if (filterComboBox.getValue() == null || filterComboBox.getValue() == "Все блюда")
+                next(sd);
+            else next(sd, filterComboBox.getValue());
         });
-
+//добавить появление ImageView
         backButton.setOnAction(actionEvent -> {
             nextButton.setDisable(false);
+            scrollPane.setFitToHeight(false);
+            nextButton.setLayoutY(1300);
+            backButton.setLayoutY(1300);
             if (filterComboBox.getValue() == null || filterComboBox.getValue() == "Все блюда")
                 back(sd);
             else back(sd, filterComboBox.getValue());
@@ -105,6 +120,12 @@ public class AppController {
         int counter = sd.getCounter();
         if (counter == 0) counter = -1;
         int listSize = sd.getDishes().size();
+
+        title1.setVisible(true);
+        title2.setVisible(true);
+        title3.setVisible(true);
+        title4.setVisible(true);
+        title5.setVisible(true);
 
         if (counter < listSize - 1) {
             if (counter + 1 < listSize) {
@@ -155,6 +176,13 @@ public class AppController {
             if (counter >= listSize - 1) {
                 nextButton.setDisable(true);
             }
+            if (nextButton.isDisable() && counter - sd.getCounter() >= 0 && counter - sd.getCounter() < 5) {
+                scrollPane.setFitToHeight(true);
+                nextButton.setLayoutX(800);
+                nextButton.setLayoutY(500);
+                backButton.setLayoutX(300);
+                backButton.setLayoutY(500);
+            }
         } else {
             nextButton.setDisable(true);
         }
@@ -164,8 +192,75 @@ public class AppController {
     public void next(SaveData sd, String str) {
     }
 
-    //back
     public void back(SaveData sd) {
+        List<Dish> list = sd.getDishes();
+        int counter = sd.getCounter();
+        int listSize = sd.getDishes().size();
+        int lastCounterChange = sd.getLastCounterChange();
+
+        title1.setVisible(true);
+        title2.setVisible(true);
+        title3.setVisible(true);
+        title4.setVisible(true);
+        title5.setVisible(true);
+
+        if (lastCounterChange != 5 && counter - lastCounterChange - 4 >= 0) {
+            counter -= lastCounterChange + 4;
+        } else {
+            counter -= lastCounterChange;
+        }
+        counter--;
+        if (counter >= -1) {
+            if (counter + 1 < listSize) {
+                counter++;
+                title1.setText(list.get(counter).getTitle());
+                image1.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+            } else {
+                title1.setVisible(false);
+                image1.setVisible(false);
+            }
+            if (counter + 1 < listSize) {
+                counter++;
+                title2.setText(list.get(counter).getTitle());
+                image2.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+            } else {
+                title2.setVisible(false);
+                image2.setVisible(false);
+            }
+            if (counter + 1 < listSize) {
+                counter++;
+                title3.setText(list.get(counter).getTitle());
+                image3.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+            } else {
+                title3.setVisible(false);
+                image3.setVisible(false);
+            }
+            if (counter + 1 < listSize) {
+                counter++;
+                title4.setText(list.get(counter).getTitle());
+                image4.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+            } else {
+                title4.setVisible(false);
+                image4.setVisible(false);
+            }
+            if (counter + 1 < listSize) {
+                counter++;
+                title5.setText(list.get(counter).getTitle());
+                image5.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+            } else {
+                title5.setVisible(false);
+                image5.setVisible(false);
+            }
+            sd.setLastCounterChange(5);
+            sd.setCounter(counter);
+            scrollPane.setVvalue(0);
+            System.out.println(counter);
+            if (counter == 4) {
+                backButton.setDisable(true);
+            }
+        } else {
+            backButton.setDisable(true);
+        }
     }
 
     //back + filter
