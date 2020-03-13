@@ -20,8 +20,8 @@ import java.util.ResourceBundle;
 
 public class AppController {
 
-    ObservableList<String> comboBoxList = FXCollections.observableArrayList("Все блюда", "Бульоны и супы", "Горячие блюда", "Салаты", "Закуски", "Напитки",
-            "Соусы", "Выпечка", "Десерты", "Заготовки", "Каши", "Приготовление молочних продуктов");
+    ObservableList<String> comboBoxList = FXCollections.observableArrayList("Всі страви", "Супи та борщі", "Гарячі страви", "Салати", "Закуски", "Напої",
+            "Соуси", "Випічка", "Десерти", "Заготовки", "Каші", "Приготування молочних продуктів");
 
     @FXML
     private ResourceBundle resources;
@@ -86,20 +86,20 @@ public class AppController {
             backButton.setDisable(false);
             nextButton.setDisable(false);
             scrollPane.setFitToHeight(false);
-            if (filterComboBox.getValue() == null || filterComboBox.getValue() == "Все блюда")
+            if (filterComboBox.getValue() == null || filterComboBox.getValue() == "Всі страви")
                 next(sd);
             else next(sd, filterComboBox.getValue());
         });
 
         filterComboBox.setOnAction(event -> {
             backButton.setDisable(true);
-            sd.setCounter(0);
-            sd.setLastCounterChange(5);
             nextButton.setDisable(false);
             scrollPane.setFitToHeight(false);
             nextButton.setLayoutY(1300);
             backButton.setLayoutY(1300);
-            if (filterComboBox.getValue() == null || filterComboBox.getValue() == "Все блюда")
+            sd.setCounter(0);
+            sd.setLastCounterChange(5);
+            if (filterComboBox.getValue() == null || filterComboBox.getValue() == "Всі страви")
                 next(sd);
             else next(sd, filterComboBox.getValue());
         });
@@ -109,17 +109,18 @@ public class AppController {
             scrollPane.setFitToHeight(false);
             nextButton.setLayoutY(1300);
             backButton.setLayoutY(1300);
-            if (filterComboBox.getValue() == null || filterComboBox.getValue() == "Все блюда")
+            if (filterComboBox.getValue() == null || filterComboBox.getValue() == "Всі страви")
                 back(sd);
             else back(sd, filterComboBox.getValue());
         });
     }
 
+    //next
     public void next(SaveData sd) {
         List<Dish> list = sd.getDishes();
         int counter = sd.getCounter();
         if (counter == 0) counter = -1;
-        int listSize = sd.getDishes().size();
+        int listSize = list.size();
 
         title1.setVisible(true);
         title2.setVisible(true);
@@ -189,13 +190,107 @@ public class AppController {
     }
 
     //next + filter
-    public void next(SaveData sd, String str) {
+    public void next(SaveData sd, String filter) {
+        List<Dish> list;
+        if (filter == "Супи та борщі") {
+            list = sd.getC1();
+        } else if (filter == "Гарячі страви") {
+            list = sd.getC2();
+        } else if (filter == "Салати") {
+            list = sd.getC3();
+        } else if (filter == "Закуски") {
+            list = sd.getC4();
+        } else if (filter == "Напої") {
+            list = sd.getC5();
+        } else if (filter == "Соуси") {
+            list = sd.getC6();
+        } else if (filter == "Випічка") {
+            list = sd.getC7();
+        } else if (filter == "Десерти") {
+            list = sd.getC8();
+        } else if (filter == "Заготовки") {
+            list = sd.getC9();
+        } else if (filter == "Каші") {
+            list = sd.getC10();
+        } else {
+            list = sd.getC11();
+        }
+        int counter = sd.getCounter();
+        if (counter == 0) counter = -1;
+        int listSize = list.size();
+
+        title1.setVisible(true);
+        title2.setVisible(true);
+        title3.setVisible(true);
+        title4.setVisible(true);
+        title5.setVisible(true);
+
+        if (counter < listSize - 1) {
+            if (counter + 1 < listSize) {
+                counter++;
+                title1.setText(list.get(counter).getTitle());
+                image1.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+            } else {
+                title1.setVisible(false);
+                image1.setVisible(false);
+            }
+            if (counter + 1 < listSize) {
+                counter++;
+                title2.setText(list.get(counter).getTitle());
+                image2.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+            } else {
+                title2.setVisible(false);
+                image2.setVisible(false);
+            }
+            if (counter + 1 < listSize) {
+                counter++;
+                title3.setText(list.get(counter).getTitle());
+                image3.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+            } else {
+                title3.setVisible(false);
+                image3.setVisible(false);
+            }
+            if (counter + 1 < listSize) {
+                counter++;
+                title4.setText(list.get(counter).getTitle());
+                image4.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+            } else {
+                title4.setVisible(false);
+                image4.setVisible(false);
+            }
+            if (counter + 1 < listSize) {
+                counter++;
+                title5.setText(list.get(counter).getTitle());
+                image5.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+            } else {
+                title5.setVisible(false);
+                image5.setVisible(false);
+            }
+            if (counter - sd.getCounter() != 0) {
+                sd.setLastCounterChange(counter - sd.getCounter());
+            }
+            sd.setCounter(counter);
+            scrollPane.setVvalue(0);
+            if (counter >= listSize - 1) {
+                nextButton.setDisable(true);
+            }
+            if (nextButton.isDisable() && counter - sd.getCounter() >= 0 && counter - sd.getCounter() < 5) {
+                scrollPane.setFitToHeight(true);
+                nextButton.setLayoutX(800);
+                nextButton.setLayoutY(500);
+                backButton.setLayoutX(300);
+                backButton.setLayoutY(500);
+            }
+        } else {
+            nextButton.setDisable(true);
+        }
     }
 
+    //back
     public void back(SaveData sd) {
         List<Dish> list = sd.getDishes();
         int counter = sd.getCounter();
-        int listSize = sd.getDishes().size();
+        int listSize = list.size();
         int lastCounterChange = sd.getLastCounterChange();
 
         title1.setVisible(true);
@@ -254,7 +349,6 @@ public class AppController {
             sd.setLastCounterChange(5);
             sd.setCounter(counter);
             scrollPane.setVvalue(0);
-            System.out.println(counter);
             if (counter == 4) {
                 backButton.setDisable(true);
             }
@@ -265,6 +359,96 @@ public class AppController {
 
     //back + filter
     public void back(SaveData sd, String filter) {
+        List<Dish> list;
+        if (filter == "Супи та борщі") {
+            list = sd.getC1();
+        } else if (filter == "Гарячі страви") {
+            list = sd.getC2();
+        } else if (filter == "Салати") {
+            list = sd.getC3();
+        } else if (filter == "Закуски") {
+            list = sd.getC4();
+        } else if (filter == "Напої") {
+            list = sd.getC5();
+        } else if (filter == "Соуси") {
+            list = sd.getC6();
+        } else if (filter == "Випічка") {
+            list = sd.getC7();
+        } else if (filter == "Десерти") {
+            list = sd.getC8();
+        } else if (filter == "Заготовки") {
+            list = sd.getC9();
+        } else if (filter == "Каші") {
+            list = sd.getC10();
+        } else {
+            list = sd.getC11();
+        }
+        int counter = sd.getCounter();
+        int listSize = list.size();
+        int lastCounterChange = sd.getLastCounterChange();
+
+        title1.setVisible(true);
+        title2.setVisible(true);
+        title3.setVisible(true);
+        title4.setVisible(true);
+        title5.setVisible(true);
+
+        if (lastCounterChange != 5 && counter - lastCounterChange - 4 >= 0) {
+            counter -= lastCounterChange + 4;
+        } else {
+            counter -= lastCounterChange;
+        }
+        counter--;
+        if (counter >= -1) {
+            if (counter + 1 < listSize) {
+                counter++;
+                title1.setText(list.get(counter).getTitle());
+                image1.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+            } else {
+                title1.setVisible(false);
+                image1.setVisible(false);
+            }
+            if (counter + 1 < listSize) {
+                counter++;
+                title2.setText(list.get(counter).getTitle());
+                image2.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+            } else {
+                title2.setVisible(false);
+                image2.setVisible(false);
+            }
+            if (counter + 1 < listSize) {
+                counter++;
+                title3.setText(list.get(counter).getTitle());
+                image3.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+            } else {
+                title3.setVisible(false);
+                image3.setVisible(false);
+            }
+            if (counter + 1 < listSize) {
+                counter++;
+                title4.setText(list.get(counter).getTitle());
+                image4.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+            } else {
+                title4.setVisible(false);
+                image4.setVisible(false);
+            }
+            if (counter + 1 < listSize) {
+                counter++;
+                title5.setText(list.get(counter).getTitle());
+                image5.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+            } else {
+                title5.setVisible(false);
+                image5.setVisible(false);
+            }
+            sd.setLastCounterChange(5);
+            sd.setCounter(counter);
+            scrollPane.setVvalue(0);
+            if (counter == 4) {
+                backButton.setDisable(true);
+            }
+        } else {
+            backButton.setDisable(true);
+        }
     }
 }
 
