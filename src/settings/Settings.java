@@ -9,6 +9,7 @@ final public class Settings {
     public static File FILE_LIST_RECIPE = new File("saves/default.rb");
     private static final File SAVE_DIR = new File("saves/");
     private static final String SAVE_FILE_EXT = "rb";
+    private static final String IMAGE_DIR = "images/";
 
     public static final String USER_TABLE = "users";
     public static final String USER_ID = "idusers";
@@ -31,5 +32,9 @@ final public class Settings {
 
     public static File getFileSave(String username){
         return new File( SAVE_DIR + "/" + username + "." + SAVE_FILE_EXT);
+    }
+
+    public static String getImageDir() {
+        return IMAGE_DIR;
     }
 }

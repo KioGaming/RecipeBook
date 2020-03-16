@@ -20,36 +20,24 @@ public final class SaveData {
     public static List<Dish> c5 = new ArrayList<>();
     public static List<Dish> c6 = new ArrayList<>();
     public static List<Dish> c7 = new ArrayList<>();
-    public static List<Dish> c8 = new ArrayList<>();
-    public static List<Dish> c9 = new ArrayList<>();
-    public static List<Dish> c10 = new ArrayList<>();
-    public static List<Dish> c11 = new ArrayList<>();
 
     public SaveData() {
         SaveLoad.load(this);
         for (int i = 0; i < dishes.size(); i++) {
-            if (dishes.get(i).getCategory().equals("Супи та борщі")) {
+            if (dishes.get(i).getCategory().equals("Перші страви")) {
                 c1.add(dishes.get(i));
-            } else if (dishes.get(i).getCategory().equals("Гарячі страви")) {
+            } else if (dishes.get(i).getCategory().equals("Другі страви")) {
                 c2.add(dishes.get(i));
-            } else if (dishes.get(i).getCategory().equals("Салати")) {
+            } else if (dishes.get(i).getCategory().equals("Салати та закуски")) {
                 c3.add(dishes.get(i));
-            } else if (dishes.get(i).getCategory().equals("Закуски")) {
-                c4.add(dishes.get(i));
-            } else if (dishes.get(i).getCategory().equals("Напої")) {
-                c5.add(dishes.get(i));
-            } else if (dishes.get(i).getCategory().equals("Соуси")) {
-                c6.add(dishes.get(i));
             } else if (dishes.get(i).getCategory().equals("Випічка")) {
-                c7.add(dishes.get(i));
+                c4.add(dishes.get(i));
+            } else if (dishes.get(i).getCategory().equals("Торти")) {
+                c5.add(dishes.get(i));
             } else if (dishes.get(i).getCategory().equals("Десерти")) {
-                c8.add(dishes.get(i));
-            } else if (dishes.get(i).getCategory().equals("Заготовки")) {
-                c9.add(dishes.get(i));
-            } else if (dishes.get(i).getCategory().equals("Каші")) {
-                c10.add(dishes.get(i));
-            } else if (dishes.get(i).getCategory().equals("Приготування молочних продуктів")) {
-                c11.add(dishes.get(i));
+                c6.add(dishes.get(i));
+            } else {
+                c7.add(dishes.get(i));
             }
         }
     }
@@ -169,37 +157,5 @@ public final class SaveData {
 
     public void setC7(List<Dish> c7) {
         SaveData.c7 = c7;
-    }
-
-    public List<Dish> getC8() {
-        return c8;
-    }
-
-    public void setC8(List<Dish> c8) {
-        SaveData.c8 = c8;
-    }
-
-    public List<Dish> getC9() {
-        return c9;
-    }
-
-    public void setC9(List<Dish> c9) {
-        SaveData.c9 = c9;
-    }
-
-    public List<Dish> getC10() {
-        return c10;
-    }
-
-    public void setC10(List<Dish> c10) {
-        SaveData.c10 = c10;
-    }
-
-    public List<Dish> getC11() {
-        return c11;
-    }
-
-    public void setC11(List<Dish> c11) {
-        SaveData.c11 = c11;
     }
 }

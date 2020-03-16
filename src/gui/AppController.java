@@ -3,15 +3,15 @@ package gui;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import model.Dish;
+import model.Shopping;
 import saveload.SaveData;
+import settings.Settings;
 
 import java.io.File;
 import java.net.URL;
@@ -20,8 +20,8 @@ import java.util.ResourceBundle;
 
 public class AppController {
 
-    ObservableList<String> comboBoxList = FXCollections.observableArrayList("Всі страви", "Супи та борщі", "Гарячі страви", "Салати", "Закуски", "Напої",
-            "Соуси", "Випічка", "Десерти", "Заготовки", "Каші", "Приготування молочних продуктів");
+    ObservableList<String> comboBoxList = FXCollections.observableArrayList("Всі страви", "Перші страви", "Другі страви", "Салати та закуски",
+            "Випічка", "Торти", "Десерти", "Напої");
 
     @FXML
     private ResourceBundle resources;
@@ -33,37 +33,40 @@ public class AppController {
     private ScrollPane scrollPane;
 
     @FXML
+    private ScrollPane scrollPane2;
+
+    @FXML
     private ComboBox<String> filterComboBox;
 
     @FXML
     private AnchorPane frameScrollPane;
 
     @FXML
-    private Label title1;
+    private Button title1;
+
+    @FXML
+    private Button title2;
+
+    @FXML
+    private Button title3;
+
+    @FXML
+    private Button title4;
+
+    @FXML
+    private Button title5;
 
     @FXML
     private ImageView image1;
 
     @FXML
-    private Label title2;
-
-    @FXML
     private ImageView image2;
-
-    @FXML
-    private Label title3;
 
     @FXML
     private ImageView image3;
 
     @FXML
-    private Label title4;
-
-    @FXML
     private ImageView image4;
-
-    @FXML
-    private Label title5;
 
     @FXML
     private ImageView image5;
@@ -74,9 +77,28 @@ public class AppController {
     @FXML
     private Button nextButton;
 
+    @FXML
+    private Button backToCategoryButton;
+
+    @FXML
+    private Label dishTitle;
+
+    @FXML
+    private Label dishDescription;
+
+    @FXML
+    private Label dishRecipe;
+
+    @FXML
+    private ImageView dishImage;
+
+
+    @FXML
+    private TableView<Shopping> groceryTableView;
 
     @FXML
     void initialize() {
+        scrollPane2.setVisible(false);
         filterComboBox.setItems(comboBoxList);
         backButton.setDisable(true);
         SaveData sd = new SaveData();
@@ -113,10 +135,30 @@ public class AppController {
                 back(sd);
             else back(sd, filterComboBox.getValue());
         });
+
+        title1.setOnAction(event -> {
+            dishView(sd, title1.getText());
+        });
+        title2.setOnAction(event -> {
+            dishView(sd, title2.getText());
+        });
+        title3.setOnAction(event -> {
+            dishView(sd, title3.getText());
+        });
+        title4.setOnAction(event -> {
+            dishView(sd, title4.getText());
+        });
+        title5.setOnAction(event -> {
+            dishView(sd, title5.getText());
+        });
+
+        backToCategoryButton.setOnAction(event -> {
+            backToCategory(sd);
+        });
     }
 
     //next
-    public void next(SaveData sd) {
+    private void next(SaveData sd) {
         List<Dish> list = sd.getDishes();
         int counter = sd.getCounter();
         if (counter == 0) counter = -1;
@@ -132,7 +174,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title1.setText(list.get(counter).getTitle());
-                image1.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image1.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title1.setVisible(false);
                 image1.setVisible(false);
@@ -140,7 +182,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title2.setText(list.get(counter).getTitle());
-                image2.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image2.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title2.setVisible(false);
                 image2.setVisible(false);
@@ -148,7 +190,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title3.setText(list.get(counter).getTitle());
-                image3.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image3.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title3.setVisible(false);
                 image3.setVisible(false);
@@ -156,7 +198,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title4.setText(list.get(counter).getTitle());
-                image4.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image4.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title4.setVisible(false);
                 image4.setVisible(false);
@@ -164,7 +206,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title5.setText(list.get(counter).getTitle());
-                image5.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image5.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title5.setVisible(false);
                 image5.setVisible(false);
@@ -190,31 +232,24 @@ public class AppController {
     }
 
     //next + filter
-    public void next(SaveData sd, String filter) {
+    private void next(SaveData sd, String filter) {
         List<Dish> list;
-        if (filter == "Супи та борщі") {
+        if (filter == "Перші страви") {
             list = sd.getC1();
-        } else if (filter == "Гарячі страви") {
+        } else if (filter == "Другі страви") {
             list = sd.getC2();
-        } else if (filter == "Салати") {
+        } else if (filter == "Салати та закуски") {
             list = sd.getC3();
-        } else if (filter == "Закуски") {
-            list = sd.getC4();
-        } else if (filter == "Напої") {
-            list = sd.getC5();
-        } else if (filter == "Соуси") {
-            list = sd.getC6();
         } else if (filter == "Випічка") {
-            list = sd.getC7();
+            list = sd.getC4();
+        } else if (filter == "Торти") {
+            list = sd.getC5();
         } else if (filter == "Десерти") {
-            list = sd.getC8();
-        } else if (filter == "Заготовки") {
-            list = sd.getC9();
-        } else if (filter == "Каші") {
-            list = sd.getC10();
+            list = sd.getC6();
         } else {
-            list = sd.getC11();
+            list = sd.getC7();
         }
+
         int counter = sd.getCounter();
         if (counter == 0) counter = -1;
         int listSize = list.size();
@@ -229,7 +264,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title1.setText(list.get(counter).getTitle());
-                image1.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image1.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title1.setVisible(false);
                 image1.setVisible(false);
@@ -237,7 +272,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title2.setText(list.get(counter).getTitle());
-                image2.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image2.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title2.setVisible(false);
                 image2.setVisible(false);
@@ -245,7 +280,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title3.setText(list.get(counter).getTitle());
-                image3.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image3.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title3.setVisible(false);
                 image3.setVisible(false);
@@ -253,7 +288,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title4.setText(list.get(counter).getTitle());
-                image4.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image4.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title4.setVisible(false);
                 image4.setVisible(false);
@@ -261,7 +296,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title5.setText(list.get(counter).getTitle());
-                image5.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image5.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title5.setVisible(false);
                 image5.setVisible(false);
@@ -287,7 +322,7 @@ public class AppController {
     }
 
     //back
-    public void back(SaveData sd) {
+    private void back(SaveData sd) {
         List<Dish> list = sd.getDishes();
         int counter = sd.getCounter();
         int listSize = list.size();
@@ -309,7 +344,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title1.setText(list.get(counter).getTitle());
-                image1.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image1.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title1.setVisible(false);
                 image1.setVisible(false);
@@ -317,7 +352,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title2.setText(list.get(counter).getTitle());
-                image2.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image2.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title2.setVisible(false);
                 image2.setVisible(false);
@@ -325,7 +360,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title3.setText(list.get(counter).getTitle());
-                image3.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image3.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title3.setVisible(false);
                 image3.setVisible(false);
@@ -333,7 +368,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title4.setText(list.get(counter).getTitle());
-                image4.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image4.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title4.setVisible(false);
                 image4.setVisible(false);
@@ -341,7 +376,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title5.setText(list.get(counter).getTitle());
-                image5.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image5.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title5.setVisible(false);
                 image5.setVisible(false);
@@ -358,31 +393,24 @@ public class AppController {
     }
 
     //back + filter
-    public void back(SaveData sd, String filter) {
+    private void back(SaveData sd, String filter) {
         List<Dish> list;
-        if (filter == "Супи та борщі") {
+        if (filter == "Перші страви") {
             list = sd.getC1();
-        } else if (filter == "Гарячі страви") {
+        } else if (filter == "Другі страви") {
             list = sd.getC2();
-        } else if (filter == "Салати") {
+        } else if (filter == "Салати та закуски") {
             list = sd.getC3();
-        } else if (filter == "Закуски") {
-            list = sd.getC4();
-        } else if (filter == "Напої") {
-            list = sd.getC5();
-        } else if (filter == "Соуси") {
-            list = sd.getC6();
         } else if (filter == "Випічка") {
-            list = sd.getC7();
+            list = sd.getC4();
+        } else if (filter == "Торти") {
+            list = sd.getC5();
         } else if (filter == "Десерти") {
-            list = sd.getC8();
-        } else if (filter == "Заготовки") {
-            list = sd.getC9();
-        } else if (filter == "Каші") {
-            list = sd.getC10();
+            list = sd.getC6();
         } else {
-            list = sd.getC11();
+            list = sd.getC7();
         }
+
         int counter = sd.getCounter();
         int listSize = list.size();
         int lastCounterChange = sd.getLastCounterChange();
@@ -403,7 +431,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title1.setText(list.get(counter).getTitle());
-                image1.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image1.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title1.setVisible(false);
                 image1.setVisible(false);
@@ -411,7 +439,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title2.setText(list.get(counter).getTitle());
-                image2.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image2.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title2.setVisible(false);
                 image2.setVisible(false);
@@ -419,7 +447,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title3.setText(list.get(counter).getTitle());
-                image3.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image3.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title3.setVisible(false);
                 image3.setVisible(false);
@@ -427,7 +455,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title4.setText(list.get(counter).getTitle());
-                image4.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image4.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title4.setVisible(false);
                 image4.setVisible(false);
@@ -435,7 +463,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title5.setText(list.get(counter).getTitle());
-                image5.setImage(new Image(new File("/images/" + list.get(counter).getPhoto()).toURI().toString()));
+                image5.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
                 title5.setVisible(false);
                 image5.setVisible(false);
@@ -450,5 +478,63 @@ public class AppController {
             backButton.setDisable(true);
         }
     }
+
+    private void dishView(SaveData sd, String title) {
+        Dish dish = null;
+        for (int i = 0; i < sd.getDishes().size(); i++) {
+            if (sd.getDishes().get(i).getTitle() == title) {
+                dish = sd.getDishes().get(i);
+            }
+        }
+        if (dish != null) {
+            dishTitle.setText(dish.getTitle());
+            dishImage.setImage(new Image(new File(Settings.getImageDir() + dish.getPhoto()).toURI().toString()));
+            dishDescription.setText(dish.getDescription());
+            String s = "";
+            for (int i = 0; i < dish.getRecipe().size(); i++) {
+                s += "     " + dish.getRecipe().get(i);
+                if (i != dish.getRecipe().size() - 1) {
+                    s += "\n";
+                }
+            }
+            dishRecipe.setText(s);
+            scrollPane.setVisible(false);
+            scrollPane2.setVisible(true);
+            scrollPane2.setVvalue(0);
+
+            groceryTableView.setPrefWidth(600);
+            groceryTableView.setPrefHeight(dish.getGroceryList().size() * 30 + 30);
+
+            ObservableList<Shopping> grocery = FXCollections.observableArrayList();
+            Shopping shopping = new Shopping();
+            for (int i = 0; i < dish.getGroceryList().size(); i++) {
+                shopping.setGrocery(dish.getGroceryList().get(i));
+                shopping.setUnitsOfMeasurement(dish.getUnitsOfMeasurementList().get(i));
+                shopping.setWeight(dish.getCountList().get(i));
+                grocery.add(shopping);
+            }
+            groceryTableView.setItems(grocery);
+
+            TableColumn<Shopping, String> groceryColumn = new TableColumn<>("Продукти");
+            groceryColumn.setCellValueFactory(new PropertyValueFactory<>("grocery"));
+            groceryTableView.getColumns().add(groceryColumn);
+
+            TableColumn<Shopping, Double> weightColumn = new TableColumn<>("Вага");
+            weightColumn.setCellValueFactory(new PropertyValueFactory<>("weight"));
+            groceryTableView.getColumns().add(weightColumn);
+
+            TableColumn<Shopping, String> uomColumn = new TableColumn<>("Одиниці виміру");
+            uomColumn.setCellValueFactory(new PropertyValueFactory<>("unitsOfMeasurement"));
+            groceryTableView.getColumns().add(uomColumn);
+            groceryTableView.setVisible(true);
+        }
+    }
+
+    private void backToCategory(SaveData sd) {
+        scrollPane2.setVisible(false);
+        scrollPane.setVisible(true);
+    }
+
+
 }
 

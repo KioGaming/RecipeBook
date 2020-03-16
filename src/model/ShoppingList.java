@@ -1,6 +1,5 @@
 package model;
 
-import exception.ModelException;
 import saveload.SaveData;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ public class ShoppingList {
 
     public ShoppingList(){}
 
-    public ShoppingList(ArrayList<String> shoppingList, ArrayList<Double> countList, ArrayList<String> unitsOfMeasurementList) throws ModelException{
+    public ShoppingList(ArrayList<String> shoppingList, ArrayList<Double> countList, ArrayList<String> unitsOfMeasurementList) {
         this.shoppingList = shoppingList;
         this.countList = countList;
         this.unitsOfMeasurementList = unitsOfMeasurementList;
