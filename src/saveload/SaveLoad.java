@@ -7,7 +7,6 @@ import model.ShoppingList;
 import settings.Settings;
 
 import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.sql.ResultSet;
@@ -23,32 +22,7 @@ public class SaveLoad
     private static Wrapper wrapper;
 
 
-    public static void load(SaveData sd, String username) {
-        try {
-            context = JAXBContext.newInstance(Wrapper.class);
-            um = context.createUnmarshaller();
-            wrapper = (Wrapper) um.unmarshal(Settings.getFileSave(username));
-
-            sd.setLikedDishes(new ArrayList<>());
-            sd.setLikedDishes(wrapper.getLikedDishes());
-        } catch (JAXBException e) {
-            System.out.println("Даних нету!");
-            e.printStackTrace();
-        }
-        try {
-            context = JAXBContext.newInstance(Wrapper.class);
-            um = context.createUnmarshaller();
-            wrapper = (Wrapper) um.unmarshal(Settings.getFileSave(username));
-
-            sd.setShoppingList(new ShoppingList());
-            sd.setShoppingList(wrapper.getShoppingList());
-        } catch (JAXBException e) {
-            System.out.println("Даних нету!");
-            e.printStackTrace();
-        }
-    }
-
-    public static void load(SaveData sd) {
+    public static void load(SaveData sd, int iduser) {
         ArrayList<Dish> dishes = new ArrayList<>();
         DatabaseHandler databaseHandler = new DatabaseHandler();
         ResultSet resultSet =  databaseHandler.getRecipe();
@@ -82,23 +56,34 @@ public class SaveLoad
         } catch (SQLException e) { e.printStackTrace(); } catch (ModelException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void save(SaveData sd, String username){
-        try
-        {
-            context = JAXBContext.newInstance(Wrapper.class);
-            m = context.createMarshaller();
-            m.setProperty("jaxb.formatted.output", true);
-            wrapper = new Wrapper();
-
-            wrapper.setLikedDishes(sd.getLikedDishes());
-            wrapper.setShoppingList(sd.getShoppingList());
-
-            m.marshal(wrapper, Settings.getFileSave(username));
-        } catch (JAXBException e) {
+        ArrayList<String> likedDishes = new ArrayList<>();
+        ResultSet resSet = databaseHandler.getLikedDishes(iduser);
+        try {
+            while (resSet.next()) {
+                String title = resSet.getString(Settings.LIKED_DISHES_DISHTITLE);
+                likedDishes.add(title);
+            }
+            sd.setLikedDishes(likedDishes);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
+       /* try {
+            context = JAXBContext.newInstance(Wrapper.class);
+            um = context.createUnmarshaller();
+            wrapper = (Wrapper) um.unmarshal(Settings.getFileSave(username));
+
+            sd.setShoppingList(new ShoppingList());
+            sd.setShoppingList(wrapper.getShoppingList());
+        } catch (JAXBException e) {
+            System.out.println("Даних нету!");
+            e.printStackTrace();
+        }*/
+        sd.setShoppingList(new ShoppingList());
+    }
+
+    public static void saveLikedDishes(SaveData sd, int iduser, String title) {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        databaseHandler.setLikedDishes(iduser, title);
     }
 
     public static boolean saveRecipe(Dish recipe){
@@ -115,5 +100,10 @@ public class SaveLoad
             doubleArrayList.add(Double.parseDouble(stringArrayList[i]));
         }
         return doubleArrayList;
+    }
+
+    public static void removeLikedDishes(SaveData saveData, int idUser, String title) {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        databaseHandler.removeLikedDishes(idUser, title);
     }
 }

@@ -8,6 +8,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import login.Account;
 import model.Dish;
 import model.Shopping;
 import saveload.SaveData;
@@ -92,6 +93,8 @@ public class AppController {
     @FXML
     private ImageView dishImage;
 
+    @FXML
+    private ImageView likeField;
 
     @FXML
     private TableView<Shopping> groceryTableView;
@@ -154,6 +157,21 @@ public class AppController {
 
         backToCategoryButton.setOnAction(event -> {
             backToCategory(sd);
+        });
+
+        likeField.setOnMouseClicked(event -> {
+            String title = dishTitle.getText();
+            if (sd.getLikedDishes().indexOf(title) != -1) {
+                likeField.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
+                sd.getLikedDishes().remove(title);
+                Account account = new Account();
+                sd.removeLikedDishes(account.getIdUser(), title);
+            } else {
+                likeField.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
+                sd.getLikedDishes().add(title);
+                Account account = new Account();
+                sd.saveLikedDishes(account.getIdUser(), title);
+            }
         });
     }
 
@@ -480,6 +498,8 @@ public class AppController {
     }
 
     private void dishView(SaveData sd, String title) {
+        scrollPane2.setVisible(true);
+        scrollPane2.setVvalue(0);
         Dish dish = null;
         for (int i = 0; i < sd.getDishes().size(); i++) {
             if (sd.getDishes().get(i).getTitle() == title) {
@@ -499,8 +519,7 @@ public class AppController {
             }
             dishRecipe.setText(s);
             scrollPane.setVisible(false);
-            scrollPane2.setVisible(true);
-            scrollPane2.setVvalue(0);
+
 
             groceryTableView.setPrefWidth(600);
             groceryTableView.setPrefHeight(dish.getGroceryList().size() * 30 + 30);
@@ -526,7 +545,20 @@ public class AppController {
             TableColumn<Shopping, String> uomColumn = new TableColumn<>("Одиниці виміру");
             uomColumn.setCellValueFactory(new PropertyValueFactory<>("unitsOfMeasurement"));
             groceryTableView.getColumns().add(uomColumn);
+/*
+            TableColumn<Shopping, CheckBox> isSelectedColumn = new TableColumn<>(" + в список покупок");
+            isSelectedColumn.setCellValueFactory(new PropertyValueFactory<>("isSelected"));
+            groceryTableView.getColumns().add(isSelectedColumn);
+            */
             groceryTableView.setVisible(true);
+
+            if (sd.getLikedDishes() != null && sd.getLikedDishes().size() == 0) {
+                likeField.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
+            } else if (sd.getLikedDishes() != null && sd.getLikedDishes().indexOf(dish.getTitle()) != -1) {
+                likeField.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
+            } else {
+                likeField.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
+            }
         }
     }
 
@@ -534,7 +566,4 @@ public class AppController {
         scrollPane2.setVisible(false);
         scrollPane.setVisible(true);
     }
-
-
 }
-

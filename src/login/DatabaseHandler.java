@@ -2,11 +2,7 @@ package login;
 
 import settings.Settings;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class DatabaseHandler extends Configs {
@@ -118,6 +114,22 @@ public class DatabaseHandler extends Configs {
         return resSet;
     }
 
+    public ResultSet getLikedDishes(int iduser) {
+        ResultSet resSet = null;
+
+        String select = "SELECT * FROM " + Settings.LIKED_DISHES_TABLE + " WHERE " + Settings.USER_ID + " = " + iduser;
+
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(select);
+            resSet = prSt.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return resSet;
+    }
+
     public void setRecipe(String title, String photo, String description, ArrayList<String> recipe, ArrayList<String> groceryList,
                           ArrayList<Double> countList, ArrayList<String> unitsOfMeasurementList, int numberOfLikes){
         String insert = "INSERT INTO " + Settings.DISH_TABLE + "(" + Settings.DISH_TITLE + "," + Settings.DISH_PHOTO + ","
@@ -150,5 +162,29 @@ public class DatabaseHandler extends Configs {
             str += "/" + list.get(i);
         }
         return str;
+    }
+
+    public int maxIdUser() {
+        int last_id = 0;
+        ResultSet resultSet;
+        String select = "select last_insert_id() as last_id from " + Settings.USER_TABLE;
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(select);
+            resultSet = prSt.executeQuery();
+            last_id = Integer.parseInt(resultSet.getString("last_id"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return last_id;
+    }
+
+    public void setLikedDishes(int iduser, String title) {
+        //записать рецепт в базу в табличку лайканих
+    }
+
+    public void removeLikedDishes(int idUser, String title) {
+        //удалить рецепт з бази з таблички лайканих
     }
 }

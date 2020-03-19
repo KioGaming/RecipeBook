@@ -4,6 +4,7 @@ public class Shopping {
     private String grocery;
     private Double weight;
     private String unitsOfMeasurement;
+    // private CheckBox isSelected;
 
     public Shopping() {
     }
@@ -12,6 +13,7 @@ public class Shopping {
         this.grocery = grocery;
         this.weight = weight;
         this.unitsOfMeasurement = unitsOfMeasurement;
+        // this.isSelected.setSelected(false);
     }
 
     public String getGrocery() {
@@ -37,4 +39,12 @@ public class Shopping {
     public void setUnitsOfMeasurement(String unitsOfMeasurement) {
         this.unitsOfMeasurement = unitsOfMeasurement;
     }
+
+   /* public void setIsSelected(boolean isSelected) {
+        this.isSelected.setSelected(isSelected);
+    }
+
+    public boolean isSelected() {
+        return this.isSelected.isSelected();
+    }*/
 }

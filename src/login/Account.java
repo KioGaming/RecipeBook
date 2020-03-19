@@ -4,26 +4,28 @@ import saveload.SaveData;
 
 public class Account{
 
-    private String username;
-    private String mail;
-    private String password;
-    private String location;
-    private SaveData saveData;
+    private static String username;
+    private static String mail;
+    private static String password;
+    private static String location;
+    private static SaveData saveData;
+    private static int idUser;
 
-    public Account(String username, String mail, String password, String location) {
-        this.username = username;
-        this.mail = mail;
-        this.password = password;
-        this.location = location;
-        this.saveData = new SaveData();
+    public Account(int iduser, String username, String mail, String password, String location) {
+        idUser = iduser;
+        Account.username = username;
+        Account.mail = mail;
+        Account.password = password;
+        Account.location = location;
+        saveData = new SaveData();
+        saveData.load(idUser, Account.username);
     }
 
-    public void save() {
-        saveData.save(username);
+    public Account() {
     }
 
     public void load() {
-        saveData.load(username);
+        saveData.load(idUser, username);
     }
 
     public String getUserName() {
@@ -31,7 +33,15 @@ public class Account{
     }
 
     public void setUserName(String userName) {
-        this.username = userName;
+        username = userName;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        Account.idUser = idUser;
     }
 
     public String getMail() {
@@ -39,7 +49,7 @@ public class Account{
     }
 
     public void setMail(String mail) {
-        this.mail = mail;
+        Account.mail = mail;
     }
 
     public String getPassword() {
@@ -47,15 +57,15 @@ public class Account{
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        Account.password = password;
     }
 
     public SaveData getSaveData(){
-        return this.saveData;
+        return saveData;
     }
 
     public void setSaveData(SaveData saveData) {
-        this.saveData = saveData;
+        Account.saveData = saveData;
     }
 
     public String getLocation() {
@@ -63,7 +73,7 @@ public class Account{
     }
 
     public void setLocation(String location) {
-        this.location = location;
+        Account.location = location;
     }
 
     @Override

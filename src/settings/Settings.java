@@ -30,6 +30,9 @@ final public class Settings {
     public static final String DISH_NUMBER_OF_LIKES = "numberOfLikes";
     public static final String DISH_CATEGORY = "category";
 
+    public static final String LIKED_DISHES_TABLE = "liked_dishes";
+    public static final String LIKED_DISHES_DISHTITLE = "dishtitle";
+
     public static File getFileSave(String username){
         return new File( SAVE_DIR + "/" + username + "." + SAVE_FILE_EXT);
     }

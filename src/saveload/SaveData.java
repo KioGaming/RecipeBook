@@ -10,19 +10,22 @@ public final class SaveData {
 
     private int counter = 0;
     private int lastCounterChange = 5;
-    public static List<Dish> dishes;
-    private List<String> likedDishes;
-    private ShoppingList shoppingList;
-    public static List<Dish> c1 = new ArrayList<>();
-    public static List<Dish> c2 = new ArrayList<>();
-    public static List<Dish> c3 = new ArrayList<>();
-    public static List<Dish> c4 = new ArrayList<>();
-    public static List<Dish> c5 = new ArrayList<>();
-    public static List<Dish> c6 = new ArrayList<>();
-    public static List<Dish> c7 = new ArrayList<>();
+    private static List<Dish> dishes;
+    private static List<String> likedDishes;
+    private static ShoppingList shoppingList;
+    private static List<Dish> c1 = new ArrayList<>();
+    private static List<Dish> c2 = new ArrayList<>();
+    private static List<Dish> c3 = new ArrayList<>();
+    private static List<Dish> c4 = new ArrayList<>();
+    private static List<Dish> c5 = new ArrayList<>();
+    private static List<Dish> c6 = new ArrayList<>();
+    private static List<Dish> c7 = new ArrayList<>();
 
     public SaveData() {
-        SaveLoad.load(this);
+    }
+
+    public void load(int iduser, String username) {
+        SaveLoad.load(this, iduser);
         for (int i = 0; i < dishes.size(); i++) {
             if (dishes.get(i).getCategory().equals("Перші страви")) {
                 c1.add(dishes.get(i));
@@ -42,16 +45,8 @@ public final class SaveData {
         }
     }
 
-    public void load(String username){
-        SaveLoad.load(this, username);
-    }
-
-    public void load() {
-        SaveLoad.load(this);
-    }
-
-    public void save(String username){
-        SaveLoad.save(this, username);
+    public void saveLikedDishes(int iduser, String title) {
+        SaveLoad.saveLikedDishes(this, iduser, title);
     }
 
     public List<Dish> getDishes() {
@@ -67,7 +62,7 @@ public final class SaveData {
     }
 
     public void setLikedDishes(List<String> likedDishes) {
-        this.likedDishes = likedDishes;
+        SaveData.likedDishes = likedDishes;
     }
 
     public ShoppingList getShoppingList() {
@@ -75,7 +70,7 @@ public final class SaveData {
     }
 
     public void setShoppingList(ShoppingList shoppingList) {
-        this.shoppingList = shoppingList;
+        SaveData.shoppingList = shoppingList;
     }
 
     @Override
@@ -157,5 +152,9 @@ public final class SaveData {
 
     public void setC7(List<Dish> c7) {
         SaveData.c7 = c7;
+    }
+
+    public void removeLikedDishes(int idUser, String title) {
+        SaveLoad.removeLikedDishes(this, idUser, title);
     }
 }
