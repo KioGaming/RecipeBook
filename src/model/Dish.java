@@ -15,7 +15,6 @@ public class Dish {
     private ArrayList<Double> countList;
     private ArrayList<String> unitsOfMeasurementList;
     private int numberOfLikes;
-    private boolean isLiked;
 
     public Dish(){}
 
@@ -94,14 +93,6 @@ public class Dish {
         this.numberOfLikes = numberOfLikes;
     }
 
-    public boolean isLiked() {
-        return isLiked;
-    }
-
-    public void setLiked(boolean liked) {
-        isLiked = liked;
-    }
-
     public String getPhoto() {
         return photo;
     }
@@ -112,7 +103,7 @@ public class Dish {
 
     @Override
     public String toString() {
-        return title + " " + photo + " " + description + " " + category + " " + recipe.toString() + " " + groceryList.toString() + " " + countList.toString() + unitsOfMeasurementList.toString() + " " + numberOfLikes + " " + isLiked + "\n";
+        return title + " " + photo + " " + description + " " + category + " " + recipe.toString() + " " + groceryList.toString() + " " + countList.toString() + unitsOfMeasurementList.toString() + " " + numberOfLikes + "\n";
     }
 
     public String getCategory() {

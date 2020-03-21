@@ -9,6 +9,8 @@ import java.util.List;
 public final class SaveData {
 
     private int counter = 0;
+    private static List<Dish> like = new ArrayList<>();
+    private int likeCounter = 0;
     private int lastCounterChange = 5;
     private static List<Dish> dishes;
     private static List<String> likedDishes;
@@ -20,6 +22,7 @@ public final class SaveData {
     private static List<Dish> c5 = new ArrayList<>();
     private static List<Dish> c6 = new ArrayList<>();
     private static List<Dish> c7 = new ArrayList<>();
+    private int likeLastCounterChange = 15;
 
     public SaveData() {
     }
@@ -41,6 +44,19 @@ public final class SaveData {
                 c6.add(dishes.get(i));
             } else {
                 c7.add(dishes.get(i));
+            }
+        }
+        loadLike();
+    }
+
+    public void loadLike() {
+        like.clear();
+        for (int i = 0; i < likedDishes.size(); i++) {
+            for (int j = 0; j < dishes.size(); j++) {
+                if (likedDishes.get(i).equals(dishes.get(j).getTitle())) {
+                    like.add(dishes.get(j));
+                    break;
+                }
             }
         }
     }
@@ -154,7 +170,35 @@ public final class SaveData {
         SaveData.c7 = c7;
     }
 
+    public List<Dish> getLike() {
+        return like;
+    }
+
+    public void setLike(List<Dish> like) {
+        SaveData.like = like;
+    }
+
     public void removeLikedDishes(int idUser, String title) {
         SaveLoad.removeLikedDishes(this, idUser, title);
+    }
+
+    public int getLikeCounter() {
+        return likeCounter;
+    }
+
+    public void setLikeCounter(int likeCounter) {
+        this.likeCounter = likeCounter;
+    }
+
+    public int getLikeLastCounterChange() {
+        return likeLastCounterChange;
+    }
+
+    public void setLikeLastCounterChange(int likeLastCounterChange) {
+        this.likeLastCounterChange = likeLastCounterChange;
+    }
+
+    public void reloadLikedDishes() {
+        loadLike();
     }
 }
