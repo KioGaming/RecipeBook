@@ -9,7 +9,6 @@ import javafx.stage.Stage;
 import login.Account;
 import login.DatabaseHandler;
 import login.Login;
-import saveload.SaveData;
 import settings.Text;
 
 import java.io.IOException;
@@ -72,8 +71,6 @@ public class SignInController {
                         stage.setScene(new Scene(root));
                         stage.show();
                     } else {
-                        SaveData sd = new SaveData();
-                        sd.load(account.getIdUser(), account.getUserName());
                         authSignInButton.getScene().getWindow().hide();
                         FXMLLoader loader = new FXMLLoader();
                         loader.setLocation(getClass().getResource("/gui/app.fxml"));

@@ -24,7 +24,7 @@ public final class SaveData {
     public SaveData() {
     }
 
-    public void load(int iduser, String username) {
+    public void load(int iduser) {
         SaveLoad.load(this, iduser);
         for (int i = 0; i < dishes.size(); i++) {
             if (dishes.get(i).getCategory().equals("Перші страви")) {

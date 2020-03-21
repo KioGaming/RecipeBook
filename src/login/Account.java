@@ -18,14 +18,14 @@ public class Account{
         Account.password = password;
         Account.location = location;
         saveData = new SaveData();
-        saveData.load(idUser, Account.username);
+        saveData.load(idUser);
     }
 
     public Account() {
     }
 
     public void load() {
-        saveData.load(idUser, username);
+        saveData.load(idUser);
     }
 
     public String getUserName() {

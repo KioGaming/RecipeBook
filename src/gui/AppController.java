@@ -552,9 +552,7 @@ public class AppController {
             */
             groceryTableView.setVisible(true);
 
-            if (sd.getLikedDishes() != null && sd.getLikedDishes().size() == 0) {
-                likeField.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
-            } else if (sd.getLikedDishes() != null && sd.getLikedDishes().indexOf(dish.getTitle()) != -1) {
+            if (sd.getLikedDishes() != null && sd.getLikedDishes().indexOf(dish.getTitle()) != -1) {
                 likeField.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
             } else {
                 likeField.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));

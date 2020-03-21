@@ -181,10 +181,32 @@ public class DatabaseHandler extends Configs {
     }
 
     public void setLikedDishes(int iduser, String title) {
-        //записать рецепт в базу в табличку лайканих
+        String insert = "INSERT INTO " + Settings.LIKED_DISHES_TABLE + "(" + Settings.USER_ID + "," + Settings.LIKED_DISHES_DISHTITLE + ")"
+                + "VALUES(?,?)";
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(insert);
+            prSt.setInt(1, iduser);
+            prSt.setString(2, title);
+            prSt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void removeLikedDishes(int idUser, String title) {
-        //удалить рецепт з бази з таблички лайканих
+        String delete = "DELETE FROM " + Settings.LIKED_DISHES_TABLE + " WHERE " + Settings.USER_ID + " = " + idUser + " AND "
+                + Settings.LIKED_DISHES_DISHTITLE + " = " + title;
+        try {
+            Statement statement = getDbConnection().createStatement();
+            // statement.setInt(1, idUser);
+            // statement.setString(2, title);
+            statement.executeUpdate(delete);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
