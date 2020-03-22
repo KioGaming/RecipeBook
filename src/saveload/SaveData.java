@@ -180,6 +180,7 @@ public final class SaveData {
 
     public void removeLikedDishes(int idUser, String title) {
         SaveLoad.removeLikedDishes(this, idUser, title);
+        reloadLikedDishes();
     }
 
     public int getLikeCounter() {

@@ -3,18 +3,24 @@ package gui;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import login.Account;
 import model.Dish;
 import model.Shopping;
 import saveload.SaveData;
 import settings.Settings;
+import settings.Text;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -226,8 +232,22 @@ public class AppController {
     private ImageView likeFieldForLikedDish;
 
     @FXML
+    private Button aboutUsButton;
+
+    @FXML
+    private Button supportButton;
+
+    @FXML
+    private Button exitButton;
+
+    @FXML
+    private Button changeUserInfoButton;
+
+    @FXML
     void initialize() {
-/**Home page**/
+        /**
+         * Home page
+         * **/
         scrollPane2.setVisible(false);
         filterComboBox.setItems(comboBoxList);
         backButton.setDisable(true);
@@ -303,7 +323,9 @@ public class AppController {
             }
         });
 
-/**Library page**/
+        /**
+         * Library page
+         * */
         scrollPane4.setVisible(false);
         backLikeButton.setDisable(true);
 
@@ -365,9 +387,62 @@ public class AppController {
             likeDishView(sd, title20.getText());
         });
 
+        likeFieldForLikedDish.setOnMouseClicked(event -> {
+            String title = likeDishTitle.getText();
+            if (sd.getLikedDishes().indexOf(title) != -1) {
+                likeFieldForLikedDish.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
+                sd.getLikedDishes().remove(title);
+                sd.getLike().remove(title);
+                Account account = new Account();
+                sd.removeLikedDishes(account.getIdUser(), title);
+            } else {
+                likeFieldForLikedDish.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
+                sd.getLikedDishes().add(title);
+                Account account = new Account();
+                sd.saveLikedDishes(account.getIdUser(), title);
+                sd.reloadLikedDishes();
+            }
+        });
+
         likeBackToCategoryButton.setOnAction(event -> {
+            sd.setLikeLastCounterChange(15);
+            sd.setLikeCounter(0);
+            likeNext(sd);
             scrollPane4.setVisible(false);
             scrollPane3.setVisible(true);
+        });
+
+        /**
+         * Settings page
+         */
+        exitButton.setOnAction(event -> {
+            exitButton.getScene().getWindow().hide();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/gui/SignIn.fxml"));
+            try {
+                loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Parent root = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setTitle(Text.get("PROGRAM_NAME"));
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.setMaxHeight(700);
+            stage.setMinHeight(700);
+            stage.setMaxWidth(1200);
+            stage.setMinWidth(1200);
+            stage.show();
+        });
+        aboutUsButton.setOnAction(event -> {
+            //открить нову сторінку
+        });
+        supportButton.setOnAction(event -> {
+            //открить нову сторінку
+        });
+        changeUserInfoButton.setOnAction(event -> {
+            //открить нову сторінку
         });
     }
 
