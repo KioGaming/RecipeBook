@@ -21,13 +21,15 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("signIn.fxml"));
+        Scene scene = new Scene(root, 1200, 700);
+        scene.getStylesheets().add(0, "css/mycss.css");
         primaryStage.setTitle(Text.get("PROGRAM_NAME"));
         primaryStage.setResizable(false);
         primaryStage.setMaxHeight(700);
         primaryStage.setMinHeight(700);
         primaryStage.setMaxWidth(1200);
         primaryStage.setMinWidth(1200);
-        primaryStage.setScene(new Scene(root, 1200, 700));
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 }

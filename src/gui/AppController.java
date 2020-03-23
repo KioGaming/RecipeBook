@@ -13,6 +13,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import login.Account;
+import login.DatabaseHandler;
+import login.Filter;
 import model.Dish;
 import model.Shopping;
 import saveload.SaveData;
@@ -280,6 +282,12 @@ public class AppController {
     private Button backBtn1;
 
     @FXML
+    private Label changeMailErrorField;
+
+    @FXML
+    private Label changePasswordErrorField;
+
+    @FXML
     void initialize() {
         /**
          * Home page
@@ -502,13 +510,37 @@ public class AppController {
             aboutUsOrSupportPane.setVisible(false);
         });
         changeMail.setOnAction(event -> {
-            if (mailLabel.getText() == repeatMailLabel.getText() && mailLabel.getText() != "") {
-                //помінять почту
+            if (mailLabel.getText().equals(repeatMailLabel.getText()) && !mailLabel.getText().equals("")) {
+                if (Filter.verifyMail(mailLabel.getText()) == true) {
+                    DatabaseHandler databaseHandler = new DatabaseHandler();
+                    Account account = new Account();
+                    databaseHandler.changeMail(account.getMail(), mailLabel.getText());
+                    changeMailErrorField.setText(Text.get("SUCCESSFUL_REPLACEMENT_MAIL"));
+                    account.setMail(mailLabel.getText());
+                    mailLabel.clear();
+                    repeatMailLabel.clear();
+                } else {
+                    changeMailErrorField.setText(Text.get("CHANGE_MAIL_BAD_MAIL_ERROR"));
+                }
+            } else {
+                changeMailErrorField.setText(Text.get("CHANGE_EMPTY_ERROR"));
             }
         });
         changePassword.setOnAction(event -> {
-            if (passwordLabel.getText() == repeatPasswordLabel.getText() && passwordLabel.getText() != "") {
-                //помінять пароль
+            if (passwordLabel.getText().equals(repeatPasswordLabel.getText()) && !passwordLabel.getText().equals("")) {
+                if (Filter.verifyPassword(passwordLabel.getText()) == true) {
+                    DatabaseHandler databaseHandler = new DatabaseHandler();
+                    Account account = new Account();
+                    databaseHandler.changePassword(account.getMail(), account.getPassword(), passwordLabel.getText());
+                    changePasswordErrorField.setText(Text.get("SUCCESSFUL_REPLACEMENT_PASSWORD"));
+                    account.setPassword(passwordLabel.getText());
+                    passwordLabel.clear();
+                    repeatPasswordLabel.clear();
+                } else {
+                    changePasswordErrorField.setText(Text.get("CHANGE_PASSWORD_BAD_PASSWORD_ERROR"));
+                }
+            } else {
+                changePasswordErrorField.setText(Text.get("CHANGE_EMPTY_ERROR"));
             }
         });
     }

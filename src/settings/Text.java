@@ -12,8 +12,13 @@ final public class Text {
 
     public static void init(){
         data.put("SIGN_UP_REPEAT_ERROR", "Введите уникальные ник и почту");
+        data.put("CHANGE_PASSWORD_BAD_PASSWORD_ERROR", "Введіть складніший пароль");
         data.put("SIGN_IN_EMPTY_ERROR", "Заполните поля для входа");
+        data.put("CHANGE_EMPTY_ERROR", "Заполните поля");
+        data.put("CHANGE_MAIL_BAD_MAIL_ERROR", "Заполните поля");
         data.put("SIGN_UP_EMPTY_ERROR", "Заполните поля для регистрации");
+        data.put("SUCCESSFUL_REPLACEMENT_PASSWORD", "Успішна заміна пароля");
+        data.put("SUCCESSFUL_REPLACEMENT_MAIL", "Успішна заміна почти");
         data.put("LOCATION", "Страна, язык");
         data.put("PROGRAM_NAME", "Книга рецептов");
         data.put("MENU_HOME", "Главная");

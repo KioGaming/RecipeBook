@@ -209,4 +209,34 @@ public class DatabaseHandler extends Configs {
             e.printStackTrace();
         }
     }
+
+    public void changeMail(String oldMail, String newMail) {
+        String update = "UPDATE " + Settings.USER_TABLE + " SET " + Settings.USER_MAIL + " = ? WHERE " + Settings.USER_MAIL + " = ?";
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(update);
+            prSt.setString(1, newMail);
+            prSt.setString(2, oldMail);
+            prSt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void changePassword(String mail, String oldPassword, String newPassword) {
+        String update = "UPDATE " + Settings.USER_TABLE + " SET " + Settings.USER_PASSWORD
+                + " = ? WHERE " + Settings.USER_PASSWORD + " = ?" + " AND " + Settings.USER_MAIL + " = ?";
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(update);
+            prSt.setString(1, newPassword);
+            prSt.setString(2, oldPassword);
+            prSt.setString(3, mail);
+            prSt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }
