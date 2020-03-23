@@ -244,6 +244,42 @@ public class AppController {
     private Button changeUserInfoButton;
 
     @FXML
+    private AnchorPane aboutUsOrSupportPane;
+
+    @FXML
+    private Button backBtn;
+
+    @FXML
+    private Label aboutUsOrSupportLabel;
+
+    @FXML
+    private AnchorPane settingsPane;
+
+    @FXML
+    private AnchorPane changeUserInfoPain;
+
+    @FXML
+    private Button changeMail;
+
+    @FXML
+    private TextField mailLabel;
+
+    @FXML
+    private TextField repeatMailLabel;
+
+    @FXML
+    private Button changePassword;
+
+    @FXML
+    private TextField passwordLabel;
+
+    @FXML
+    private TextField repeatPasswordLabel;
+
+    @FXML
+    private Button backBtn1;
+
+    @FXML
     void initialize() {
         /**
          * Home page
@@ -415,6 +451,9 @@ public class AppController {
         /**
          * Settings page
          */
+        settingsPane.setVisible(true);
+        changeUserInfoPain.setVisible(false);
+        aboutUsOrSupportPane.setVisible(false);
         exitButton.setOnAction(event -> {
             exitButton.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
@@ -436,13 +475,41 @@ public class AppController {
             stage.show();
         });
         aboutUsButton.setOnAction(event -> {
-            //открить нову сторінку
+            settingsPane.setVisible(false);
+            changeUserInfoPain.setVisible(false);
+            aboutUsOrSupportPane.setVisible(true);
+            aboutUsOrSupportLabel.setText("1");
         });
         supportButton.setOnAction(event -> {
-            //открить нову сторінку
+            settingsPane.setVisible(false);
+            changeUserInfoPain.setVisible(false);
+            aboutUsOrSupportPane.setVisible(true);
+            aboutUsOrSupportLabel.setText("2");
         });
         changeUserInfoButton.setOnAction(event -> {
-            //открить нову сторінку
+            settingsPane.setVisible(false);
+            changeUserInfoPain.setVisible(true);
+            aboutUsOrSupportPane.setVisible(false);
+        });
+        backBtn.setOnAction(event -> {
+            settingsPane.setVisible(true);
+            changeUserInfoPain.setVisible(false);
+            aboutUsOrSupportPane.setVisible(false);
+        });
+        backBtn1.setOnAction(event -> {
+            settingsPane.setVisible(true);
+            changeUserInfoPain.setVisible(false);
+            aboutUsOrSupportPane.setVisible(false);
+        });
+        changeMail.setOnAction(event -> {
+            if (mailLabel.getText() == repeatMailLabel.getText() && mailLabel.getText() != "") {
+                //помінять почту
+            }
+        });
+        changePassword.setOnAction(event -> {
+            if (passwordLabel.getText() == repeatPasswordLabel.getText() && passwordLabel.getText() != "") {
+                //помінять пароль
+            }
         });
     }
 

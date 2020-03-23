@@ -5,9 +5,12 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AppController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0"
+            stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="gui.AppController">
     <children>
-        <TabPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #2E3348;" tabClosingPolicy="UNAVAILABLE">
+        <TabPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #2E3348;"
+                 tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab text="Главная">
                     <content>
@@ -476,18 +479,60 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <Button fx:id="aboutUsButton" layoutX="94.0" layoutY="82.0" mnemonicParsing="false"
-                                        prefHeight="58.0" prefWidth="217.0" style="-fx-background-radius: 4;"
-                                        text="Про нас"/>
-                                <Button fx:id="supportButton" layoutX="480.0" layoutY="83.0" mnemonicParsing="false"
-                                        prefHeight="58.0" prefWidth="217.0" style="-fx-background-radius: 4;"
-                                        text="Допомога"/>
-                                <Button fx:id="exitButton" layoutX="480.0" layoutY="489.0" mnemonicParsing="false"
-                                        prefHeight="58.0" prefWidth="217.0" style="-fx-background-radius: 4;"
-                                        text="Вийти"/>
-                                <Button fx:id="changeUserInfoButton" layoutX="869.0" layoutY="83.0"
-                                        mnemonicParsing="false" prefHeight="58.0" prefWidth="217.0"
-                                        style="-fx-background-radius: 4;" text="Змінити пароль або почту"/>
+                                <AnchorPane fx:id="aboutUsOrSupportPane" layoutY="-1.0" prefHeight="670.0"
+                                            prefWidth="1200.0">
+                                    <children>
+                                        <Button fx:id="backBtn" layoutX="481.0" layoutY="558.0" mnemonicParsing="false"
+                                                prefHeight="58.0" prefWidth="217.0" style="-fx-background-radius: 4;"
+                                                text="Назад"/>
+                                        <Label fx:id="aboutUsOrSupportLabel" alignment="TOP_CENTER" layoutX="94.0"
+                                               layoutY="39.0" prefHeight="158.0" prefWidth="992.0"
+                                               text="AboutUs or Support" textFill="WHITE">
+                                            <font>
+                                                <Font name="Lobster" size="20.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="changeUserInfoPain" prefHeight="670.0" prefWidth="1200.0">
+                                    <children>
+                                        <Button fx:id="changeMail" layoutX="95.0" layoutY="367.0"
+                                                mnemonicParsing="false" prefHeight="58.0" prefWidth="217.0"
+                                                style="-fx-background-radius: 4;" text="Змінити почту"/>
+                                        <Button fx:id="changePassword" layoutX="831.0" layoutY="369.0"
+                                                mnemonicParsing="false" prefHeight="58.0" prefWidth="217.0"
+                                                style="-fx-background-radius: 4;" text="Змінити пароль"/>
+                                        <Button fx:id="backBtn1" layoutX="481.0" layoutY="558.0" mnemonicParsing="false"
+                                                prefHeight="58.0" prefWidth="217.0" style="-fx-background-radius: 4;"
+                                                text="Назад"/>
+                                        <TextField fx:id="mailLabel" layoutX="95.0" layoutY="210.0" prefHeight="38.0"
+                                                   prefWidth="270.0" promptText="Нова почта"/>
+                                        <TextField fx:id="repeatMailLabel" layoutX="94.0" layoutY="289.0"
+                                                   prefHeight="35.0" prefWidth="272.0"
+                                                   promptText="Повторіть нову почту"/>
+                                        <TextField fx:id="passwordLabel" layoutX="805.0" layoutY="210.0"
+                                                   prefHeight="38.0" prefWidth="270.0" promptText="Нова почта"/>
+                                        <TextField fx:id="repeatPasswordLabel" layoutX="804.0" layoutY="289.0"
+                                                   prefHeight="35.0" prefWidth="272.0"
+                                                   promptText="Повторіть нову почту"/>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="settingsPane" prefHeight="670.0" prefWidth="1200.0">
+                                    <children>
+                                        <Button fx:id="aboutUsButton" layoutX="134.0" layoutY="104.0"
+                                                mnemonicParsing="false" prefHeight="58.0" prefWidth="217.0"
+                                                style="-fx-background-radius: 4;" text="Про нас"/>
+                                        <Button fx:id="supportButton" layoutX="482.0" layoutY="104.0"
+                                                mnemonicParsing="false" prefHeight="58.0" prefWidth="217.0"
+                                                style="-fx-background-radius: 4;" text="Допомога"/>
+                                        <Button fx:id="exitButton" layoutX="482.0" layoutY="484.0"
+                                                mnemonicParsing="false" prefHeight="58.0" prefWidth="217.0"
+                                                style="-fx-background-radius: 4;" text="Вийти"/>
+                                        <Button fx:id="changeUserInfoButton" layoutX="827.0" layoutY="104.0"
+                                                mnemonicParsing="false" prefHeight="58.0" prefWidth="217.0"
+                                                style="-fx-background-radius: 4;" text="Змінити пароль або почту"/>
+                                    </children>
+                                </AnchorPane>
                             </children>
                         </AnchorPane>
                     </content>

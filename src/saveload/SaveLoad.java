@@ -6,26 +6,17 @@ import model.Dish;
 import model.ShoppingList;
 import settings.Settings;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class SaveLoad
-{
-    private static JAXBContext context;
-    private static Unmarshaller um;
-    private static Marshaller m;
-    private static Wrapper wrapper;
-
+public class SaveLoad {
 
     public static void load(SaveData sd, int iduser) {
         ArrayList<Dish> dishes = new ArrayList<>();
         DatabaseHandler databaseHandler = new DatabaseHandler();
-        ResultSet resultSet =  databaseHandler.getRecipe();
+        ResultSet resultSet = databaseHandler.getRecipe();
         try {
             while (resultSet.next()) {
                 String title = resultSet.getString(Settings.DISH_TITLE);
@@ -67,17 +58,6 @@ public class SaveLoad
         } catch (SQLException e) {
             e.printStackTrace();
         }
-       /* try {
-            context = JAXBContext.newInstance(Wrapper.class);
-            um = context.createUnmarshaller();
-            wrapper = (Wrapper) um.unmarshal(Settings.getFileSave(username));
-
-            sd.setShoppingList(new ShoppingList());
-            sd.setShoppingList(wrapper.getShoppingList());
-        } catch (JAXBException e) {
-            System.out.println("Даних нету!");
-            e.printStackTrace();
-        }*/
         sd.setShoppingList(new ShoppingList());
     }
 

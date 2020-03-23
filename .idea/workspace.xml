@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48ba578d-8e07-482c-9c8d-b5e1de7aa23d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RecipeBook.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RecipeBook.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/app.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AppController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignInController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/app.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/saveload/SaveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/saveload/SaveData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/saveload/SaveLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/saveload/SaveLoad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/saveload/Wrapper.java" beforeDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,22 +20,6 @@
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/gui/AppController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="441" column="35" selection-start-line="441" selection-start-column="35" selection-end-line="441" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -49,132 +34,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/model/Category.java" />
-        <option value="$PROJECT_DIR$/src/saveload.java" />
-        <option value="$PROJECT_DIR$/src/login/SingUp.java" />
-        <option value="$PROJECT_DIR$/src/model/Account.java" />
-        <option value="$PROJECT_DIR$/src/login/SignIn.java" />
-        <option value="$PROJECT_DIR$/src/login/SignUp.java" />
-        <option value="$PROJECT_DIR$/src/gui/Refresh.java" />
-        <option value="$PROJECT_DIR$/src/gui/menu/MainMenu.java" />
-        <option value="$PROJECT_DIR$/src/gui/MainFrame.java" />
-        <option value="$PROJECT_DIR$/src/recipebook/RecipeBook.java" />
-        <option value="$PROJECT_DIR$/src/gui/Controller.java" />
-        <option value="$PROJECT_DIR$/src/gui/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/gui/signIn.fxml" />
-        <option value="$PROJECT_DIR$/src/gui/signUp.fxml" />
-        <option value="$PROJECT_DIR$/src/login/AccountTest.java" />
-        <option value="$PROJECT_DIR$/src/gui/JfxTestRunner.java" />
-        <option value="$PROJECT_DIR$/src/settings/Style.java" />
-        <option value="$PROJECT_DIR$/src/settings/HandlerCode.java" />
-        <option value="$PROJECT_DIR$/src/settings/Text.java" />
-        <option value="$PROJECT_DIR$/src/gui/admin.fxml" />
-        <option value="$PROJECT_DIR$/src/model/Common.java" />
-        <option value="$PROJECT_DIR$/src/model/Diet.java" />
-        <option value="$PROJECT_DIR$/src/exception/ModelException.java" />
-        <option value="$PROJECT_DIR$/src/login/DBInt.java" />
-        <option value="$PROJECT_DIR$/src/login/LoginTest.java" />
-        <option value="$PROJECT_DIR$/src/saveload/Wrapper.java" />
-        <option value="$PROJECT_DIR$/src/gui/SignUpController.java" />
-        <option value="$PROJECT_DIR$/src/login/Filter.java" />
-        <option value="$PROJECT_DIR$/src/gui/Main.java" />
-        <option value="$PROJECT_DIR$/src/gui/AdminController.java" />
-        <option value="$PROJECT_DIR$/src/login/Configs.java" />
-        <option value="$PROJECT_DIR$/src/model/ShoppingList.java" />
-        <option value="$PROJECT_DIR$/src/model/Shopping.java" />
-        <option value="$PROJECT_DIR$/src/settings/Settings.java" />
-        <option value="$PROJECT_DIR$/src/login/Login.java" />
-        <option value="$PROJECT_DIR$/src/saveload/SaveLoad.java" />
-        <option value="$PROJECT_DIR$/src/login/DatabaseHandler.java" />
-        <option value="$PROJECT_DIR$/src/login/Account.java" />
-        <option value="$PROJECT_DIR$/src/gui/LibraryController.java" />
-        <option value="$PROJECT_DIR$/src/model/Dish.java" />
-        <option value="$PROJECT_DIR$/src/saveload/SaveData.java" />
-        <option value="$PROJECT_DIR$/src/gui/SignInController.java" />
-        <option value="$PROJECT_DIR$/src/gui/app.fxml" />
-        <option value="$PROJECT_DIR$/src/gui/AppController.java" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="830" />
-    <option name="y" value="15" />
-    <option name="width" value="1125" />
-    <option name="height" value="880" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="RecipeBook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecipeBook" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RecipeBook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecipeBook" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RecipeBook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecipeBook" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RecipeBook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecipeBook" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="exception" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RecipeBook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecipeBook" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RecipeBook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecipeBook" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RecipeBook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecipeBook" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RecipeBook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecipeBook" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="saveload" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RecipeBook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecipeBook" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="settings" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RecipeBook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+  <component name="ProjectId" id="1ZU2JdzOtxRp2ckm8fIrM28qayK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
@@ -182,15 +46,17 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584822667147" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="C:/Program Files/Java/OpenJFX/lib" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15234375" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -202,18 +68,6 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Java\Java Projects\RecipeBook\src\gui" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -239,6 +93,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="login" />
       <option name="MAIN_CLASS_NAME" value="login.LoginTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -290,6 +145,18 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -300,6 +167,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1575286057075</updated>
+      <workItem from="1584879288018" duration="614000" />
+      <workItem from="1584879925478" duration="3970000" />
+      <workItem from="1584899183186" duration="5416000" />
+      <workItem from="1584953754023" duration="2867000" />
+      <workItem from="1584956999761" duration="49000" />
+      <workItem from="1584957075058" duration="992000" />
     </task>
     <task id="LOCAL-00001" summary="Optimize code">
       <created>1582997732138</created>
@@ -378,105 +251,34 @@
       <option name="project" value="LOCAL" />
       <updated>1584822583986</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Create frame-Setttings 1.0.0 in app.fxml">
+      <created>1584874004776</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1584874004776</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="LoginTest - 2020.02.22 at 21h 36m 38s.xml">
-      <configuration name="LoginTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LoginTest - 2020.02.23 at 15h 43m 31s.xml">
-      <configuration name="LoginTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LoginTest - 2020.02.23 at 15h 45m 49s.xml">
-      <configuration name="LoginTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LoginTest - 2020.02.23 at 15h 47m 03s.xml">
-      <configuration name="LoginTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LoginTest - 2020.02.23 at 15h 50m 32s.xml">
-      <configuration name="LoginTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LoginTest_signUp - 2020.02.23 at 15h 50m 45s.xml">
-      <configuration name="LoginTest.signUp" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LoginTest_signUp - 2020.02.23 at 15h 54m 10s.xml">
-      <configuration name="LoginTest.signUp" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LoginTest_signIn - 2020.02.23 at 16h 39m 17s.xml">
-      <configuration name="LoginTest.signIn" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LoginTest_signIn - 2020.02.23 at 16h 39m 59s.xml">
-      <configuration name="LoginTest.signIn" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LoginTest_signIn - 2020.02.28 at 20h 59m 15s.xml">
-      <configuration name="LoginTest.signIn" configurationId="JUnit" />
-    </history-entry>
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17986578" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.4022663" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.398017" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5013423" side_tool="true" weight="0.40084985" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3286119" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32577905" />
-      <window_info anchor="bottom" id="Thumbnails" order="11" weight="0.3286119" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14228188" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.4036827" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067115" side_tool="true" weight="0.32719547" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32719547" />
-      <window_info anchor="bottom" id="Thumbnails" order="11" weight="0.3286119" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-    </layout-to-restore>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
     <option name="UPDATE_COPYRIGHT" value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
@@ -490,393 +292,32 @@
     <MESSAGE value="Create frame-dishView 2.0.0 in app.fxml" />
     <MESSAGE value="Create frame-dishView 3.0.0 in app.fxml" />
     <MESSAGE value="Create frame-Library 1.0.0 in app.fxml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create frame-Library 1.0.0 in app.fxml" />
+    <MESSAGE value="Create frame-Setttings 1.0.0 in app.fxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create frame-Setttings 1.0.0 in app.fxml" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa10212.37754/SaveLoad.class" />
-    <entry file="file://$PROJECT_DIR$/src/model/Category.java" />
-    <entry file="file://$PROJECT_DIR$/src/login/SingUp.java" />
-    <entry file="file://$PROJECT_DIR$/src/login/SignIn.java" />
-    <entry file="file://$PROJECT_DIR$/src/login/SignUp.java" />
-    <entry file="file://$PROJECT_DIR$/src/gui.java" />
-    <entry file="file://$PROJECT_DIR$/src/gui/menu/MainMenu.java" />
-    <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java" />
-    <entry file="file://$PROJECT_DIR$/src/gui/Refresh.java" />
-    <entry file="file://$PROJECT_DIR$/src/gui/Controller.java" />
-    <entry file="file://$PROJECT_DIR$/src/gui/sample.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/login/AccountTest.java" />
-    <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/Runnable.java" />
-    <entry file="file://$PROJECT_DIR$/src/gui/JfxTestRunner.java" />
-    <entry file="file://$PROJECT_DIR$/src/settings/HandlerCode.java" />
-    <entry file="file://$PROJECT_DIR$/src/recipebook/RecipeBook.java" />
-    <entry file="file://$PROJECT_DIR$/src/gui/Admin.java" />
-    <entry file="file://$PROJECT_DIR$/src/model/Common.java" />
-    <entry file="file://$PROJECT_DIR$/src/model/Diet.java" />
-    <entry file="file://$PROJECT_DIR$/src/exception/ModelException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/login/DBInt.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/settings/Style.java" />
-    <entry file="file://$PROJECT_DIR$/src/login/LoginTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="113" selection-start-line="33" selection-start-column="113" selection-end-line="33" selection-end-column="113" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/login/Filter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/settings/Text.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="68" lean-forward="true" selection-start-line="13" selection-start-column="68" selection-end-line="13" selection-end-column="68" />
-          <folding>
-            <element signature="e#187#188#0" expanded="true" />
-            <element signature="e#223#224#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/saveload/Wrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#377#378#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/admin.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/AdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="135" column="12" selection-start-line="135" selection-start-column="12" selection-end-line="135" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/login/Configs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/ShoppingList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" column="126" selection-start-line="15" selection-start-column="126" selection-end-line="15" selection-end-column="126" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Shopping.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="50" column="7" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/signIn.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/settings/Settings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="33" column="53" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
-          <folding>
-            <element signature="e#1564#1565#0" expanded="true" />
-            <element signature="e#1596#1597#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/saveload/SaveLoad.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1100">
-          <caret line="107" column="30" selection-start-line="107" selection-start-column="30" selection-end-line="107" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysql-connector-java-8.0.19/src/main/user-impl/java/com/mysql/cj/jdbc/exceptions/SQLError.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="119" selection-start-line="119" selection-end-line="119" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysql-connector-java-8.0.19/src/main/user-impl/java/com/mysql/cj/jdbc/exceptions/SQLExceptionsMapping.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="121" selection-start-line="121" selection-end-line="121" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysql-connector-java-8.0.19/src/main/user-impl/java/com/mysql/cj/jdbc/StatementImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="1334" selection-start-line="1334" selection-end-line="1334" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/login/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="32" column="82" selection-start-line="32" selection-start-column="82" selection-end-line="32" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/login/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/login/DatabaseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="204" column="44" lean-forward="true" selection-start-line="204" selection-start-column="44" selection-end-line="204" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/LibraryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="28" column="39" lean-forward="true" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Dish.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="105" column="218" selection-start-line="105" selection-start-column="218" selection-end-line="105" selection-end-column="218" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/saveload/SaveData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1219">
-          <caret line="150" column="5" lean-forward="true" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/SignInController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="90" column="74" selection-start-line="90" selection-start-column="74" selection-end-line="90" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/app.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/app.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="290" column="73" selection-start-line="290" selection-start-column="73" selection-end-line="290" selection-end-column="73" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/signUp.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/SignUpController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="107" column="25" lean-forward="true" selection-start-line="90" selection-start-column="12" selection-end-line="107" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/AppController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="441" column="35" selection-start-line="441" selection-start-column="35" selection-end-line="441" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8 (3)</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>RecipeBook</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8 (3)</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>mysql-connector-java-8.0</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+  <component name="WindowStateProjectService">
+    <state width="1493" height="263" key="GridCell.Tab.0.bottom" timestamp="1584958031986">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="263" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584958031986" />
+    <state width="1493" height="263" key="GridCell.Tab.0.center" timestamp="1584958031986">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="263" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584958031986" />
+    <state width="1493" height="263" key="GridCell.Tab.0.left" timestamp="1584958031986">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="263" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584958031986" />
+    <state width="1493" height="263" key="GridCell.Tab.0.right" timestamp="1584958031986">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="263" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584958031986" />
+    <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1584957110502">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584957110502" />
   </component>
 </project>

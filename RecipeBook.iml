@@ -28,5 +28,18 @@
     <orderEntry type="library" name="junit:junit:4.12" level="project" />
     <orderEntry type="library" name="org.mockito:mockito-core:2.24.0" level="project" />
     <orderEntry type="library" name="mysql-connector-java-8.0" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://C:/Program Files/Java/OpenJFX/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://C:/Program Files/Java/OpenJFX/lib" />
+        </SOURCES>
+        <jarDirectory url="file://C:/Program Files/Java/OpenJFX/lib" recursive="false" />
+        <jarDirectory url="file://C:/Program Files/Java/OpenJFX/lib" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
   </component>
 </module>

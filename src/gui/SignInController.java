@@ -88,7 +88,6 @@ public class SignInController {
                         stage.setMinHeight(729);
                         stage.setMaxWidth(1205);
                         stage.setMinWidth(1205);
-                        stage.getScene().getStylesheets().add("css/app.css");
                         stage.show();
                     }
                 } else {
