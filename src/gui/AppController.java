@@ -977,12 +977,18 @@ public class AppController {
             dishDescription.setText(dish.getDescription());
             String s = "";
             for (int i = 0; i < dish.getRecipe().size(); i++) {
-                s += "     " + dish.getRecipe().get(i);
+                s += "Етап №" + (i + 1) + "\n" + "     " + dish.getRecipe().get(i);
                 if (i != dish.getRecipe().size() - 1) {
-                    s += "\n";
+                    s += "\n\n";
                 }
             }
             dishRecipe.setText(s);
+            System.out.println(s + "\n");
+            System.out.println(dishRecipe.getPrefHeight() + " " + dishRecipe.getHeight() + " " + dishRecipe.getMaxHeight() + " " + dishRecipe.getBaselineOffset());
+            //dishRecipe.setMinHeight(s.length() * 10);
+            //dishRecipe.setMaxHeight(s.length() * 10);
+            //зробить самоизменяющийся размер у label dishRecipe
+            //исправить ошибку удаления лайка з бази даних
             scrollPane.setVisible(false);
 
 /*
