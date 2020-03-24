@@ -21,12 +21,43 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1220.0">
                             <children>
-                                <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="-1.0" layoutY="-1.0" minViewportHeight="600.0" minViewportWidth="1150.0" pannable="true" prefHeight="675.0" prefViewportHeight="600.0" prefViewportWidth="1150.0" prefWidth="1200.0" styleClass="scrollPaneClass" vbarPolicy="ALWAYS">
+                                <ScrollPane fx:id="scrollPane2" hbarPolicy="NEVER" layoutY="-1.0" prefHeight="673.0" prefWidth="1199.0" style="-fx-background-color: #2E3348;" styleClass="scrollPaneClass" vbarPolicy="ALWAYS">
                                     <content>
-                                        <AnchorPane fx:id="frameScrollPane" minHeight="0.0" minWidth="0.0" prefHeight="1400.0" prefWidth="1185.0" style="-fx-background-color: #2E3348;" styleClass="inScrollPaneClass">
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1642.0" prefWidth="1198.0" style="-fx-background-color: #2E3348;" styleClass="inScrollPaneClass">
                                             <children>
-                                                <ComboBox fx:id="filterComboBox" layoutX="838.0" layoutY="14.0" prefHeight="26.0" prefWidth="329.0" promptText="Фильтр" visibleRowCount="7" />
-                                                <ImageView fx:id="image1" fitHeight="150.0" fitWidth="150.0" layoutX="59.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true" />
+                                                <Label fx:id="dishTitle" layoutX="26.0" layoutY="28.0" prefHeight="66.0" prefWidth="400.0" text="Title" textAlignment="CENTER" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="40.0" />
+                                                    </font>
+                                                </Label>
+                                                <ImageView fx:id="dishImage" fitHeight="229.0" fitWidth="279.0" layoutX="33.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true" />
+                                                <Label fx:id="dishDescription" alignment="TOP_LEFT" layoutX="480.0" layoutY="40.0" prefHeight="329.0" prefWidth="660.0" text="Description" textAlignment="CENTER" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="40.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="dishRecipe" alignment="TOP_LEFT" layoutX="46.0" layoutY="424.0" prefHeight="435.0" prefWidth="1097.0" text="Recipe" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="25.0" />
+                                                    </font>
+                                                </Label>
+                                                <Button fx:id="backToCategoryButton" layoutX="447.0" layoutY="1497.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="300.0" style="-fx-background-color: #F39C63;" text="Назад" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="40.0" />
+                                                    </font>
+                                                </Button>
+                                                <TableView fx:id="groceryTableView" layoutX="45.0" layoutY="847.0" prefHeight="620.0" prefWidth="1099.0" />
+                                                <ImageView fx:id="likeField" fitHeight="68.0" fitWidth="80.0" layoutX="36.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true" />
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </ScrollPane>
+                                <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="-1.0" layoutY="-1.0" minViewportHeight="600.0" minViewportWidth="1150.0" pannable="true" prefHeight="675.0" prefViewportHeight="600.0" prefViewportWidth="1150.0" prefWidth="1201.0" styleClass="scrollPaneClass" vbarPolicy="ALWAYS">
+                                    <content>
+                                        <AnchorPane fx:id="frameScrollPane" minHeight="0.0" minWidth="0.0" prefHeight="1400.0" prefWidth="1186.0" style="-fx-background-color: #2E3348;" styleClass="inScrollPaneClass">
+                                            <children>
+                                                <ComboBox fx:id="filterComboBox" layoutX="840.0" layoutY="10.0" prefHeight="26.0" prefWidth="329.0" promptText="Фильтр" visibleRowCount="7" />
+                                                <ImageView fx:id="image1" fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
                                                 <ImageView fx:id="image2" fitHeight="150.0" fitWidth="150.0" layoutX="57.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true" />
                                                 <ImageView fx:id="image3" fitHeight="150.0" fitWidth="150.0" layoutX="66.0" layoutY="559.0" pickOnBounds="true" preserveRatio="true" />
                                                 <ImageView fx:id="image4" fitHeight="150.0" fitWidth="150.0" layoutX="55.0" layoutY="795.0" pickOnBounds="true" preserveRatio="true" />
@@ -41,9 +72,9 @@
                                                         <Font size="30.0" />
                                                     </font>
                                                 </Button>
-                                                <Button fx:id="title1" alignment="TOP_LEFT" layoutX="57.0" layoutY="73.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="306.0" style="-fx-background-color: #2E3348;" text="Title" textFill="WHITE">
+                                                <Button fx:id="title1" alignment="TOP_LEFT" layoutX="195.0" layoutY="40.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="635.0" style="-fx-background-color: #2E3348;" text="Title" textFill="WHITE">
                                                     <font>
-                                                        <Font size="30.0" />
+                                                        <Font size="20.0" />
                                                     </font>
                                                     <cursor>
                                                         <Cursor fx:constant="HAND" />
@@ -81,37 +112,11 @@
                                                         <Cursor fx:constant="HAND" />
                                                     </cursor>
                                                 </Button>
-                                            </children>
-                                        </AnchorPane>
-                                    </content>
-                                </ScrollPane>
-                                <ScrollPane fx:id="scrollPane2" hbarPolicy="NEVER" layoutY="-1.0" prefHeight="673.0" prefWidth="1199.0" style="-fx-background-color: #2E3348;" styleClass="scrollPaneClass" vbarPolicy="ALWAYS">
-                                    <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1642.0" prefWidth="1198.0" style="-fx-background-color: #2E3348;" styleClass="inScrollPaneClass">
-                                            <children>
-                                                <Label fx:id="dishTitle" layoutX="26.0" layoutY="28.0" prefHeight="66.0" prefWidth="400.0" text="Title" textAlignment="CENTER" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="40.0" />
-                                                    </font>
-                                                </Label>
-                                                <ImageView fx:id="dishImage" fitHeight="229.0" fitWidth="279.0" layoutX="33.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true" />
-                                                <Label fx:id="dishDescription" alignment="TOP_LEFT" layoutX="480.0" layoutY="40.0" prefHeight="329.0" prefWidth="660.0" text="Description" textAlignment="CENTER" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="40.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label fx:id="dishRecipe" alignment="TOP_LEFT" layoutX="46.0" layoutY="424.0" prefHeight="435.0" prefWidth="1097.0" text="Recipe" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="25.0" />
-                                                    </font>
-                                                </Label>
-                                                <Button fx:id="backToCategoryButton" layoutX="447.0" layoutY="1497.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="300.0" style="-fx-background-color: #F39C63;" text="Назад" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="40.0" />
-                                                    </font>
-                                                </Button>
-                                                <TableView fx:id="groceryTableView" layoutX="45.0" layoutY="847.0" prefHeight="620.0" prefWidth="1099.0" />
-                                                <ImageView fx:id="likeField" fitHeight="68.0" fitWidth="80.0" layoutX="36.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label fx:id="descriptionLabel1" alignment="TOP_LEFT" layoutX="195.0" layoutY="90.0" prefHeight="100.0" prefWidth="635.0" text="Label" textFill="WHITE" wrapText="true">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -346,16 +351,16 @@
                                 </AnchorPane>
                                 <AnchorPane fx:id="changeUserInfoPain" prefHeight="670.0" prefWidth="1200.0">
                                     <children>
-                              <Label fx:id="changeMailErrorField" alignment="CENTER" layoutX="93.0" layoutY="143.0" prefHeight="40.0" prefWidth="274.0" textFill="WHITE">
-                                 <font>
-                                    <Font name="Lobster" size="20.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="changePasswordErrorField" alignment="CENTER" layoutX="802.0" layoutY="143.0" prefHeight="40.0" prefWidth="275.0" textFill="WHITE">
-                                 <font>
-                                    <Font name="Lobster" size="20.0" />
-                                 </font>
-                              </Label>
+                                        <Label fx:id="changeMailErrorField" alignment="CENTER" layoutX="93.0" layoutY="143.0" prefHeight="40.0" prefWidth="274.0" textFill="WHITE">
+                                            <font>
+                                                <Font name="Lobster" size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="changePasswordErrorField" alignment="CENTER" layoutX="802.0" layoutY="143.0" prefHeight="40.0" prefWidth="275.0" textFill="WHITE">
+                                            <font>
+                                                <Font name="Lobster" size="20.0" />
+                                            </font>
+                                        </Label>
                                         <Button fx:id="changeMail" layoutX="121.0" layoutY="369.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="217.0" style="-fx-background-radius: 4;" text="Змінити почту" />
                                         <Button fx:id="changePassword" layoutX="831.0" layoutY="369.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="217.0" style="-fx-background-radius: 4;" text="Змінити пароль" />
                                         <Button fx:id="backBtn1" layoutX="481.0" layoutY="558.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="217.0" style="-fx-background-radius: 4;" text="Назад" />

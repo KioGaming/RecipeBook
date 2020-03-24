@@ -288,6 +288,9 @@ public class AppController {
     private Label changePasswordErrorField;
 
     @FXML
+    private Label descriptionLabel1;
+
+    @FXML
     void initialize() {
         /**
          * Home page
@@ -560,47 +563,58 @@ public class AppController {
         title3.setVisible(true);
         title4.setVisible(true);
         title5.setVisible(true);
+        descriptionLabel1.setVisible(true);
 
         if (counter < listSize - 1) {
             if (counter + 1 < listSize) {
                 counter++;
                 title1.setText(list.get(counter).getTitle());
                 image1.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                descriptionLabel1.setText(list.get(counter).getDescription());
             } else {
                 title1.setVisible(false);
                 image1.setVisible(false);
+                descriptionLabel1.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
                 title2.setText(list.get(counter).getTitle());
                 image2.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                //descriptionLabel2.setText(list.get(counter).getDescription());
             } else {
                 title2.setVisible(false);
                 image2.setVisible(false);
+                //descriptionLabel2.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
                 title3.setText(list.get(counter).getTitle());
                 image3.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                //descriptionLabel3.setText(list.get(counter).getDescription());
             } else {
                 title3.setVisible(false);
                 image3.setVisible(false);
+                //descriptionLabel3.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
                 title4.setText(list.get(counter).getTitle());
                 image4.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                //descriptionLabel4.setText(list.get(counter).getDescription());
             } else {
                 title4.setVisible(false);
                 image4.setVisible(false);
+                //descriptionLabel4.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
                 title5.setText(list.get(counter).getTitle());
                 image5.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                //descriptionLabel5.setText(list.get(counter).getDescription());
             } else {
                 title5.setVisible(false);
                 image5.setVisible(false);
+                //descriptionLabel5.setVisible(false);
             }
             if (counter - sd.getCounter() != 0) {
                 sd.setLastCounterChange(counter - sd.getCounter());
