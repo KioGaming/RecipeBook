@@ -131,11 +131,11 @@ public class DatabaseHandler extends Configs {
     }
 
     public void setRecipe(String title, String photo, String description, ArrayList<String> recipe, ArrayList<String> groceryList,
-                          ArrayList<Double> countList, ArrayList<String> unitsOfMeasurementList, int numberOfLikes){
+                          ArrayList<String> countList, ArrayList<String> unitsOfMeasurementList, int numberOfLikes) {
         String insert = "INSERT INTO " + Settings.DISH_TABLE + "(" + Settings.DISH_TITLE + "," + Settings.DISH_PHOTO + ","
-                        + Settings.DISH_DESCRIPTION + "," + Settings.DISH_RECIPE + "," + Settings.DISH_GROCERYLIST + ","
-                        + Settings.DISH_COUNTLIST + "," + Settings.DISH_UNITSOFMEASUREMENTLIST + "," + Settings.DISH_NUMBER_OF_LIKES
-                        + ")" + "VALUES(?,?,?,?,?,?,?,?)";
+                + Settings.DISH_DESCRIPTION + "," + Settings.DISH_RECIPE + "," + Settings.DISH_GROCERYLIST + ","
+                + Settings.DISH_COUNTLIST + "," + Settings.DISH_UNITSOFMEASUREMENTLIST + "," + Settings.DISH_NUMBER_OF_LIKES
+                + ")" + "VALUES(?,?,?,?,?,?,?,?)";
 
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);

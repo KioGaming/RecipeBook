@@ -2,18 +2,14 @@ package model;
 
 public class Shopping {
     private String grocery;
-    private Double weight;
-    private String unitsOfMeasurement;
-    // private CheckBox isSelected;
+    private String weight;
 
     public Shopping() {
     }
 
-    public Shopping(String grocery, Double weight, String unitsOfMeasurement) {
+    public Shopping(String grocery, String weight, String unitsOfMeasurement) {
         this.grocery = grocery;
         this.weight = weight;
-        this.unitsOfMeasurement = unitsOfMeasurement;
-        // this.isSelected.setSelected(false);
     }
 
     public String getGrocery() {
@@ -24,27 +20,11 @@ public class Shopping {
         this.grocery = grocery;
     }
 
-    public Double getWeight() {
+    public String getWeight() {
         return weight;
     }
 
-    public void setWeight(Double weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
-
-    public String getUnitsOfMeasurement() {
-        return unitsOfMeasurement;
-    }
-
-    public void setUnitsOfMeasurement(String unitsOfMeasurement) {
-        this.unitsOfMeasurement = unitsOfMeasurement;
-    }
-
-   /* public void setIsSelected(boolean isSelected) {
-        this.isSelected.setSelected(isSelected);
-    }
-
-    public boolean isSelected() {
-        return this.isSelected.isSelected();
-    }*/
 }

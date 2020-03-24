@@ -77,11 +77,11 @@ public class AdminController {
                     gl.add(tmp1[i]);
                 }
 
-                ArrayList<Double> cl = new ArrayList<>();
+                ArrayList<String> cl = new ArrayList<>();
                 String[] tmp2 = countList.split("/");
                 for (int i = 0; i < tmp2.length; i++)
                 {
-                     cl.add(Double.parseDouble(tmp2[i]));
+                    cl.add(tmp2[i]);
                 }
 
                 String[] tmp3 = unitsOfMeasurementList.split("/");

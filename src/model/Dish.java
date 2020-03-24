@@ -12,20 +12,32 @@ public class Dish {
     private String category;
     private ArrayList<String> recipe;
     private ArrayList<String> groceryList;
-    private ArrayList<Double> countList;
+    private ArrayList<String> countList;
     private ArrayList<String> unitsOfMeasurementList;
     private int numberOfLikes;
 
     public Dish(){}
 
     public Dish(String title, String photo, String description, String category, ArrayList<String> recipe, ArrayList<String> groceryList,
-                ArrayList<Double> countList, ArrayList<String> unitsOfMeasurementList, int numberOfLikes) throws ModelException {
-        if (title.length() == 0) {throw new ModelException(ModelException.PROGRAM_ERROR);}
-        if (photo.length() == 0) {throw new ModelException(ModelException.PROGRAM_ERROR);}
-        if (description.length() == 0) {throw new ModelException(ModelException.PROGRAM_ERROR);}
-        if (recipe.size() == 0) {throw new ModelException(ModelException.PROGRAM_ERROR);}
-        if (groceryList.size() == 0) {throw new ModelException(ModelException.PROGRAM_ERROR);}
-        if (unitsOfMeasurementList.size() == 0) {throw new ModelException(ModelException.PROGRAM_ERROR);}
+                ArrayList<String> countList, ArrayList<String> unitsOfMeasurementList, int numberOfLikes) throws ModelException {
+        if (title.length() == 0) {
+            throw new ModelException(ModelException.PROGRAM_ERROR);
+        }
+        if (photo.length() == 0) {
+            throw new ModelException(ModelException.PROGRAM_ERROR);
+        }
+        if (description.length() == 0) {
+            throw new ModelException(ModelException.PROGRAM_ERROR);
+        }
+        if (recipe.size() == 0) {
+            throw new ModelException(ModelException.PROGRAM_ERROR);
+        }
+        if (groceryList.size() == 0) {
+            throw new ModelException(ModelException.PROGRAM_ERROR);
+        }
+        if (unitsOfMeasurementList.size() == 0) {
+            throw new ModelException(ModelException.PROGRAM_ERROR);
+        }
         this.title = title;
         this.photo = photo;
         this.description = description;
@@ -69,11 +81,11 @@ public class Dish {
         this.groceryList = groceryList;
     }
 
-    public ArrayList<Double> getCountList() {
+    public ArrayList<String> getCountList() {
         return countList;
     }
 
-    public void setCountList(ArrayList<Double> countList) {
+    public void setCountList(ArrayList<String> countList) {
         this.countList = countList;
     }
 

@@ -33,7 +33,8 @@ public class SaveLoad {
                 ArrayList<String> groceryList = new ArrayList<>();
                 Collections.addAll(groceryList, resultSet.getString(Settings.DISH_GROCERYLIST).split("/"));
 
-                ArrayList<Double> countList = strListToDoubleList(resultSet.getString(Settings.DISH_COUNTLIST).split("/"));
+                ArrayList<String> countList = new ArrayList<>();
+                Collections.addAll(countList, resultSet.getString(Settings.DISH_COUNTLIST).split("/"));
 
                 ArrayList<String> unitsOfMeasurementList = new ArrayList<>();
                 Collections.addAll(unitsOfMeasurementList, resultSet.getString(Settings.DISH_UNITSOFMEASUREMENTLIST).split("/"));
