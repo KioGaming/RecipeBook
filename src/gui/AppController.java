@@ -303,6 +303,9 @@ public class AppController {
     private Label descriptionLabel5;
 
     @FXML
+    private AnchorPane dishViewPane;
+
+    @FXML
     void initialize() {
         /**
          * Home page
@@ -786,9 +789,8 @@ public class AppController {
         descriptionLabel3.setVisible(true);
         descriptionLabel4.setVisible(true);
         descriptionLabel5.setVisible(true);
-
         if (lastCounterChange != 5 && counter - lastCounterChange - 4 >= 0) {
-            counter -= lastCounterChange + 4;
+            counter = counter - (lastCounterChange + 4);
         } else {
             counter -= lastCounterChange;
         }
@@ -985,8 +987,11 @@ public class AppController {
             dishRecipe.setText(s);
             System.out.println(s + "\n");
             System.out.println(dishRecipe.getPrefHeight() + " " + dishRecipe.getHeight() + " " + dishRecipe.getMaxHeight() + " " + dishRecipe.getBaselineOffset());
-            //dishRecipe.setMinHeight(s.length() * 10);
-            //dishRecipe.setMaxHeight(s.length() * 10);
+            System.out.println(s.length() / 100 * 10 * dish.getRecipe().size());
+            dishRecipe.setMinHeight(s.length() / 100 * 10 * dish.getRecipe().size());
+            dishRecipe.setMaxHeight(s.length() / 100 * 10 * dish.getRecipe().size());
+            dishRecipe.autosize();
+            System.out.println();
             //зробить самоизменяющийся размер у label dishRecipe
             //исправить ошибку удаления лайка з бази даних
             scrollPane.setVisible(false);
@@ -1180,9 +1185,9 @@ public class AppController {
                 image20.setVisible(false);
             }
             if (counter - sd.getLikeCounter() != 0) {
-                sd.setLikeLastCounterChange(counter - sd.getCounter());
+                sd.setLikeLastCounterChange(counter - sd.getLikeCounter());
             }
-            sd.setCounter(counter);
+            sd.setLikeCounter(counter);
             scrollPane3.setVvalue(0);
             if (counter >= listSize - 1) {
                 nextLikeButton.setDisable(true);
