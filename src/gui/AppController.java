@@ -990,27 +990,21 @@ public class AppController {
             System.out.println(s.length() / 100 * 10 * dish.getRecipe().size());
             dishRecipe.setMinHeight(s.length() / 100 * 10 * dish.getRecipe().size());
             dishRecipe.setMaxHeight(s.length() / 100 * 10 * dish.getRecipe().size());
-            dishRecipe.autosize();
-            System.out.println();
             //зробить самоизменяющийся размер у label dishRecipe
             //исправить ошибку удаления лайка з бази даних
             scrollPane.setVisible(false);
 
-/*
-            groceryTableView.setPrefWidth(600);
-            groceryTableView.setPrefHeight(dish.getGroceryList().size() * 30 + 30);
+            groceryTableView.setPrefHeight(dish.getGroceryList().size() * 25 + 20);
 
             ObservableList<Shopping> grocery = FXCollections.observableArrayList();
-            Shopping shopping = new Shopping();
             for (int i = 0; i < dish.getGroceryList().size(); i++) {
-                shopping.setGrocery(dish.getGroceryList().get(i));
                 if(dish.getUnitsOfMeasurementList().get(i) == "-") {
-                    shopping.setWeight(dish.getCountList().get(i));
+                    grocery.add(new Shopping(dish.getGroceryList().get(i), dish.getCountList().get(i)));
                 } else {
-                    shopping.setWeight(dish.getUnitsOfMeasurementList().get(i) + " " + dish.getCountList().get(i));
+                    grocery.add(new Shopping(dish.getGroceryList().get(i), dish.getCountList().get(i) + " " + dish.getUnitsOfMeasurementList().get(i)));
                 }
-                grocery.add(shopping);
             }
+
             groceryTableView.setItems(grocery);
 
             TableColumn<Shopping, String> groceryColumn = new TableColumn<>("Продукти");
@@ -1020,7 +1014,7 @@ public class AppController {
             TableColumn<Shopping, Double> weightColumn = new TableColumn<>("Кількість");
             weightColumn.setCellValueFactory(new PropertyValueFactory<>("weight"));
             groceryTableView.getColumns().add(weightColumn);
-            */
+
             groceryTableView.setVisible(true);
 
             if (sd.getLikedDishes() != null && sd.getLikedDishes().indexOf(dish.getTitle()) != -1) {
@@ -1394,13 +1388,11 @@ public class AppController {
             ObservableList<Shopping> grocery = FXCollections.observableArrayList();
             Shopping shopping = new Shopping();
             for (int i = 0; i < dish.getGroceryList().size(); i++) {
-                shopping.setGrocery(dish.getGroceryList().get(i));
                 if (dish.getUnitsOfMeasurementList().get(i) == "-") {
-                    shopping.setWeight(dish.getCountList().get(i));
+                    grocery.add(new Shopping(dish.getGroceryList().get(i), dish.getCountList().get(i)));
                 } else {
-                    shopping.setWeight(dish.getUnitsOfMeasurementList().get(i) + " " + dish.getCountList().get(i));
+                    grocery.add(new Shopping(dish.getGroceryList().get(i), dish.getCountList().get(i) + " " + dish.getUnitsOfMeasurementList().get(i)));
                 }
-                grocery.add(shopping);
             }
             likeGroceryTableView.setItems(grocery);
 
@@ -1411,11 +1403,7 @@ public class AppController {
             TableColumn<Shopping, Double> weightColumn = new TableColumn<>("Вага");
             weightColumn.setCellValueFactory(new PropertyValueFactory<>("weight"));
             likeGroceryTableView.getColumns().add(weightColumn);
-/*
-            TableColumn<Shopping, CheckBox> isSelectedColumn = new TableColumn<>(" + в список покупок");
-            isSelectedColumn.setCellValueFactory(new PropertyValueFactory<>("isSelected"));
-            groceryTableView.getColumns().add(isSelectedColumn);
-            */
+
             likeGroceryTableView.setVisible(true);
 
             if (sd.getLikedDishes() != null && sd.getLikedDishes().indexOf(dish.getTitle()) != -1) {

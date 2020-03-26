@@ -7,7 +7,7 @@ public class Shopping {
     public Shopping() {
     }
 
-    public Shopping(String grocery, String weight, String unitsOfMeasurement) {
+    public Shopping(String grocery, String weight) {
         this.grocery = grocery;
         this.weight = weight;
     }
@@ -26,5 +26,9 @@ public class Shopping {
 
     public void setWeight(String weight) {
         this.weight = weight;
+    }
+
+    public String toString() {
+        return grocery + " " + weight;
     }
 }
