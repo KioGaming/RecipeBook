@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import login.Account;
 import login.DatabaseHandler;
 import login.Filter;
@@ -24,7 +25,9 @@ import settings.Text;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AppController {
@@ -306,6 +309,9 @@ public class AppController {
     private AnchorPane dishViewPane;
 
     @FXML
+    private ImageView addInFavouriteButton;
+
+    @FXML
     void initialize() {
         /**
          * Home page
@@ -369,20 +375,37 @@ public class AppController {
         });
 
         likeField.setOnMouseClicked(event -> {
-            String title = dishTitle.getText();
-            if (sd.getLikedDishes().indexOf(title) != -1) {
+            String titles = dishTitle.getText();
+            if (sd.getLikedDishes().indexOf(titles) != -1) {
                 likeField.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
-                sd.getLikedDishes().remove(title);
-                sd.getLike().remove(title);
+                sd.getLikedDishes().remove(titles);
+                sd.getLike().remove(titles);
                 Account account = new Account();
-                sd.removeLikedDishes(account.getIdUser(), title);
+                sd.removeLikedDishes(account.getIdUser(), titles);
             } else {
                 likeField.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
-                sd.getLikedDishes().add(title);
+                sd.getLikedDishes().add(titles);
                 sd.reloadLikedDishes();
                 Account account = new Account();
-                sd.saveLikedDishes(account.getIdUser(), title);
+                sd.saveLikedDishes(account.getIdUser(), titles);
             }
+        });
+
+        addInFavouriteButton.setVisible(true);
+        addInFavouriteButton.setImage(new Image(new File(Settings.getImageDir() + "addInFavourite.png").toURI().toString()));
+        addInFavouriteButton.setOnMouseClicked(mouseEvent -> {
+            List<String> choices = new ArrayList<>();
+            choices.add("d");
+            choices.add("v");
+            //нада заполнить список плейлістами
+            ChoiceDialog<String> dialog = new ChoiceDialog<>("Виберіть список відтворення", choices);
+            dialog.initStyle(StageStyle.UTILITY);
+            Optional<String> result = dialog.showAndWait();
+            result.ifPresent(letter -> {
+                if (letter != "Виберіть список відтворення")
+                    //добавлять блюдо в список відтворення
+                    System.out.println("Your choice: " + letter);
+            });
         });
 
         /**
@@ -991,7 +1014,7 @@ public class AppController {
             dishRecipe.setMinHeight(s.length() / 100 * 10 * dish.getRecipe().size());
             dishRecipe.setMaxHeight(s.length() / 100 * 10 * dish.getRecipe().size());
             //зробить самоизменяющийся размер у label dishRecipe
-            //исправить ошибку удаления лайка з бази даних
+            //убрать дублірувание інгрідієнтів
             scrollPane.setVisible(false);
 
             groceryTableView.setPrefHeight(dish.getGroceryList().size() * 25 + 20);

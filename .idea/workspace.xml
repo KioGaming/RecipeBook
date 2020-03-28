@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48ba578d-8e07-482c-9c8d-b5e1de7aa23d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/saveload/Playlist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/AppController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/app.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/DatabaseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/login/DatabaseHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/model/Shopping.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/model/Shopping.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/saveload/SaveLoad.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/saveload/SaveLoad.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/settings/Settings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/settings/Settings.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Shopping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Shopping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/app.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/login/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/login/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/saveload/SaveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/saveload/SaveData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/settings/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/settings/Settings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +185,10 @@
       <workItem from="1585040471242" duration="6001000" />
       <workItem from="1585049984832" duration="16496000" />
       <workItem from="1585127429339" duration="7915000" />
-      <workItem from="1585222444696" duration="4716000" />
+      <workItem from="1585222444696" duration="4799000" />
+      <workItem from="1585247872162" duration="81000" />
+      <workItem from="1585303197165" duration="7472000" />
+      <workItem from="1585379503578" duration="13443000" />
     </task>
     <task id="LOCAL-00001" summary="Optimize code">
       <created>1582997732138</created>
@@ -311,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585143737644</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Fix bugs with tableView">
+      <created>1585245102684</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1585245102684</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,7 +385,8 @@
     <MESSAGE value="Create new design in all application 2" />
     <MESSAGE value="Create new design in all application 3" />
     <MESSAGE value="Create new design in all application 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create new design in all application 4" />
+    <MESSAGE value="Fix bugs with tableView" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bugs with tableView" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -376,30 +396,34 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="66" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1585053434391" />
+    <state x="574" y="121" key="#com.intellij.ide.util.MemberChooser" timestamp="1585381067257">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="121" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1585381067257" />
     <state x="618" y="300" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1585050002094">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="300" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1585050002094" />
-    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1585143734369">
+    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1585245098859">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585143734369" />
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1585240639501">
+    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585245098859" />
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1585393008883">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585240639501" />
-    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1585240639501">
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585393008883" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1585393008883">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585240639501" />
-    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1585240639501">
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585393008883" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1585393008883">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585240639501" />
-    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1585240639501">
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585393008883" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1585393008883">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585240639501" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585393008883" />
     <state width="1493" height="260" key="GridCell.Tab.1.bottom" timestamp="1585166621498">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -420,17 +444,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1585053573992" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1585143757263">
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1585245112398">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1585143757263" />
-    <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1585222462361">
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1585245112398" />
+    <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1585379578140">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1585222462361" />
-    <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585052978014">
+    <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1585379578140" />
+    <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585333826422">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1585052978014" />
+    <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1585333826422" />
   </component>
 </project>

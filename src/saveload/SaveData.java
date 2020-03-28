@@ -8,12 +8,9 @@ import java.util.List;
 
 public final class SaveData {
 
-    private int counter = 0;
-    private static List<Dish> like = new ArrayList<>();
-    private int likeCounter = 0;
-    private int lastCounterChange = 5;
     private static List<Dish> dishes;
     private static List<String> likedDishes;
+    private static List<Dish> like = new ArrayList<>();
     private static ShoppingList shoppingList;
     private static List<Dish> c1 = new ArrayList<>();
     private static List<Dish> c2 = new ArrayList<>();
@@ -22,7 +19,11 @@ public final class SaveData {
     private static List<Dish> c5 = new ArrayList<>();
     private static List<Dish> c6 = new ArrayList<>();
     private static List<Dish> c7 = new ArrayList<>();
+    private int counter = 0;
+    private int lastCounterChange = 5;
+    private List<Playlist> playlists;
     private int likeLastCounterChange = 15;
+    private int likeCounter = 0;
 
     public SaveData() {
     }

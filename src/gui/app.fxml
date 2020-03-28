@@ -215,6 +215,13 @@
                                                         <Font name="System Bold" size="20.0"/>
                                                     </font>
                                                 </Label>
+                                                <ImageView fx:id="addInFavouriteButton" fitHeight="75.0" fitWidth="75.0"
+                                                           layoutX="365.0" layoutY="245.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../../images/addInFavourite.png"/>
+                                                    </image>
+                                                </ImageView>
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -237,6 +244,55 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
+                                <ScrollPane fx:id="scrollPane4" hbarPolicy="NEVER" prefHeight="673.0" prefWidth="1199.0"
+                                            style="-fx-background-color: #2E3348;" styleClass="scrollPaneClass"
+                                            vbarPolicy="ALWAYS">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1642.0"
+                                                    prefWidth="1198.0" style="-fx-background-color: #2E3348;"
+                                                    styleClass="inScrollPaneClass">
+                                            <children>
+                                                <Label fx:id="likeDishTitle" layoutX="26.0" layoutY="28.0"
+                                                       prefHeight="66.0" prefWidth="400.0" text="Title"
+                                                       textAlignment="CENTER" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="40.0"/>
+                                                    </font>
+                                                </Label>
+                                                <ImageView fx:id="likeDishImage" fitHeight="229.0" fitWidth="279.0"
+                                                           layoutX="33.0" layoutY="106.0" pickOnBounds="true"
+                                                           preserveRatio="true"/>
+                                                <Label fx:id="likeDishDescription" alignment="TOP_LEFT" layoutX="480.0"
+                                                       layoutY="40.0" prefHeight="329.0" prefWidth="660.0"
+                                                       text="Description" textAlignment="CENTER" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="40.0"/>
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="likeDishRecipe" alignment="TOP_LEFT" layoutX="46.0"
+                                                       layoutY="424.0" prefHeight="435.0" prefWidth="1097.0"
+                                                       text="Recipe" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="25.0"/>
+                                                    </font>
+                                                </Label>
+                                                <Button fx:id="likeBackToCategoryButton" layoutX="447.0"
+                                                        layoutY="1497.0" mnemonicParsing="false" prefHeight="90.0"
+                                                        prefWidth="300.0" style="-fx-background-color: #F39C63;"
+                                                        text="Назад" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="40.0"/>
+                                                    </font>
+                                                </Button>
+                                                <TableView fx:id="likeGroceryTableView" layoutX="45.0" layoutY="847.0"
+                                                           prefHeight="620.0" prefWidth="1099.0"/>
+                                                <ImageView fx:id="likeFieldForLikedDish" fitHeight="68.0"
+                                                           fitWidth="80.0" layoutX="36.0" layoutY="346.0"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </ScrollPane>
                                 <ScrollPane fx:id="scrollPane3" hbarPolicy="NEVER" minViewportHeight="600.0"
                                             minViewportWidth="1150.0" pannable="true" prefHeight="675.0"
                                             prefViewportHeight="600.0" prefViewportWidth="1150.0" prefWidth="1200.0"
@@ -247,14 +303,14 @@
                                                     style="-fx-background-color: #2E3348;"
                                                     styleClass="inScrollPaneClass">
                                             <children>
-                                                <ImageView fx:id="image6" fitHeight="100.0" fitWidth="100.0"
-                                                           layoutX="85.0" layoutY="108.0" pickOnBounds="true"
+                                                <ImageView fx:id="image6" fitHeight="150.0" fitWidth="150.0"
+                                                           layoutX="20.0" layoutY="65.0" pickOnBounds="true"
                                                            preserveRatio="true"/>
-                                                <ImageView fx:id="image7" fitHeight="100.0" fitWidth="100.0"
-                                                           layoutX="445.0" layoutY="119.0" pickOnBounds="true"
+                                                <ImageView fx:id="image7" fitHeight="150.0" fitWidth="150.0"
+                                                           layoutX="410.0" layoutY="65.0" pickOnBounds="true"
                                                            preserveRatio="true"/>
-                                                <ImageView fx:id="image8" fitHeight="100.0" fitWidth="100.0"
-                                                           layoutX="826.0" layoutY="104.0" pickOnBounds="true"
+                                                <ImageView fx:id="image8" fitHeight="150.0" fitWidth="150.0"
+                                                           layoutX="800.0" layoutY="65.0" pickOnBounds="true"
                                                            preserveRatio="true"/>
                                                 <Button fx:id="backLikeButton" layoutX="326.0" layoutY="1228.0"
                                                         mnemonicParsing="false" style="-fx-background-color: #F39C63;"
@@ -270,76 +326,23 @@
                                                         <Font size="30.0"/>
                                                     </font>
                                                 </Button>
-                                                <Button fx:id="title6" alignment="TOP_LEFT" layoutX="57.0"
-                                                        layoutY="18.0" mnemonicParsing="false" prefHeight="66.0"
-                                                        prefWidth="306.0" style="-fx-background-color: #2E3348;"
+                                                <Button fx:id="title6" alignment="TOP_LEFT" layoutX="10.0"
+                                                        layoutY="10.0" mnemonicParsing="false" prefHeight="45.0"
+                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
                                                         text="Title" textFill="WHITE">
                                                     <font>
-                                                        <Font size="30.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <Button fx:id="title7" alignment="TOP_LEFT" layoutX="424.0"
-                                                        layoutY="18.0" mnemonicParsing="false" prefHeight="66.0"
-                                                        prefWidth="306.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="30.0"/>
+                                                        <Font size="20.0"/>
                                                     </font>
                                                     <cursor>
                                                         <Cursor fx:constant="HAND"/>
                                                     </cursor>
                                                 </Button>
                                                 <Button fx:id="title8" alignment="TOP_LEFT" layoutX="790.0"
-                                                        layoutY="17.0" mnemonicParsing="false" prefHeight="66.0"
-                                                        prefWidth="306.0" style="-fx-background-color: #2E3348;"
+                                                        layoutY="10.0" mnemonicParsing="false" prefHeight="45.0"
+                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
                                                         text="Title" textFill="WHITE">
                                                     <font>
-                                                        <Font size="30.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <ImageView fx:id="image9" fitHeight="100.0" fitWidth="100.0"
-                                                           layoutX="94.0" layoutY="338.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <ImageView fx:id="image10" fitHeight="100.0" fitWidth="100.0"
-                                                           layoutX="454.0" layoutY="349.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <ImageView fx:id="image11" fitHeight="100.0" fitWidth="100.0"
-                                                           layoutX="835.0" layoutY="334.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <Button fx:id="title9" alignment="TOP_LEFT" layoutX="66.0"
-                                                        layoutY="248.0" mnemonicParsing="false" prefHeight="66.0"
-                                                        prefWidth="306.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="30.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <Button fx:id="title10" alignment="TOP_LEFT" layoutX="433.0"
-                                                        layoutY="248.0" mnemonicParsing="false" prefHeight="66.0"
-                                                        prefWidth="306.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="30.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <Button fx:id="title11" alignment="TOP_LEFT" layoutX="799.0"
-                                                        layoutY="247.0" mnemonicParsing="false" prefHeight="66.0"
-                                                        prefWidth="306.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="30.0"/>
+                                                        <Font size="20.0"/>
                                                     </font>
                                                     <cursor>
                                                         <Cursor fx:constant="HAND"/>
@@ -471,55 +474,59 @@
                                                         <Cursor fx:constant="HAND"/>
                                                     </cursor>
                                                 </Button>
-                                            </children>
-                                        </AnchorPane>
-                                    </content>
-                                </ScrollPane>
-                                <ScrollPane fx:id="scrollPane4" hbarPolicy="NEVER" prefHeight="673.0" prefWidth="1199.0"
-                                            style="-fx-background-color: #2E3348;" styleClass="scrollPaneClass"
-                                            vbarPolicy="ALWAYS">
-                                    <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1642.0"
-                                                    prefWidth="1198.0" style="-fx-background-color: #2E3348;"
-                                                    styleClass="inScrollPaneClass">
-                                            <children>
-                                                <Label fx:id="likeDishTitle" layoutX="26.0" layoutY="28.0"
-                                                       prefHeight="66.0" prefWidth="400.0" text="Title"
-                                                       textAlignment="CENTER" textFill="WHITE">
+                                                <Button fx:id="title7" alignment="TOP_LEFT" layoutX="400.0"
+                                                        layoutY="10.0" mnemonicParsing="false" prefHeight="45.0"
+                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
+                                                        text="Title" textFill="WHITE">
                                                     <font>
-                                                        <Font size="40.0"/>
+                                                        <Font size="20.0"/>
                                                     </font>
-                                                </Label>
-                                                <ImageView fx:id="likeDishImage" fitHeight="229.0" fitWidth="279.0"
-                                                           layoutX="33.0" layoutY="106.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <Label fx:id="likeDishDescription" alignment="TOP_LEFT" layoutX="480.0"
-                                                       layoutY="40.0" prefHeight="329.0" prefWidth="660.0"
-                                                       text="Description" textAlignment="CENTER" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="40.0"/>
-                                                    </font>
-                                                </Label>
-                                                <Label fx:id="likeDishRecipe" alignment="TOP_LEFT" layoutX="46.0"
-                                                       layoutY="424.0" prefHeight="435.0" prefWidth="1097.0"
-                                                       text="Recipe" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="25.0"/>
-                                                    </font>
-                                                </Label>
-                                                <Button fx:id="likeBackToCategoryButton" layoutX="447.0"
-                                                        layoutY="1497.0" mnemonicParsing="false" prefHeight="90.0"
-                                                        prefWidth="300.0" style="-fx-background-color: #F39C63;"
-                                                        text="Назад" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="40.0"/>
-                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
                                                 </Button>
-                                                <TableView fx:id="likeGroceryTableView" layoutX="45.0" layoutY="847.0"
-                                                           prefHeight="620.0" prefWidth="1099.0"/>
-                                                <ImageView fx:id="likeFieldForLikedDish" fitHeight="68.0"
-                                                           fitWidth="80.0" layoutX="36.0" layoutY="346.0"
-                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <ImageView fx:id="image9" fitHeight="150.0" fitWidth="150.0"
+                                                           layoutX="20.0" layoutY="280.0" pickOnBounds="true"
+                                                           preserveRatio="true"/>
+                                                <ImageView fx:id="image10" fitHeight="150.0" fitWidth="150.0"
+                                                           layoutX="410.0" layoutY="280.0" pickOnBounds="true"
+                                                           preserveRatio="true"/>
+                                                <ImageView fx:id="image11" fitHeight="150.0" fitWidth="150.0"
+                                                           layoutX="800.0" layoutY="280.0" pickOnBounds="true"
+                                                           preserveRatio="true"/>
+                                                <Button fx:id="title9" alignment="TOP_LEFT" layoutX="10.0"
+                                                        layoutY="225.0" mnemonicParsing="false" prefHeight="45.0"
+                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
+                                                        text="Title" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                                <Button fx:id="title11" alignment="TOP_LEFT" layoutX="790.0"
+                                                        layoutY="225.0" mnemonicParsing="false" prefHeight="45.0"
+                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
+                                                        text="Title" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                                <Button fx:id="title10" alignment="TOP_LEFT" layoutX="400.0"
+                                                        layoutY="225.0" mnemonicParsing="false" prefHeight="45.0"
+                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
+                                                        text="Title" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
                                             </children>
                                         </AnchorPane>
                                     </content>

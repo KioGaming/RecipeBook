@@ -197,11 +197,9 @@ public class DatabaseHandler extends Configs {
 
     public void removeLikedDishes(int idUser, String title) {
         String delete = "DELETE FROM " + Settings.LIKED_DISHES_TABLE + " WHERE " + Settings.USER_ID + " = " + idUser + " AND "
-                + Settings.LIKED_DISHES_DISHTITLE + " = " + title;
+                + Settings.LIKED_DISHES_DISHTITLE + " = " + "'" + title + "'";
         try {
             Statement statement = getDbConnection().createStatement();
-            // statement.setInt(1, idUser);
-            // statement.setString(2, title);
             statement.executeUpdate(delete);
         } catch (SQLException e) {
             e.printStackTrace();
