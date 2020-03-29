@@ -311,6 +311,8 @@ public class AppController {
     @FXML
     private ImageView addInFavouriteButton;
 
+    Dish activeDish;
+
     @FXML
     void initialize() {
         /**
@@ -375,19 +377,17 @@ public class AppController {
         });
 
         likeField.setOnMouseClicked(event -> {
-            String titles = dishTitle.getText();
-            if (sd.getLikedDishes().indexOf(titles) != -1) {
+            if (sd.getLike().indexOf(activeDish) != -1) {
                 likeField.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
-                sd.getLikedDishes().remove(titles);
-                sd.getLike().remove(titles);
+                sd.getLike().remove(activeDish);
                 Account account = new Account();
-                sd.removeLikedDishes(account.getIdUser(), titles);
+                sd.removeLikedDishes(account.getIdUser(), activeDish.getTitle());
             } else {
                 likeField.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
-                sd.getLikedDishes().add(titles);
-                sd.reloadLikedDishes();
+                sd.getLike().add(activeDish);
+                sd.reloadLikedDishes(activeDish.getTitle());
                 Account account = new Account();
-                sd.saveLikedDishes(account.getIdUser(), titles);
+                sd.saveLikedDishes(account.getIdUser(), activeDish.getTitle());
             }
         });
 
@@ -473,7 +473,7 @@ public class AppController {
         });
 
         likeFieldForLikedDish.setOnMouseClicked(event -> {
-            String title = likeDishTitle.getText();
+          /*  String title = likeDishTitle.getText();
             if (sd.getLikedDishes().indexOf(title) != -1) {
                 likeFieldForLikedDish.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
                 sd.getLikedDishes().remove(title);
@@ -486,7 +486,7 @@ public class AppController {
                 Account account = new Account();
                 sd.saveLikedDishes(account.getIdUser(), title);
                 sd.reloadLikedDishes();
-            }
+            }*/
         });
 
         likeBackToCategoryButton.setOnAction(event -> {
@@ -997,6 +997,7 @@ public class AppController {
             }
         }
         if (dish != null) {
+            activeDish = dish;
             dishTitle.setText(dish.getTitle());
             dishImage.setImage(new Image(new File(Settings.getImageDir() + dish.getPhoto()).toURI().toString()));
             dishDescription.setText(dish.getDescription());
@@ -1040,7 +1041,7 @@ public class AppController {
 
             groceryTableView.setVisible(true);
 
-            if (sd.getLikedDishes() != null && sd.getLikedDishes().indexOf(dish.getTitle()) != -1) {
+            if (sd.getLike() != null && sd.getLike().indexOf(dish) != -1) {
                 likeField.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
             } else {
                 likeField.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
@@ -1393,6 +1394,7 @@ public class AppController {
             }
         }
         if (dish != null) {
+            activeDish = dish;
             likeDishTitle.setText(dish.getTitle());
             likeDishImage.setImage(new Image(new File(Settings.getImageDir() + dish.getPhoto()).toURI().toString()));
             likeDishDescription.setText(dish.getDescription());
@@ -1429,7 +1431,7 @@ public class AppController {
 
             likeGroceryTableView.setVisible(true);
 
-            if (sd.getLikedDishes() != null && sd.getLikedDishes().indexOf(dish.getTitle()) != -1) {
+            if (sd.getLike() != null && sd.getLike().indexOf(dish) != -1) {
                 likeFieldForLikedDish.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
             } else {
                 likeFieldForLikedDish.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));

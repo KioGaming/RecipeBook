@@ -8,9 +8,6 @@ import java.util.List;
 
 public final class SaveData {
 
-    private static List<Dish> dishes;
-    private static List<String> likedDishes;
-    private static List<Dish> like = new ArrayList<>();
     private static ShoppingList shoppingList;
     private static List<Dish> c1 = new ArrayList<>();
     private static List<Dish> c2 = new ArrayList<>();
@@ -19,9 +16,11 @@ public final class SaveData {
     private static List<Dish> c5 = new ArrayList<>();
     private static List<Dish> c6 = new ArrayList<>();
     private static List<Dish> c7 = new ArrayList<>();
+    private static List<Dish> dishes;
     private int counter = 0;
     private int lastCounterChange = 5;
     private List<Playlist> playlists;
+    private static List<Dish> like = new ArrayList<>();
     private int likeLastCounterChange = 15;
     private int likeCounter = 0;
 
@@ -47,19 +46,6 @@ public final class SaveData {
                 c7.add(dishes.get(i));
             }
         }
-        loadLike();
-    }
-
-    public void loadLike() {
-        like.clear();
-        for (int i = 0; i < likedDishes.size(); i++) {
-            for (int j = 0; j < dishes.size(); j++) {
-                if (likedDishes.get(i).equals(dishes.get(j).getTitle())) {
-                    like.add(dishes.get(j));
-                    break;
-                }
-            }
-        }
     }
 
     public void saveLikedDishes(int iduser, String title) {
@@ -74,14 +60,6 @@ public final class SaveData {
         SaveData.dishes = dishes;
     }
 
-    public List<String> getLikedDishes() {
-        return likedDishes;
-    }
-
-    public void setLikedDishes(List<String> likedDishes) {
-        SaveData.likedDishes = likedDishes;
-    }
-
     public ShoppingList getShoppingList() {
         return shoppingList;
     }
@@ -92,7 +70,7 @@ public final class SaveData {
 
     @Override
     public String toString() {
-        return dishes.toString()  + "\n" + likedDishes.toString() + "\n" + shoppingList.toString() + "\n";
+        return dishes.toString() + "\n" + like.toString() + "\n" + shoppingList.toString() + "\n";
     }
 
     public int getCounter() {
@@ -181,7 +159,6 @@ public final class SaveData {
 
     public void removeLikedDishes(int idUser, String title) {
         SaveLoad.removeLikedDishes(this, idUser, title);
-        reloadLikedDishes();
     }
 
     public int getLikeCounter() {
@@ -200,7 +177,20 @@ public final class SaveData {
         this.likeLastCounterChange = likeLastCounterChange;
     }
 
-    public void reloadLikedDishes() {
-        loadLike();
+    public void reloadLikedDishes(String title) {
+        for (int i = 0; i < dishes.size(); i++) {
+            if (dishes.get(i).getTitle() == title) {
+                like.add(dishes.get(i));
+                break;
+            }
+        }
+    }
+
+    public List<Playlist> getPlaylists() {
+        return playlists;
+    }
+
+    public void setPlaylists(List<Playlist> playlists) {
+        this.playlists = playlists;
     }
 }

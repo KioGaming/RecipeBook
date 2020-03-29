@@ -121,10 +121,15 @@ public class DatabaseHandler extends Configs {
     public ResultSet getLikedDishes(int iduser) {
         ResultSet resSet = null;
 
-        String select = "SELECT * FROM " + Settings.LIKED_DISHES_TABLE + " WHERE " + Settings.USER_ID + " = " + iduser;
+        String select = "SELECT " + Settings.DISH_TITLE + ", " + Settings.DISH_PHOTO + ", " + Settings.DISH_DESCRIPTION + ", "
+                + Settings.DISH_RECIPE + ", " + Settings.DISH_GROCERYLIST + ", " + Settings.DISH_COUNTLIST + ", " + Settings.DISH_UNITSOFMEASUREMENTLIST
+                + ", " + Settings.DISH_NUMBER_OF_LIKES + ", " + Settings.DISH_CATEGORY + ", " + Settings.PLAYLISTS_NAME + " FROM "
+                + Settings.DISH_TABLE + "d JOIN " + Settings.LIKED_DISHES_TABLE + " ld ON d." + Settings.DISH_ID + " = ld." + Settings.LIKED_DISHES_DISH_ID
+                + " WHERE " + Settings.LIKED_DISHES_USER_ID + " = ?";
 
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(select);
+            prSt.setInt(1, iduser);
             resSet = prSt.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -184,7 +189,7 @@ public class DatabaseHandler extends Configs {
         return last_id;
     }
 
-   /* public void setLikedDishes(int iduser, String title) {
+    /*public void setLikedDishes(int iduser, String title) {
         String insert = "INSERT INTO " + Settings.LIKED_DISHES_TABLE + "(" + Settings.USER_ID + "," + Settings.LIKED_DISHES_DISHTITLE + ")"
                 + "VALUES(?,?)";
         try {
@@ -197,9 +202,9 @@ public class DatabaseHandler extends Configs {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-    }*/
+    }
 
-    /*public void removeLikedDishes(int idUser, String title) {
+    public void removeLikedDishes(int idUser, String title) {
         String delete = "DELETE FROM " + Settings.LIKED_DISHES_TABLE + " WHERE " + Settings.USER_ID + " = " + idUser + " AND "
                 + Settings.LIKED_DISHES_DISHTITLE + " = " + "'" + title + "'";
         try {
@@ -242,7 +247,7 @@ public class DatabaseHandler extends Configs {
         }
     }
 
-    public List<Playlist> getPlaylists(int iduser) {
+    public ResultSet getPlaylists(int iduser) {
         List<Playlist> list = new ArrayList<>();
         ResultSet resultSet = null;
         String select = "SELECT " + Settings.DISH_TITLE + ", " + Settings.DISH_PHOTO + ", " + Settings.DISH_DESCRIPTION + ", "
@@ -261,15 +266,6 @@ public class DatabaseHandler extends Configs {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        if (resultSet != null) {
-            try {
-                while (resultSet.next()) {
-                    //заполнить листи
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return list;
+        return resultSet;
     }
 }

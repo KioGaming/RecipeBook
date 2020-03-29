@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class SaveLoad {
 
@@ -45,26 +46,117 @@ public class SaveLoad {
                 dishes.add(dish);
             }
             sd.setDishes(dishes);
-        } catch (SQLException e) { e.printStackTrace(); } catch (ModelException e) {
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ModelException e) {
             e.printStackTrace();
         }
-        ArrayList<String> likedDishes = new ArrayList<>();
-        ResultSet resSet = databaseHandler.getLikedDishes(iduser);
+       /* ArrayList<Playlist> playlists = new ArrayList<>();
+        resultSet = databaseHandler.getPlaylists(iduser);
         try {
-            while (resSet.next()) {
-                String title = resSet.getString(Settings.LIKED_DISHES_DISHTITLE);
-                likedDishes.add(title);
+            while (resultSet.next()) {
+                String title = resultSet.getString(Settings.DISH_TITLE);
+
+                String photo = resultSet.getString(Settings.DISH_PHOTO);
+
+                String description = resultSet.getString(Settings.DISH_DESCRIPTION);
+
+                String category = resultSet.getString(Settings.DISH_CATEGORY);
+
+                ArrayList<String> recipe = new ArrayList<>();
+                Collections.addAll(recipe, resultSet.getString(Settings.DISH_RECIPE).split("/"));
+
+                ArrayList<String> groceryList = new ArrayList<>();
+                Collections.addAll(groceryList, resultSet.getString(Settings.DISH_GROCERYLIST).split("/"));
+
+                ArrayList<String> countList = new ArrayList<>();
+                Collections.addAll(countList, resultSet.getString(Settings.DISH_COUNTLIST).split("/"));
+
+                ArrayList<String> unitsOfMeasurementList = new ArrayList<>();
+                Collections.addAll(unitsOfMeasurementList, resultSet.getString(Settings.DISH_UNITSOFMEASUREMENTLIST).split("/"));
+
+                int numberOfLikes = Integer.parseInt(resultSet.getString(Settings.DISH_NUMBER_OF_LIKES));
+
+                String name = resultSet.getString(Settings.PLAYLISTS_NAME);
+
+                Dish dish = new Dish(title, photo, description, category, recipe, groceryList, countList, unitsOfMeasurementList, numberOfLikes);
+
+                boolean b = false;
+                for (int i = 0; i < playlists.size(); i++) {
+                    if(playlists.get(i).getTitle() == name){
+                        b = true;
+                        playlists.get(i).getDishes().add(dish);
+                    }
+                }
+                if(b == false){
+                    List<Dish> list = new ArrayList<>();
+                    list.add(dish);
+                    playlists.add(new Playlist(name, list));
+                }
+                b = false;
             }
-            sd.setLikedDishes(likedDishes);
+            sd.setPlaylists(playlists);
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ModelException e) {
+            e.printStackTrace();
+        }*/
+        ArrayList<Playlist> playlists = new ArrayList<>();
+        resultSet = databaseHandler.getPlaylists(iduser);
+        try {
+            while (resultSet.next()) {
+                String title = resultSet.getString(Settings.DISH_TITLE);
+
+                String photo = resultSet.getString(Settings.DISH_PHOTO);
+
+                String description = resultSet.getString(Settings.DISH_DESCRIPTION);
+
+                String category = resultSet.getString(Settings.DISH_CATEGORY);
+
+                ArrayList<String> recipe = new ArrayList<>();
+                Collections.addAll(recipe, resultSet.getString(Settings.DISH_RECIPE).split("/"));
+
+                ArrayList<String> groceryList = new ArrayList<>();
+                Collections.addAll(groceryList, resultSet.getString(Settings.DISH_GROCERYLIST).split("/"));
+
+                ArrayList<String> countList = new ArrayList<>();
+                Collections.addAll(countList, resultSet.getString(Settings.DISH_COUNTLIST).split("/"));
+
+                ArrayList<String> unitsOfMeasurementList = new ArrayList<>();
+                Collections.addAll(unitsOfMeasurementList, resultSet.getString(Settings.DISH_UNITSOFMEASUREMENTLIST).split("/"));
+
+                int numberOfLikes = Integer.parseInt(resultSet.getString(Settings.DISH_NUMBER_OF_LIKES));
+
+                String name = resultSet.getString(Settings.PLAYLISTS_NAME);
+
+                Dish dish = new Dish(title, photo, description, category, recipe, groceryList, countList, unitsOfMeasurementList, numberOfLikes);
+
+                boolean b = false;
+                for (int i = 0; i < playlists.size(); i++) {
+                    if (playlists.get(i).getTitle() == name) {
+                        b = true;
+                        playlists.get(i).getDishes().add(dish);
+                    }
+                }
+                if (b == false) {
+                    List<Dish> list = new ArrayList<>();
+                    list.add(dish);
+                    playlists.add(new Playlist(name, list));
+                }
+                b = false;
+            }
+            sd.setPlaylists(playlists);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ModelException e) {
             e.printStackTrace();
         }
         sd.setShoppingList(new ShoppingList());
     }
 
     public static void saveLikedDishes(SaveData sd, int iduser, String title) {
-        DatabaseHandler databaseHandler = new DatabaseHandler();
-        databaseHandler.setLikedDishes(iduser, title);
+      /*  DatabaseHandler databaseHandler = new DatabaseHandler();
+        databaseHandler.setLikedDishes(iduser, title);*/
     }
 
     public static boolean saveRecipe(Dish recipe){
@@ -84,7 +176,7 @@ public class SaveLoad {
     }
 
     public static void removeLikedDishes(SaveData saveData, int idUser, String title) {
-        DatabaseHandler databaseHandler = new DatabaseHandler();
-        databaseHandler.removeLikedDishes(idUser, title);
+       /* DatabaseHandler databaseHandler = new DatabaseHandler();
+        databaseHandler.removeLikedDishes(idUser, title);*/
     }
 }
