@@ -1,9 +1,13 @@
 package login;
 
+import saveload.Playlist;
 import settings.Settings;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
+
+import static settings.Settings.DISH_PHOTO;
 
 public class DatabaseHandler extends Configs {
 
@@ -132,7 +136,7 @@ public class DatabaseHandler extends Configs {
 
     public void setRecipe(String title, String photo, String description, ArrayList<String> recipe, ArrayList<String> groceryList,
                           ArrayList<String> countList, ArrayList<String> unitsOfMeasurementList, int numberOfLikes) {
-        String insert = "INSERT INTO " + Settings.DISH_TABLE + "(" + Settings.DISH_TITLE + "," + Settings.DISH_PHOTO + ","
+        String insert = "INSERT INTO " + Settings.DISH_TABLE + "(" + Settings.DISH_TITLE + "," + DISH_PHOTO + ","
                 + Settings.DISH_DESCRIPTION + "," + Settings.DISH_RECIPE + "," + Settings.DISH_GROCERYLIST + ","
                 + Settings.DISH_COUNTLIST + "," + Settings.DISH_UNITSOFMEASUREMENTLIST + "," + Settings.DISH_NUMBER_OF_LIKES
                 + ")" + "VALUES(?,?,?,?,?,?,?,?)";
@@ -180,7 +184,7 @@ public class DatabaseHandler extends Configs {
         return last_id;
     }
 
-    public void setLikedDishes(int iduser, String title) {
+   /* public void setLikedDishes(int iduser, String title) {
         String insert = "INSERT INTO " + Settings.LIKED_DISHES_TABLE + "(" + Settings.USER_ID + "," + Settings.LIKED_DISHES_DISHTITLE + ")"
                 + "VALUES(?,?)";
         try {
@@ -193,9 +197,9 @@ public class DatabaseHandler extends Configs {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
-    public void removeLikedDishes(int idUser, String title) {
+    /*public void removeLikedDishes(int idUser, String title) {
         String delete = "DELETE FROM " + Settings.LIKED_DISHES_TABLE + " WHERE " + Settings.USER_ID + " = " + idUser + " AND "
                 + Settings.LIKED_DISHES_DISHTITLE + " = " + "'" + title + "'";
         try {
@@ -206,7 +210,7 @@ public class DatabaseHandler extends Configs {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     public void changeMail(String oldMail, String newMail) {
         String update = "UPDATE " + Settings.USER_TABLE + " SET " + Settings.USER_MAIL + " = ? WHERE " + Settings.USER_MAIL + " = ?";
@@ -236,5 +240,36 @@ public class DatabaseHandler extends Configs {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Playlist> getPlaylists(int iduser) {
+        List<Playlist> list = new ArrayList<>();
+        ResultSet resultSet = null;
+        String select = "SELECT " + Settings.DISH_TITLE + ", " + Settings.DISH_PHOTO + ", " + Settings.DISH_DESCRIPTION + ", "
+                + Settings.DISH_RECIPE + ", " + Settings.DISH_GROCERYLIST + ", " + Settings.DISH_COUNTLIST + ", " + Settings.DISH_UNITSOFMEASUREMENTLIST
+                + ", " + Settings.DISH_NUMBER_OF_LIKES + ", " + Settings.DISH_CATEGORY + ", " + Settings.PLAYLISTS_NAME + " FROM "
+                + Settings.USER_PLAYLISTS_TABLE + " up JOIN " + Settings.PLAYLISTS_DISH_TABLE + " pd ON up." + Settings.USER_PLAYLISTS_IDPLAYLIST
+                + " = pd." + Settings.PLAYLISTS_DISH_ID + " JOIN " + Settings.DISH_TABLE + " d ON pd." + Settings.PLAYLISTS_DISH_ID + " = "
+                + " d." + Settings.DISH_ID + " JOIN " + Settings.PLAYLISTS_TABLE + " p ON up." + Settings.USER_PLAYLISTS_IDPLAYLIST
+                + " = p." + Settings.PLAYLISTS_ID + " where " + Settings.USER_PLAYLISTS_IDUSER + " = ?";
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(select);
+            prSt.setInt(1, iduser);
+            resultSet = prSt.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (resultSet != null) {
+            try {
+                while (resultSet.next()) {
+                    //заполнить листи
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return list;
     }
 }
