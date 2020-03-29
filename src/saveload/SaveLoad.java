@@ -20,6 +20,8 @@ public class SaveLoad {
         ResultSet resultSet = databaseHandler.getRecipe();
         try {
             while (resultSet.next()) {
+                int id = resultSet.getInt(Settings.DISH_ID);
+
                 String title = resultSet.getString(Settings.DISH_TITLE);
 
                 String photo = resultSet.getString(Settings.DISH_PHOTO);
@@ -42,7 +44,7 @@ public class SaveLoad {
 
                 int numberOfLikes = Integer.parseInt(resultSet.getString(Settings.DISH_NUMBER_OF_LIKES));
 
-                Dish dish = new Dish(title, photo, description, category, recipe, groceryList, countList, unitsOfMeasurementList, numberOfLikes);
+                Dish dish = new Dish(id, title, photo, description, category, recipe, groceryList, countList, unitsOfMeasurementList, numberOfLikes);
                 dishes.add(dish);
             }
             sd.setDishes(dishes);
@@ -51,10 +53,12 @@ public class SaveLoad {
         } catch (ModelException e) {
             e.printStackTrace();
         }
-       /* ArrayList<Playlist> playlists = new ArrayList<>();
-        resultSet = databaseHandler.getPlaylists(iduser);
+        ArrayList<Dish> like = new ArrayList<>();
+        resultSet = databaseHandler.getLikedDishes(iduser);
         try {
             while (resultSet.next()) {
+                int id = resultSet.getInt(Settings.DISH_ID);
+
                 String title = resultSet.getString(Settings.DISH_TITLE);
 
                 String photo = resultSet.getString(Settings.DISH_PHOTO);
@@ -77,34 +81,21 @@ public class SaveLoad {
 
                 int numberOfLikes = Integer.parseInt(resultSet.getString(Settings.DISH_NUMBER_OF_LIKES));
 
-                String name = resultSet.getString(Settings.PLAYLISTS_NAME);
-
-                Dish dish = new Dish(title, photo, description, category, recipe, groceryList, countList, unitsOfMeasurementList, numberOfLikes);
-
-                boolean b = false;
-                for (int i = 0; i < playlists.size(); i++) {
-                    if(playlists.get(i).getTitle() == name){
-                        b = true;
-                        playlists.get(i).getDishes().add(dish);
-                    }
-                }
-                if(b == false){
-                    List<Dish> list = new ArrayList<>();
-                    list.add(dish);
-                    playlists.add(new Playlist(name, list));
-                }
-                b = false;
+                Dish dish = new Dish(id, title, photo, description, category, recipe, groceryList, countList, unitsOfMeasurementList, numberOfLikes);
+                like.add(dish);
             }
-            sd.setPlaylists(playlists);
+            sd.setLike(like);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ModelException e) {
             e.printStackTrace();
-        }*/
+        }
         ArrayList<Playlist> playlists = new ArrayList<>();
         resultSet = databaseHandler.getPlaylists(iduser);
         try {
             while (resultSet.next()) {
+                int id = resultSet.getInt(Settings.DISH_ID);
+
                 String title = resultSet.getString(Settings.DISH_TITLE);
 
                 String photo = resultSet.getString(Settings.DISH_PHOTO);
@@ -129,7 +120,7 @@ public class SaveLoad {
 
                 String name = resultSet.getString(Settings.PLAYLISTS_NAME);
 
-                Dish dish = new Dish(title, photo, description, category, recipe, groceryList, countList, unitsOfMeasurementList, numberOfLikes);
+                Dish dish = new Dish(id, title, photo, description, category, recipe, groceryList, countList, unitsOfMeasurementList, numberOfLikes);
 
                 boolean b = false;
                 for (int i = 0; i < playlists.size(); i++) {
@@ -154,16 +145,16 @@ public class SaveLoad {
         sd.setShoppingList(new ShoppingList());
     }
 
-    public static void saveLikedDishes(SaveData sd, int iduser, String title) {
-      /*  DatabaseHandler databaseHandler = new DatabaseHandler();
-        databaseHandler.setLikedDishes(iduser, title);*/
+    public static void saveLikedDishes(int iduser, int iddish) {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        databaseHandler.addLikedDishes(iduser, iddish);
     }
 
-    public static boolean saveRecipe(Dish recipe){
+    public static boolean saveRecipe(Dish recipe) {
         boolean b = true;
         DatabaseHandler databaseHandler = new DatabaseHandler();
         databaseHandler.setRecipe(recipe.getTitle(), recipe.getPhoto(), recipe.getDescription(), recipe.getRecipe(), recipe.getGroceryList(),
-                                  recipe.getCountList(), recipe.getUnitsOfMeasurementList(), recipe.getNumberOfLikes());
+                recipe.getCountList(), recipe.getUnitsOfMeasurementList(), recipe.getNumberOfLikes());
         return b;
     }
 
@@ -175,7 +166,7 @@ public class SaveLoad {
         return doubleArrayList;
     }
 
-    public static void removeLikedDishes(SaveData saveData, int idUser, String title) {
+    public static void removeLikedDishes(int idUser, int iddish) {
        /* DatabaseHandler databaseHandler = new DatabaseHandler();
         databaseHandler.removeLikedDishes(idUser, title);*/
     }

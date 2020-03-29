@@ -29,4 +29,12 @@ public class Playlist {
     public void setDishes(List<Dish> dishes) {
         this.dishes = dishes;
     }
+
+    @Override
+    public String toString() {
+        return "Playlist{" +
+                "title='" + title + '\'' +
+                ", dishes=" + dishes +
+                '}';
+    }
 }

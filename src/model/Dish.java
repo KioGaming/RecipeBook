@@ -3,9 +3,11 @@ package model;
 import exception.ModelException;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Dish {
 
+    private int id;
     private String title;
     private String photo;
     private String description;
@@ -18,7 +20,7 @@ public class Dish {
 
     public Dish(){}
 
-    public Dish(String title, String photo, String description, String category, ArrayList<String> recipe, ArrayList<String> groceryList,
+    public Dish(int id, String title, String photo, String description, String category, ArrayList<String> recipe, ArrayList<String> groceryList,
                 ArrayList<String> countList, ArrayList<String> unitsOfMeasurementList, int numberOfLikes) throws ModelException {
         if (title.length() == 0) {
             throw new ModelException(ModelException.PROGRAM_ERROR);
@@ -124,5 +126,34 @@ public class Dish {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Dish)) return false;
+        Dish dish = (Dish) o;
+        return getNumberOfLikes() == dish.getNumberOfLikes() &&
+                getTitle().equals(dish.getTitle()) &&
+                getPhoto().equals(dish.getPhoto()) &&
+                getDescription().equals(dish.getDescription()) &&
+                getCategory().equals(dish.getCategory()) &&
+                getRecipe().equals(dish.getRecipe()) &&
+                getGroceryList().equals(dish.getGroceryList()) &&
+                getCountList().equals(dish.getCountList()) &&
+                getUnitsOfMeasurementList().equals(dish.getUnitsOfMeasurementList());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getTitle(), getPhoto(), getDescription(), getCategory(), getRecipe(), getGroceryList(), getCountList(), getUnitsOfMeasurementList(), getNumberOfLikes());
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

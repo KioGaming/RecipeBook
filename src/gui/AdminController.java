@@ -101,7 +101,7 @@ public class AdminController {
                 try
                 {
                     SaveLoad saveLoad = new SaveLoad();
-                    SaveLoad.saveRecipe(new Dish(title, photo, description, category, r, gl, cl, ul, 0));
+                    SaveLoad.saveRecipe(new Dish(0, title, photo, description, category, r, gl, cl, ul, 0));
                 } catch (ModelException e)
                 {
                     e.printStackTrace();

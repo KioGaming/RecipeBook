@@ -381,13 +381,12 @@ public class AppController {
                 likeField.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
                 sd.getLike().remove(activeDish);
                 Account account = new Account();
-                sd.removeLikedDishes(account.getIdUser(), activeDish.getTitle());
+                sd.removeLikedDishes(account.getIdUser(), activeDish.getId());
             } else {
                 likeField.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
                 sd.getLike().add(activeDish);
-                sd.reloadLikedDishes(activeDish.getTitle());
                 Account account = new Account();
-                sd.saveLikedDishes(account.getIdUser(), activeDish.getTitle());
+                sd.saveLikedDishes(account.getIdUser(), activeDish.getId());
             }
         });
 

@@ -121,12 +121,12 @@ public class DatabaseHandler extends Configs {
     public ResultSet getLikedDishes(int iduser) {
         ResultSet resSet = null;
 
-        String select = "SELECT " + Settings.DISH_TITLE + ", " + Settings.DISH_PHOTO + ", " + Settings.DISH_DESCRIPTION + ", "
-                + Settings.DISH_RECIPE + ", " + Settings.DISH_GROCERYLIST + ", " + Settings.DISH_COUNTLIST + ", " + Settings.DISH_UNITSOFMEASUREMENTLIST
-                + ", " + Settings.DISH_NUMBER_OF_LIKES + ", " + Settings.DISH_CATEGORY + ", " + Settings.PLAYLISTS_NAME + " FROM "
-                + Settings.DISH_TABLE + "d JOIN " + Settings.LIKED_DISHES_TABLE + " ld ON d." + Settings.DISH_ID + " = ld." + Settings.LIKED_DISHES_DISH_ID
+        String select = "SELECT d." + Settings.DISH_ID + ", " + Settings.DISH_TITLE + ", " + Settings.DISH_PHOTO + ", " + Settings.DISH_DESCRIPTION
+                + ", " + Settings.DISH_RECIPE + ", " + Settings.DISH_GROCERYLIST + ", " + Settings.DISH_COUNTLIST + ", " + Settings.DISH_UNITSOFMEASUREMENTLIST
+                + ", " + Settings.DISH_NUMBER_OF_LIKES + ", " + Settings.DISH_CATEGORY + " FROM "
+                + Settings.DISH_TABLE + " d JOIN " + Settings.LIKED_DISHES_TABLE + " ld ON d." + Settings.DISH_ID + " = ld." + Settings.LIKED_DISHES_DISH_ID
                 + " WHERE " + Settings.LIKED_DISHES_USER_ID + " = ?";
-
+        System.out.println(select);
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(select);
             prSt.setInt(1, iduser);
@@ -189,13 +189,13 @@ public class DatabaseHandler extends Configs {
         return last_id;
     }
 
-    /*public void setLikedDishes(int iduser, String title) {
-        String insert = "INSERT INTO " + Settings.LIKED_DISHES_TABLE + "(" + Settings.USER_ID + "," + Settings.LIKED_DISHES_DISHTITLE + ")"
+    public void addLikedDishes(int iduser, int iddish) {
+        String insert = "INSERT INTO " + Settings.LIKED_DISHES_TABLE + "(" + Settings.LIKED_DISHES_USER_ID + "," + Settings.LIKED_DISHES_DISH_ID + ")"
                 + "VALUES(?,?)";
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
             prSt.setInt(1, iduser);
-            prSt.setString(2, title);
+            prSt.setInt(2, iddish);
             prSt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -204,18 +204,20 @@ public class DatabaseHandler extends Configs {
         }
     }
 
-    public void removeLikedDishes(int idUser, String title) {
-        String delete = "DELETE FROM " + Settings.LIKED_DISHES_TABLE + " WHERE " + Settings.USER_ID + " = " + idUser + " AND "
-                + Settings.LIKED_DISHES_DISHTITLE + " = " + "'" + title + "'";
+    public void removeLikedDishes(int idUser, int iddish) {
+        String delete = "DELETE FROM " + Settings.LIKED_DISHES_TABLE + " WHERE " + Settings.USER_ID + " = ? AND "
+                + Settings.LIKED_DISHES_DISH_ID + " = ?";
         try {
-            Statement statement = getDbConnection().createStatement();
+            PreparedStatement statement = getDbConnection().prepareStatement(delete);
+            statement.setInt(1, idUser);
+            statement.setInt(1, iddish);
             statement.executeUpdate(delete);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-    }*/
+    }
 
     public void changeMail(String oldMail, String newMail) {
         String update = "UPDATE " + Settings.USER_TABLE + " SET " + Settings.USER_MAIL + " = ? WHERE " + Settings.USER_MAIL + " = ?";
@@ -250,7 +252,7 @@ public class DatabaseHandler extends Configs {
     public ResultSet getPlaylists(int iduser) {
         List<Playlist> list = new ArrayList<>();
         ResultSet resultSet = null;
-        String select = "SELECT " + Settings.DISH_TITLE + ", " + Settings.DISH_PHOTO + ", " + Settings.DISH_DESCRIPTION + ", "
+        String select = "SELECT " + Settings.DISH_ID + ", " + Settings.DISH_TITLE + ", " + Settings.DISH_PHOTO + ", " + Settings.DISH_DESCRIPTION + ", "
                 + Settings.DISH_RECIPE + ", " + Settings.DISH_GROCERYLIST + ", " + Settings.DISH_COUNTLIST + ", " + Settings.DISH_UNITSOFMEASUREMENTLIST
                 + ", " + Settings.DISH_NUMBER_OF_LIKES + ", " + Settings.DISH_CATEGORY + ", " + Settings.PLAYLISTS_NAME + " FROM "
                 + Settings.USER_PLAYLISTS_TABLE + " up JOIN " + Settings.PLAYLISTS_DISH_TABLE + " pd ON up." + Settings.USER_PLAYLISTS_IDPLAYLIST

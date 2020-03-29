@@ -46,10 +46,12 @@ public final class SaveData {
                 c7.add(dishes.get(i));
             }
         }
+        System.out.println(like);
+        System.out.println(playlists);
     }
 
-    public void saveLikedDishes(int iduser, String title) {
-        SaveLoad.saveLikedDishes(this, iduser, title);
+    public void saveLikedDishes(int iduser, int iddish) {
+        SaveLoad.saveLikedDishes(iduser, iddish);
     }
 
     public List<Dish> getDishes() {
@@ -157,8 +159,8 @@ public final class SaveData {
         SaveData.like = like;
     }
 
-    public void removeLikedDishes(int idUser, String title) {
-        SaveLoad.removeLikedDishes(this, idUser, title);
+    public void removeLikedDishes(int idUser, int iddish) {
+        SaveLoad.removeLikedDishes(idUser, iddish);
     }
 
     public int getLikeCounter() {
@@ -175,15 +177,6 @@ public final class SaveData {
 
     public void setLikeLastCounterChange(int likeLastCounterChange) {
         this.likeLastCounterChange = likeLastCounterChange;
-    }
-
-    public void reloadLikedDishes(String title) {
-        for (int i = 0; i < dishes.size(); i++) {
-            if (dishes.get(i).getTitle() == title) {
-                like.add(dishes.get(i));
-                break;
-            }
-        }
     }
 
     public List<Playlist> getPlaylists() {
