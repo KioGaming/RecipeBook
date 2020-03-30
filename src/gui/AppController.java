@@ -312,6 +312,27 @@ public class AppController {
     @FXML
     private ImageView addInFavouriteButton;
 
+    @FXML
+    private Button likePlaylistButton;
+
+    @FXML
+    private Button playlistButton1;
+
+    @FXML
+    private Button playlistButton2;
+
+    @FXML
+    private Button playlistButton3;
+
+    @FXML
+    private Button playlistButton4;
+
+    @FXML
+    private Button playlistButton5;
+
+    @FXML
+    private AnchorPane playlistsPane;
+
     Dish activeDish;
 
     @FXML
@@ -395,7 +416,6 @@ public class AppController {
         addInFavouriteButton.setImage(new Image(new File(Settings.getImageDir() + "addInFavourite.png").toURI().toString()));
         addInFavouriteButton.setOnMouseClicked(mouseEvent -> {
             List<String> choices = new ArrayList<>();
-            System.out.println(sd.getPlaylists());
             if (sd.getPlaylists().size() != 0) {
                 for (int i = 0; i < sd.getPlaylists().size(); i++) {
                     choices.add(sd.getPlaylists().get(i).getTitle());
@@ -404,7 +424,10 @@ public class AppController {
                 choices.add("Добавте список відтворення на вкладці бібліотека");
             }
             ChoiceDialog<String> dialog = new ChoiceDialog<>("Виберіть список відтворення", choices);
+            dialog.setTitle("Добавлення блюда в список відтворення");
+            dialog.setHeaderText(null);
             dialog.initStyle(StageStyle.UTILITY);
+            dialog.setResizable(false);
             Optional<String> result = dialog.showAndWait();
             result.ifPresent(letter -> {
                 if (letter != "Виберіть список відтворення" && letter != "Добавте список відтворення на вкладці бібліотека") {
@@ -414,7 +437,6 @@ public class AppController {
                         }
                     }
                 }
-                System.out.println("Your choice: " + letter);
             });
         });
 
@@ -423,11 +445,57 @@ public class AppController {
          * */
         scrollPane4.setVisible(false);
         backLikeButton.setDisable(true);
-
+        playlistsPane.setVisible(true);
         libraryTab.setOnSelectionChanged(event -> {
-            sd.setLikeLastCounterChange(15);
-            sd.setLikeCounter(0);
-            likeNext(sd);
+            int i = 0;
+            if (sd.getPlaylists().size() > i) {
+                playlistButton1.setText(sd.getPlaylists().get(i).getTitle());
+                i++;
+            } else {
+                playlistButton1.setVisible(false);
+            }
+            if (sd.getPlaylists().size() > i) {
+                playlistButton2.setText(sd.getPlaylists().get(i).getTitle());
+                i++;
+            } else {
+                playlistButton2.setVisible(false);
+            }
+            if (sd.getPlaylists().size() > i) {
+                playlistButton3.setText(sd.getPlaylists().get(i).getTitle());
+                i++;
+            } else {
+                playlistButton3.setVisible(false);
+            }
+            if (sd.getPlaylists().size() > i) {
+                playlistButton4.setText(sd.getPlaylists().get(i).getTitle());
+                i++;
+            } else {
+                playlistButton4.setVisible(false);
+            }
+            if (sd.getPlaylists().size() > i) {
+                playlistButton5.setText(sd.getPlaylists().get(i).getTitle());
+                i++;
+            } else {
+                playlistButton5.setVisible(false);
+            }
+        });
+        likePlaylistButton.setOnAction(actionEvent -> {
+
+        });
+        playlistButton1.setOnAction(actionEvent -> {
+
+        });
+        playlistButton2.setOnAction(actionEvent -> {
+
+        });
+        playlistButton3.setOnAction(actionEvent -> {
+
+        });
+        playlistButton4.setOnAction(actionEvent -> {
+
+        });
+        playlistButton5.setOnAction(actionEvent -> {
+
         });
         backLikeButton.setOnAction(event -> {
             likeBack(sd);

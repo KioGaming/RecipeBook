@@ -19,7 +19,7 @@ public final class SaveData {
     private static List<Dish> dishes;
     private int counter = 0;
     private int lastCounterChange = 5;
-    private List<Playlist> playlists = new ArrayList<>();
+    private static List<Playlist> playlists = new ArrayList<>();
     private static List<Dish> like = new ArrayList<>();
     private int likeLastCounterChange = 15;
     private int likeCounter = 0;
@@ -184,12 +184,10 @@ public final class SaveData {
     }
 
     public List<Playlist> getPlaylists() {
-        System.out.println(playlists);
         return playlists;
     }
 
     public void setPlaylists(List<Playlist> playlists) {
-        this.playlists = playlists;
-        System.out.println(this.playlists);
+        SaveData.playlists = playlists;
     }
 }

@@ -90,7 +90,7 @@ public class SaveLoad {
             e.printStackTrace();
         }
         sd.setLike(like);
-        ArrayList<Playlist> playlists = new ArrayList<>();
+        List<Playlist> playlists = new ArrayList<>();
         resultSet = databaseHandler.getPlaylists(iduser);
         try {
             while (resultSet.next()) {
