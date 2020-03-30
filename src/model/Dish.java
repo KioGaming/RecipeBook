@@ -40,6 +40,7 @@ public class Dish {
         if (unitsOfMeasurementList.size() == 0) {
             throw new ModelException(ModelException.PROGRAM_ERROR);
         }
+        this.id = id;
         this.title = title;
         this.photo = photo;
         this.description = description;

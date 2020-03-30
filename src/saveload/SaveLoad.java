@@ -167,7 +167,7 @@ public class SaveLoad {
     }
 
     public static void removeLikedDishes(int idUser, int iddish) {
-       /* DatabaseHandler databaseHandler = new DatabaseHandler();
-        databaseHandler.removeLikedDishes(idUser, title);*/
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        databaseHandler.removeLikedDishes(idUser, iddish);
     }
 }

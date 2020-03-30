@@ -120,7 +120,6 @@ public class DatabaseHandler extends Configs {
 
     public ResultSet getLikedDishes(int iduser) {
         ResultSet resSet = null;
-
         String select = "SELECT d." + Settings.DISH_ID + ", " + Settings.DISH_TITLE + ", " + Settings.DISH_PHOTO + ", " + Settings.DISH_DESCRIPTION
                 + ", " + Settings.DISH_RECIPE + ", " + Settings.DISH_GROCERYLIST + ", " + Settings.DISH_COUNTLIST + ", " + Settings.DISH_UNITSOFMEASUREMENTLIST
                 + ", " + Settings.DISH_NUMBER_OF_LIKES + ", " + Settings.DISH_CATEGORY + " FROM "
@@ -205,12 +204,10 @@ public class DatabaseHandler extends Configs {
     }
 
     public void removeLikedDishes(int idUser, int iddish) {
-        String delete = "DELETE FROM " + Settings.LIKED_DISHES_TABLE + " WHERE " + Settings.USER_ID + " = ? AND "
-                + Settings.LIKED_DISHES_DISH_ID + " = ?";
+        String delete = "DELETE FROM " + Settings.LIKED_DISHES_TABLE + " WHERE " + Settings.LIKED_DISHES_USER_ID + " = " + idUser + " AND "
+                + Settings.LIKED_DISHES_DISH_ID + " = " + iddish;
         try {
-            PreparedStatement statement = getDbConnection().prepareStatement(delete);
-            statement.setInt(1, idUser);
-            statement.setInt(1, iddish);
+            Statement statement = getDbConnection().createStatement();
             statement.executeUpdate(delete);
         } catch (SQLException e) {
             e.printStackTrace();
