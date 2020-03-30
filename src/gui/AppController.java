@@ -333,7 +333,11 @@ public class AppController {
     @FXML
     private AnchorPane playlistsPane;
 
+    String filters;
+
     Dish activeDish;
+    @FXML
+    private Button backToPlaylistsButton;
 
     @FXML
     void initialize() {
@@ -363,12 +367,18 @@ public class AppController {
             backButton.setLayoutY(850);
             sd.setCounter(0);
             sd.setLastCounterChange(5);
+            frameScrollPane.setMinHeight(959);
+            frameScrollPane.setMaxHeight(959);
+            frameScrollPane.setPrefHeight(959);
             if (filterComboBox.getValue() == null || filterComboBox.getValue() == "Всі страви")
                 next(sd);
             else next(sd, filterComboBox.getValue());
         });
 //добавить появление ImageView
         backButton.setOnAction(actionEvent -> {
+            frameScrollPane.setMinHeight(959);
+            frameScrollPane.setMaxHeight(959);
+            frameScrollPane.setPrefHeight(959);
             nextButton.setDisable(false);
             scrollPane.setFitToHeight(false);
             nextButton.setLayoutY(850);
@@ -444,9 +454,12 @@ public class AppController {
          * Library page
          * */
         scrollPane4.setVisible(false);
+        scrollPane3.setVisible(false);
         backLikeButton.setDisable(true);
         playlistsPane.setVisible(true);
         libraryTab.setOnSelectionChanged(event -> {
+            sd.setLikeLastCounterChange(15);
+            sd.setLikeCounter(0);
             int i = 0;
             if (sd.getPlaylists().size() > i) {
                 playlistButton1.setText(sd.getPlaylists().get(i).getTitle());
@@ -480,28 +493,46 @@ public class AppController {
             }
         });
         likePlaylistButton.setOnAction(actionEvent -> {
-
+            scrollPane4.setVisible(true);
+            playlistsPane.setVisible(false);
+            filters = "like";
+            likeNext(sd, "like");
         });
         playlistButton1.setOnAction(actionEvent -> {
-
+            scrollPane4.setVisible(true);
+            playlistsPane.setVisible(false);
+            filters = "playlist1";
+            likeNext(sd, "playlist1");
         });
         playlistButton2.setOnAction(actionEvent -> {
-
+            scrollPane4.setVisible(true);
+            playlistsPane.setVisible(false);
+            filters = "playlist2";
+            likeNext(sd, "playlist2");
         });
         playlistButton3.setOnAction(actionEvent -> {
-
+            scrollPane4.setVisible(true);
+            playlistsPane.setVisible(false);
+            filters = "playlist3";
+            likeNext(sd, "playlist3");
         });
         playlistButton4.setOnAction(actionEvent -> {
-
+            scrollPane4.setVisible(true);
+            playlistsPane.setVisible(false);
+            filters = "playlist4";
+            likeNext(sd, "playlist4");
         });
         playlistButton5.setOnAction(actionEvent -> {
-
+            scrollPane4.setVisible(true);
+            playlistsPane.setVisible(false);
+            filters = "playlist5";
+            likeNext(sd, "playlist5");
         });
         backLikeButton.setOnAction(event -> {
             likeBack(sd);
         });
         nextLikeButton.setOnAction(event -> {
-            likeNext(sd);
+            likeNext(sd, filters);
         });
 
         title6.setOnAction(event -> {
@@ -566,11 +597,16 @@ public class AppController {
                 sd.reloadLikedDishes();
             }*/
         });
-
+        backToPlaylistsButton.setOnAction(actionEvent -> {
+            sd.setLikeLastCounterChange(15);
+            sd.setLikeCounter(0);
+            scrollPane4.setVisible(false);
+            playlistsPane.setVisible(true);
+        });
         likeBackToCategoryButton.setOnAction(event -> {
             sd.setLikeLastCounterChange(15);
             sd.setLikeCounter(0);
-            likeNext(sd);
+            likeNext(sd, filters);
             scrollPane4.setVisible(false);
             scrollPane3.setVisible(true);
         });
@@ -750,9 +786,17 @@ public class AppController {
                 nextButton.setDisable(true);
             }
             if (nextButton.isDisable() && counter - sd.getCounter() >= 0 && counter - sd.getCounter() < 5) {
-                scrollPane.setFitToHeight(true);
-                nextButton.setLayoutY(580);
-                backButton.setLayoutY(580);
+                if ((counter + 2) % 10 == 0) {
+                    nextButton.setLayoutY(690);
+                    backButton.setLayoutY(690);
+                    frameScrollPane.setMinHeight(750);
+                    frameScrollPane.setMaxHeight(750);
+                    frameScrollPane.setPrefHeight(750);
+                } else {
+                    scrollPane.setFitToHeight(true);
+                    nextButton.setLayoutY(580);
+                    backButton.setLayoutY(580);
+                }
             }
         } else {
             nextButton.setDisable(true);
@@ -775,8 +819,10 @@ public class AppController {
             list = sd.getC5();
         } else if (filter == "Десерти") {
             list = sd.getC6();
-        } else {
+        } else if (filter == "Напої") {
             list = sd.getC7();
+        } else {
+            list = sd.getDishes();
         }
 
         int counter = sd.getCounter();
@@ -859,9 +905,19 @@ public class AppController {
                 nextButton.setDisable(true);
             }
             if (nextButton.isDisable() && counter - sd.getCounter() >= 0 && counter - sd.getCounter() < 5) {
-                scrollPane.setFitToHeight(true);
-                nextButton.setLayoutY(580);
-                backButton.setLayoutY(580);
+                if ((counter + 2) % 10 == 0) {
+                    nextButton.setLayoutY(690);
+                    backButton.setLayoutY(690);
+                    frameScrollPane.setMinHeight(750);
+                    frameScrollPane.setMaxHeight(750);
+                    frameScrollPane.setPrefHeight(750);
+                } else {
+                    frameScrollPane.setMinHeight(700);
+                    frameScrollPane.setMaxHeight(700);
+                    frameScrollPane.setPrefHeight(700);
+                    nextButton.setLayoutY(580);
+                    backButton.setLayoutY(580);
+                }
             }
         } else {
             nextButton.setDisable(true);
@@ -1136,8 +1192,21 @@ public class AppController {
      * Library page
      **/
     //next
-    private void likeNext(SaveData sd) {
-        List<Dish> list = sd.getLike();
+    private void likeNext(SaveData sd, String filter) {
+        List<Dish> list;
+        if (filter == "playlist1") {
+            list = sd.getPlaylists().get(0).getDishes();
+        } else if (filter == "playlist2") {
+            list = sd.getPlaylists().get(1).getDishes();
+        } else if (filter == "playlist3") {
+            list = sd.getPlaylists().get(2).getDishes();
+        } else if (filter == "playlist4") {
+            list = sd.getPlaylists().get(3).getDishes();
+        } else if (filter == "playlist5") {
+            list = sd.getPlaylists().get(4).getDishes();
+        } else {
+            list = sd.getLike();
+        }
 
         int counter = sd.getLikeCounter();
         if (counter == 0) counter = -1;
