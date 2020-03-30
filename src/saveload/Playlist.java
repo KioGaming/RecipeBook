@@ -6,10 +6,12 @@ import java.util.List;
 
 public class Playlist {
 
+    private int id;
     private String title;
     private List<Dish> dishes;
 
-    public Playlist(String title, List<Dish> dishes) {
+    public Playlist(int id, String title, List<Dish> dishes) {
+        this.id = id;
         this.title = title;
         this.dishes = dishes;
     }
@@ -33,8 +35,17 @@ public class Playlist {
     @Override
     public String toString() {
         return "Playlist{" +
-                "title='" + title + '\'' +
+                "id=" + id +
+                ", title='" + title + '\'' +
                 ", dishes=" + dishes +
                 '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

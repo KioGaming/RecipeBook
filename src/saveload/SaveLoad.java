@@ -47,12 +47,12 @@ public class SaveLoad {
                 Dish dish = new Dish(id, title, photo, description, category, recipe, groceryList, countList, unitsOfMeasurementList, numberOfLikes);
                 dishes.add(dish);
             }
-            sd.setDishes(dishes);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ModelException e) {
             e.printStackTrace();
         }
+        sd.setDishes(dishes);
         ArrayList<Dish> like = new ArrayList<>();
         resultSet = databaseHandler.getLikedDishes(iduser);
         try {
@@ -84,17 +84,19 @@ public class SaveLoad {
                 Dish dish = new Dish(id, title, photo, description, category, recipe, groceryList, countList, unitsOfMeasurementList, numberOfLikes);
                 like.add(dish);
             }
-            sd.setLike(like);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ModelException e) {
             e.printStackTrace();
         }
+        sd.setLike(like);
         ArrayList<Playlist> playlists = new ArrayList<>();
         resultSet = databaseHandler.getPlaylists(iduser);
         try {
             while (resultSet.next()) {
-                int id = resultSet.getInt(Settings.DISH_ID);
+                int idDish = resultSet.getInt(Settings.DISH_ID);
+
+                int idPlaylist = resultSet.getInt(Settings.PLAYLISTS_ID);
 
                 String title = resultSet.getString(Settings.DISH_TITLE);
 
@@ -120,7 +122,7 @@ public class SaveLoad {
 
                 String name = resultSet.getString(Settings.PLAYLISTS_NAME);
 
-                Dish dish = new Dish(id, title, photo, description, category, recipe, groceryList, countList, unitsOfMeasurementList, numberOfLikes);
+                Dish dish = new Dish(idDish, title, photo, description, category, recipe, groceryList, countList, unitsOfMeasurementList, numberOfLikes);
 
                 boolean b = false;
                 for (int i = 0; i < playlists.size(); i++) {
@@ -132,16 +134,16 @@ public class SaveLoad {
                 if (b == false) {
                     List<Dish> list = new ArrayList<>();
                     list.add(dish);
-                    playlists.add(new Playlist(name, list));
+                    playlists.add(new Playlist(idPlaylist, name, list));
                 }
                 b = false;
             }
-            sd.setPlaylists(playlists);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ModelException e) {
             e.printStackTrace();
         }
+        sd.setPlaylists(playlists);
         sd.setShoppingList(new ShoppingList());
     }
 
@@ -158,16 +160,28 @@ public class SaveLoad {
         return b;
     }
 
-    public  static ArrayList<Double> strListToDoubleList(String[] stringArrayList){
-        ArrayList<Double> doubleArrayList = new ArrayList<Double>();
-        for (int i = 0; i < stringArrayList.length; i++) {
-            doubleArrayList.add(Double.parseDouble(stringArrayList[i]));
-        }
-        return doubleArrayList;
-    }
-
     public static void removeLikedDishes(int idUser, int iddish) {
         DatabaseHandler databaseHandler = new DatabaseHandler();
         databaseHandler.removeLikedDishes(idUser, iddish);
+    }
+
+    public static void addPlaylist(int idUser, String title) {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        databaseHandler.addPlaylists(idUser, title);
+    }
+
+    public static void removePlaylist(int idPlaylist) {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        databaseHandler.removePlaylists(idPlaylist);
+    }
+
+    public static void addDishInPlaylist(int idPlaylist, int idDish) {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        databaseHandler.addDishInPlaylist(idPlaylist, idDish);
+    }
+
+    public static void removeDishInPlaylist(int idPlaylist, int idDish) {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        databaseHandler.removeDishInPlaylist(idPlaylist, idDish);
     }
 }

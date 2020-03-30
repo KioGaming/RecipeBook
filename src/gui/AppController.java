@@ -19,6 +19,7 @@ import login.Filter;
 import model.Dish;
 import model.Shopping;
 import saveload.SaveData;
+import saveload.SaveLoad;
 import settings.Settings;
 import settings.Text;
 
@@ -394,16 +395,26 @@ public class AppController {
         addInFavouriteButton.setImage(new Image(new File(Settings.getImageDir() + "addInFavourite.png").toURI().toString()));
         addInFavouriteButton.setOnMouseClicked(mouseEvent -> {
             List<String> choices = new ArrayList<>();
-            choices.add("d");
-            choices.add("v");
-            //нада заполнить список плейлістами
+            System.out.println(sd.getPlaylists());
+            if (sd.getPlaylists().size() != 0) {
+                for (int i = 0; i < sd.getPlaylists().size(); i++) {
+                    choices.add(sd.getPlaylists().get(i).getTitle());
+                }
+            } else {
+                choices.add("Добавте список відтворення на вкладці бібліотека");
+            }
             ChoiceDialog<String> dialog = new ChoiceDialog<>("Виберіть список відтворення", choices);
             dialog.initStyle(StageStyle.UTILITY);
             Optional<String> result = dialog.showAndWait();
             result.ifPresent(letter -> {
-                if (letter != "Виберіть список відтворення")
-                    //добавлять блюдо в список відтворення
-                    System.out.println("Your choice: " + letter);
+                if (letter != "Виберіть список відтворення" && letter != "Добавте список відтворення на вкладці бібліотека") {
+                    for (int i = 0; i < sd.getPlaylists().size(); i++) {
+                        if (sd.getPlaylists().get(i).getTitle() == letter) {
+                            SaveLoad.addDishInPlaylist(sd.getPlaylists().get(i).getId(), activeDish.getId());
+                        }
+                    }
+                }
+                System.out.println("Your choice: " + letter);
             });
         });
 
