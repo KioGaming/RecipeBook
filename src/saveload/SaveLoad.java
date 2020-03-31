@@ -144,6 +144,33 @@ public class SaveLoad {
             e.printStackTrace();
         }
         sd.setPlaylists(playlists);
+        boolean b = true;
+        resultSet = databaseHandler.getEmptyPlaylists(iduser);
+        while (true) {
+            try {
+                if (!resultSet.next()) break;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            for (int i = 0; i < sd.getPlaylists().size(); i++) {
+                try {
+                    if (sd.getPlaylists().get(i).getTitle().equals(resultSet.getString(Settings.PLAYLISTS_NAME))) {
+                        b = false;
+                        break;
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (b) {
+                try {
+                    sd.getPlaylists().add(new Playlist(resultSet.getInt(Settings.PLAYLISTS_ID), resultSet.getString(Settings.PLAYLISTS_NAME), new ArrayList<>()));
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            b = true;
+        }
         sd.setShoppingList(new ShoppingList());
     }
 

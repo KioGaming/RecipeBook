@@ -465,39 +465,8 @@ public class AppController {
         backLikeButton.setDisable(true);
         playlistsPane.setVisible(true);
         libraryTab.setOnSelectionChanged(event -> {
-            sd.setLikeLastCounterChange(15);
-            sd.setLikeCounter(0);
-            int i = 0;
-            if (sd.getPlaylists().size() > i) {
-                playlistButton1.setText(sd.getPlaylists().get(i).getTitle());
-                i++;
-            } else {
-                playlistButton1.setVisible(false);
-            }
-            if (sd.getPlaylists().size() > i) {
-                playlistButton2.setText(sd.getPlaylists().get(i).getTitle());
-                i++;
-            } else {
-                playlistButton2.setVisible(false);
-            }
-            if (sd.getPlaylists().size() > i) {
-                playlistButton3.setText(sd.getPlaylists().get(i).getTitle());
-                i++;
-            } else {
-                playlistButton3.setVisible(false);
-            }
-            if (sd.getPlaylists().size() > i) {
-                playlistButton4.setText(sd.getPlaylists().get(i).getTitle());
-                i++;
-            } else {
-                playlistButton4.setVisible(false);
-            }
-            if (sd.getPlaylists().size() > i) {
-                playlistButton5.setText(sd.getPlaylists().get(i).getTitle());
-                i++;
-            } else {
-                playlistButton5.setVisible(false);
-            }
+            playlistsPaneRedraw(sd);
+            System.out.println(sd.getPlaylists());
         });
         likePlaylistButton.setOnAction(actionEvent -> {
             scrollPane4.setVisible(true);
@@ -629,12 +598,42 @@ public class AppController {
                 if (sd.getPlaylists().size() < 5) {
                     Playlist playlist = new Playlist(SaveLoad.addPlaylist(account.getIdUser(), name), name, new ArrayList<>());
                     sd.getPlaylists().add(playlist);
+                    playlistsPaneRedraw(sd);
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("RecipeBook");
                     alert.setHeaderText(null);
                     alert.setContentText("У вас вже є 5 списків відтворень, ви досягли ліміту!");
                     alert.showAndWait();
+                }
+            });
+        });
+        removePlaylistsButton.setOnAction(actionEvent -> {
+            List<String> choices = new ArrayList<>();
+            if (sd.getPlaylists().size() != 0) {
+                for (int i = 0; i < sd.getPlaylists().size(); i++) {
+                    choices.add(sd.getPlaylists().get(i).getTitle());
+                }
+            } else {
+                choices.add("У вас немає списків відтворення");
+            }
+            ChoiceDialog<String> dialog = new ChoiceDialog<>("Виберіть список відтворення", choices);
+            dialog.setTitle("RecipeBook");
+            dialog.setHeaderText(null);
+            dialog.setContentText("Видалить список відтворення");
+            dialog.initStyle(StageStyle.UTILITY);
+            dialog.setResizable(false);
+            Optional<String> result = dialog.showAndWait();
+            result.ifPresent(letter -> {
+                if (letter != "Виберіть список відтворення" && letter != "У вас немає списків відтворення") {
+                    for (int i = 0; i < sd.getPlaylists().size(); i++) {
+                        if (sd.getPlaylists().get(i).getTitle() == letter) {
+                            SaveLoad.removePlaylist(sd.getPlaylists().get(i).getId());
+                            sd.getPlaylists().remove(sd.getPlaylists().get(i));
+                            playlistsPaneRedraw(sd);
+                            break;
+                        }
+                    }
                 }
             });
         });
@@ -723,6 +722,42 @@ public class AppController {
                 changePasswordErrorField.setText(Text.get("CHANGE_EMPTY_ERROR"));
             }
         });
+    }
+
+    private void playlistsPaneRedraw(SaveData sd) {
+        sd.setLikeLastCounterChange(15);
+        sd.setLikeCounter(0);
+        int i = 0;
+        if (sd.getPlaylists().size() > i) {
+            playlistButton1.setText(sd.getPlaylists().get(i).getTitle());
+            i++;
+        } else {
+            playlistButton1.setVisible(false);
+        }
+        if (sd.getPlaylists().size() > i) {
+            playlistButton2.setText(sd.getPlaylists().get(i).getTitle());
+            i++;
+        } else {
+            playlistButton2.setVisible(false);
+        }
+        if (sd.getPlaylists().size() > i) {
+            playlistButton3.setText(sd.getPlaylists().get(i).getTitle());
+            i++;
+        } else {
+            playlistButton3.setVisible(false);
+        }
+        if (sd.getPlaylists().size() > i) {
+            playlistButton4.setText(sd.getPlaylists().get(i).getTitle());
+            i++;
+        } else {
+            playlistButton4.setVisible(false);
+        }
+        if (sd.getPlaylists().size() > i) {
+            playlistButton5.setText(sd.getPlaylists().get(i).getTitle());
+            i++;
+        } else {
+            playlistButton5.setVisible(false);
+        }
     }
 
     /**

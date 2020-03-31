@@ -172,7 +172,7 @@ public class DatabaseHandler extends Configs {
     public int maxIdUser() {
         int last_id = 0;
         ResultSet resultSet;
-        String select = "select last_insert_id() as last_id from " + Settings.USER_TABLE;
+        String select = "SELECT idplaylists as last_id FROM " + Settings.USER_TABLE + " ORDER BY idplaylists DESC LIMIT 1";
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(select);
             resultSet = prSt.executeQuery();
@@ -266,8 +266,25 @@ public class DatabaseHandler extends Configs {
         return resultSet;
     }
 
+    public ResultSet getEmptyPlaylists(int idUser) {
+        ResultSet resultSet = null;
+        String select = "SELECT * FROM " + Settings.PLAYLISTS_TABLE + " p JOIN " + Settings.USER_PLAYLISTS_TABLE + " up ON p." + Settings.PLAYLISTS_ID
+                + " = up." + Settings.USER_PLAYLISTS_IDPLAYLIST + " WHERE up." + Settings.USER_PLAYLISTS_IDUSER + " =?";
+        PreparedStatement prSt = null;
+        try {
+            prSt = getDbConnection().prepareStatement(select);
+            prSt.setInt(1, idUser);
+            resultSet = prSt.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+
     public int addPlaylists(int idUser, String name) {
-        /*String insert1 = "INSERT INTO " + Settings.PLAYLISTS_TABLE + "(" + Settings.PLAYLISTS_NAME + ")" + "VALUES(?)";
+        String insert1 = "INSERT INTO " + Settings.PLAYLISTS_TABLE + "(" + Settings.PLAYLISTS_NAME + ")" + "VALUES(?)";
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert1);
             prSt.setString(1, name);
@@ -276,29 +293,26 @@ public class DatabaseHandler extends Configs {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }*/
+        }
         int last_id = 0;
-        String select = "select last_insert_id() as last_id from " + Settings.PLAYLISTS_TABLE;
+        String select = "SELECT idplaylists as last_id FROM playlists ORDER BY idplaylists DESC LIMIT 1";//"select last_insert_id() as last_id from " + Settings.PLAYLISTS_TABLE;
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(select);
             ResultSet resultSet = prSt.executeQuery();
             resultSet.next();
             last_id = resultSet.getInt("last_id");
-            System.out.println(last_id);
         } catch (SQLException ex) {
             ex.printStackTrace();
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         }
-        last_id++;
         String insert2 = "INSERT INTO " + Settings.USER_PLAYLISTS_TABLE + "(" + Settings.USER_PLAYLISTS_IDUSER + ", "
                 + Settings.USER_PLAYLISTS_IDPLAYLIST + ")" + " VALUES(?, ?)";
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert2);
             prSt.setInt(1, idUser);
             prSt.setInt(2, last_id);
-            System.out.println(prSt);
-            //prSt.executeUpdate();
+            prSt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
