@@ -165,9 +165,9 @@ public class SaveLoad {
         databaseHandler.removeLikedDishes(idUser, iddish);
     }
 
-    public static void addPlaylist(int idUser, String title) {
+    public static int addPlaylist(int idUser, String title) {
         DatabaseHandler databaseHandler = new DatabaseHandler();
-        databaseHandler.addPlaylists(idUser, title);
+        return databaseHandler.addPlaylists(idUser, title);
     }
 
     public static void removePlaylist(int idPlaylist) {

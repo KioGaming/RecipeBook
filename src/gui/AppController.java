@@ -18,6 +18,7 @@ import login.DatabaseHandler;
 import login.Filter;
 import model.Dish;
 import model.Shopping;
+import saveload.Playlist;
 import saveload.SaveData;
 import saveload.SaveLoad;
 import settings.Settings;
@@ -333,6 +334,12 @@ public class AppController {
     @FXML
     private AnchorPane playlistsPane;
 
+    @FXML
+    private Button addPlaylistsButton;
+
+    @FXML
+    private Button removePlaylistsButton;
+
     String filters;
 
     Dish activeDish;
@@ -341,21 +348,22 @@ public class AppController {
 
     @FXML
     void initialize() {
+        SaveData sd = new SaveData();
+        Account account = new Account();
         /**
          * Home page
          * **/
         scrollPane2.setVisible(false);
         filterComboBox.setItems(comboBoxList);
         backButton.setDisable(true);
-        SaveData sd = new SaveData();
-        next(sd);
+        next(sd, "Всі страви");
 
         nextButton.setOnAction(actionEvent -> {
             backButton.setDisable(false);
             nextButton.setDisable(false);
             scrollPane.setFitToHeight(false);
-            if (filterComboBox.getValue() == null || filterComboBox.getValue() == "Всі страви")
-                next(sd);
+            if (filterComboBox.getValue() == null)
+                next(sd, "Всі страви");
             else next(sd, filterComboBox.getValue());
         });
 
@@ -370,8 +378,8 @@ public class AppController {
             frameScrollPane.setMinHeight(959);
             frameScrollPane.setMaxHeight(959);
             frameScrollPane.setPrefHeight(959);
-            if (filterComboBox.getValue() == null || filterComboBox.getValue() == "Всі страви")
-                next(sd);
+            if (filterComboBox.getValue() == null)
+                next(sd, "Всі страви");
             else next(sd, filterComboBox.getValue());
         });
 //добавить появление ImageView
@@ -412,12 +420,10 @@ public class AppController {
             if (sd.getLike().indexOf(activeDish) != -1) {
                 likeField.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
                 sd.getLike().remove(activeDish);
-                Account account = new Account();
                 sd.removeLikedDishes(account.getIdUser(), activeDish.getId());
             } else {
                 likeField.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
                 sd.getLike().add(activeDish);
-                Account account = new Account();
                 sd.saveLikedDishes(account.getIdUser(), activeDish.getId());
             }
         });
@@ -434,8 +440,9 @@ public class AppController {
                 choices.add("Добавте список відтворення на вкладці бібліотека");
             }
             ChoiceDialog<String> dialog = new ChoiceDialog<>("Виберіть список відтворення", choices);
-            dialog.setTitle("Добавлення блюда в список відтворення");
+            dialog.setTitle("RecipeBook");
             dialog.setHeaderText(null);
+            dialog.setContentText("Добавте страву в список відтворення");
             dialog.initStyle(StageStyle.UTILITY);
             dialog.setResizable(false);
             Optional<String> result = dialog.showAndWait();
@@ -610,7 +617,27 @@ public class AppController {
             scrollPane4.setVisible(false);
             scrollPane3.setVisible(true);
         });
-
+        addPlaylistsButton.setOnAction(actionEvent -> {
+            TextInputDialog dialog = new TextInputDialog();
+            dialog.setTitle("RecipeBook");
+            dialog.setHeaderText(null);
+            dialog.setContentText("Введіть назву нового списка відтворення(" + sd.getPlaylists().size() + "/5)");
+            dialog.initStyle(StageStyle.UTILITY);
+            dialog.setResizable(false);
+            Optional<String> result = dialog.showAndWait();
+            result.ifPresent(name -> {
+                if (sd.getPlaylists().size() < 5) {
+                    Playlist playlist = new Playlist(SaveLoad.addPlaylist(account.getIdUser(), name), name, new ArrayList<>());
+                    sd.getPlaylists().add(playlist);
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("RecipeBook");
+                    alert.setHeaderText(null);
+                    alert.setContentText("У вас вже є 5 списків відтворень, ви досягли ліміту!");
+                    alert.showAndWait();
+                }
+            });
+        });
         /**
          * Settings page
          */
@@ -668,7 +695,6 @@ public class AppController {
             if (mailLabel.getText().equals(repeatMailLabel.getText()) && !mailLabel.getText().equals("")) {
                 if (Filter.verifyMail(mailLabel.getText()) == true) {
                     DatabaseHandler databaseHandler = new DatabaseHandler();
-                    Account account = new Account();
                     databaseHandler.changeMail(account.getMail(), mailLabel.getText());
                     changeMailErrorField.setText(Text.get("SUCCESSFUL_REPLACEMENT_MAIL"));
                     account.setMail(mailLabel.getText());
@@ -685,7 +711,6 @@ public class AppController {
             if (passwordLabel.getText().equals(repeatPasswordLabel.getText()) && !passwordLabel.getText().equals("")) {
                 if (Filter.verifyPassword(passwordLabel.getText()) == true) {
                     DatabaseHandler databaseHandler = new DatabaseHandler();
-                    Account account = new Account();
                     databaseHandler.changePassword(account.getMail(), account.getPassword(), passwordLabel.getText());
                     changePasswordErrorField.setText(Text.get("SUCCESSFUL_REPLACEMENT_PASSWORD"));
                     account.setPassword(passwordLabel.getText());
@@ -703,107 +728,6 @@ public class AppController {
     /**
      * Home page
      **/
-    //next
-    private void next(SaveData sd) {
-        List<Dish> list = sd.getDishes();
-        int counter = sd.getCounter();
-        if (counter == 0) counter = -1;
-        int listSize = list.size();
-
-        title1.setVisible(true);
-        title2.setVisible(true);
-        title3.setVisible(true);
-        title4.setVisible(true);
-        title5.setVisible(true);
-        image1.setVisible(true);
-        image2.setVisible(true);
-        image3.setVisible(true);
-        image4.setVisible(true);
-        image5.setVisible(true);
-        descriptionLabel1.setVisible(true);
-        descriptionLabel2.setVisible(true);
-        descriptionLabel3.setVisible(true);
-        descriptionLabel4.setVisible(true);
-        descriptionLabel5.setVisible(true);
-
-        if (counter < listSize - 1) {
-            if (counter + 1 < listSize) {
-                counter++;
-                title1.setText(list.get(counter).getTitle());
-                image1.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel1.setText(list.get(counter).getDescription());
-            } else {
-                title1.setVisible(false);
-                image1.setVisible(false);
-                descriptionLabel1.setVisible(false);
-            }
-            if (counter + 1 < listSize) {
-                counter++;
-                title2.setText(list.get(counter).getTitle());
-                image2.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel2.setText(list.get(counter).getDescription());
-            } else {
-                title2.setVisible(false);
-                image2.setVisible(false);
-                descriptionLabel2.setVisible(false);
-            }
-            if (counter + 1 < listSize) {
-                counter++;
-                title3.setText(list.get(counter).getTitle());
-                image3.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel3.setText(list.get(counter).getDescription());
-            } else {
-                title3.setVisible(false);
-                image3.setVisible(false);
-                descriptionLabel3.setVisible(false);
-            }
-            if (counter + 1 < listSize) {
-                counter++;
-                title4.setText(list.get(counter).getTitle());
-                image4.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel4.setText(list.get(counter).getDescription());
-            } else {
-                title4.setVisible(false);
-                image4.setVisible(false);
-                descriptionLabel4.setVisible(false);
-            }
-            if (counter + 1 < listSize) {
-                counter++;
-                title5.setText(list.get(counter).getTitle());
-                image5.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel5.setText(list.get(counter).getDescription());
-            } else {
-                title5.setVisible(false);
-                image5.setVisible(false);
-                descriptionLabel5.setVisible(false);
-            }
-            if (counter - sd.getCounter() != 0) {
-                sd.setLastCounterChange(counter - sd.getCounter());
-            }
-            sd.setCounter(counter);
-            scrollPane.setVvalue(0);
-            if (counter >= listSize - 1) {
-                nextButton.setDisable(true);
-            }
-            if (nextButton.isDisable() && counter - sd.getCounter() >= 0 && counter - sd.getCounter() < 5) {
-                if ((counter + 2) % 10 == 0) {
-                    nextButton.setLayoutY(690);
-                    backButton.setLayoutY(690);
-                    frameScrollPane.setMinHeight(750);
-                    frameScrollPane.setMaxHeight(750);
-                    frameScrollPane.setPrefHeight(750);
-                } else {
-                    scrollPane.setFitToHeight(true);
-                    nextButton.setLayoutY(580);
-                    backButton.setLayoutY(580);
-                }
-            }
-        } else {
-            nextButton.setDisable(true);
-        }
-        backLikeButton.setDisable(false);
-    }
-
     //next + filter
     private void next(SaveData sd, String filter) {
         List<Dish> list;
@@ -906,15 +830,15 @@ public class AppController {
             }
             if (nextButton.isDisable() && counter - sd.getCounter() >= 0 && counter - sd.getCounter() < 5) {
                 if ((counter + 2) % 10 == 0) {
-                    nextButton.setLayoutY(690);
-                    backButton.setLayoutY(690);
-                    frameScrollPane.setMinHeight(750);
-                    frameScrollPane.setMaxHeight(750);
-                    frameScrollPane.setPrefHeight(750);
+                    nextButton.setLayoutY(700);
+                    backButton.setLayoutY(700);
+                    frameScrollPane.setMinHeight(800);
+                    frameScrollPane.setMaxHeight(800);
+                    frameScrollPane.setPrefHeight(800);
                 } else {
-                    frameScrollPane.setMinHeight(700);
-                    frameScrollPane.setMaxHeight(700);
-                    frameScrollPane.setPrefHeight(700);
+                    frameScrollPane.setMinHeight(670);
+                    frameScrollPane.setMaxHeight(670);
+                    frameScrollPane.setPrefHeight(670);
                     nextButton.setLayoutY(580);
                     backButton.setLayoutY(580);
                 }
