@@ -163,6 +163,8 @@ public class AppController {
     @FXML
     private ImageView image13;
 
+    int idActivePlaylist = -1;
+
     @FXML
     private ImageView image14;
 
@@ -321,6 +323,8 @@ public class AppController {
 
     @FXML
     private Button playlistButton2;
+    @FXML
+    private AnchorPane frameScrollPane1;
 
     @FXML
     private Button playlistButton3;
@@ -343,6 +347,7 @@ public class AppController {
     String filters;
 
     Dish activeDish;
+
     @FXML
     private Button backToPlaylistsButton;
 
@@ -363,6 +368,12 @@ public class AppController {
 
     @FXML
     private ImageView nextIcon5;
+    @FXML
+    private ImageView likeAddInFavouriteButton;
+    @FXML
+    private Button removeDishInPlaylistButton;
+    @FXML
+    private Button removePlaylistButton;
 
     @FXML
     void initialize() {
@@ -465,10 +476,21 @@ public class AppController {
             dialog.setResizable(false);
             Optional<String> result = dialog.showAndWait();
             result.ifPresent(letter -> {
-                if (letter != "Виберіть список відтворення" && letter != "Добавте список відтворення на вкладці бібліотека") {
+                if (letter != "Виберіть список відтворення" && letter != "У вас немає списків відтворення") {
                     for (int i = 0; i < sd.getPlaylists().size(); i++) {
                         if (sd.getPlaylists().get(i).getTitle() == letter) {
-                            SaveLoad.addDishInPlaylist(sd.getPlaylists().get(i).getId(), activeDish.getId());
+                            boolean b = true;
+                            for (int j = 0; j < sd.getPlaylists().get(i).getDishes().size(); j++) {
+                                if (sd.getPlaylists().get(i).getDishes().get(j).getTitle().equals(activeDish.getTitle())) {
+                                    b = false;
+                                    break;
+                                }
+                            }
+                            if (b) {
+                                SaveLoad.addDishInPlaylist(sd.getPlaylists().get(i).getId(), activeDish.getId());
+                                sd.getPlaylists().get(i).getDishes().add(activeDish);
+                            }
+                            break;
                         }
                     }
                 }
@@ -484,6 +506,7 @@ public class AppController {
         nextIcon3.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
         nextIcon4.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
         nextIcon5.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
+        likeAddInFavouriteButton.setImage(new Image((new File(Settings.getImageDir() + "addInFavourite.png").toURI().toString())));
         scrollPane4.setVisible(false);
         scrollPane3.setVisible(false);
         backLikeButton.setDisable(true);
@@ -492,75 +515,129 @@ public class AppController {
             playlistsPaneRedraw(sd);
         });
         likePlaylistButton.setOnAction(actionEvent -> {
-            scrollPane4.setVisible(true);
+            idActivePlaylist = -1;
+            sd.setLikeCounter(0);
+            sd.setLastCounterChange(14);
+            scrollPane3.setVisible(true);
+            scrollPane4.setVisible(false);
             playlistsPane.setVisible(false);
             filters = "like";
+            removePlaylistButton.setVisible(false);
             likeNext(sd, "like");
         });
         playlistButton1.setOnAction(actionEvent -> {
-            scrollPane4.setVisible(true);
+            idActivePlaylist = 0;
+            sd.setLikeCounter(0);
+            sd.setLastCounterChange(14);
+            scrollPane3.setVisible(true);
+            scrollPane4.setVisible(false);
             playlistsPane.setVisible(false);
             filters = "playlist1";
+            removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist1");
         });
         playlistButton2.setOnAction(actionEvent -> {
-            scrollPane4.setVisible(true);
+            idActivePlaylist = 1;
+            sd.setLikeCounter(0);
+            sd.setLastCounterChange(14);
+            scrollPane3.setVisible(true);
+            scrollPane4.setVisible(false);
             playlistsPane.setVisible(false);
             filters = "playlist2";
+            removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist2");
         });
         playlistButton3.setOnAction(actionEvent -> {
-            scrollPane4.setVisible(true);
+            idActivePlaylist = 2;
+            sd.setLikeCounter(0);
+            sd.setLastCounterChange(14);
+            scrollPane3.setVisible(true);
+            scrollPane4.setVisible(false);
             playlistsPane.setVisible(false);
             filters = "playlist3";
+            removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist3");
         });
         playlistButton4.setOnAction(actionEvent -> {
-            scrollPane4.setVisible(true);
+            idActivePlaylist = 3;
+            sd.setLikeCounter(0);
+            sd.setLastCounterChange(14);
+            scrollPane3.setVisible(true);
+            scrollPane4.setVisible(false);
             playlistsPane.setVisible(false);
             filters = "playlist4";
+            removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist4");
         });
         playlistButton5.setOnAction(actionEvent -> {
-            scrollPane4.setVisible(true);
+            idActivePlaylist = 4;
+            sd.setLikeCounter(0);
+            sd.setLastCounterChange(14);
+            scrollPane3.setVisible(true);
+            scrollPane4.setVisible(false);
             playlistsPane.setVisible(false);
             filters = "playlist5";
+            removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist5");
         });
         nextLikeIcon.setOnMouseClicked(mouseEvent -> {
-            scrollPane4.setVisible(true);
+            sd.setLikeCounter(0);
+            sd.setLastCounterChange(14);
+            scrollPane3.setVisible(true);
+            scrollPane4.setVisible(false);
             playlistsPane.setVisible(false);
             filters = "like";
+            removePlaylistButton.setVisible(false);
             likeNext(sd, "like");
         });
         nextIcon1.setOnMouseClicked(mouseEvent -> {
-            scrollPane4.setVisible(true);
+            sd.setLikeCounter(0);
+            sd.setLastCounterChange(14);
+            scrollPane3.setVisible(true);
+            scrollPane4.setVisible(false);
             playlistsPane.setVisible(false);
             filters = "playlist1";
+            removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist1");
         });
         nextIcon2.setOnMouseClicked(mouseEvent -> {
-            scrollPane4.setVisible(true);
+            sd.setLikeCounter(0);
+            sd.setLastCounterChange(14);
+            scrollPane3.setVisible(true);
+            scrollPane4.setVisible(false);
             playlistsPane.setVisible(false);
             filters = "playlist2";
+            removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist2");
         });
         nextIcon3.setOnMouseClicked(mouseEvent -> {
-            scrollPane4.setVisible(true);
+            sd.setLikeCounter(0);
+            sd.setLastCounterChange(14);
+            scrollPane3.setVisible(true);
+            scrollPane4.setVisible(false);
             playlistsPane.setVisible(false);
             filters = "playlist3";
+            removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist3");
         });
         nextIcon4.setOnMouseClicked(mouseEvent -> {
-            scrollPane4.setVisible(true);
+            sd.setLikeCounter(0);
+            sd.setLastCounterChange(14);
+            scrollPane3.setVisible(true);
+            scrollPane4.setVisible(false);
             playlistsPane.setVisible(false);
             filters = "playlist4";
+            removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist4");
         });
         nextIcon5.setOnMouseClicked(mouseEvent -> {
-            scrollPane4.setVisible(true);
+            sd.setLikeCounter(0);
+            sd.setLastCounterChange(14);
+            scrollPane3.setVisible(true);
+            scrollPane4.setVisible(false);
             playlistsPane.setVisible(false);
             filters = "playlist5";
+            removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist5");
         });
         backLikeButton.setOnAction(event -> {
@@ -636,6 +713,7 @@ public class AppController {
             sd.setLikeLastCounterChange(15);
             sd.setLikeCounter(0);
             scrollPane4.setVisible(false);
+            scrollPane3.setVisible(false);
             playlistsPane.setVisible(true);
         });
         likeBackToCategoryButton.setOnAction(event -> {
@@ -696,6 +774,127 @@ public class AppController {
                 }
             });
         });
+        likeAddInFavouriteButton.setOnMouseClicked(mouseEvent -> {
+            List<String> choices = new ArrayList<>();
+            if (sd.getPlaylists().size() != 0) {
+                for (int i = 0; i < sd.getPlaylists().size(); i++) {
+                    choices.add(sd.getPlaylists().get(i).getTitle());
+                }
+            } else {
+                choices.add("Добавте список відтворення на вкладці бібліотека");
+            }
+            ChoiceDialog<String> dialog = new ChoiceDialog<>("Виберіть список відтворення", choices);
+            dialog.setTitle("RecipeBook");
+            dialog.setHeaderText(null);
+            dialog.setContentText("Добавте страву в список відтворення");
+            dialog.initStyle(StageStyle.UTILITY);
+            dialog.setResizable(false);
+            Optional<String> result = dialog.showAndWait();
+            result.ifPresent(letter -> {
+                if (letter != "Виберіть список відтворення" && letter != "Добавте список відтворення на вкладці бібліотека") {
+                    for (int i = 0; i < sd.getPlaylists().size(); i++) {
+                        if (sd.getPlaylists().get(i).getTitle() == letter) {
+                            boolean b = true;
+                            for (int j = 0; j < sd.getPlaylists().get(i).getDishes().size(); j++) {
+                                if (sd.getPlaylists().get(i).getDishes().get(j).getTitle().equals(activeDish.getTitle())) {
+                                    b = false;
+                                    break;
+                                }
+                            }
+                            if (b) {
+                                SaveLoad.addDishInPlaylist(sd.getPlaylists().get(i).getId(), activeDish.getId());
+                                sd.getPlaylists().get(i).getDishes().add(activeDish);
+                            }
+                            break;
+                        }
+                    }
+                }
+            });
+        });
+        removeDishInPlaylistButton.setOnAction(actionEvent -> {
+            List<String> choices = new ArrayList<>();
+            int listSize;
+            if (idActivePlaylist != -1) {
+                listSize = sd.getPlaylists().get(idActivePlaylist).getDishes().size();
+                if (listSize != 0) {
+                    for (int i = 0; i < sd.getPlaylists().get(idActivePlaylist).getDishes().size(); i++) {
+                        choices.add(sd.getPlaylists().get(idActivePlaylist).getDishes().get(i).getTitle());
+                    }
+                } else {
+                    choices.add("У цьому спискі немає страв");
+                }
+                ChoiceDialog<String> dialog = new ChoiceDialog<>("Виберіть страву", choices);
+                dialog.setTitle("RecipeBook");
+                dialog.setHeaderText(null);
+                dialog.setContentText("Видалить страву з списка");
+                dialog.initStyle(StageStyle.UTILITY);
+                dialog.setResizable(false);
+                Optional<String> result = dialog.showAndWait();
+                result.ifPresent(letter -> {
+                    if (letter != "Виберіть страву" && letter != "У цьому спискі немає страв") {
+                        for (int i = 0; i < sd.getPlaylists().get(idActivePlaylist).getDishes().size(); i++) {
+                            if (sd.getPlaylists().get(idActivePlaylist).getDishes().get(i).getTitle().equals(letter)) {
+                                SaveLoad.removeDishInPlaylist(sd.getPlaylists().get(idActivePlaylist).getId(), sd.getPlaylists().get(idActivePlaylist).getDishes().get(i).getId());
+                                sd.getPlaylists().get(idActivePlaylist).getDishes().remove(sd.getPlaylists().get(idActivePlaylist).getDishes().get(i));
+                                sd.setLikeCounter(0);
+                                sd.setLikeLastCounterChange(14);
+                                likeNext(sd, "playlist" + (idActivePlaylist + 1));
+                                break;
+                            }
+                        }
+                    }
+                });
+            } else {
+                listSize = sd.getLike().size();
+                if (listSize != 0) {
+                    for (int i = 0; i < listSize; i++) {
+                        choices.add(sd.getLike().get(i).getTitle());
+                    }
+                } else {
+                    choices.add("У цьому спискі немає страв");
+                }
+                ChoiceDialog<String> dialog = new ChoiceDialog<>("Виберіть страву", choices);
+                dialog.setTitle("RecipeBook");
+                dialog.setHeaderText(null);
+                dialog.setContentText("Видалить страву з списка");
+                dialog.initStyle(StageStyle.UTILITY);
+                dialog.setResizable(false);
+                Optional<String> result = dialog.showAndWait();
+                result.ifPresent(letter -> {
+                    if (letter != "Виберіть страву" && letter != "У цьому спискі немає страв") {
+                        for (int i = 0; i < sd.getLike().size(); i++) {
+                            if (sd.getLike().get(i).getTitle().equals(letter)) {
+                                SaveLoad.removeLikedDishes(account.getIdUser(), sd.getLike().get(i).getId());
+                                sd.getLike().remove(sd.getLike().get(i));
+                                sd.setLikeCounter(0);
+                                sd.setLikeLastCounterChange(14);
+                                likeNext(sd, "like");
+                                break;
+                            }
+                        }
+                    }
+                });
+            }
+        });
+        removePlaylistButton.setOnAction(actionEvent -> {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("RecipeBook");
+            alert.setHeaderText(null);
+            alert.setContentText("Ви справді хочете видалити цей список?");
+
+            Optional<ButtonType> option = alert.showAndWait();
+
+            if (option.get() != null) {
+                if (option.get() == ButtonType.OK) {
+                    SaveLoad.removePlaylist(sd.getPlaylists().get(idActivePlaylist).getId());
+                    sd.getPlaylists().remove(idActivePlaylist);
+                    playlistsPane.setVisible(true);
+                    scrollPane3.setVisible(false);
+                    playlistsPaneRedraw(sd);
+                }
+            }
+        });
+
         /**
          * Settings page
          */
@@ -1229,15 +1428,15 @@ public class AppController {
     //next
     private void likeNext(SaveData sd, String filter) {
         List<Dish> list;
-        if (filter == "playlist1") {
+        if (filter.equals("playlist1")) {
             list = sd.getPlaylists().get(0).getDishes();
-        } else if (filter == "playlist2") {
+        } else if (filter.equals("playlist2")) {
             list = sd.getPlaylists().get(1).getDishes();
-        } else if (filter == "playlist3") {
+        } else if (filter.equals("playlist3")) {
             list = sd.getPlaylists().get(2).getDishes();
-        } else if (filter == "playlist4") {
+        } else if (filter.equals("playlist4")) {
             list = sd.getPlaylists().get(3).getDishes();
-        } else if (filter == "playlist5") {
+        } else if (filter.equals("playlist5")) {
             list = sd.getPlaylists().get(4).getDishes();
         } else {
             list = sd.getLike();
@@ -1262,6 +1461,21 @@ public class AppController {
         title18.setVisible(true);
         title19.setVisible(true);
         title20.setVisible(true);
+        image6.setVisible(true);
+        image7.setVisible(true);
+        image8.setVisible(true);
+        image9.setVisible(true);
+        image10.setVisible(true);
+        image11.setVisible(true);
+        image12.setVisible(true);
+        image13.setVisible(true);
+        image14.setVisible(true);
+        image15.setVisible(true);
+        image16.setVisible(true);
+        image17.setVisible(true);
+        image18.setVisible(true);
+        image19.setVisible(true);
+        image20.setVisible(true);
 
         if (counter < listSize - 1) {
             if (counter + 1 < listSize) {
@@ -1392,14 +1606,58 @@ public class AppController {
             if (counter >= listSize - 1) {
                 nextLikeButton.setDisable(true);
             }
-            if (nextLikeButton.isDisable() && counter - sd.getCounter() >= 0 && counter - sd.getCounter() < 15) {
-                scrollPane3.setFitToHeight(true);
-                nextLikeButton.setLayoutX(800);
-                nextLikeButton.setLayoutY(500);
-                backLikeButton.setLayoutX(300);
-                backLikeButton.setLayoutY(500);
+            if (nextLikeButton.isDisable() && counter - sd.getLikeCounter() >= 0 && counter - sd.getLikeCounter() < 15) {
+                if (counter + 1 <= 6) {
+                    nextLikeButton.setLayoutY(555);
+                    backLikeButton.setLayoutY(555);
+                    frameScrollPane1.setMinHeight(670);
+                    frameScrollPane1.setMaxHeight(670);
+                    frameScrollPane1.setPrefHeight(670);
+                } else if (counter + 1 <= 9) {
+                    frameScrollPane1.setMinHeight(810);
+                    frameScrollPane1.setMaxHeight(810);
+                    frameScrollPane1.setPrefHeight(810);
+                    nextLikeButton.setLayoutY(720);
+                    backLikeButton.setLayoutY(720);
+                } else if (counter + 1 <= 12) {
+                    frameScrollPane1.setMinHeight(1015);
+                    frameScrollPane1.setMaxHeight(1015);
+                    frameScrollPane1.setPrefHeight(1015);
+                    nextLikeButton.setLayoutY(935);
+                    backLikeButton.setLayoutY(935);
+                }
             }
         } else {
+            title6.setVisible(false);
+            title7.setVisible(false);
+            title8.setVisible(false);
+            title9.setVisible(false);
+            title10.setVisible(false);
+            title11.setVisible(false);
+            title12.setVisible(false);
+            title13.setVisible(false);
+            title14.setVisible(false);
+            title15.setVisible(false);
+            title16.setVisible(false);
+            title17.setVisible(false);
+            title18.setVisible(false);
+            title19.setVisible(false);
+            title20.setVisible(false);
+            image6.setVisible(false);
+            image7.setVisible(false);
+            image8.setVisible(false);
+            image9.setVisible(false);
+            image10.setVisible(false);
+            image11.setVisible(false);
+            image12.setVisible(false);
+            image13.setVisible(false);
+            image14.setVisible(false);
+            image15.setVisible(false);
+            image16.setVisible(false);
+            image17.setVisible(false);
+            image18.setVisible(false);
+            image19.setVisible(false);
+            image20.setVisible(false);
             nextLikeButton.setDisable(true);
         }
     }
@@ -1426,6 +1684,21 @@ public class AppController {
         title18.setVisible(true);
         title19.setVisible(true);
         title20.setVisible(true);
+        image6.setVisible(true);
+        image7.setVisible(true);
+        image8.setVisible(true);
+        image9.setVisible(true);
+        image10.setVisible(true);
+        image11.setVisible(true);
+        image12.setVisible(true);
+        image13.setVisible(true);
+        image14.setVisible(true);
+        image15.setVisible(true);
+        image16.setVisible(true);
+        image17.setVisible(true);
+        image18.setVisible(true);
+        image19.setVisible(true);
+        image20.setVisible(true);
 
         if (lastCounterChange != 15 && counter - lastCounterChange - 14 >= 0) {
             counter -= lastCounterChange + 14;
@@ -1570,11 +1843,12 @@ public class AppController {
         scrollPane4.setVisible(true);
         scrollPane4.setVvalue(0);
         Dish dish = null;
-        for (int i = 0; i < sd.getLike().size(); i++) {
-            if (sd.getLike().get(i).getTitle() == title) {
-                dish = sd.getLike().get(i);
+        for (int i = 0; i < sd.getDishes().size(); i++) {
+            if (sd.getDishes().get(i).getTitle().equals(title)) {
+                dish = sd.getDishes().get(i);
             }
         }
+        System.out.println();
         if (dish != null) {
             activeDish = dish;
             likeDishTitle.setText(dish.getTitle());
@@ -1582,15 +1856,21 @@ public class AppController {
             likeDishDescription.setText(dish.getDescription());
             String s = "";
             for (int i = 0; i < dish.getRecipe().size(); i++) {
-                s += "     " + dish.getRecipe().get(i);
+                s += "Етап №" + (i + 1) + "\n" + "     " + dish.getRecipe().get(i);
                 if (i != dish.getRecipe().size() - 1) {
-                    s += "\n";
+                    s += "\n\n";
                 }
             }
             likeDishRecipe.setText(s);
+            System.out.println(s + "\n");
+            System.out.println(dishRecipe.getPrefHeight() + " " + dishRecipe.getHeight() + " " + dishRecipe.getMaxHeight() + " " + dishRecipe.getBaselineOffset());
+            System.out.println(s.length() / 100 * 10 * dish.getRecipe().size());
+            likeDishRecipe.setMinHeight(s.length() / 100 * 10 * dish.getRecipe().size());
+            likeDishRecipe.setMaxHeight(s.length() / 100 * 10 * dish.getRecipe().size());
+            //зробить самоизменяющийся размер у label dishRecipe
+            //убрать дублірувание інгрідієнтів
 
-            likeGroceryTableView.setPrefWidth(600);
-            likeGroceryTableView.setPrefHeight(dish.getGroceryList().size() * 30 + 30);
+            groceryTableView.setPrefHeight(dish.getGroceryList().size() * 25 + 20);
 
             ObservableList<Shopping> grocery = FXCollections.observableArrayList();
             Shopping shopping = new Shopping();

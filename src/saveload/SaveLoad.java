@@ -126,9 +126,10 @@ public class SaveLoad {
 
                 boolean b = false;
                 for (int i = 0; i < playlists.size(); i++) {
-                    if (playlists.get(i).getTitle() == name) {
+                    if (playlists.get(i).getTitle().equals(name)) {
                         b = true;
                         playlists.get(i).getDishes().add(dish);
+                        break;
                     }
                 }
                 if (b == false) {

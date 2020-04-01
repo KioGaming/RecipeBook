@@ -251,7 +251,7 @@ public class DatabaseHandler extends Configs {
                 + Settings.DISH_RECIPE + ", " + Settings.DISH_GROCERYLIST + ", " + Settings.DISH_COUNTLIST + ", " + Settings.DISH_UNITSOFMEASUREMENTLIST
                 + ", " + Settings.DISH_NUMBER_OF_LIKES + ", " + Settings.DISH_CATEGORY + ", " + Settings.PLAYLISTS_NAME + "," + Settings.PLAYLISTS_ID + " FROM "
                 + Settings.USER_PLAYLISTS_TABLE + " up JOIN " + Settings.PLAYLISTS_DISH_TABLE + " pd ON up." + Settings.USER_PLAYLISTS_IDPLAYLIST
-                + " = pd." + Settings.PLAYLISTS_DISH_ID + " JOIN " + Settings.DISH_TABLE + " d ON pd." + Settings.PLAYLISTS_DISH_ID + " = "
+                + " = pd." + Settings.PLAYLISTS_DISH_PLAYLISTID + " JOIN " + Settings.DISH_TABLE + " d ON pd." + Settings.PLAYLISTS_DISH_DISHID + " = "
                 + " d." + Settings.DISH_ID + " JOIN " + Settings.PLAYLISTS_TABLE + " p ON up." + Settings.USER_PLAYLISTS_IDPLAYLIST
                 + " = p." + Settings.PLAYLISTS_ID + " where " + Settings.USER_PLAYLISTS_IDUSER + " = ?";
         try {
@@ -353,7 +353,7 @@ public class DatabaseHandler extends Configs {
 
     public void addDishInPlaylist(int idPlaylists, int idDish) {
         String insert = "INSERT INTO " + Settings.PLAYLISTS_DISH_TABLE + "(" + Settings.PLAYLISTS_DISH_PLAYLISTID + ","
-                + Settings.PLAYLISTS_DISH_DISHID + ")" + "VALUES(?,?)";
+                + Settings.PLAYLISTS_DISH_DISHID + ")" + " VALUES(?,?)";
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
             prSt.setInt(1, idPlaylists);
