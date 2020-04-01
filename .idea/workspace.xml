@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48ba578d-8e07-482c-9c8d-b5e1de7aa23d" name="Default Changelist" comment="Add playlist systems 9.0">
+    <list default="true" id="48ba578d-8e07-482c-9c8d-b5e1de7aa23d" name="Default Changelist" comment="Add playlist systems 10.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/AppController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/app.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/DatabaseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/login/DatabaseHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/saveload/SaveLoad.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/saveload/SaveLoad.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/login/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/login/DatabaseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/saveload/SaveLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/saveload/SaveLoad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/app.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,16 +62,16 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="login" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Java\GitProjects\RecipeBook\RecipeBook\src" />
-      <recent name="D:\Java\Java Projects\RecipeBook\src\gui" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Java\GitProjects\RecipeBook\RecipeBook\src\gui\css" />
+      <recent name="D:\Java\GitProjects\RecipeBook\RecipeBook\src\gui" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Java\GitProjects\RecipeBook\RecipeBook\src\gui\css" />
-      <recent name="D:\Java\GitProjects\RecipeBook\RecipeBook\src\gui" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Java\GitProjects\RecipeBook\RecipeBook\src" />
+      <recent name="D:\Java\Java Projects\RecipeBook\src\gui" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -195,7 +191,8 @@
       <workItem from="1585507160143" duration="167000" />
       <workItem from="1585548378763" duration="9747000" />
       <workItem from="1585558642510" duration="21362000" />
-      <workItem from="1585634265342" duration="19399000" />
+      <workItem from="1585634265342" duration="19425000" />
+      <workItem from="1585721061073" duration="2235000" />
     </task>
     <task id="LOCAL-00001" summary="Optimize code">
       <created>1582997732138</created>
@@ -400,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585653927564</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Add playlist systems 10.0">
+      <created>1585679447068</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1585679447068</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -439,7 +443,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fix bug" />
     <MESSAGE value="Create frame categories in app.fxml" />
     <MESSAGE value="Create frame-categories 1.2.0 in app.fxml" />
     <MESSAGE value="Create frame-categories 1.3.0 in app.fxml" />
@@ -464,7 +467,8 @@
     <MESSAGE value="Add playlist systems 7.0" />
     <MESSAGE value="Add playlist systems 8.0" />
     <MESSAGE value="Add playlist systems 9.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add playlist systems 9.0" />
+    <MESSAGE value="Add playlist systems 10.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add playlist systems 10.0" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -482,26 +486,30 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="300" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1585050002094" />
-    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1585653925114">
+    <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585722970493">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585653925114" />
-    <state width="1493" height="259" key="GridCell.Tab.0.bottom" timestamp="1585679283832">
+    <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1585722970493" />
+    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1585721390934">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="259" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585679283832" />
-    <state width="1493" height="259" key="GridCell.Tab.0.center" timestamp="1585679283832">
+    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585721390934" />
+    <state width="1493" height="259" key="GridCell.Tab.0.bottom" timestamp="1585723337493">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="259" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585679283832" />
-    <state width="1493" height="259" key="GridCell.Tab.0.left" timestamp="1585679283832">
+    <state width="1493" height="259" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585723337493" />
+    <state width="1493" height="259" key="GridCell.Tab.0.center" timestamp="1585723337493">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="259" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585679283832" />
-    <state width="1493" height="259" key="GridCell.Tab.0.right" timestamp="1585679283832">
+    <state width="1493" height="259" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585723337493" />
+    <state width="1493" height="259" key="GridCell.Tab.0.left" timestamp="1585723337492">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="259" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585679283832" />
+    <state width="1493" height="259" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585723337492" />
+    <state width="1493" height="259" key="GridCell.Tab.0.right" timestamp="1585723337493">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="259" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585723337493" />
     <state width="1493" height="260" key="GridCell.Tab.1.bottom" timestamp="1585506872487">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -526,13 +534,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1585596306366" />
-    <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1585634528309">
+    <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1585721138992">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1585634528309" />
-    <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585333826422">
+    <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1585721138992" />
+    <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585723386551">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1585333826422" />
+    <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1585723386551" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1585723144601">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1585723144601" />
   </component>
 </project>

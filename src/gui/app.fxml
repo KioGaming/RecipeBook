@@ -590,38 +590,39 @@
                                                 <Font size="25.0"/>
                                             </font>
                                         </Button>
-                                        <ImageView fitHeight="57.0" fitWidth="72.0" layoutX="1115.0" layoutY="196.0"
-                                                   pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fx:id="nextIcon1" fitHeight="57.0" fitWidth="72.0" layoutX="1115.0"
+                                                   layoutY="196.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@../../images/next.png"/>
                                             </image>
                                         </ImageView>
-                                        <ImageView fitHeight="57.0" fitWidth="72.0" layoutX="1115.0" layoutY="101.0"
-                                                   pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fx:id="nextLikeIcon" fitHeight="57.0" fitWidth="72.0"
+                                                   layoutX="1115.0" layoutY="101.0" pickOnBounds="true"
+                                                   preserveRatio="true">
                                             <image>
                                                 <Image url="@../../images/next.png"/>
                                             </image>
                                         </ImageView>
-                                        <ImageView fitHeight="57.0" fitWidth="72.0" layoutX="1115.0" layoutY="296.0"
-                                                   pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fx:id="nextIcon2" fitHeight="57.0" fitWidth="72.0" layoutX="1115.0"
+                                                   layoutY="296.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@../../images/next.png"/>
                                             </image>
                                         </ImageView>
-                                        <ImageView fitHeight="57.0" fitWidth="72.0" layoutX="1115.0" layoutY="391.0"
-                                                   pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fx:id="nextIcon3" fitHeight="57.0" fitWidth="72.0" layoutX="1115.0"
+                                                   layoutY="391.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@../../images/next.png"/>
                                             </image>
                                         </ImageView>
-                                        <ImageView fitHeight="57.0" fitWidth="72.0" layoutX="1115.0" layoutY="486.0"
-                                                   pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fx:id="nextIcon4" fitHeight="57.0" fitWidth="72.0" layoutX="1115.0"
+                                                   layoutY="486.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@../../images/next.png"/>
                                             </image>
                                         </ImageView>
-                                        <ImageView fitHeight="57.0" fitWidth="72.0" layoutX="1115.0" layoutY="581.0"
-                                                   pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fx:id="nextIcon5" fitHeight="57.0" fitWidth="72.0" layoutX="1115.0"
+                                                   layoutY="581.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@../../images/next.png"/>
                                             </image>

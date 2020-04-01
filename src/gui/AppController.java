@@ -347,6 +347,24 @@ public class AppController {
     private Button backToPlaylistsButton;
 
     @FXML
+    private ImageView nextLikeIcon;
+
+    @FXML
+    private ImageView nextIcon1;
+
+    @FXML
+    private ImageView nextIcon2;
+
+    @FXML
+    private ImageView nextIcon3;
+
+    @FXML
+    private ImageView nextIcon4;
+
+    @FXML
+    private ImageView nextIcon5;
+
+    @FXML
     void initialize() {
         SaveData sd = new SaveData();
         Account account = new Account();
@@ -382,7 +400,7 @@ public class AppController {
                 next(sd, "Всі страви");
             else next(sd, filterComboBox.getValue());
         });
-//добавить появление ImageView
+
         backButton.setOnAction(actionEvent -> {
             frameScrollPane.setMinHeight(959);
             frameScrollPane.setMaxHeight(959);
@@ -460,13 +478,18 @@ public class AppController {
         /**
          * Library page
          * */
+        nextLikeIcon.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
+        nextIcon1.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
+        nextIcon2.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
+        nextIcon3.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
+        nextIcon4.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
+        nextIcon5.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
         scrollPane4.setVisible(false);
         scrollPane3.setVisible(false);
         backLikeButton.setDisable(true);
         playlistsPane.setVisible(true);
         libraryTab.setOnSelectionChanged(event -> {
             playlistsPaneRedraw(sd);
-            System.out.println(sd.getPlaylists());
         });
         likePlaylistButton.setOnAction(actionEvent -> {
             scrollPane4.setVisible(true);
@@ -499,6 +522,42 @@ public class AppController {
             likeNext(sd, "playlist4");
         });
         playlistButton5.setOnAction(actionEvent -> {
+            scrollPane4.setVisible(true);
+            playlistsPane.setVisible(false);
+            filters = "playlist5";
+            likeNext(sd, "playlist5");
+        });
+        nextLikeIcon.setOnMouseClicked(mouseEvent -> {
+            scrollPane4.setVisible(true);
+            playlistsPane.setVisible(false);
+            filters = "like";
+            likeNext(sd, "like");
+        });
+        nextIcon1.setOnMouseClicked(mouseEvent -> {
+            scrollPane4.setVisible(true);
+            playlistsPane.setVisible(false);
+            filters = "playlist1";
+            likeNext(sd, "playlist1");
+        });
+        nextIcon2.setOnMouseClicked(mouseEvent -> {
+            scrollPane4.setVisible(true);
+            playlistsPane.setVisible(false);
+            filters = "playlist2";
+            likeNext(sd, "playlist2");
+        });
+        nextIcon3.setOnMouseClicked(mouseEvent -> {
+            scrollPane4.setVisible(true);
+            playlistsPane.setVisible(false);
+            filters = "playlist3";
+            likeNext(sd, "playlist3");
+        });
+        nextIcon4.setOnMouseClicked(mouseEvent -> {
+            scrollPane4.setVisible(true);
+            playlistsPane.setVisible(false);
+            filters = "playlist4";
+            likeNext(sd, "playlist4");
+        });
+        nextIcon5.setOnMouseClicked(mouseEvent -> {
             scrollPane4.setVisible(true);
             playlistsPane.setVisible(false);
             filters = "playlist5";
@@ -725,6 +784,18 @@ public class AppController {
     }
 
     private void playlistsPaneRedraw(SaveData sd) {
+        nextLikeIcon.setVisible(true);
+        nextIcon1.setVisible(true);
+        nextIcon2.setVisible(true);
+        nextIcon3.setVisible(true);
+        nextIcon4.setVisible(true);
+        nextIcon5.setVisible(true);
+        playlistButton1.setVisible(true);
+        playlistButton2.setVisible(true);
+        playlistButton3.setVisible(true);
+        playlistButton4.setVisible(true);
+        playlistButton5.setVisible(true);
+        nextIcon1.setVisible(true);
         sd.setLikeLastCounterChange(15);
         sd.setLikeCounter(0);
         int i = 0;
@@ -732,30 +803,35 @@ public class AppController {
             playlistButton1.setText(sd.getPlaylists().get(i).getTitle());
             i++;
         } else {
+            nextIcon1.setVisible(false);
             playlistButton1.setVisible(false);
         }
         if (sd.getPlaylists().size() > i) {
             playlistButton2.setText(sd.getPlaylists().get(i).getTitle());
             i++;
         } else {
+            nextIcon2.setVisible(false);
             playlistButton2.setVisible(false);
         }
         if (sd.getPlaylists().size() > i) {
             playlistButton3.setText(sd.getPlaylists().get(i).getTitle());
             i++;
         } else {
+            nextIcon3.setVisible(false);
             playlistButton3.setVisible(false);
         }
         if (sd.getPlaylists().size() > i) {
             playlistButton4.setText(sd.getPlaylists().get(i).getTitle());
             i++;
         } else {
+            nextIcon4.setVisible(false);
             playlistButton4.setVisible(false);
         }
         if (sd.getPlaylists().size() > i) {
             playlistButton5.setText(sd.getPlaylists().get(i).getTitle());
             i++;
         } else {
+            nextIcon5.setVisible(false);
             playlistButton5.setVisible(false);
         }
     }
