@@ -5,14 +5,17 @@ import java.sql.SQLException;
 
 public class Login {
 
-    public static Account signUp(String username, String mail, String password, String location, DatabaseHandler dbHandler){
-        if(Filter.verifyUsername(username) == true && Filter.verifyMail(mail) == true &&
-           Filter.verifyPassword(password) == true && Filter.verifyLocation(location) == true &&
+    public static Account signUp(String username, String mail, String originalPassword, String location, DatabaseHandler dbHandler) {
+        if (Filter.verifyUsername(username) == true && Filter.verifyMail(mail) == true &&
+                Filter.verifyPassword(originalPassword) == true && Filter.verifyLocation(location) == true &&
                 dbHandler.verifyUsernameDB(username) == true && dbHandler.verifyMailDB(mail) == true) {
-            dbHandler.signUpUser(username, mail, password, location);
+           /* String generatedSecuredPasswordHash = com.lambdaworks.crypto.SCryptUtil.scrypt(originalPassword, 16, 16, 16);
+            System.out.println(generatedSecuredPasswordHash);
+            dbHandler.signUpUser(username, mail, generatedSecuredPasswordHash, location);*/
+            String generatedSecuredPasswordHash = originalPassword;
             int iduser = dbHandler.maxIdUser();
             if (iduser != 0) {
-                return new Account(iduser, username, mail, password, location);
+                return new Account(iduser, username, mail, generatedSecuredPasswordHash, location);
             } else {
                 return null;
             }
@@ -21,9 +24,10 @@ public class Login {
         }
     }
 
-    public static Account signIn(String mail, String password, DatabaseHandler dbHandler){
+    public static Account signIn(String mail, String password, DatabaseHandler dbHandler) {
+        //boolean matched = com.lambdaworks.crypto.SCryptUtil.check("password", generatedSecuredPasswordHash);
+        //System.out.println(matched);
         ResultSet resultSet = dbHandler.signInUser(mail, password);
-
         Account account = null;
         try {
             while (resultSet.next()) {

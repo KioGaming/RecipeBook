@@ -18,7 +18,7 @@ public class Account{
         Account.password = password;
         Account.location = location;
         saveData = new SaveData();
-        //saveData.load(idUser);
+        saveData.load(idUser);
     }
 
     public Account() {

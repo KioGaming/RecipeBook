@@ -368,12 +368,21 @@ public class AppController {
 
     @FXML
     private ImageView nextIcon5;
+
     @FXML
     private ImageView likeAddInFavouriteButton;
+
     @FXML
     private Button removeDishInPlaylistButton;
+
     @FXML
     private Button removePlaylistButton;
+
+    @FXML
+    private Button removeDishInPlaylistDishView;
+
+    @FXML
+    private Button removeDishInPlaylistsDishView;
 
     @FXML
     void initialize() {
@@ -496,7 +505,50 @@ public class AppController {
                 }
             });
         });
-
+        String generatedSecuredPasswordHash = com.lambdaworks.crypto.SCryptUtil.scrypt("originalPassword", 16, 16, 16);
+        System.out.println(generatedSecuredPasswordHash);
+        generatedSecuredPasswordHash = com.lambdaworks.crypto.SCryptUtil.scrypt("originalPassword", 16, 16, 16);
+        System.out.println(generatedSecuredPasswordHash);
+        generatedSecuredPasswordHash = com.lambdaworks.crypto.SCryptUtil.scrypt("originalPassword", 16, 16, 16);
+        System.out.println(generatedSecuredPasswordHash);
+        boolean matched = com.lambdaworks.crypto.SCryptUtil.check("originalPassword", generatedSecuredPasswordHash);
+        System.out.println(matched);
+        removeDishInPlaylistsDishView.setVisible(false);
+        removeDishInPlaylistsDishView.setOnAction(actionEvent -> {
+           /* List<String> choices = new ArrayList<>();
+            boolean bool = true;
+            if (sd.getPlaylists().size() != 0) {
+                for (int i = 0; i < sd.getPlaylists().size(); i++) {
+                    if(sd.getPlaylists().get(i).getDishes().indexOf(activeDish) != -1) {
+                        choices.add(sd.getPlaylists().get(i).getTitle());
+                        bool = false;
+                    }
+                }
+            } else {
+                choices.add("Ця страва не знаходиться у ваших списках");
+            }
+            if(sd.getPlaylists().size() != 0 && bool){
+                choices.add("Ця страва не знаходиться у ваших списках");
+            }
+            ChoiceDialog<String> dialog = new ChoiceDialog<>("Виберіть список відтворення", choices);
+            dialog.setTitle("RecipeBook");
+            dialog.setHeaderText(null);
+            dialog.setContentText("Видалити страву зі списку відтворень");
+            dialog.initStyle(StageStyle.UTILITY);
+            dialog.setResizable(false);
+            Optional<String> result = dialog.showAndWait();
+            result.ifPresent(letter -> {
+                if (letter != "Виберіть список відтворення" && letter != "Ця страва не знаходиться у ваших списках") {
+                    for (int i = 0; i < sd.getPlaylists().size(); i++) {
+                        if (sd.getPlaylists().get(i).getTitle() == letter) {
+                            SaveLoad.removeDishInPlaylist(sd.getPlaylists().get(i).getId(), activeDish.getId());
+                            break;
+                        }
+                    }
+                }
+            });*/
+            //допилить для лайків те ж саме
+        });
         /**
          * Library page
          * */
@@ -691,6 +743,36 @@ public class AppController {
         });
         title20.setOnAction(event -> {
             likeDishView(sd, title20.getText());
+        });
+        removeDishInPlaylistDishView.setOnAction(actionEvent -> {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("RecipeBook");
+            alert.setHeaderText(null);
+            alert.setContentText("Ви справді хочете видалити страву з цього списку?");
+
+            Optional<ButtonType> option = alert.showAndWait();
+
+            if (option.get() != null) {
+                if (option.get() == ButtonType.OK) {
+                    if (idActivePlaylist != -1) {
+                        SaveLoad.removeDishInPlaylist(sd.getPlaylists().get(idActivePlaylist).getId(), activeDish.getId());
+                        sd.getPlaylists().get(idActivePlaylist).getDishes().remove(activeDish);
+                        scrollPane3.setVisible(true);
+                        scrollPane4.setVisible(false);
+                        sd.setLikeCounter(0);
+                        sd.setLikeLastCounterChange(14);
+                        likeNext(sd, "playlist" + (idActivePlaylist + 1));
+                    } else {
+                        SaveLoad.removeLikedDishes(account.getIdUser(), activeDish.getId());
+                        sd.getLike().remove(activeDish.getId());
+                        scrollPane3.setVisible(true);
+                        scrollPane4.setVisible(false);
+                        sd.setLikeCounter(0);
+                        sd.setLikeLastCounterChange(14);
+                        likeNext(sd, "like");
+                    }
+                }
+            }
         });
 
         likeFieldForLikedDish.setOnMouseClicked(event -> {
