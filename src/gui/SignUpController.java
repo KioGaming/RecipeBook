@@ -49,6 +49,9 @@ public class SignUpController {
     private Button authSignInButton;
 
     @FXML
+    private CheckBox savePasswordCheckBox;
+
+    @FXML
     void initialize() {
         locationComboBox.setValue(Text.get("LOCATION"));
         locationComboBox.setItems(comboBoxList);
@@ -59,7 +62,7 @@ public class SignUpController {
             String password = passwordField.getText();
             String locale = locationComboBox.getValue().toString();
             if (!username.equals("") && !mail.equals("") && !password.equals("") && !locale.equals("") && !locale.equals("Страна, язык")) {
-                Account account = Login.signUp(username, mail, password, locale, new DatabaseHandler());
+                Account account = Login.signUp(username, mail, password, locale, new DatabaseHandler(), savePasswordCheckBox.isSelected());
                 if (account != null) {
                     signUpButton.getScene().getWindow().hide();
                     FXMLLoader loader = new FXMLLoader();

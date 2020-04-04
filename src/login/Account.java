@@ -10,18 +10,28 @@ public class Account{
     private static String location;
     private static SaveData saveData;
     private static int idUser;
+    private static String role;
 
-    public Account(int iduser, String username, String mail, String password, String location) {
+    public Account(int iduser, String username, String mail, String password, String location, String role) {
         idUser = iduser;
         Account.username = username;
         Account.mail = mail;
         Account.password = password;
         Account.location = location;
+        Account.role = role;
         saveData = new SaveData();
         saveData.load(idUser);
     }
 
     public Account() {
+    }
+
+    public static String getRole() {
+        return role;
+    }
+
+    public static void setRole(String role) {
+        Account.role = role;
     }
 
     public void load() {

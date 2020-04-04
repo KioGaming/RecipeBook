@@ -16,6 +16,7 @@ import javafx.stage.StageStyle;
 import login.Account;
 import login.DatabaseHandler;
 import login.Filter;
+import login.Login;
 import model.Dish;
 import model.Shopping;
 import saveload.Playlist;
@@ -756,7 +757,7 @@ public class AppController {
                         likeNext(sd, "playlist" + (idActivePlaylist + 1));
                     } else {
                         SaveLoad.removeLikedDishes(account.getIdUser(), activeDish.getId());
-                        sd.getLike().remove(activeDish.getId());
+                        sd.getLike().remove(activeDish);
                         scrollPane3.setVisible(true);
                         scrollPane4.setVisible(false);
                         sd.setLikeCounter(0);
@@ -976,6 +977,7 @@ public class AppController {
         changeUserInfoPain.setVisible(false);
         aboutUsOrSupportPane.setVisible(false);
         exitButton.setOnAction(event -> {
+            Login.noSavePassword();
             exitButton.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/gui/SignIn.fxml"));

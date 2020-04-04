@@ -42,21 +42,24 @@ public class SignInController {
     private ProgressIndicator loadProgress;
 
     @FXML
-    void initialize() {
+    private CheckBox savePasswordCheckBox;
 
+    @FXML
+    void initialize() {
         authSignInButton.setOnAction(event -> {
             //errorMessagesField.setVisible(false);
             //loadProgress.setVisible(true);
             String mail = mailField.getText();
             String password = passwordField.getText();
+            boolean b = savePasswordCheckBox.isSelected();
             //loadProgress.setProgress(0.25f);
             if (!mail.equals("") && !password.equals("")) {
-                //loadProgress.setProgress(0.5f);
-                Account account = Login.signIn(mail, password, new DatabaseHandler());
+                //loadProgress.setProgress(0.5f);a
+                Account account = Login.signIn(mail, password, new DatabaseHandler(), b);
                 //loadProgress.setProgress(0.75f);
                 if (account != null) {
-                    loadProgress.setProgress(1);
-                    if(account.getMail().equals("vova@ukr.net")){
+                    //loadProgress.setProgress(1);
+                    if (Account.getRole().equals("admin")) {
                         authSignInButton.getScene().getWindow().hide();
                         FXMLLoader loader = new FXMLLoader();
                         loader.setLocation(getClass().getResource("/gui/admin.fxml"));
