@@ -254,13 +254,13 @@ public class AppController {
     private Button changeUserInfoButton;
 
     @FXML
-    private AnchorPane aboutUsOrSupportPane;
+    private AnchorPane aboutUsPane;
 
     @FXML
     private Button backBtn;
 
     @FXML
-    private Label aboutUsOrSupportLabel;
+    private Label aboutUsLabel;
 
     @FXML
     private AnchorPane settingsPane;
@@ -975,7 +975,7 @@ public class AppController {
          */
         settingsPane.setVisible(true);
         changeUserInfoPain.setVisible(false);
-        aboutUsOrSupportPane.setVisible(false);
+        aboutUsPane.setVisible(false);
         exitButton.setOnAction(event -> {
             Login.noSavePassword();
             exitButton.getScene().getWindow().hide();
@@ -1000,29 +1000,28 @@ public class AppController {
         aboutUsButton.setOnAction(event -> {
             settingsPane.setVisible(false);
             changeUserInfoPain.setVisible(false);
-            aboutUsOrSupportPane.setVisible(true);
-            aboutUsOrSupportLabel.setText("1");
+            aboutUsPane.setVisible(true);
+            aboutUsLabel.setText("1");
         });
         supportButton.setOnAction(event -> {
             settingsPane.setVisible(false);
             changeUserInfoPain.setVisible(false);
-            aboutUsOrSupportPane.setVisible(true);
-            aboutUsOrSupportLabel.setText("2");
+            //добавить пейн з цими сапортом
         });
         changeUserInfoButton.setOnAction(event -> {
             settingsPane.setVisible(false);
             changeUserInfoPain.setVisible(true);
-            aboutUsOrSupportPane.setVisible(false);
+            aboutUsPane.setVisible(false);
         });
         backBtn.setOnAction(event -> {
             settingsPane.setVisible(true);
             changeUserInfoPain.setVisible(false);
-            aboutUsOrSupportPane.setVisible(false);
+            aboutUsPane.setVisible(false);
         });
         backBtn1.setOnAction(event -> {
             settingsPane.setVisible(true);
             changeUserInfoPain.setVisible(false);
-            aboutUsOrSupportPane.setVisible(false);
+            aboutUsPane.setVisible(false);
         });
         changeMail.setOnAction(event -> {
             if (mailLabel.getText().equals(repeatMailLabel.getText()) && !mailLabel.getText().equals("")) {

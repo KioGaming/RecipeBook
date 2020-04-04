@@ -692,35 +692,40 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <AnchorPane fx:id="aboutUsOrSupportPane" layoutY="-1.0" prefHeight="670.0"
-                                            prefWidth="1200.0">
+                                <AnchorPane fx:id="settingsPane" prefHeight="670.0" prefWidth="1200.0" visible="false">
                                     <children>
-                                        <Button fx:id="backBtn" layoutX="481.0" layoutY="558.0" mnemonicParsing="false"
-                                                prefHeight="58.0" prefWidth="217.0" style="-fx-background-radius: 4;"
-                                                text="Назад"/>
-                                        <Label fx:id="aboutUsOrSupportLabel" alignment="TOP_CENTER" layoutX="94.0"
-                                               layoutY="39.0" prefHeight="158.0" prefWidth="992.0"
-                                               text="AboutUs or Support" textFill="WHITE">
+                                        <Button fx:id="aboutUsButton" layoutX="80.0" layoutY="104.0"
+                                                mnemonicParsing="false" prefHeight="65.0" prefWidth="290.0"
+                                                style="-fx-background-radius: 4; -fx-background-color: #F39C63;"
+                                                text="Про нас" textFill="WHITE">
                                             <font>
-                                                <Font name="Lobster" size="20.0"/>
+                                                <Font name="Lobster" size="30.0"/>
                                             </font>
-                                        </Label>
-                                    </children>
-                                </AnchorPane>
-                                <AnchorPane fx:id="settingsPane" prefHeight="670.0" prefWidth="1200.0">
-                                    <children>
-                                        <Button fx:id="aboutUsButton" layoutX="134.0" layoutY="104.0"
-                                                mnemonicParsing="false" prefHeight="58.0" prefWidth="217.0"
-                                                style="-fx-background-radius: 4;" text="Про нас"/>
-                                        <Button fx:id="supportButton" layoutX="482.0" layoutY="104.0"
-                                                mnemonicParsing="false" prefHeight="58.0" prefWidth="217.0"
-                                                style="-fx-background-radius: 4;" text="Допомога"/>
-                                        <Button fx:id="exitButton" layoutX="482.0" layoutY="484.0"
-                                                mnemonicParsing="false" prefHeight="58.0" prefWidth="217.0"
-                                                style="-fx-background-radius: 4;" text="Вийти"/>
-                                        <Button fx:id="changeUserInfoButton" layoutX="827.0" layoutY="104.0"
-                                                mnemonicParsing="false" prefHeight="58.0" prefWidth="217.0"
-                                                style="-fx-background-radius: 4;" text="Змінити пароль або почту"/>
+                                        </Button>
+                                        <Button fx:id="supportButton" layoutX="450.0" layoutY="104.0"
+                                                mnemonicParsing="false" prefHeight="65.0" prefWidth="290.0"
+                                                style="-fx-background-radius: 4; -fx-background-color: #F39C63;"
+                                                text="Допомога" textFill="WHITE">
+                                            <font>
+                                                <Font name="Lobster" size="30.0"/>
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="exitButton" layoutX="450.0" layoutY="500.0"
+                                                mnemonicParsing="false" prefHeight="65.0" prefWidth="290.0"
+                                                style="-fx-background-radius: 4; -fx-background-color: #8B008B;"
+                                                text="Вийти" textFill="WHITE">
+                                            <font>
+                                                <Font name="Lobster" size="30.0"/>
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="changeUserInfoButton" layoutX="820.0" layoutY="104.0"
+                                                mnemonicParsing="false" prefHeight="65.0" prefWidth="290.0"
+                                                style="-fx-background-radius: 4; -fx-background-color: #F39C63;"
+                                                text="Змінити ваші дані" textFill="WHITE">
+                                            <font>
+                                                <Font name="Lobster" size="30.0"/>
+                                            </font>
+                                        </Button>
                                     </children>
                                 </AnchorPane>
                                 <AnchorPane fx:id="changeUserInfoPain" prefHeight="670.0" prefWidth="1200.0">
@@ -737,25 +742,63 @@
                                                 <Font name="Lobster" size="20.0"/>
                                             </font>
                                         </Label>
-                                        <Button fx:id="changeMail" layoutX="121.0" layoutY="369.0"
-                                                mnemonicParsing="false" prefHeight="58.0" prefWidth="217.0"
-                                                style="-fx-background-radius: 4;" text="Змінити почту"/>
-                                        <Button fx:id="changePassword" layoutX="831.0" layoutY="369.0"
-                                                mnemonicParsing="false" prefHeight="58.0" prefWidth="217.0"
-                                                style="-fx-background-radius: 4;" text="Змінити пароль"/>
+                                        <Button fx:id="changeMail" layoutX="205.0" layoutY="400.0"
+                                                mnemonicParsing="false" prefHeight="65.0" prefWidth="290.0"
+                                                style="-fx-background-radius: 4; -fx-background-color: #F39C63;"
+                                                text="Змінити почту" textFill="WHITE">
+                                            <font>
+                                                <Font size="30.0"/>
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="changePassword" layoutX="700.0" layoutY="400.0"
+                                                mnemonicParsing="false" prefHeight="65.0" prefWidth="290.0"
+                                                style="-fx-background-radius: 4; -fx-background-color: #F39C63;"
+                                                text="Змінити пароль" textFill="WHITE">
+                                            <font>
+                                                <Font size="30.0"/>
+                                            </font>
+                                        </Button>
                                         <Button fx:id="backBtn1" layoutX="481.0" layoutY="558.0" mnemonicParsing="false"
-                                                prefHeight="58.0" prefWidth="217.0" style="-fx-background-radius: 4;"
-                                                text="Назад"/>
-                                        <TextField fx:id="mailLabel" layoutX="95.0" layoutY="210.0" prefHeight="38.0"
+                                                prefHeight="65.0" prefWidth="290.0"
+                                                style="-fx-background-radius: 4; -fx-background-color: #8B008B;"
+                                                text="Назад" textFill="WHITE">
+                                            <font>
+                                                <Font name="Lobster" size="30.0"/>
+                                            </font>
+                                        </Button>
+                                        <TextField fx:id="mailLabel" layoutX="215.0" layoutY="116.0" prefHeight="38.0"
                                                    prefWidth="270.0" promptText="Нова почта"/>
-                                        <TextField fx:id="repeatMailLabel" layoutX="94.0" layoutY="289.0"
+                                        <TextField fx:id="repeatMailLabel" layoutX="214.0" layoutY="195.0"
                                                    prefHeight="35.0" prefWidth="272.0"
                                                    promptText="Повторіть нову почту"/>
-                                        <TextField fx:id="passwordLabel" layoutX="805.0" layoutY="210.0"
+                                        <TextField fx:id="passwordLabel" layoutX="710.0" layoutY="194.0"
                                                    prefHeight="38.0" prefWidth="270.0" promptText="Новий пароль"/>
-                                        <TextField fx:id="repeatPasswordLabel" layoutX="804.0" layoutY="289.0"
+                                        <TextField fx:id="repeatPasswordLabel" layoutX="709.0" layoutY="273.0"
                                                    prefHeight="35.0" prefWidth="272.0"
                                                    promptText="Повторіть новий пароль"/>
+                                        <TextField fx:id="passwordLabel1" layoutX="710.0" layoutY="117.0"
+                                                   prefHeight="38.0" prefWidth="270.0" promptText="Старий пароль"/>
+                                        <TextField fx:id="mailLabel1" layoutX="215.0" layoutY="271.0" prefHeight="38.0"
+                                                   prefWidth="270.0" promptText="Пароль"/>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="aboutUsPane" layoutY="-1.0" prefHeight="670.0" prefWidth="1200.0"
+                                            visible="false">
+                                    <children>
+                                        <Button fx:id="backBtn" layoutX="455.0" layoutY="550.0" mnemonicParsing="false"
+                                                prefHeight="65.0" prefWidth="290.0"
+                                                style="-fx-background-radius: 4; -fx-background-color: #8B008B;"
+                                                text="Назад" textFill="WHITE">
+                                            <font>
+                                                <Font size="30.0"/>
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="aboutUsLabel" alignment="TOP_CENTER" layoutX="94.0" layoutY="39.0"
+                                               prefHeight="158.0" prefWidth="992.0" text="About Us" textFill="WHITE">
+                                            <font>
+                                                <Font name="Lobster" size="20.0"/>
+                                            </font>
+                                        </Label>
                                     </children>
                                 </AnchorPane>
                             </children>
