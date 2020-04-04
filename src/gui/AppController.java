@@ -505,14 +505,6 @@ public class AppController {
                 }
             });
         });
-        String generatedSecuredPasswordHash = com.lambdaworks.crypto.SCryptUtil.scrypt("originalPassword", 16, 16, 16);
-        System.out.println(generatedSecuredPasswordHash);
-        generatedSecuredPasswordHash = com.lambdaworks.crypto.SCryptUtil.scrypt("originalPassword", 16, 16, 16);
-        System.out.println(generatedSecuredPasswordHash);
-        generatedSecuredPasswordHash = com.lambdaworks.crypto.SCryptUtil.scrypt("originalPassword", 16, 16, 16);
-        System.out.println(generatedSecuredPasswordHash);
-        boolean matched = com.lambdaworks.crypto.SCryptUtil.check("originalPassword", generatedSecuredPasswordHash);
-        System.out.println(matched);
         removeDishInPlaylistsDishView.setVisible(false);
         removeDishInPlaylistsDishView.setOnAction(actionEvent -> {
            /* List<String> choices = new ArrayList<>();

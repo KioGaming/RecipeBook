@@ -23,16 +23,18 @@ public class DatabaseHandler extends Configs {
         return dbConnection;
     }
 
-    public void signUpUser(String username, String mail, String password, String location){
+    public void signUpUser(String username, String mail, String password, String salt, String location) {
         String insert = "INSERT INTO " + Settings.USER_TABLE + "(" + Settings.USER_USERNAME + ","
-                + Settings.USER_MAIL + "," + Settings.USER_PASSWORD + "," + Settings.USER_LOCATION + ")" + "VALUES(?,?,?,?)";
+                + Settings.USER_MAIL + "," + Settings.USER_PASSWORD + "," + Settings.USER_PASSWORD_SALT + "," + Settings.USER_LOCATION + "," + Settings.USER_ROLE + ")" + "VALUES(?,?,?,?,?,?)";
 
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
             prSt.setString(1, username);
             prSt.setString(2, mail);
             prSt.setString(3, password);
-            prSt.setString(4, location);
+            prSt.setString(4, salt);
+            prSt.setString(5, location);
+            prSt.setInt(6, 2);
             prSt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -41,16 +43,14 @@ public class DatabaseHandler extends Configs {
         }
     }
 
-    public ResultSet signInUser(String mail, String password){
+    public ResultSet signInUser(String mail) {
         ResultSet resSet = null;
-
-        String select = "SELECT * FROM " + Settings.USER_TABLE + " WHERE " + Settings.USER_MAIL + "=? AND "
-                        + Settings.USER_PASSWORD + "=?";
-
+        String select = "SELECT * FROM " + Settings.USER_TABLE + " WHERE " + Settings.USER_MAIL + "=?";// AND "
+        //+ Settings.USER_PASSWORD + "=?";
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(select);
             prSt.setString(1, mail);
-            prSt.setString(2, password);
+            //prSt.setString(2, password);
             resSet = prSt.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -172,7 +172,7 @@ public class DatabaseHandler extends Configs {
     public int maxIdUser() {
         int last_id = 0;
         ResultSet resultSet;
-        String select = "SELECT idplaylists as last_id FROM " + Settings.USER_TABLE + " ORDER BY idplaylists DESC LIMIT 1";
+        String select = "SELECT " + Settings.USER_ID + " as last_id FROM " + Settings.USER_TABLE + " ORDER BY " + Settings.USER_ID + " DESC LIMIT 1";
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(select);
             resultSet = prSt.executeQuery();

@@ -1,13 +1,13 @@
 // Copyright (C) 2011 - Will Glozer.  All rights reserved.
 
-package com.lambdaworks.crypto;
+package lambdaworks.crypto;
 
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.security.SecureRandom;
 
-import static com.lambdaworks.codec.Base64.decode;
-import static com.lambdaworks.codec.Base64.encode;
+import static lambdaworks.codec.Base64.decode;
+import static lambdaworks.codec.Base64.encode;
 
 /**
  * Simple {@link SCrypt} interface for hashing passwords using the

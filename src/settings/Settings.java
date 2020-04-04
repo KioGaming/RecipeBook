@@ -16,7 +16,9 @@ final public class Settings {
     public static final String USER_USERNAME = "username";
     public static final String USER_MAIL = "mail";
     public static final String USER_PASSWORD = "password";
+    public static final String USER_PASSWORD_SALT = "salt";
     public static final String USER_LOCATION = "location";
+    public static final String USER_ROLE = "rolename";
 
     public static final String DISH_TABLE = "dish";
     public static final String DISH_ID = "iddishes";

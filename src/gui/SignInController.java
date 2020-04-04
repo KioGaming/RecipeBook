@@ -103,7 +103,7 @@ public class SignInController {
                 //errorMessagesField.setVisible(true);
                 errorMessagesField.setText(Text.get("SIGN_IN_EMPTY_ERROR"));
             }
-            /*authSignInButton.getScene().getWindow().hide();
+           /* authSignInButton.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/gui/app.fxml"));
             try {
@@ -120,8 +120,7 @@ public class SignInController {
             stage.setMinHeight(729);
             stage.setMaxWidth(1205);
             stage.setMinWidth(1205);
-            stage.show();
-            */
+            stage.show();*/
         });
 
         loginSignUpButton.setOnAction(event -> {
