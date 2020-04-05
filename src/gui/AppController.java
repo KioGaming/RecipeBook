@@ -35,83 +35,57 @@ import java.util.ResourceBundle;
 
 public class AppController {
 
-    ObservableList<String> comboBoxList = FXCollections.observableArrayList("Всі страви", "Перші страви", "Другі страви", "Салати та закуски",
-            "Випічка", "Торти", "Десерти", "Напої");
-
     @FXML
     private ResourceBundle resources;
 
     @FXML
     private URL location;
 
+    Account account = new Account();
+    SaveData sd = account.getSaveData();
+    String filters;
+    Dish activeDish;
+    int idActivePlaylist = -1;
     @FXML
-    private ScrollPane scrollPane;
-
+    private ScrollPane homeScroll;
     @FXML
-    private ScrollPane scrollPane2;
-
+    private AnchorPane homePagePane;
     @FXML
-    private ComboBox<String> filterComboBox;
-
+    private ComboBox<String> filterComboBoxOnHomePage;
     @FXML
-    private AnchorPane frameScrollPane;
-
+    private Button title1OnHomePage;
     @FXML
-    private Button title1;
-
+    private Button title2OnHomePage;
     @FXML
-    private Button title2;
-
+    private Button title3OnHomePage;
     @FXML
-    private Button title3;
-
+    private Button title4OnHomePage;
     @FXML
-    private Button title4;
-
+    private Button title5OnHomePage;
     @FXML
-    private Button title5;
-
+    private ImageView image1OnHomePage;
     @FXML
-    private ImageView image1;
-
+    private ImageView image2OnHomePage;
     @FXML
-    private ImageView image2;
-
+    private ImageView image3OnHomePage;
     @FXML
-    private ImageView image3;
-
+    private ImageView image4OnHomePage;
     @FXML
-    private ImageView image4;
-
+    private ImageView image5OnHomePage;
     @FXML
-    private ImageView image5;
-
+    private Button backButtonOnHomePage;
     @FXML
-    private Button backButton;
-
+    private Button nextButtonOnHomePage;
     @FXML
-    private Button nextButton;
-
+    private ScrollPane dishViewOnHomePageScroll;
     @FXML
-    private Button backToCategoryButton;
-
+    private AnchorPane dishViewOnHomePagePane;
     @FXML
-    private Label dishTitle;
-
+    private Label dishTitleInDishViewOnHomePage;
     @FXML
-    private Label dishDescription;
-
+    private ImageView dishImageInDishViewOnHomePage;
     @FXML
-    private Label dishRecipe;
-
-    @FXML
-    private ImageView dishImage;
-
-    @FXML
-    private ImageView likeField;
-
-    @FXML
-    private TableView<Shopping> groceryTableView;
+    private Label dishDescriptionInDishViewOnHomePage;
 
     @FXML
     private Tab libraryTab;
@@ -163,8 +137,6 @@ public class AppController {
 
     @FXML
     private ImageView image13;
-
-    int idActivePlaylist = -1;
 
     @FXML
     private ImageView image14;
@@ -294,27 +266,16 @@ public class AppController {
 
     @FXML
     private Label changePasswordErrorField;
-
     @FXML
-    private Label descriptionLabel1;
-
+    private Label dishRecipeInDishViewOnHomePage;
     @FXML
-    private Label descriptionLabel2;
-
+    private TableView<Shopping> groceryTableViewInDishViewOnHomePage;
     @FXML
-    private Label descriptionLabel3;
-
+    private ImageView likeFieldInDishViewOnHomePage;
     @FXML
-    private Label descriptionLabel4;
-
+    private ImageView addInFavouriteButtonInDishViewOnHomePage;
     @FXML
-    private Label descriptionLabel5;
-
-    @FXML
-    private AnchorPane dishViewPane;
-
-    @FXML
-    private ImageView addInFavouriteButton;
+    private Button backToCategoryButtonInDishViewOnHomePage;
 
     @FXML
     private Button likePlaylistButton;
@@ -344,10 +305,6 @@ public class AppController {
 
     @FXML
     private Button removePlaylistsButton;
-
-    String filters;
-
-    Dish activeDish;
 
     @FXML
     private Button backToPlaylistsButton;
@@ -384,92 +341,99 @@ public class AppController {
 
     @FXML
     private Button removeDishInPlaylistsDishView;
+    @FXML
+    private Label description1OnHomePage;
+    @FXML
+    private Label description2OnHomePage;
+    @FXML
+    private Label description3OnHomePage;
+    @FXML
+    private Label description4OnHomePage;
+    @FXML
+    private Label description5OnHomePage;
 
     @FXML
     void initialize() {
-        Account account = new Account();
-        SaveData sd = account.getSaveData();
+        ObservableList<String> comboBoxList = FXCollections.observableArrayList("Всі страви", "Перші страви", "Другі страви",
+                "Салати та закуски", "Випічка", "Торти", "Десерти", "Напої");
+        filterComboBoxOnHomePage.setItems(comboBoxList);
         /**
          * Home page
          * **/
-        scrollPane2.setVisible(false);
-        filterComboBox.setItems(comboBoxList);
-        backButton.setDisable(true);
-        next(sd, "Всі страви");
-
-        nextButton.setOnAction(actionEvent -> {
-            backButton.setDisable(false);
-            nextButton.setDisable(false);
-            scrollPane.setFitToHeight(false);
-            if (filterComboBox.getValue() == null)
+        initHomePage();
+        nextButtonOnHomePage.setOnAction(actionEvent -> {
+            backButtonOnHomePage.setDisable(false);
+            nextButtonOnHomePage.setDisable(false);
+            homeScroll.setFitToHeight(false);
+            if (filterComboBoxOnHomePage.getValue() == null)
                 next(sd, "Всі страви");
-            else next(sd, filterComboBox.getValue());
+            else next(sd, filterComboBoxOnHomePage.getValue());
         });
 
-        filterComboBox.setOnAction(event -> {
-            backButton.setDisable(true);
-            nextButton.setDisable(false);
-            scrollPane.setFitToHeight(false);
-            nextButton.setLayoutY(850);
-            backButton.setLayoutY(850);
+        filterComboBoxOnHomePage.setOnAction(event -> {
+            backButtonOnHomePage.setDisable(true);
+            nextButtonOnHomePage.setDisable(false);
+            homeScroll.setFitToHeight(false);
+            nextButtonOnHomePage.setLayoutY(850);
+            backButtonOnHomePage.setLayoutY(850);
             sd.setCounter(0);
             sd.setLastCounterChange(5);
-            frameScrollPane.setMinHeight(959);
-            frameScrollPane.setMaxHeight(959);
-            frameScrollPane.setPrefHeight(959);
-            if (filterComboBox.getValue() == null)
+            homePagePane.setMinHeight(959);
+            homePagePane.setMaxHeight(959);
+            homePagePane.setPrefHeight(959);
+            if (filterComboBoxOnHomePage.getValue() == null)
                 next(sd, "Всі страви");
-            else next(sd, filterComboBox.getValue());
+            else next(sd, filterComboBoxOnHomePage.getValue());
         });
 
-        backButton.setOnAction(actionEvent -> {
-            frameScrollPane.setMinHeight(959);
-            frameScrollPane.setMaxHeight(959);
-            frameScrollPane.setPrefHeight(959);
-            nextButton.setDisable(false);
-            scrollPane.setFitToHeight(false);
-            nextButton.setLayoutY(850);
-            backButton.setLayoutY(850);
-            if (filterComboBox.getValue() == null || filterComboBox.getValue() == "Всі страви")
+        backButtonOnHomePage.setOnAction(actionEvent -> {
+            homePagePane.setMinHeight(959);
+            homePagePane.setMaxHeight(959);
+            homePagePane.setPrefHeight(959);
+            nextButtonOnHomePage.setDisable(false);
+            homeScroll.setFitToHeight(false);
+            nextButtonOnHomePage.setLayoutY(850);
+            backButtonOnHomePage.setLayoutY(850);
+            if (filterComboBoxOnHomePage.getValue() == null || filterComboBoxOnHomePage.getValue() == "Всі страви")
                 back(sd);
-            else back(sd, filterComboBox.getValue());
+            else back(sd, filterComboBoxOnHomePage.getValue());
         });
 
-        title1.setOnAction(event -> {
-            dishView(sd, title1.getText());
+        title1OnHomePage.setOnAction(event -> {
+            dishView(sd, title1OnHomePage.getText());
         });
-        title2.setOnAction(event -> {
-            dishView(sd, title2.getText());
+        title2OnHomePage.setOnAction(event -> {
+            dishView(sd, title2OnHomePage.getText());
         });
-        title3.setOnAction(event -> {
-            dishView(sd, title3.getText());
+        title3OnHomePage.setOnAction(event -> {
+            dishView(sd, title3OnHomePage.getText());
         });
-        title4.setOnAction(event -> {
-            dishView(sd, title4.getText());
+        title4OnHomePage.setOnAction(event -> {
+            dishView(sd, title4OnHomePage.getText());
         });
-        title5.setOnAction(event -> {
-            dishView(sd, title5.getText());
+        title5OnHomePage.setOnAction(event -> {
+            dishView(sd, title5OnHomePage.getText());
         });
 
-        backToCategoryButton.setOnAction(event -> {
+        backToCategoryButtonInDishViewOnHomePage.setOnAction(event -> {
             backToCategory(sd);
         });
 
-        likeField.setOnMouseClicked(event -> {
+        likeFieldInDishViewOnHomePage.setOnMouseClicked(event -> {
             if (sd.getLike().indexOf(activeDish) != -1) {
-                likeField.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
+                likeFieldInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
                 sd.getLike().remove(activeDish);
                 sd.removeLikedDishes(account.getIdUser(), activeDish.getId());
             } else {
-                likeField.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
+                likeFieldInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
                 sd.getLike().add(activeDish);
                 sd.saveLikedDishes(account.getIdUser(), activeDish.getId());
             }
         });
 
-        addInFavouriteButton.setVisible(true);
-        addInFavouriteButton.setImage(new Image(new File(Settings.getImageDir() + "addInFavourite.png").toURI().toString()));
-        addInFavouriteButton.setOnMouseClicked(mouseEvent -> {
+        addInFavouriteButtonInDishViewOnHomePage.setVisible(true);
+        addInFavouriteButtonInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "addInFavourite.png").toURI().toString()));
+        addInFavouriteButtonInDishViewOnHomePage.setOnMouseClicked(mouseEvent -> {
             List<String> choices = new ArrayList<>();
             if (sd.getPlaylists().size() != 0) {
                 for (int i = 0; i < sd.getPlaylists().size(); i++) {
@@ -1057,6 +1021,12 @@ public class AppController {
         });
     }
 
+    private void initHomePage() {
+        dishViewOnHomePageScroll.setVisible(false);
+        backButtonOnHomePage.setDisable(true);
+        next(sd, "Всі страви");
+    }
+
     private void playlistsPaneRedraw(SaveData sd) {
         nextLikeIcon.setVisible(true);
         nextIcon1.setVisible(true);
@@ -1138,98 +1108,98 @@ public class AppController {
         if (counter == 0) counter = -1;
         int listSize = list.size();
 
-        title1.setVisible(true);
-        title2.setVisible(true);
-        title3.setVisible(true);
-        title4.setVisible(true);
-        title5.setVisible(true);
-        image1.setVisible(true);
-        image2.setVisible(true);
-        image3.setVisible(true);
-        image4.setVisible(true);
-        image5.setVisible(true);
-        descriptionLabel1.setVisible(true);
-        descriptionLabel2.setVisible(true);
-        descriptionLabel3.setVisible(true);
-        descriptionLabel4.setVisible(true);
-        descriptionLabel5.setVisible(true);
+        title1OnHomePage.setVisible(true);
+        title2OnHomePage.setVisible(true);
+        title3OnHomePage.setVisible(true);
+        title4OnHomePage.setVisible(true);
+        title5OnHomePage.setVisible(true);
+        image1OnHomePage.setVisible(true);
+        image2OnHomePage.setVisible(true);
+        image3OnHomePage.setVisible(true);
+        image4OnHomePage.setVisible(true);
+        image5OnHomePage.setVisible(true);
+        description1OnHomePage.setVisible(true);
+        description2OnHomePage.setVisible(true);
+        description3OnHomePage.setVisible(true);
+        description4OnHomePage.setVisible(true);
+        description5OnHomePage.setVisible(true);
 
         if (counter < listSize - 1) {
             if (counter + 1 < listSize) {
                 counter++;
-                title1.setText(list.get(counter).getTitle());
-                image1.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel1.setText(list.get(counter).getDescription());
+                title1OnHomePage.setText(list.get(counter).getTitle());
+                image1OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                description1OnHomePage.setText(list.get(counter).getDescription());
             } else {
-                title1.setVisible(false);
-                image1.setVisible(false);
-                descriptionLabel1.setVisible(false);
+                title1OnHomePage.setVisible(false);
+                image1OnHomePage.setVisible(false);
+                description1OnHomePage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title2.setText(list.get(counter).getTitle());
-                image2.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel2.setText(list.get(counter).getDescription());
+                title2OnHomePage.setText(list.get(counter).getTitle());
+                image2OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                description2OnHomePage.setText(list.get(counter).getDescription());
             } else {
-                title2.setVisible(false);
-                image2.setVisible(false);
-                descriptionLabel2.setVisible(false);
+                title2OnHomePage.setVisible(false);
+                image2OnHomePage.setVisible(false);
+                description2OnHomePage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title3.setText(list.get(counter).getTitle());
-                image3.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel3.setText(list.get(counter).getDescription());
+                title3OnHomePage.setText(list.get(counter).getTitle());
+                image3OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                description3OnHomePage.setText(list.get(counter).getDescription());
             } else {
-                title3.setVisible(false);
-                image3.setVisible(false);
-                descriptionLabel3.setVisible(false);
+                title3OnHomePage.setVisible(false);
+                image3OnHomePage.setVisible(false);
+                description3OnHomePage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title4.setText(list.get(counter).getTitle());
-                image4.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel4.setText(list.get(counter).getDescription());
+                title4OnHomePage.setText(list.get(counter).getTitle());
+                image4OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                description4OnHomePage.setText(list.get(counter).getDescription());
             } else {
-                title4.setVisible(false);
-                image4.setVisible(false);
-                descriptionLabel4.setVisible(false);
+                title4OnHomePage.setVisible(false);
+                image4OnHomePage.setVisible(false);
+                description4OnHomePage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title5.setText(list.get(counter).getTitle());
-                image5.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel5.setText(list.get(counter).getDescription());
+                title5OnHomePage.setText(list.get(counter).getTitle());
+                image5OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                description5OnHomePage.setText(list.get(counter).getDescription());
             } else {
-                title5.setVisible(false);
-                image5.setVisible(false);
-                descriptionLabel5.setVisible(false);
+                title5OnHomePage.setVisible(false);
+                image5OnHomePage.setVisible(false);
+                description5OnHomePage.setVisible(false);
             }
             if (counter - sd.getCounter() != 0) {
                 sd.setLastCounterChange(counter - sd.getCounter());
             }
             sd.setCounter(counter);
-            scrollPane.setVvalue(0);
+            homeScroll.setVvalue(0);
             if (counter >= listSize - 1) {
-                nextButton.setDisable(true);
+                nextButtonOnHomePage.setDisable(true);
             }
-            if (nextButton.isDisable() && counter - sd.getCounter() >= 0 && counter - sd.getCounter() < 5) {
+            if (nextButtonOnHomePage.isDisable() && counter - sd.getCounter() >= 0 && counter - sd.getCounter() < 5) {
                 if ((counter + 2) % 10 == 0) {
-                    nextButton.setLayoutY(700);
-                    backButton.setLayoutY(700);
-                    frameScrollPane.setMinHeight(800);
-                    frameScrollPane.setMaxHeight(800);
-                    frameScrollPane.setPrefHeight(800);
+                    nextButtonOnHomePage.setLayoutY(700);
+                    backButtonOnHomePage.setLayoutY(700);
+                    homePagePane.setMinHeight(800);
+                    homePagePane.setMaxHeight(800);
+                    homePagePane.setPrefHeight(800);
                 } else {
-                    frameScrollPane.setMinHeight(670);
-                    frameScrollPane.setMaxHeight(670);
-                    frameScrollPane.setPrefHeight(670);
-                    nextButton.setLayoutY(580);
-                    backButton.setLayoutY(580);
+                    homePagePane.setMinHeight(670);
+                    homePagePane.setMaxHeight(670);
+                    homePagePane.setPrefHeight(670);
+                    nextButtonOnHomePage.setLayoutY(580);
+                    backButtonOnHomePage.setLayoutY(580);
                 }
             }
         } else {
-            nextButton.setDisable(true);
+            nextButtonOnHomePage.setDisable(true);
         }
     }
 
@@ -1240,21 +1210,21 @@ public class AppController {
         int listSize = list.size();
         int lastCounterChange = sd.getLastCounterChange();
 
-        title1.setVisible(true);
-        title2.setVisible(true);
-        title3.setVisible(true);
-        title4.setVisible(true);
-        title5.setVisible(true);
-        image1.setVisible(true);
-        image2.setVisible(true);
-        image3.setVisible(true);
-        image4.setVisible(true);
-        image5.setVisible(true);
-        descriptionLabel1.setVisible(true);
-        descriptionLabel2.setVisible(true);
-        descriptionLabel3.setVisible(true);
-        descriptionLabel4.setVisible(true);
-        descriptionLabel5.setVisible(true);
+        title1OnHomePage.setVisible(true);
+        title2OnHomePage.setVisible(true);
+        title3OnHomePage.setVisible(true);
+        title4OnHomePage.setVisible(true);
+        title5OnHomePage.setVisible(true);
+        image1OnHomePage.setVisible(true);
+        image2OnHomePage.setVisible(true);
+        image3OnHomePage.setVisible(true);
+        image4OnHomePage.setVisible(true);
+        image5OnHomePage.setVisible(true);
+        description1OnHomePage.setVisible(true);
+        description2OnHomePage.setVisible(true);
+        description3OnHomePage.setVisible(true);
+        description4OnHomePage.setVisible(true);
+        description5OnHomePage.setVisible(true);
         if (lastCounterChange != 5 && counter - lastCounterChange - 4 >= 0) {
             counter = counter - (lastCounterChange + 4);
         } else {
@@ -1264,62 +1234,62 @@ public class AppController {
         if (counter >= -1) {
             if (counter + 1 < listSize) {
                 counter++;
-                title1.setText(list.get(counter).getTitle());
-                image1.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel1.setText(list.get(counter).getDescription());
+                title1OnHomePage.setText(list.get(counter).getTitle());
+                image1OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                description1OnHomePage.setText(list.get(counter).getDescription());
             } else {
-                title1.setVisible(false);
-                image1.setVisible(false);
-                descriptionLabel1.setVisible(false);
+                title1OnHomePage.setVisible(false);
+                image1OnHomePage.setVisible(false);
+                description1OnHomePage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title2.setText(list.get(counter).getTitle());
-                image2.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel2.setText(list.get(counter).getDescription());
+                title2OnHomePage.setText(list.get(counter).getTitle());
+                image2OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                description2OnHomePage.setText(list.get(counter).getDescription());
             } else {
-                title2.setVisible(false);
-                image2.setVisible(false);
-                descriptionLabel2.setVisible(false);
+                title2OnHomePage.setVisible(false);
+                image2OnHomePage.setVisible(false);
+                description2OnHomePage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title3.setText(list.get(counter).getTitle());
-                image3.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel3.setText(list.get(counter).getDescription());
+                title3OnHomePage.setText(list.get(counter).getTitle());
+                image3OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                description3OnHomePage.setText(list.get(counter).getDescription());
             } else {
-                title3.setVisible(false);
-                image3.setVisible(false);
-                descriptionLabel3.setVisible(false);
+                title3OnHomePage.setVisible(false);
+                image3OnHomePage.setVisible(false);
+                description3OnHomePage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title4.setText(list.get(counter).getTitle());
-                image4.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel4.setText(list.get(counter).getDescription());
+                title4OnHomePage.setText(list.get(counter).getTitle());
+                image4OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                description4OnHomePage.setText(list.get(counter).getDescription());
             } else {
-                title4.setVisible(false);
-                image4.setVisible(false);
-                descriptionLabel4.setVisible(false);
+                title4OnHomePage.setVisible(false);
+                image4OnHomePage.setVisible(false);
+                description4OnHomePage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title5.setText(list.get(counter).getTitle());
-                image5.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel5.setText(list.get(counter).getDescription());
+                title5OnHomePage.setText(list.get(counter).getTitle());
+                image5OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                description5OnHomePage.setText(list.get(counter).getDescription());
             } else {
-                title5.setVisible(false);
-                image5.setVisible(false);
-                descriptionLabel5.setVisible(false);
+                title5OnHomePage.setVisible(false);
+                image5OnHomePage.setVisible(false);
+                description5OnHomePage.setVisible(false);
             }
             sd.setLastCounterChange(5);
             sd.setCounter(counter);
-            scrollPane.setVvalue(0);
+            homeScroll.setVvalue(0);
             if (counter == 4) {
-                backButton.setDisable(true);
+                backButtonOnHomePage.setDisable(true);
             }
         } else {
-            backButton.setDisable(true);
+            backButtonOnHomePage.setDisable(true);
         }
     }
 
@@ -1346,21 +1316,21 @@ public class AppController {
         int listSize = list.size();
         int lastCounterChange = sd.getLastCounterChange();
 
-        title1.setVisible(true);
-        title2.setVisible(true);
-        title3.setVisible(true);
-        title4.setVisible(true);
-        title5.setVisible(true);
-        image1.setVisible(true);
-        image2.setVisible(true);
-        image3.setVisible(true);
-        image4.setVisible(true);
-        image5.setVisible(true);
-        descriptionLabel1.setVisible(true);
-        descriptionLabel2.setVisible(true);
-        descriptionLabel3.setVisible(true);
-        descriptionLabel4.setVisible(true);
-        descriptionLabel5.setVisible(true);
+        title1OnHomePage.setVisible(true);
+        title2OnHomePage.setVisible(true);
+        title3OnHomePage.setVisible(true);
+        title4OnHomePage.setVisible(true);
+        title5OnHomePage.setVisible(true);
+        image1OnHomePage.setVisible(true);
+        image2OnHomePage.setVisible(true);
+        image3OnHomePage.setVisible(true);
+        image4OnHomePage.setVisible(true);
+        image5OnHomePage.setVisible(true);
+        description1OnHomePage.setVisible(true);
+        description2OnHomePage.setVisible(true);
+        description3OnHomePage.setVisible(true);
+        description4OnHomePage.setVisible(true);
+        description5OnHomePage.setVisible(true);
 
         if (lastCounterChange != 5 && counter - lastCounterChange - 4 >= 0) {
             counter -= lastCounterChange + 4;
@@ -1371,68 +1341,68 @@ public class AppController {
         if (counter >= -1) {
             if (counter + 1 < listSize) {
                 counter++;
-                title1.setText(list.get(counter).getTitle());
-                image1.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel1.setText(list.get(counter).getDescription());
+                title1OnHomePage.setText(list.get(counter).getTitle());
+                image1OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                description1OnHomePage.setText(list.get(counter).getDescription());
             } else {
-                title1.setVisible(false);
-                image1.setVisible(false);
-                descriptionLabel1.setVisible(false);
+                title1OnHomePage.setVisible(false);
+                image1OnHomePage.setVisible(false);
+                description1OnHomePage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title2.setText(list.get(counter).getTitle());
-                image2.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel2.setText(list.get(counter).getDescription());
+                title2OnHomePage.setText(list.get(counter).getTitle());
+                image2OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                description2OnHomePage.setText(list.get(counter).getDescription());
             } else {
-                title2.setVisible(false);
-                image2.setVisible(false);
-                descriptionLabel2.setVisible(false);
+                title2OnHomePage.setVisible(false);
+                image2OnHomePage.setVisible(false);
+                description2OnHomePage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title3.setText(list.get(counter).getTitle());
-                image3.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel3.setText(list.get(counter).getDescription());
+                title3OnHomePage.setText(list.get(counter).getTitle());
+                image3OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                description3OnHomePage.setText(list.get(counter).getDescription());
             } else {
-                title3.setVisible(false);
-                image3.setVisible(false);
-                descriptionLabel3.setVisible(false);
+                title3OnHomePage.setVisible(false);
+                image3OnHomePage.setVisible(false);
+                description3OnHomePage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title4.setText(list.get(counter).getTitle());
-                image4.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel4.setText(list.get(counter).getDescription());
+                title4OnHomePage.setText(list.get(counter).getTitle());
+                image4OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                description4OnHomePage.setText(list.get(counter).getDescription());
             } else {
-                title4.setVisible(false);
-                image4.setVisible(false);
-                descriptionLabel4.setVisible(false);
+                title4OnHomePage.setVisible(false);
+                image4OnHomePage.setVisible(false);
+                description4OnHomePage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title5.setText(list.get(counter).getTitle());
-                image5.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
-                descriptionLabel5.setText(list.get(counter).getDescription());
+                title5OnHomePage.setText(list.get(counter).getTitle());
+                image5OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                description5OnHomePage.setText(list.get(counter).getDescription());
             } else {
-                title5.setVisible(false);
-                image5.setVisible(false);
-                descriptionLabel5.setVisible(false);
+                title5OnHomePage.setVisible(false);
+                image5OnHomePage.setVisible(false);
+                description5OnHomePage.setVisible(false);
             }
             sd.setLastCounterChange(5);
             sd.setCounter(counter);
-            scrollPane.setVvalue(0);
+            homeScroll.setVvalue(0);
             if (counter == 4) {
-                backButton.setDisable(true);
+                backButtonOnHomePage.setDisable(true);
             }
         } else {
-            backButton.setDisable(true);
+            backButtonOnHomePage.setDisable(true);
         }
     }
 
     private void dishView(SaveData sd, String title) {
-        scrollPane2.setVisible(true);
-        scrollPane2.setVvalue(0);
+        dishViewOnHomePageScroll.setVisible(true);
+        dishViewOnHomePageScroll.setVvalue(0);
         Dish dish = null;
         for (int i = 0; i < sd.getDishes().size(); i++) {
             if (sd.getDishes().get(i).getTitle() == title) {
@@ -1441,9 +1411,9 @@ public class AppController {
         }
         if (dish != null) {
             activeDish = dish;
-            dishTitle.setText(dish.getTitle());
-            dishImage.setImage(new Image(new File(Settings.getImageDir() + dish.getPhoto()).toURI().toString()));
-            dishDescription.setText(dish.getDescription());
+            dishTitleInDishViewOnHomePage.setText(dish.getTitle());
+            dishImageInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + dish.getPhoto()).toURI().toString()));
+            dishDescriptionInDishViewOnHomePage.setText(dish.getDescription());
             String s = "";
             for (int i = 0; i < dish.getRecipe().size(); i++) {
                 s += "Етап №" + (i + 1) + "\n" + "     " + dish.getRecipe().get(i);
@@ -1451,46 +1421,46 @@ public class AppController {
                     s += "\n\n";
                 }
             }
-            dishRecipe.setText(s);
+            dishRecipeInDishViewOnHomePage.setText(s);
             System.out.println(s + "\n");
-            System.out.println(dishRecipe.getPrefHeight() + " " + dishRecipe.getHeight() + " " + dishRecipe.getMaxHeight() + " " + dishRecipe.getBaselineOffset());
+            System.out.println(dishRecipeInDishViewOnHomePage.getPrefHeight() + " " + dishRecipeInDishViewOnHomePage.getHeight() + " " + dishRecipeInDishViewOnHomePage.getMaxHeight() + " " + dishRecipeInDishViewOnHomePage.getBaselineOffset());
             System.out.println(s.length() / 100 * 10 * dish.getRecipe().size());
-            dishRecipe.setMinHeight(s.length() / 100 * 10 * dish.getRecipe().size());
-            dishRecipe.setMaxHeight(s.length() / 100 * 10 * dish.getRecipe().size());
+            dishRecipeInDishViewOnHomePage.setMinHeight(s.length() / 100 * 10 * dish.getRecipe().size());
+            dishRecipeInDishViewOnHomePage.setMaxHeight(s.length() / 100 * 10 * dish.getRecipe().size());
             //зробить самоизменяющийся размер у label dishRecipe
             //убрать дублірувание інгрідієнтів
-            scrollPane.setVisible(false);
+            homeScroll.setVisible(false);
 
-            groceryTableView.setPrefHeight(dish.getGroceryList().size() * 25 + 20);
+            groceryTableViewInDishViewOnHomePage.setPrefHeight(dish.getGroceryList().size() * 25 + 20);
 
             ObservableList<Shopping> grocery = FXCollections.observableArrayList();
             for (int i = 0; i < dish.getGroceryList().size(); i++) {
                 grocery.add(dish.getGroceryList().get(i));
             }
 
-            groceryTableView.setItems(grocery);
+            groceryTableViewInDishViewOnHomePage.setItems(grocery);
 
             TableColumn<Shopping, String> groceryColumn = new TableColumn<>("Продукти");
             groceryColumn.setCellValueFactory(new PropertyValueFactory<>("grocery"));
-            groceryTableView.getColumns().add(groceryColumn);
+            groceryTableViewInDishViewOnHomePage.getColumns().add(groceryColumn);
 
             TableColumn<Shopping, Double> weightColumn = new TableColumn<>("Кількість");
             weightColumn.setCellValueFactory(new PropertyValueFactory<>("weight"));
-            groceryTableView.getColumns().add(weightColumn);
+            groceryTableViewInDishViewOnHomePage.getColumns().add(weightColumn);
 
-            groceryTableView.setVisible(true);
+            groceryTableViewInDishViewOnHomePage.setVisible(true);
 
             if (sd.getLike() != null && sd.getLike().indexOf(dish) != -1) {
-                likeField.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
+                likeFieldInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
             } else {
-                likeField.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
+                likeFieldInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
             }
         }
     }
 
     private void backToCategory(SaveData sd) {
-        scrollPane2.setVisible(false);
-        scrollPane.setVisible(true);
+        dishViewOnHomePageScroll.setVisible(false);
+        homeScroll.setVisible(true);
     }
 
     /**
@@ -1900,12 +1870,12 @@ public class AppController {
             }
             sd.setLastCounterChange(15);
             sd.setCounter(counter);
-            scrollPane.setVvalue(0);
+            homeScroll.setVvalue(0);
             if (counter == 14) {
-                backButton.setDisable(true);
+                backButtonOnHomePage.setDisable(true);
             }
         } else {
-            backButton.setDisable(true);
+            backButtonOnHomePage.setDisable(true);
         }
     }
 
@@ -1934,14 +1904,14 @@ public class AppController {
             }
             likeDishRecipe.setText(s);
             System.out.println(s + "\n");
-            System.out.println(dishRecipe.getPrefHeight() + " " + dishRecipe.getHeight() + " " + dishRecipe.getMaxHeight() + " " + dishRecipe.getBaselineOffset());
+            System.out.println(dishRecipeInDishViewOnHomePage.getPrefHeight() + " " + dishRecipeInDishViewOnHomePage.getHeight() + " " + dishRecipeInDishViewOnHomePage.getMaxHeight() + " " + dishRecipeInDishViewOnHomePage.getBaselineOffset());
             System.out.println(s.length() / 100 * 10 * dish.getRecipe().size());
             likeDishRecipe.setMinHeight(s.length() / 100 * 10 * dish.getRecipe().size());
             likeDishRecipe.setMaxHeight(s.length() / 100 * 10 * dish.getRecipe().size());
             //зробить самоизменяющийся размер у label dishRecipe
             //убрать дублірувание інгрідієнтів
 
-            groceryTableView.setPrefHeight(dish.getGroceryList().size() * 25 + 20);
+            groceryTableViewInDishViewOnHomePage.setPrefHeight(dish.getGroceryList().size() * 25 + 20);
 
             ObservableList<Shopping> grocery = FXCollections.observableArrayList();
             for (int i = 0; i < dish.getGroceryList().size(); i++) {
