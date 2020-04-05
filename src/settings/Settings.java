@@ -1,14 +1,16 @@
 package settings;
 
-import java.io.File;
-
 final public class Settings {
 
-    public static final String FONT_LOBSTER = "fonts/lobster.ttf";
+    public static final String USERNAME_PATTERN = "^[A-Za-z0-9_]{4,16}$";
 
-    public static File FILE_LIST_RECIPE = new File("saves/default.rb");
-    private static final File SAVE_DIR = new File("saves/");
-    private static final String SAVE_FILE_EXT = "rb";
+    public static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" +
+            "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{4,})$";
+
+    public static final String PASSWORD_PATTERN = "^[A-Za-z0-9_]{6,20}$";
+
+
+    public static final String FONT_LOBSTER = "fonts/lobster.ttf";
     private static final String IMAGE_DIR = "images/";
 
     public static final String USER_TABLE = "users";
@@ -27,8 +29,7 @@ final public class Settings {
     public static final String DISH_DESCRIPTION = "description";
     public static final String DISH_RECIPE = "recipe";
     public static final String DISH_GROCERYLIST = "groceryList";
-    public static final String DISH_COUNTLIST = "countList";
-    public static final String DISH_UNITSOFMEASUREMENTLIST = "unitsOfMeasurementList";
+    public static final String DISH_WEIGTHLIST = "weightList";
     public static final String DISH_NUMBER_OF_LIKES = "numberOfLikes";
     public static final String DISH_CATEGORY = "category";
 
@@ -50,10 +51,6 @@ final public class Settings {
     public static final String PLAYLISTS_DISH_ID = "idplaylist_dish";
     public static final String PLAYLISTS_DISH_PLAYLISTID = "playlistid";
     public static final String PLAYLISTS_DISH_DISHID = "dishid";
-
-    public static File getFileSave(String username) {
-        return new File(SAVE_DIR + "/" + username + "." + SAVE_FILE_EXT);
-    }
 
     public static String getImageDir() {
         return IMAGE_DIR;

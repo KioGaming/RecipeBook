@@ -19,33 +19,30 @@ public class Login {
             secureRandom.nextBytes(salt);
             String generatedSecuredPasswordHash = lambdaworks.crypto.SCryptUtil.scrypt(originalPassword + salt.toString(), 16, 16, 16);
             dbHandler.signUpUser(username, mail, generatedSecuredPasswordHash, salt.toString(), location);
+            int iduser = dbHandler.maxIdUser();
             if (savePassword) {
                 savePassword(mail, originalPassword);
             } else {
                 noSavePassword();
             }
-            int iduser = dbHandler.maxIdUser();
-            if (iduser != 0) {
-                return new Account(iduser, username, mail, generatedSecuredPasswordHash, location, "user");
-            } else {
-                return null;
-            }
+            return new Account(iduser, username, mail, generatedSecuredPasswordHash, location, "user");
         } else {
             return null;
         }
     }
 
     public static Account signIn(String mail, String password, DatabaseHandler dbHandler, boolean savePassword) {
-        ResultSet resultSet = dbHandler.signInUser(mail);
         Account account = null;
+        ResultSet resultSet = dbHandler.signInUser(mail);
         try {
             if (resultSet.next()) {
+                int iduser = Integer.parseInt(resultSet.getString("idusers"));
                 String username = resultSet.getString("username");
                 String location = resultSet.getString("location");
-                int iduser = Integer.parseInt(resultSet.getString("idusers"));
+                String role = resultSet.getString("rolename");
                 boolean matched = lambdaworks.crypto.SCryptUtil.check(password + resultSet.getString("salt"), resultSet.getString("password"));
                 if (matched) {
-                    account = new Account(iduser, username, mail, password, location, resultSet.getString("rolename"));
+                    account = new Account(iduser, username, mail, password, location, role);
                     if (savePassword) {
                         savePassword(mail, password);
                     } else {
@@ -56,7 +53,6 @@ public class Login {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return account;
     }
 

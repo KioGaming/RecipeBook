@@ -1,6 +1,4 @@
-package saveload;
-
-import model.Dish;
+package model;
 
 import java.util.List;
 
@@ -14,6 +12,14 @@ public class Playlist {
         this.id = id;
         this.title = title;
         this.dishes = dishes;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -39,13 +45,5 @@ public class Playlist {
                 ", title='" + title + '\'' +
                 ", dishes=" + dishes +
                 '}';
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }

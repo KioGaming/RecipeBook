@@ -1,18 +1,10 @@
 package gui;
 
-import exception.ModelException;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import model.Dish;
 import saveload.SaveLoad;
-import settings.Text;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -86,26 +78,19 @@ public class AdminController {
 
                 String[] tmp3 = unitsOfMeasurementList.split("/");
                 ArrayList<String> ul = new ArrayList<>();
-                for (int i = 0; i < tmp3.length;i++)
-                {
+                for (int i = 0; i < tmp3.length;i++) {
                     ul.add(tmp3[i]);
                 }
 
                 String[] tmp4 = recipe.split("/");
                 ArrayList<String> r = new ArrayList<>();
-                for (int i = 0; i < tmp4.length;i++)
-                {
+                for (int i = 0; i < tmp4.length; i++) {
                     r.add(tmp4[i]);
                 }
 
-                try
-                {
-                    SaveLoad saveLoad = new SaveLoad();
-                    SaveLoad.saveRecipe(new Dish(0, title, photo, description, category, r, gl, cl, ul, 0));
-                } catch (ModelException e)
-                {
-                    e.printStackTrace();
-                }
+
+                SaveLoad saveLoad = new SaveLoad();
+                //SaveLoad.saveRecipe(new Dish(0, title, photo, description, category, r, gl, cl, ul, 0));
                 titleField.clear();
                 photoField.clear();
                 descriptionField.clear();
@@ -121,23 +106,7 @@ public class AdminController {
 
         exitButton.setOnAction(event -> {
             exitButton.getScene().getWindow().hide();
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/gui/SignIn.fxml"));
-            try {
-                loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Parent root = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setTitle(Text.get("PROGRAM_NAME"));
-            stage.setScene(new Scene(root));
-            stage.setResizable(false);
-            stage.setMaxHeight(700);
-            stage.setMinHeight(700);
-            stage.setMaxWidth(1200);
-            stage.setMinWidth(1200);
-            stage.show();
+            LoaderNewScene.load("/gui/SignIn.fxml");
         });
     }
 }

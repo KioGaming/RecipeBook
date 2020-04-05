@@ -2,25 +2,24 @@ package login;
 
 import saveload.SaveData;
 
-public class Account{
+public class Account {
 
+    private static int id;
     private static String username;
     private static String mail;
     private static String password;
     private static String location;
-    private static SaveData saveData;
-    private static int idUser;
     private static String role;
+    private static SaveData saveData;
 
-    public Account(int iduser, String username, String mail, String password, String location, String role) {
-        idUser = iduser;
+    public Account(int id, String username, String mail, String password, String location, String role) {
+        Account.id = id;
         Account.username = username;
         Account.mail = mail;
         Account.password = password;
         Account.location = location;
         Account.role = role;
-        saveData = new SaveData();
-        saveData.load(idUser);
+        saveData = new SaveData(id);
     }
 
     public Account() {
@@ -34,24 +33,12 @@ public class Account{
         Account.role = role;
     }
 
-    public void load() {
-        saveData.load(idUser);
-    }
-
     public String getUserName() {
         return username;
     }
 
     public void setUserName(String userName) {
         username = userName;
-    }
-
-    public int getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(int idUser) {
-        Account.idUser = idUser;
     }
 
     public String getMail() {
@@ -70,14 +57,6 @@ public class Account{
         Account.password = password;
     }
 
-    public SaveData getSaveData(){
-        return saveData;
-    }
-
-    public void setSaveData(SaveData saveData) {
-        Account.saveData = saveData;
-    }
-
     public String getLocation() {
         return location;
     }
@@ -86,8 +65,24 @@ public class Account{
         Account.location = location;
     }
 
+    public int getIdUser() {
+        return id;
+    }
+
+    public void setIdUser(int idUser) {
+        Account.id = idUser;
+    }
+
+    public SaveData getSaveData() {
+        return saveData;
+    }
+
+    public void setSaveData(SaveData saveData) {
+        Account.saveData = saveData;
+    }
+
     @Override
     public String toString() {
-        return username + " " + mail + " " + password + " " + location;//+ " " + saveData.toString();
+        return super.toString();
     }
 }

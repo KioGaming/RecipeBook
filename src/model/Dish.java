@@ -1,8 +1,6 @@
 package model;
 
-import exception.ModelException;
-
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Dish {
@@ -12,34 +10,15 @@ public class Dish {
     private String photo;
     private String description;
     private String category;
-    private ArrayList<String> recipe;
-    private ArrayList<String> groceryList;
-    private ArrayList<String> countList;
-    private ArrayList<String> unitsOfMeasurementList;
+    private List<String> recipe;
+    private List<Shopping> groceryList;
     private int numberOfLikes;
 
-    public Dish(){}
+    public Dish() {
+    }
 
-    public Dish(int id, String title, String photo, String description, String category, ArrayList<String> recipe, ArrayList<String> groceryList,
-                ArrayList<String> countList, ArrayList<String> unitsOfMeasurementList, int numberOfLikes) throws ModelException {
-        if (title.length() == 0) {
-            throw new ModelException(ModelException.PROGRAM_ERROR);
-        }
-        if (photo.length() == 0) {
-            throw new ModelException(ModelException.PROGRAM_ERROR);
-        }
-        if (description.length() == 0) {
-            throw new ModelException(ModelException.PROGRAM_ERROR);
-        }
-        if (recipe.size() == 0) {
-            throw new ModelException(ModelException.PROGRAM_ERROR);
-        }
-        if (groceryList.size() == 0) {
-            throw new ModelException(ModelException.PROGRAM_ERROR);
-        }
-        if (unitsOfMeasurementList.size() == 0) {
-            throw new ModelException(ModelException.PROGRAM_ERROR);
-        }
+    public Dish(int id, String title, String photo, String description, String category, List<String> recipe, List<Shopping> groceryList,
+                int numberOfLikes) {
         this.id = id;
         this.title = title;
         this.photo = photo;
@@ -47,9 +26,15 @@ public class Dish {
         this.category = category;
         this.recipe = recipe;
         this.groceryList = groceryList;
-        this.countList = countList;
-        this.unitsOfMeasurementList = unitsOfMeasurementList;
         this.numberOfLikes = numberOfLikes;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -60,6 +45,22 @@ public class Dish {
         this.title = title;
     }
 
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -68,36 +69,20 @@ public class Dish {
         this.description = description;
     }
 
-    public ArrayList<String> getRecipe() {
+    public List<String> getRecipe() {
         return recipe;
     }
 
-    public void setRecipe(ArrayList<String> recipe) {
+    public void setRecipe(List<String> recipe) {
         this.recipe = recipe;
     }
 
-    public ArrayList<String> getGroceryList() {
+    public List<Shopping> getGroceryList() {
         return groceryList;
     }
 
-    public void setGroceryList(ArrayList<String> groceryList) {
+    public void setGroceryList(List<Shopping> groceryList) {
         this.groceryList = groceryList;
-    }
-
-    public ArrayList<String> getCountList() {
-        return countList;
-    }
-
-    public void setCountList(ArrayList<String> countList) {
-        this.countList = countList;
-    }
-
-    public ArrayList<String> getUnitsOfMeasurementList() {
-        return unitsOfMeasurementList;
-    }
-
-    public void setUnitsOfMeasurementList(ArrayList<String> unitsOfMeasurementList) {
-        this.unitsOfMeasurementList = unitsOfMeasurementList;
     }
 
     public int getNumberOfLikes() {
@@ -108,25 +93,9 @@ public class Dish {
         this.numberOfLikes = numberOfLikes;
     }
 
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
-
     @Override
-    public String toString() {
-        return title + " " + photo + " " + description + " " + category + " " + recipe.toString() + " " + groceryList.toString() + " " + countList.toString() + unitsOfMeasurementList.toString() + " " + numberOfLikes + "\n";
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
+    public int hashCode() {
+        return Objects.hash(getTitle(), getPhoto(), getDescription(), getCategory(), getRecipe(), getGroceryList(), getNumberOfLikes());
     }
 
     @Override
@@ -140,21 +109,20 @@ public class Dish {
                 getDescription().equals(dish.getDescription()) &&
                 getCategory().equals(dish.getCategory()) &&
                 getRecipe().equals(dish.getRecipe()) &&
-                getGroceryList().equals(dish.getGroceryList()) &&
-                getCountList().equals(dish.getCountList()) &&
-                getUnitsOfMeasurementList().equals(dish.getUnitsOfMeasurementList());
+                getGroceryList().equals(dish.getGroceryList());
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(getTitle(), getPhoto(), getDescription(), getCategory(), getRecipe(), getGroceryList(), getCountList(), getUnitsOfMeasurementList(), getNumberOfLikes());
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public String toString() {
+        return "Dish{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", photo='" + photo + '\'' +
+                ", description='" + description + '\'' +
+                ", category='" + category + '\'' +
+                ", recipe=" + recipe +
+                ", groceryList=" + groceryList +
+                ", numberOfLikes=" + numberOfLikes +
+                '}';
     }
 }

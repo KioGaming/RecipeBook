@@ -18,8 +18,8 @@ import login.DatabaseHandler;
 import login.Filter;
 import login.Login;
 import model.Dish;
+import model.Playlist;
 import model.Shopping;
-import saveload.Playlist;
 import saveload.SaveData;
 import saveload.SaveLoad;
 import settings.Settings;
@@ -387,8 +387,8 @@ public class AppController {
 
     @FXML
     void initialize() {
-        SaveData sd = new SaveData();
         Account account = new Account();
+        SaveData sd = account.getSaveData();
         /**
          * Home page
          * **/
@@ -1024,7 +1024,7 @@ public class AppController {
             aboutUsPane.setVisible(false);
         });
         changeMail.setOnAction(event -> {
-            if (mailLabel.getText().equals(repeatMailLabel.getText()) && !mailLabel.getText().equals("")) {
+            /*if (mailLabel.getText().equals(repeatMailLabel.getText()) && !mailLabel.getText().equals("")) {
                 if (Filter.verifyMail(mailLabel.getText()) == true) {
                     DatabaseHandler databaseHandler = new DatabaseHandler();
                     databaseHandler.changeMail(account.getMail(), mailLabel.getText());
@@ -1037,7 +1037,7 @@ public class AppController {
                 }
             } else {
                 changeMailErrorField.setText(Text.get("CHANGE_EMPTY_ERROR"));
-            }
+            }*/
         });
         changePassword.setOnAction(event -> {
             if (passwordLabel.getText().equals(repeatPasswordLabel.getText()) && !passwordLabel.getText().equals("")) {
@@ -1117,19 +1117,19 @@ public class AppController {
     private void next(SaveData sd, String filter) {
         List<Dish> list;
         if (filter == "Перші страви") {
-            list = sd.getC1();
+            list = sd.getCategory1();
         } else if (filter == "Другі страви") {
-            list = sd.getC2();
+            list = sd.getCategory2();
         } else if (filter == "Салати та закуски") {
-            list = sd.getC3();
+            list = sd.getCategory3();
         } else if (filter == "Випічка") {
-            list = sd.getC4();
+            list = sd.getCategory4();
         } else if (filter == "Торти") {
-            list = sd.getC5();
+            list = sd.getCategory5();
         } else if (filter == "Десерти") {
-            list = sd.getC6();
+            list = sd.getCategory6();
         } else if (filter == "Напої") {
-            list = sd.getC7();
+            list = sd.getCategory7();
         } else {
             list = sd.getDishes();
         }
@@ -1327,19 +1327,19 @@ public class AppController {
     private void back(SaveData sd, String filter) {
         List<Dish> list;
         if (filter == "Перші страви") {
-            list = sd.getC1();
+            list = sd.getCategory1();
         } else if (filter == "Другі страви") {
-            list = sd.getC2();
+            list = sd.getCategory2();
         } else if (filter == "Салати та закуски") {
-            list = sd.getC3();
+            list = sd.getCategory3();
         } else if (filter == "Випічка") {
-            list = sd.getC4();
+            list = sd.getCategory4();
         } else if (filter == "Торти") {
-            list = sd.getC5();
+            list = sd.getCategory5();
         } else if (filter == "Десерти") {
-            list = sd.getC6();
+            list = sd.getCategory6();
         } else {
-            list = sd.getC7();
+            list = sd.getCategory7();
         }
 
         int counter = sd.getCounter();
@@ -1465,11 +1465,7 @@ public class AppController {
 
             ObservableList<Shopping> grocery = FXCollections.observableArrayList();
             for (int i = 0; i < dish.getGroceryList().size(); i++) {
-                if(dish.getUnitsOfMeasurementList().get(i) == "-") {
-                    grocery.add(new Shopping(dish.getGroceryList().get(i), dish.getCountList().get(i)));
-                } else {
-                    grocery.add(new Shopping(dish.getGroceryList().get(i), dish.getCountList().get(i) + " " + dish.getUnitsOfMeasurementList().get(i)));
-                }
+                grocery.add(dish.getGroceryList().get(i));
             }
 
             groceryTableView.setItems(grocery);
@@ -1948,13 +1944,8 @@ public class AppController {
             groceryTableView.setPrefHeight(dish.getGroceryList().size() * 25 + 20);
 
             ObservableList<Shopping> grocery = FXCollections.observableArrayList();
-            Shopping shopping = new Shopping();
             for (int i = 0; i < dish.getGroceryList().size(); i++) {
-                if (dish.getUnitsOfMeasurementList().get(i) == "-") {
-                    grocery.add(new Shopping(dish.getGroceryList().get(i), dish.getCountList().get(i)));
-                } else {
-                    grocery.add(new Shopping(dish.getGroceryList().get(i), dish.getCountList().get(i) + " " + dish.getUnitsOfMeasurementList().get(i)));
-                }
+                grocery.add(dish.getGroceryList().get(i));
             }
             likeGroceryTableView.setItems(grocery);
 

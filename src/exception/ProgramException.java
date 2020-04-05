@@ -2,14 +2,14 @@ package exception;
 
 import settings.Text;
 
-public class ModelException extends Exception {
+public class ProgramException extends Exception {
 
     public static final int PROGRAM_ERROR = 1;
     public static final int ADDING_ERROR = 2;
 
     private final int code;
 
-    public ModelException(int code){
+    public ProgramException(int code) {
         this.code = code;
     }
 

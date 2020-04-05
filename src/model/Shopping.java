@@ -1,11 +1,9 @@
 package model;
 
 public class Shopping {
+
     private String grocery;
     private String weight;
-
-    public Shopping() {
-    }
 
     public Shopping(String grocery, String weight) {
         this.grocery = grocery;
@@ -28,7 +26,11 @@ public class Shopping {
         this.weight = weight;
     }
 
+    @Override
     public String toString() {
-        return grocery + " " + weight;
+        return "Shopping{" +
+                "grocery='" + grocery + '\'' +
+                ", weight='" + weight + '\'' +
+                '}';
     }
 }
