@@ -700,7 +700,8 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <AnchorPane fx:id="settingsPane" prefHeight="670.0" prefWidth="1200.0" visible="false">
+                                <AnchorPane fx:id="settingsMenuPane" prefHeight="670.0" prefWidth="1200.0"
+                                            visible="false">
                                     <children>
                                         <Button fx:id="aboutUsButton" layoutX="80.0" layoutY="104.0"
                                                 mnemonicParsing="false" prefHeight="65.0" prefWidth="290.0"
@@ -750,15 +751,7 @@
                                                 <Font name="Lobster" size="20.0"/>
                                             </font>
                                         </Label>
-                                        <Button fx:id="changeMail" layoutX="205.0" layoutY="400.0"
-                                                mnemonicParsing="false" prefHeight="65.0" prefWidth="290.0"
-                                                style="-fx-background-radius: 4; -fx-background-color: #F39C63;"
-                                                text="Змінити почту" textFill="WHITE">
-                                            <font>
-                                                <Font size="30.0"/>
-                                            </font>
-                                        </Button>
-                                        <Button fx:id="changePassword" layoutX="700.0" layoutY="400.0"
+                                        <Button fx:id="changePassword" layoutX="481.0" layoutY="358.0"
                                                 mnemonicParsing="false" prefHeight="65.0" prefWidth="290.0"
                                                 style="-fx-background-radius: 4; -fx-background-color: #F39C63;"
                                                 text="Змінити пароль" textFill="WHITE">
@@ -766,35 +759,30 @@
                                                 <Font size="30.0"/>
                                             </font>
                                         </Button>
-                                        <Button fx:id="backBtn1" layoutX="481.0" layoutY="558.0" mnemonicParsing="false"
-                                                prefHeight="65.0" prefWidth="290.0"
+                                        <Button fx:id="backToMenuSettingsButtonFromChangeUserInfoPain" layoutX="481.0"
+                                                layoutY="558.0" mnemonicParsing="false" prefHeight="65.0"
+                                                prefWidth="290.0"
                                                 style="-fx-background-radius: 4; -fx-background-color: #8B008B;"
                                                 text="Назад" textFill="WHITE">
                                             <font>
                                                 <Font name="Lobster" size="30.0"/>
                                             </font>
                                         </Button>
-                                        <TextField fx:id="mailLabel" layoutX="215.0" layoutY="116.0" prefHeight="38.0"
-                                                   prefWidth="270.0" promptText="Нова почта"/>
-                                        <TextField fx:id="repeatMailLabel" layoutX="214.0" layoutY="195.0"
-                                                   prefHeight="35.0" prefWidth="272.0"
-                                                   promptText="Повторіть нову почту"/>
-                                        <TextField fx:id="passwordLabel" layoutX="710.0" layoutY="194.0"
+                                        <TextField fx:id="passwordLabel" layoutX="491.0" layoutY="152.0"
                                                    prefHeight="38.0" prefWidth="270.0" promptText="Новий пароль"/>
-                                        <TextField fx:id="repeatPasswordLabel" layoutX="709.0" layoutY="273.0"
+                                        <TextField fx:id="repeatPasswordLabel" layoutX="490.0" layoutY="231.0"
                                                    prefHeight="35.0" prefWidth="272.0"
                                                    promptText="Повторіть новий пароль"/>
-                                        <TextField fx:id="passwordLabel1" layoutX="710.0" layoutY="117.0"
+                                        <TextField fx:id="passwordLabel1" layoutX="491.0" layoutY="75.0"
                                                    prefHeight="38.0" prefWidth="270.0" promptText="Старий пароль"/>
-                                        <TextField fx:id="mailLabel1" layoutX="215.0" layoutY="271.0" prefHeight="38.0"
-                                                   prefWidth="270.0" promptText="Пароль"/>
                                     </children>
                                 </AnchorPane>
                                 <AnchorPane fx:id="aboutUsPane" layoutY="-1.0" prefHeight="670.0" prefWidth="1200.0"
                                             visible="false">
                                     <children>
-                                        <Button fx:id="backBtn" layoutX="455.0" layoutY="550.0" mnemonicParsing="false"
-                                                prefHeight="65.0" prefWidth="290.0"
+                                        <Button fx:id="backToSettingsMenuFromAboutUsPaneButton" layoutX="455.0"
+                                                layoutY="550.0" mnemonicParsing="false" prefHeight="65.0"
+                                                prefWidth="290.0"
                                                 style="-fx-background-radius: 4; -fx-background-color: #8B008B;"
                                                 text="Назад" textFill="WHITE">
                                             <font>
