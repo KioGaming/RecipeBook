@@ -37,15 +37,8 @@ public class AppController {
 
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
-    Account account = new Account();
-    SaveData sd = account.getSaveData();
-    String filters;
-    Dish activeDish;
-    int idActivePlaylist = -1;
     @FXML
     private ScrollPane homeScroll;
     @FXML
@@ -72,8 +65,13 @@ public class AppController {
     private ImageView image4OnHomePage;
     @FXML
     private ImageView image5OnHomePage;
+    Account account = new Account();
+    SaveData sd = account.getSaveData();
+    String filters;
+    Dish activeDish;
+    int idActivePlaylist = -1;
     @FXML
-    private Button backButtonOnHomePage;
+    private Label description1OnHomePage;
     @FXML
     private Button nextButtonOnHomePage;
     @FXML
@@ -86,186 +84,16 @@ public class AppController {
     private ImageView dishImageInDishViewOnHomePage;
     @FXML
     private Label dishDescriptionInDishViewOnHomePage;
-
     @FXML
-    private Tab libraryTab;
-
+    private Label description2OnHomePage;
     @FXML
-    private ImageView image6;
-
+    private Label description3OnHomePage;
     @FXML
-    private ImageView image7;
-
+    private Label description4OnHomePage;
     @FXML
-    private ImageView image8;
-
+    private Label description5OnHomePage;
     @FXML
-    private Button backLikeButton;
-
-    @FXML
-    private Button nextLikeButton;
-
-    @FXML
-    private Button title6;
-
-    @FXML
-    private Button title7;
-
-    @FXML
-    private Button title8;
-
-    @FXML
-    private ImageView image9;
-
-    @FXML
-    private ImageView image10;
-
-    @FXML
-    private ImageView image11;
-
-    @FXML
-    private Button title9;
-
-    @FXML
-    private Button title10;
-
-    @FXML
-    private Button title11;
-
-    @FXML
-    private ImageView image12;
-
-    @FXML
-    private ImageView image13;
-
-    @FXML
-    private ImageView image14;
-
-    @FXML
-    private Button title12;
-
-    @FXML
-    private Button title13;
-
-    @FXML
-    private Button title14;
-
-    @FXML
-    private ImageView image15;
-
-    @FXML
-    private ImageView image16;
-
-    @FXML
-    private ImageView image17;
-
-    @FXML
-    private Button title15;
-
-    @FXML
-    private Button title16;
-
-    @FXML
-    private Button title17;
-
-    @FXML
-    private ImageView image18;
-
-    @FXML
-    private ImageView image19;
-
-    @FXML
-    private ImageView image20;
-
-    @FXML
-    private Button title18;
-
-    @FXML
-    private Button title19;
-
-    @FXML
-    private Button title20;
-
-    @FXML
-    private ScrollPane scrollPane3;
-
-    @FXML
-    private ScrollPane scrollPane4;
-
-    @FXML
-    private Label likeDishTitle;
-
-    @FXML
-    private ImageView likeDishImage;
-
-    @FXML
-    private Label likeDishDescription;
-
-    @FXML
-    private Label likeDishRecipe;
-
-    @FXML
-    private Button likeBackToCategoryButton;
-
-    @FXML
-    private TableView<Shopping> likeGroceryTableView;
-
-    @FXML
-    private ImageView likeFieldForLikedDish;
-
-    @FXML
-    private Button aboutUsButton;
-
-    @FXML
-    private Button supportButton;
-
-    @FXML
-    private Button exitButton;
-
-    @FXML
-    private Button changeUserInfoButton;
-
-    @FXML
-    private AnchorPane aboutUsPane;
-
-    @FXML
-    private Button backBtn;
-
-    @FXML
-    private Label aboutUsLabel;
-
-    @FXML
-    private AnchorPane settingsPane;
-
-    @FXML
-    private AnchorPane changeUserInfoPain;
-
-    @FXML
-    private Button changeMail;
-
-    @FXML
-    private TextField mailLabel;
-
-    @FXML
-    private TextField repeatMailLabel;
-
-    @FXML
-    private Button changePassword;
-
-    @FXML
-    private TextField passwordLabel;
-
-    @FXML
-    private TextField repeatPasswordLabel;
-
-    @FXML
-    private Button backBtn1;
-
-    @FXML
-    private Label changeMailErrorField;
-
-    @FXML
-    private Label changePasswordErrorField;
+    private Button backButtonOnHomePage;
     @FXML
     private Label dishRecipeInDishViewOnHomePage;
     @FXML
@@ -276,81 +104,172 @@ public class AppController {
     private ImageView addInFavouriteButtonInDishViewOnHomePage;
     @FXML
     private Button backToCategoryButtonInDishViewOnHomePage;
-
     @FXML
-    private Button likePlaylistButton;
-
+    private Tab libraryTab;
     @FXML
-    private Button playlistButton1;
-
+    private AnchorPane playlistsPaneOnLibraryPage;
     @FXML
-    private Button playlistButton2;
+    private Button likePlaylistButtonOnLibraryPage;
     @FXML
-    private AnchorPane frameScrollPane1;
-
+    private Button playlistButton1OnLibraryPage;
     @FXML
-    private Button playlistButton3;
-
+    private Button playlistButton2OnLibraryPage;
     @FXML
-    private Button playlistButton4;
-
+    private Button playlistButton3OnLibraryPage;
     @FXML
-    private Button playlistButton5;
-
+    private Button playlistButton4OnLibraryPage;
     @FXML
-    private AnchorPane playlistsPane;
-
+    private Button playlistButton5OnLibraryPage;
     @FXML
-    private Button addPlaylistsButton;
-
+    private ImageView likeListIconOnLibraryPage;
     @FXML
-    private Button removePlaylistsButton;
-
+    private ImageView playlistIcon1OnLibraryPage;
     @FXML
-    private Button backToPlaylistsButton;
-
+    private ImageView playlistIcon2OnLibraryPage;
     @FXML
-    private ImageView nextLikeIcon;
-
+    private ImageView playlistIcon3OnLibraryPage;
     @FXML
-    private ImageView nextIcon1;
-
+    private ImageView playlistIcon4OnLibraryPage;
     @FXML
-    private ImageView nextIcon2;
-
+    private ImageView playlistIcon5OnLibraryPage;
     @FXML
-    private ImageView nextIcon3;
-
+    private Button addPlaylistsButtonOnLibraryPage;
     @FXML
-    private ImageView nextIcon4;
-
+    private Button removePlaylistsButtonOnLibraryPage;
     @FXML
-    private ImageView nextIcon5;
-
+    private ScrollPane libraryPageScroll;
     @FXML
-    private ImageView likeAddInFavouriteButton;
+    private AnchorPane libraryPagePane;
+    @FXML
+    private ImageView image1OnLibraryPage;
+    @FXML
+    private ImageView image2OnLibraryPage;
+    @FXML
+    private ImageView image3OnLibraryPage;
+    @FXML
+    private Button title1OnLibraryPage;
+    @FXML
+    private Button title2OnLibraryPage;
+    @FXML
+    private Button title3OnLibraryPage;
+    @FXML
+    private ImageView image4OnLibraryPage;
+    @FXML
+    private ImageView image5OnLibraryPage;
+    @FXML
+    private ImageView image6OnLibraryPage;
+    @FXML
+    private Button title4OnLibraryPage;
+    @FXML
+    private Button title5OnLibraryPage;
+    @FXML
+    private Button title6OnLibraryPage;
+    @FXML
+    private ImageView image7OnLibraryPage;
+    @FXML
+    private ImageView image8OnLibraryPage;
+    @FXML
+    private ImageView image9OnLibraryPage;
+    @FXML
+    private Button title7OnLibraryPage;
+    @FXML
+    private Button title8OnLibraryPage;
+    @FXML
+    private Button title9OnLibraryPage;
+    @FXML
+    private ImageView image10OnLibraryPage;
+    @FXML
+    private ImageView image11OnLibraryPage;
+    @FXML
+    private ImageView image12OnLibraryPage;
+    @FXML
+    private Button title10OnLibraryPage;
+    @FXML
+    private Button title11OnLibraryPage;
+    @FXML
+    private Button title12OnLibraryPage;
+    @FXML
+    private ImageView image13OnLibraryPage;
+    @FXML
+    private ImageView image14OnLibraryPage;
+    @FXML
+    private ImageView image15OnLibraryPage;
+    @FXML
+    private Button title13OnLibraryPage;
+    @FXML
+    private Button title14OnLibraryPage;
+    @FXML
+    private Button title15OnLibraryPage;
+    @FXML
+    private Button backToPlaylistsButtonOnLibraryPage;
+    @FXML
+    private Button nextButtonOnLibraryPage;
+    @FXML
+    private ScrollPane dishViewScrollOnLibraryPage;
+    @FXML
+    private AnchorPane dishViewPaneOnLibraryPage;
+    @FXML
+    private Label dishTitleInDishViewOnLibraryPage;
+    @FXML
+    private ImageView dishImageInDishViewOnLibraryPage;
+    @FXML
+    private Label dishRecipeInDishViewOnLibraryPage;
+    @FXML
+    private Label dishDescriptionInDishViewOnLibraryPage;
+    @FXML
+    private TableView<Shopping> groceryTableViewInDishViewOnLibraryPage;
+    @FXML
+    private ImageView likeFieldInDishViewOnLibraryPage;
+    @FXML
+    private ImageView addInFavouriteButtonInDishViewOnLibraryPage;
+    @FXML
+    private Button removeDishInDishViewOnLibraryPage;
+    @FXML
+    private Button backToCategoryButtonInDishViewOnLibraryPage;
+    @FXML
+    private Button backButtonOnLibraryPage;
+    @FXML
+    private Button aboutUsButton;
+    @FXML
+    private Button supportButton;
+    @FXML
+    private Button exitButton;
+    @FXML
+    private Button changeUserInfoButton;
+    @FXML
+    private AnchorPane aboutUsPane;
+    @FXML
+    private Button backBtn;
+    @FXML
+    private Label aboutUsLabel;
+    @FXML
+    private AnchorPane settingsPane;
+    @FXML
+    private AnchorPane changeUserInfoPain;
+    @FXML
+    private Button changeMail;
+    @FXML
+    private TextField mailLabel;
+    @FXML
+    private TextField repeatMailLabel;
+    @FXML
+    private Button changePassword;
 
     @FXML
     private Button removeDishInPlaylistButton;
 
     @FXML
     private Button removePlaylistButton;
-
     @FXML
-    private Button removeDishInPlaylistDishView;
-
+    private TextField passwordLabel;
     @FXML
-    private Button removeDishInPlaylistsDishView;
+    private TextField repeatPasswordLabel;
     @FXML
-    private Label description1OnHomePage;
+    private Button backBtn1;
     @FXML
-    private Label description2OnHomePage;
+    private Label changeMailErrorField;
     @FXML
-    private Label description3OnHomePage;
-    @FXML
-    private Label description4OnHomePage;
-    @FXML
-    private Label description5OnHomePage;
+    private Label changePasswordErrorField;
 
     @FXML
     void initialize() {
@@ -470,238 +389,202 @@ public class AppController {
                 }
             });
         });
-        removeDishInPlaylistsDishView.setVisible(false);
-        removeDishInPlaylistsDishView.setOnAction(actionEvent -> {
-           /* List<String> choices = new ArrayList<>();
-            boolean bool = true;
-            if (sd.getPlaylists().size() != 0) {
-                for (int i = 0; i < sd.getPlaylists().size(); i++) {
-                    if(sd.getPlaylists().get(i).getDishes().indexOf(activeDish) != -1) {
-                        choices.add(sd.getPlaylists().get(i).getTitle());
-                        bool = false;
-                    }
-                }
-            } else {
-                choices.add("Ця страва не знаходиться у ваших списках");
-            }
-            if(sd.getPlaylists().size() != 0 && bool){
-                choices.add("Ця страва не знаходиться у ваших списках");
-            }
-            ChoiceDialog<String> dialog = new ChoiceDialog<>("Виберіть список відтворення", choices);
-            dialog.setTitle("RecipeBook");
-            dialog.setHeaderText(null);
-            dialog.setContentText("Видалити страву зі списку відтворень");
-            dialog.initStyle(StageStyle.UTILITY);
-            dialog.setResizable(false);
-            Optional<String> result = dialog.showAndWait();
-            result.ifPresent(letter -> {
-                if (letter != "Виберіть список відтворення" && letter != "Ця страва не знаходиться у ваших списках") {
-                    for (int i = 0; i < sd.getPlaylists().size(); i++) {
-                        if (sd.getPlaylists().get(i).getTitle() == letter) {
-                            SaveLoad.removeDishInPlaylist(sd.getPlaylists().get(i).getId(), activeDish.getId());
-                            break;
-                        }
-                    }
-                }
-            });*/
-            //допилить для лайків те ж саме
-        });
         /**
          * Library page
          * */
-        nextLikeIcon.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
-        nextIcon1.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
-        nextIcon2.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
-        nextIcon3.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
-        nextIcon4.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
-        nextIcon5.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
-        likeAddInFavouriteButton.setImage(new Image((new File(Settings.getImageDir() + "addInFavourite.png").toURI().toString())));
-        scrollPane4.setVisible(false);
-        scrollPane3.setVisible(false);
-        backLikeButton.setDisable(true);
-        playlistsPane.setVisible(true);
+        likeListIconOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
+        playlistIcon1OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
+        playlistIcon2OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
+        playlistIcon3OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
+        playlistIcon4OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
+        playlistIcon5OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
+        addInFavouriteButtonInDishViewOnLibraryPage.setImage(new Image((new File(Settings.getImageDir() + "addInFavourite.png").toURI().toString())));
+        dishViewScrollOnLibraryPage.setVisible(false);
+        libraryPageScroll.setVisible(false);
+        backButtonOnLibraryPage.setDisable(true);
+        playlistsPaneOnLibraryPage.setVisible(true);
         libraryTab.setOnSelectionChanged(event -> {
             playlistsPaneRedraw(sd);
         });
-        likePlaylistButton.setOnAction(actionEvent -> {
+        likePlaylistButtonOnLibraryPage.setOnAction(actionEvent -> {
             idActivePlaylist = -1;
             sd.setLikeCounter(0);
             sd.setLastCounterChange(14);
-            scrollPane3.setVisible(true);
-            scrollPane4.setVisible(false);
-            playlistsPane.setVisible(false);
+            libraryPageScroll.setVisible(true);
+            dishViewScrollOnLibraryPage.setVisible(false);
+            playlistsPaneOnLibraryPage.setVisible(false);
             filters = "like";
             removePlaylistButton.setVisible(false);
             likeNext(sd, "like");
         });
-        playlistButton1.setOnAction(actionEvent -> {
+        playlistButton1OnLibraryPage.setOnAction(actionEvent -> {
             idActivePlaylist = 0;
             sd.setLikeCounter(0);
             sd.setLastCounterChange(14);
-            scrollPane3.setVisible(true);
-            scrollPane4.setVisible(false);
-            playlistsPane.setVisible(false);
+            libraryPageScroll.setVisible(true);
+            dishViewScrollOnLibraryPage.setVisible(false);
+            playlistsPaneOnLibraryPage.setVisible(false);
             filters = "playlist1";
             removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist1");
         });
-        playlistButton2.setOnAction(actionEvent -> {
+        playlistButton2OnLibraryPage.setOnAction(actionEvent -> {
             idActivePlaylist = 1;
             sd.setLikeCounter(0);
             sd.setLastCounterChange(14);
-            scrollPane3.setVisible(true);
-            scrollPane4.setVisible(false);
-            playlistsPane.setVisible(false);
+            libraryPageScroll.setVisible(true);
+            dishViewScrollOnLibraryPage.setVisible(false);
+            playlistsPaneOnLibraryPage.setVisible(false);
             filters = "playlist2";
             removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist2");
         });
-        playlistButton3.setOnAction(actionEvent -> {
+        playlistButton3OnLibraryPage.setOnAction(actionEvent -> {
             idActivePlaylist = 2;
             sd.setLikeCounter(0);
             sd.setLastCounterChange(14);
-            scrollPane3.setVisible(true);
-            scrollPane4.setVisible(false);
-            playlistsPane.setVisible(false);
+            libraryPageScroll.setVisible(true);
+            dishViewScrollOnLibraryPage.setVisible(false);
+            playlistsPaneOnLibraryPage.setVisible(false);
             filters = "playlist3";
             removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist3");
         });
-        playlistButton4.setOnAction(actionEvent -> {
+        playlistButton4OnLibraryPage.setOnAction(actionEvent -> {
             idActivePlaylist = 3;
             sd.setLikeCounter(0);
             sd.setLastCounterChange(14);
-            scrollPane3.setVisible(true);
-            scrollPane4.setVisible(false);
-            playlistsPane.setVisible(false);
+            libraryPageScroll.setVisible(true);
+            dishViewScrollOnLibraryPage.setVisible(false);
+            playlistsPaneOnLibraryPage.setVisible(false);
             filters = "playlist4";
             removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist4");
         });
-        playlistButton5.setOnAction(actionEvent -> {
+        playlistButton5OnLibraryPage.setOnAction(actionEvent -> {
             idActivePlaylist = 4;
             sd.setLikeCounter(0);
             sd.setLastCounterChange(14);
-            scrollPane3.setVisible(true);
-            scrollPane4.setVisible(false);
-            playlistsPane.setVisible(false);
+            libraryPageScroll.setVisible(true);
+            dishViewScrollOnLibraryPage.setVisible(false);
+            playlistsPaneOnLibraryPage.setVisible(false);
             filters = "playlist5";
             removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist5");
         });
-        nextLikeIcon.setOnMouseClicked(mouseEvent -> {
+        likeListIconOnLibraryPage.setOnMouseClicked(mouseEvent -> {
             sd.setLikeCounter(0);
             sd.setLastCounterChange(14);
-            scrollPane3.setVisible(true);
-            scrollPane4.setVisible(false);
-            playlistsPane.setVisible(false);
+            libraryPageScroll.setVisible(true);
+            dishViewScrollOnLibraryPage.setVisible(false);
+            playlistsPaneOnLibraryPage.setVisible(false);
             filters = "like";
             removePlaylistButton.setVisible(false);
             likeNext(sd, "like");
         });
-        nextIcon1.setOnMouseClicked(mouseEvent -> {
+        playlistIcon1OnLibraryPage.setOnMouseClicked(mouseEvent -> {
             sd.setLikeCounter(0);
             sd.setLastCounterChange(14);
-            scrollPane3.setVisible(true);
-            scrollPane4.setVisible(false);
-            playlistsPane.setVisible(false);
+            libraryPageScroll.setVisible(true);
+            dishViewScrollOnLibraryPage.setVisible(false);
+            playlistsPaneOnLibraryPage.setVisible(false);
             filters = "playlist1";
             removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist1");
         });
-        nextIcon2.setOnMouseClicked(mouseEvent -> {
+        playlistIcon2OnLibraryPage.setOnMouseClicked(mouseEvent -> {
             sd.setLikeCounter(0);
             sd.setLastCounterChange(14);
-            scrollPane3.setVisible(true);
-            scrollPane4.setVisible(false);
-            playlistsPane.setVisible(false);
+            libraryPageScroll.setVisible(true);
+            dishViewScrollOnLibraryPage.setVisible(false);
+            playlistsPaneOnLibraryPage.setVisible(false);
             filters = "playlist2";
             removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist2");
         });
-        nextIcon3.setOnMouseClicked(mouseEvent -> {
+        playlistIcon3OnLibraryPage.setOnMouseClicked(mouseEvent -> {
             sd.setLikeCounter(0);
             sd.setLastCounterChange(14);
-            scrollPane3.setVisible(true);
-            scrollPane4.setVisible(false);
-            playlistsPane.setVisible(false);
+            libraryPageScroll.setVisible(true);
+            dishViewScrollOnLibraryPage.setVisible(false);
+            playlistsPaneOnLibraryPage.setVisible(false);
             filters = "playlist3";
             removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist3");
         });
-        nextIcon4.setOnMouseClicked(mouseEvent -> {
+        playlistIcon4OnLibraryPage.setOnMouseClicked(mouseEvent -> {
             sd.setLikeCounter(0);
             sd.setLastCounterChange(14);
-            scrollPane3.setVisible(true);
-            scrollPane4.setVisible(false);
-            playlistsPane.setVisible(false);
+            libraryPageScroll.setVisible(true);
+            dishViewScrollOnLibraryPage.setVisible(false);
+            playlistsPaneOnLibraryPage.setVisible(false);
             filters = "playlist4";
             removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist4");
         });
-        nextIcon5.setOnMouseClicked(mouseEvent -> {
+        playlistIcon5OnLibraryPage.setOnMouseClicked(mouseEvent -> {
             sd.setLikeCounter(0);
             sd.setLastCounterChange(14);
-            scrollPane3.setVisible(true);
-            scrollPane4.setVisible(false);
-            playlistsPane.setVisible(false);
+            libraryPageScroll.setVisible(true);
+            dishViewScrollOnLibraryPage.setVisible(false);
+            playlistsPaneOnLibraryPage.setVisible(false);
             filters = "playlist5";
             removePlaylistButton.setVisible(true);
             likeNext(sd, "playlist5");
         });
-        backLikeButton.setOnAction(event -> {
+        backButtonOnLibraryPage.setOnAction(event -> {
             likeBack(sd);
         });
-        nextLikeButton.setOnAction(event -> {
+        nextButtonOnLibraryPage.setOnAction(event -> {
             likeNext(sd, filters);
         });
 
-        title6.setOnAction(event -> {
-            likeDishView(sd, title6.getText());
+        title1OnLibraryPage.setOnAction(event -> {
+            likeDishView(sd, title1OnLibraryPage.getText());
         });
-        title7.setOnAction(event -> {
-            likeDishView(sd, title7.getText());
+        title2OnLibraryPage.setOnAction(event -> {
+            likeDishView(sd, title2OnLibraryPage.getText());
         });
-        title8.setOnAction(event -> {
-            likeDishView(sd, title8.getText());
+        title3OnLibraryPage.setOnAction(event -> {
+            likeDishView(sd, title3OnLibraryPage.getText());
         });
-        title9.setOnAction(event -> {
-            likeDishView(sd, title9.getText());
+        title4OnLibraryPage.setOnAction(event -> {
+            likeDishView(sd, title4OnLibraryPage.getText());
         });
-        title10.setOnAction(event -> {
-            likeDishView(sd, title10.getText());
+        title5OnLibraryPage.setOnAction(event -> {
+            likeDishView(sd, title5OnLibraryPage.getText());
         });
-        title11.setOnAction(event -> {
-            likeDishView(sd, title11.getText());
+        title6OnLibraryPage.setOnAction(event -> {
+            likeDishView(sd, title6OnLibraryPage.getText());
         });
-        title12.setOnAction(event -> {
-            likeDishView(sd, title12.getText());
+        title7OnLibraryPage.setOnAction(event -> {
+            likeDishView(sd, title7OnLibraryPage.getText());
         });
-        title13.setOnAction(event -> {
-            likeDishView(sd, title13.getText());
+        title8OnLibraryPage.setOnAction(event -> {
+            likeDishView(sd, title8OnLibraryPage.getText());
         });
-        title14.setOnAction(event -> {
-            likeDishView(sd, title14.getText());
+        title9OnLibraryPage.setOnAction(event -> {
+            likeDishView(sd, title9OnLibraryPage.getText());
         });
-        title15.setOnAction(event -> {
-            likeDishView(sd, title15.getText());
+        title10OnLibraryPage.setOnAction(event -> {
+            likeDishView(sd, title10OnLibraryPage.getText());
         });
-        title16.setOnAction(event -> {
-            likeDishView(sd, title16.getText());
+        title11OnLibraryPage.setOnAction(event -> {
+            likeDishView(sd, title11OnLibraryPage.getText());
         });
-        title17.setOnAction(event -> {
-            likeDishView(sd, title17.getText());
+        title12OnLibraryPage.setOnAction(event -> {
+            likeDishView(sd, title12OnLibraryPage.getText());
         });
-        title18.setOnAction(event -> {
-            likeDishView(sd, title18.getText());
+        title13OnLibraryPage.setOnAction(event -> {
+            likeDishView(sd, title13OnLibraryPage.getText());
         });
-        title19.setOnAction(event -> {
-            likeDishView(sd, title19.getText());
+        title14OnLibraryPage.setOnAction(event -> {
+            likeDishView(sd, title14OnLibraryPage.getText());
         });
-        title20.setOnAction(event -> {
-            likeDishView(sd, title20.getText());
+        title15OnLibraryPage.setOnAction(event -> {
+            likeDishView(sd, title15OnLibraryPage.getText());
         });
-        removeDishInPlaylistDishView.setOnAction(actionEvent -> {
+        removeDishInDishViewOnLibraryPage.setOnAction(actionEvent -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("RecipeBook");
             alert.setHeaderText(null);
@@ -714,16 +597,16 @@ public class AppController {
                     if (idActivePlaylist != -1) {
                         SaveLoad.removeDishInPlaylist(sd.getPlaylists().get(idActivePlaylist).getId(), activeDish.getId());
                         sd.getPlaylists().get(idActivePlaylist).getDishes().remove(activeDish);
-                        scrollPane3.setVisible(true);
-                        scrollPane4.setVisible(false);
+                        libraryPageScroll.setVisible(true);
+                        dishViewScrollOnLibraryPage.setVisible(false);
                         sd.setLikeCounter(0);
                         sd.setLikeLastCounterChange(14);
                         likeNext(sd, "playlist" + (idActivePlaylist + 1));
                     } else {
                         SaveLoad.removeLikedDishes(account.getIdUser(), activeDish.getId());
                         sd.getLike().remove(activeDish);
-                        scrollPane3.setVisible(true);
-                        scrollPane4.setVisible(false);
+                        libraryPageScroll.setVisible(true);
+                        dishViewScrollOnLibraryPage.setVisible(false);
                         sd.setLikeCounter(0);
                         sd.setLikeLastCounterChange(14);
                         likeNext(sd, "like");
@@ -732,7 +615,7 @@ public class AppController {
             }
         });
 
-        likeFieldForLikedDish.setOnMouseClicked(event -> {
+        likeFieldInDishViewOnLibraryPage.setOnMouseClicked(event -> {
           /*  String title = likeDishTitle.getText();
             if (sd.getLikedDishes().indexOf(title) != -1) {
                 likeFieldForLikedDish.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
@@ -748,21 +631,22 @@ public class AppController {
                 sd.reloadLikedDishes();
             }*/
         });
-        backToPlaylistsButton.setOnAction(actionEvent -> {
+        backToPlaylistsButtonOnLibraryPage.setOnAction(actionEvent -> {
             sd.setLikeLastCounterChange(15);
             sd.setLikeCounter(0);
-            scrollPane4.setVisible(false);
-            scrollPane3.setVisible(false);
-            playlistsPane.setVisible(true);
+            dishViewScrollOnLibraryPage.setVisible(false);
+            libraryPageScroll.setVisible(false);
+            playlistsPaneOnLibraryPage.setVisible(true);
         });
-        likeBackToCategoryButton.setOnAction(event -> {
+        ///////////////////////////////////////////////////////////////////////////
+        backToCategoryButtonInDishViewOnLibraryPage.setOnAction(event -> {
             sd.setLikeLastCounterChange(15);
             sd.setLikeCounter(0);
             likeNext(sd, filters);
-            scrollPane4.setVisible(false);
-            scrollPane3.setVisible(true);
+            dishViewScrollOnLibraryPage.setVisible(false);
+            libraryPageScroll.setVisible(true);
         });
-        addPlaylistsButton.setOnAction(actionEvent -> {
+        addPlaylistsButtonOnLibraryPage.setOnAction(actionEvent -> {
             TextInputDialog dialog = new TextInputDialog();
             dialog.setTitle("RecipeBook");
             dialog.setHeaderText(null);
@@ -784,7 +668,7 @@ public class AppController {
                 }
             });
         });
-        removePlaylistsButton.setOnAction(actionEvent -> {
+        removePlaylistsButtonOnLibraryPage.setOnAction(actionEvent -> {
             List<String> choices = new ArrayList<>();
             if (sd.getPlaylists().size() != 0) {
                 for (int i = 0; i < sd.getPlaylists().size(); i++) {
@@ -813,7 +697,7 @@ public class AppController {
                 }
             });
         });
-        likeAddInFavouriteButton.setOnMouseClicked(mouseEvent -> {
+        addInFavouriteButtonInDishViewOnLibraryPage.setOnMouseClicked(mouseEvent -> {
             List<String> choices = new ArrayList<>();
             if (sd.getPlaylists().size() != 0) {
                 for (int i = 0; i < sd.getPlaylists().size(); i++) {
@@ -927,8 +811,8 @@ public class AppController {
                 if (option.get() == ButtonType.OK) {
                     SaveLoad.removePlaylist(sd.getPlaylists().get(idActivePlaylist).getId());
                     sd.getPlaylists().remove(idActivePlaylist);
-                    playlistsPane.setVisible(true);
-                    scrollPane3.setVisible(false);
+                    playlistsPaneOnLibraryPage.setVisible(true);
+                    libraryPageScroll.setVisible(false);
                     playlistsPaneRedraw(sd);
                 }
             }
@@ -1028,55 +912,55 @@ public class AppController {
     }
 
     private void playlistsPaneRedraw(SaveData sd) {
-        nextLikeIcon.setVisible(true);
-        nextIcon1.setVisible(true);
-        nextIcon2.setVisible(true);
-        nextIcon3.setVisible(true);
-        nextIcon4.setVisible(true);
-        nextIcon5.setVisible(true);
-        playlistButton1.setVisible(true);
-        playlistButton2.setVisible(true);
-        playlistButton3.setVisible(true);
-        playlistButton4.setVisible(true);
-        playlistButton5.setVisible(true);
-        nextIcon1.setVisible(true);
+        likeListIconOnLibraryPage.setVisible(true);
+        playlistIcon1OnLibraryPage.setVisible(true);
+        playlistIcon2OnLibraryPage.setVisible(true);
+        playlistIcon3OnLibraryPage.setVisible(true);
+        playlistIcon4OnLibraryPage.setVisible(true);
+        playlistIcon5OnLibraryPage.setVisible(true);
+        playlistButton1OnLibraryPage.setVisible(true);
+        playlistButton2OnLibraryPage.setVisible(true);
+        playlistButton3OnLibraryPage.setVisible(true);
+        playlistButton4OnLibraryPage.setVisible(true);
+        playlistButton5OnLibraryPage.setVisible(true);
+        playlistIcon1OnLibraryPage.setVisible(true);
         sd.setLikeLastCounterChange(15);
         sd.setLikeCounter(0);
         int i = 0;
         if (sd.getPlaylists().size() > i) {
-            playlistButton1.setText(sd.getPlaylists().get(i).getTitle());
+            playlistButton1OnLibraryPage.setText(sd.getPlaylists().get(i).getTitle());
             i++;
         } else {
-            nextIcon1.setVisible(false);
-            playlistButton1.setVisible(false);
+            playlistIcon1OnLibraryPage.setVisible(false);
+            playlistButton1OnLibraryPage.setVisible(false);
         }
         if (sd.getPlaylists().size() > i) {
-            playlistButton2.setText(sd.getPlaylists().get(i).getTitle());
+            playlistButton2OnLibraryPage.setText(sd.getPlaylists().get(i).getTitle());
             i++;
         } else {
-            nextIcon2.setVisible(false);
-            playlistButton2.setVisible(false);
+            playlistIcon2OnLibraryPage.setVisible(false);
+            playlistButton2OnLibraryPage.setVisible(false);
         }
         if (sd.getPlaylists().size() > i) {
-            playlistButton3.setText(sd.getPlaylists().get(i).getTitle());
+            playlistButton3OnLibraryPage.setText(sd.getPlaylists().get(i).getTitle());
             i++;
         } else {
-            nextIcon3.setVisible(false);
-            playlistButton3.setVisible(false);
+            playlistIcon3OnLibraryPage.setVisible(false);
+            playlistButton3OnLibraryPage.setVisible(false);
         }
         if (sd.getPlaylists().size() > i) {
-            playlistButton4.setText(sd.getPlaylists().get(i).getTitle());
+            playlistButton4OnLibraryPage.setText(sd.getPlaylists().get(i).getTitle());
             i++;
         } else {
-            nextIcon4.setVisible(false);
-            playlistButton4.setVisible(false);
+            playlistIcon4OnLibraryPage.setVisible(false);
+            playlistButton4OnLibraryPage.setVisible(false);
         }
         if (sd.getPlaylists().size() > i) {
-            playlistButton5.setText(sd.getPlaylists().get(i).getTitle());
+            playlistButton5OnLibraryPage.setText(sd.getPlaylists().get(i).getTitle());
             i++;
         } else {
-            nextIcon5.setVisible(false);
-            playlistButton5.setVisible(false);
+            playlistIcon5OnLibraryPage.setVisible(false);
+            playlistButton5OnLibraryPage.setVisible(false);
         }
     }
 
@@ -1487,219 +1371,219 @@ public class AppController {
         if (counter == 0) counter = -1;
         int listSize = list.size();
 
-        title6.setVisible(true);
-        title7.setVisible(true);
-        title8.setVisible(true);
-        title9.setVisible(true);
-        title10.setVisible(true);
-        title11.setVisible(true);
-        title12.setVisible(true);
-        title13.setVisible(true);
-        title14.setVisible(true);
-        title15.setVisible(true);
-        title16.setVisible(true);
-        title17.setVisible(true);
-        title18.setVisible(true);
-        title19.setVisible(true);
-        title20.setVisible(true);
-        image6.setVisible(true);
-        image7.setVisible(true);
-        image8.setVisible(true);
-        image9.setVisible(true);
-        image10.setVisible(true);
-        image11.setVisible(true);
-        image12.setVisible(true);
-        image13.setVisible(true);
-        image14.setVisible(true);
-        image15.setVisible(true);
-        image16.setVisible(true);
-        image17.setVisible(true);
-        image18.setVisible(true);
-        image19.setVisible(true);
-        image20.setVisible(true);
+        title1OnLibraryPage.setVisible(true);
+        title2OnLibraryPage.setVisible(true);
+        title3OnLibraryPage.setVisible(true);
+        title4OnLibraryPage.setVisible(true);
+        title5OnLibraryPage.setVisible(true);
+        title6OnLibraryPage.setVisible(true);
+        title7OnLibraryPage.setVisible(true);
+        title8OnLibraryPage.setVisible(true);
+        title9OnLibraryPage.setVisible(true);
+        title10OnLibraryPage.setVisible(true);
+        title11OnLibraryPage.setVisible(true);
+        title12OnLibraryPage.setVisible(true);
+        title13OnLibraryPage.setVisible(true);
+        title14OnLibraryPage.setVisible(true);
+        title15OnLibraryPage.setVisible(true);
+        image1OnLibraryPage.setVisible(true);
+        image2OnLibraryPage.setVisible(true);
+        image3OnLibraryPage.setVisible(true);
+        image4OnLibraryPage.setVisible(true);
+        image5OnLibraryPage.setVisible(true);
+        image6OnLibraryPage.setVisible(true);
+        image7OnLibraryPage.setVisible(true);
+        image8OnLibraryPage.setVisible(true);
+        image9OnLibraryPage.setVisible(true);
+        image10OnLibraryPage.setVisible(true);
+        image11OnLibraryPage.setVisible(true);
+        image12OnLibraryPage.setVisible(true);
+        image13OnLibraryPage.setVisible(true);
+        image14OnLibraryPage.setVisible(true);
+        image15OnLibraryPage.setVisible(true);
 
         if (counter < listSize - 1) {
             if (counter + 1 < listSize) {
                 counter++;
-                title6.setText(list.get(counter).getTitle());
-                image6.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title1OnLibraryPage.setText(list.get(counter).getTitle());
+                image1OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title6.setVisible(false);
-                image6.setVisible(false);
+                title1OnLibraryPage.setVisible(false);
+                image1OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title7.setText(list.get(counter).getTitle());
-                image7.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title2OnLibraryPage.setText(list.get(counter).getTitle());
+                image2OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title7.setVisible(false);
-                image7.setVisible(false);
+                title2OnLibraryPage.setVisible(false);
+                image2OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title8.setText(list.get(counter).getTitle());
-                image8.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title3OnLibraryPage.setText(list.get(counter).getTitle());
+                image3OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title8.setVisible(false);
-                image8.setVisible(false);
+                title3OnLibraryPage.setVisible(false);
+                image3OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title9.setText(list.get(counter).getTitle());
-                image9.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title4OnLibraryPage.setText(list.get(counter).getTitle());
+                image4OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title9.setVisible(false);
-                image9.setVisible(false);
+                title4OnLibraryPage.setVisible(false);
+                image4OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title10.setText(list.get(counter).getTitle());
-                image10.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title5OnLibraryPage.setText(list.get(counter).getTitle());
+                image5OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title10.setVisible(false);
-                image10.setVisible(false);
+                title5OnLibraryPage.setVisible(false);
+                image5OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title11.setText(list.get(counter).getTitle());
-                image11.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title6OnLibraryPage.setText(list.get(counter).getTitle());
+                image6OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title11.setVisible(false);
-                image11.setVisible(false);
+                title6OnLibraryPage.setVisible(false);
+                image6OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title12.setText(list.get(counter).getTitle());
-                image12.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title7OnLibraryPage.setText(list.get(counter).getTitle());
+                image7OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title12.setVisible(false);
-                image12.setVisible(false);
+                title7OnLibraryPage.setVisible(false);
+                image7OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title13.setText(list.get(counter).getTitle());
-                image13.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title8OnLibraryPage.setText(list.get(counter).getTitle());
+                image8OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title13.setVisible(false);
-                image13.setVisible(false);
+                title8OnLibraryPage.setVisible(false);
+                image8OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title14.setText(list.get(counter).getTitle());
-                image14.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title9OnLibraryPage.setText(list.get(counter).getTitle());
+                image9OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title14.setVisible(false);
-                image14.setVisible(false);
+                title9OnLibraryPage.setVisible(false);
+                image9OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title15.setText(list.get(counter).getTitle());
-                image15.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title10OnLibraryPage.setText(list.get(counter).getTitle());
+                image10OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title15.setVisible(false);
-                image15.setVisible(false);
+                title10OnLibraryPage.setVisible(false);
+                image10OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title16.setText(list.get(counter).getTitle());
-                image16.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title11OnLibraryPage.setText(list.get(counter).getTitle());
+                image11OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title16.setVisible(false);
-                image16.setVisible(false);
+                title11OnLibraryPage.setVisible(false);
+                image11OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title17.setText(list.get(counter).getTitle());
-                image17.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title12OnLibraryPage.setText(list.get(counter).getTitle());
+                image12OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title17.setVisible(false);
-                image17.setVisible(false);
+                title12OnLibraryPage.setVisible(false);
+                image12OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title18.setText(list.get(counter).getTitle());
-                image18.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title13OnLibraryPage.setText(list.get(counter).getTitle());
+                image13OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title18.setVisible(false);
-                image18.setVisible(false);
+                title13OnLibraryPage.setVisible(false);
+                image13OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title19.setText(list.get(counter).getTitle());
-                image19.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title14OnLibraryPage.setText(list.get(counter).getTitle());
+                image14OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title19.setVisible(false);
-                image19.setVisible(false);
+                title14OnLibraryPage.setVisible(false);
+                image14OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title20.setText(list.get(counter).getTitle());
-                image20.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title15OnLibraryPage.setText(list.get(counter).getTitle());
+                image15OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title20.setVisible(false);
-                image20.setVisible(false);
+                title15OnLibraryPage.setVisible(false);
+                image15OnLibraryPage.setVisible(false);
             }
             if (counter - sd.getLikeCounter() != 0) {
                 sd.setLikeLastCounterChange(counter - sd.getLikeCounter());
             }
             sd.setLikeCounter(counter);
-            scrollPane3.setVvalue(0);
+            libraryPageScroll.setVvalue(0);
             if (counter >= listSize - 1) {
-                nextLikeButton.setDisable(true);
+                nextButtonOnLibraryPage.setDisable(true);
             }
-            if (nextLikeButton.isDisable() && counter - sd.getLikeCounter() >= 0 && counter - sd.getLikeCounter() < 15) {
+            if (nextButtonOnLibraryPage.isDisable() && counter - sd.getLikeCounter() >= 0 && counter - sd.getLikeCounter() < 15) {
                 if (counter + 1 <= 6) {
-                    nextLikeButton.setLayoutY(555);
-                    backLikeButton.setLayoutY(555);
-                    frameScrollPane1.setMinHeight(670);
-                    frameScrollPane1.setMaxHeight(670);
-                    frameScrollPane1.setPrefHeight(670);
+                    nextButtonOnLibraryPage.setLayoutY(555);
+                    backButtonOnLibraryPage.setLayoutY(555);
+                    libraryPagePane.setMinHeight(670);
+                    libraryPagePane.setMaxHeight(670);
+                    libraryPagePane.setPrefHeight(670);
                 } else if (counter + 1 <= 9) {
-                    frameScrollPane1.setMinHeight(810);
-                    frameScrollPane1.setMaxHeight(810);
-                    frameScrollPane1.setPrefHeight(810);
-                    nextLikeButton.setLayoutY(720);
-                    backLikeButton.setLayoutY(720);
+                    libraryPagePane.setMinHeight(810);
+                    libraryPagePane.setMaxHeight(810);
+                    libraryPagePane.setPrefHeight(810);
+                    nextButtonOnLibraryPage.setLayoutY(720);
+                    backButtonOnLibraryPage.setLayoutY(720);
                 } else if (counter + 1 <= 12) {
-                    frameScrollPane1.setMinHeight(1015);
-                    frameScrollPane1.setMaxHeight(1015);
-                    frameScrollPane1.setPrefHeight(1015);
-                    nextLikeButton.setLayoutY(935);
-                    backLikeButton.setLayoutY(935);
+                    libraryPagePane.setMinHeight(1015);
+                    libraryPagePane.setMaxHeight(1015);
+                    libraryPagePane.setPrefHeight(1015);
+                    nextButtonOnLibraryPage.setLayoutY(935);
+                    backButtonOnLibraryPage.setLayoutY(935);
                 }
             }
         } else {
-            title6.setVisible(false);
-            title7.setVisible(false);
-            title8.setVisible(false);
-            title9.setVisible(false);
-            title10.setVisible(false);
-            title11.setVisible(false);
-            title12.setVisible(false);
-            title13.setVisible(false);
-            title14.setVisible(false);
-            title15.setVisible(false);
-            title16.setVisible(false);
-            title17.setVisible(false);
-            title18.setVisible(false);
-            title19.setVisible(false);
-            title20.setVisible(false);
-            image6.setVisible(false);
-            image7.setVisible(false);
-            image8.setVisible(false);
-            image9.setVisible(false);
-            image10.setVisible(false);
-            image11.setVisible(false);
-            image12.setVisible(false);
-            image13.setVisible(false);
-            image14.setVisible(false);
-            image15.setVisible(false);
-            image16.setVisible(false);
-            image17.setVisible(false);
-            image18.setVisible(false);
-            image19.setVisible(false);
-            image20.setVisible(false);
-            nextLikeButton.setDisable(true);
+            title1OnLibraryPage.setVisible(false);
+            title2OnLibraryPage.setVisible(false);
+            title3OnLibraryPage.setVisible(false);
+            title4OnLibraryPage.setVisible(false);
+            title5OnLibraryPage.setVisible(false);
+            title6OnLibraryPage.setVisible(false);
+            title7OnLibraryPage.setVisible(false);
+            title8OnLibraryPage.setVisible(false);
+            title9OnLibraryPage.setVisible(false);
+            title10OnLibraryPage.setVisible(false);
+            title11OnLibraryPage.setVisible(false);
+            title12OnLibraryPage.setVisible(false);
+            title13OnLibraryPage.setVisible(false);
+            title14OnLibraryPage.setVisible(false);
+            title15OnLibraryPage.setVisible(false);
+            image1OnLibraryPage.setVisible(false);
+            image2OnLibraryPage.setVisible(false);
+            image3OnLibraryPage.setVisible(false);
+            image4OnLibraryPage.setVisible(false);
+            image5OnLibraryPage.setVisible(false);
+            image6OnLibraryPage.setVisible(false);
+            image7OnLibraryPage.setVisible(false);
+            image8OnLibraryPage.setVisible(false);
+            image9OnLibraryPage.setVisible(false);
+            image10OnLibraryPage.setVisible(false);
+            image11OnLibraryPage.setVisible(false);
+            image12OnLibraryPage.setVisible(false);
+            image13OnLibraryPage.setVisible(false);
+            image14OnLibraryPage.setVisible(false);
+            image15OnLibraryPage.setVisible(false);
+            nextButtonOnLibraryPage.setDisable(true);
         }
     }
 
@@ -1710,36 +1594,36 @@ public class AppController {
         int listSize = list.size();
         int lastCounterChange = sd.getLikeLastCounterChange();
 
-        title6.setVisible(true);
-        title7.setVisible(true);
-        title8.setVisible(true);
-        title9.setVisible(true);
-        title10.setVisible(true);
-        title11.setVisible(true);
-        title12.setVisible(true);
-        title13.setVisible(true);
-        title14.setVisible(true);
-        title15.setVisible(true);
-        title16.setVisible(true);
-        title17.setVisible(true);
-        title18.setVisible(true);
-        title19.setVisible(true);
-        title20.setVisible(true);
-        image6.setVisible(true);
-        image7.setVisible(true);
-        image8.setVisible(true);
-        image9.setVisible(true);
-        image10.setVisible(true);
-        image11.setVisible(true);
-        image12.setVisible(true);
-        image13.setVisible(true);
-        image14.setVisible(true);
-        image15.setVisible(true);
-        image16.setVisible(true);
-        image17.setVisible(true);
-        image18.setVisible(true);
-        image19.setVisible(true);
-        image20.setVisible(true);
+        title1OnLibraryPage.setVisible(true);
+        title2OnLibraryPage.setVisible(true);
+        title3OnLibraryPage.setVisible(true);
+        title4OnLibraryPage.setVisible(true);
+        title5OnLibraryPage.setVisible(true);
+        title6OnLibraryPage.setVisible(true);
+        title7OnLibraryPage.setVisible(true);
+        title8OnLibraryPage.setVisible(true);
+        title9OnLibraryPage.setVisible(true);
+        title10OnLibraryPage.setVisible(true);
+        title11OnLibraryPage.setVisible(true);
+        title12OnLibraryPage.setVisible(true);
+        title13OnLibraryPage.setVisible(true);
+        title14OnLibraryPage.setVisible(true);
+        title15OnLibraryPage.setVisible(true);
+        image1OnLibraryPage.setVisible(true);
+        image2OnLibraryPage.setVisible(true);
+        image3OnLibraryPage.setVisible(true);
+        image4OnLibraryPage.setVisible(true);
+        image5OnLibraryPage.setVisible(true);
+        image6OnLibraryPage.setVisible(true);
+        image7OnLibraryPage.setVisible(true);
+        image8OnLibraryPage.setVisible(true);
+        image9OnLibraryPage.setVisible(true);
+        image10OnLibraryPage.setVisible(true);
+        image11OnLibraryPage.setVisible(true);
+        image12OnLibraryPage.setVisible(true);
+        image13OnLibraryPage.setVisible(true);
+        image14OnLibraryPage.setVisible(true);
+        image15OnLibraryPage.setVisible(true);
 
         if (lastCounterChange != 15 && counter - lastCounterChange - 14 >= 0) {
             counter -= lastCounterChange + 14;
@@ -1750,123 +1634,123 @@ public class AppController {
         if (counter >= -1) {
             if (counter + 1 < listSize) {
                 counter++;
-                title6.setText(list.get(counter).getTitle());
-                image6.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title1OnLibraryPage.setText(list.get(counter).getTitle());
+                image1OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title6.setVisible(false);
-                image6.setVisible(false);
+                title1OnLibraryPage.setVisible(false);
+                image1OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title7.setText(list.get(counter).getTitle());
-                image7.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title2OnLibraryPage.setText(list.get(counter).getTitle());
+                image2OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title7.setVisible(false);
-                image7.setVisible(false);
+                title2OnLibraryPage.setVisible(false);
+                image2OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title8.setText(list.get(counter).getTitle());
-                image8.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title3OnLibraryPage.setText(list.get(counter).getTitle());
+                image3OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title8.setVisible(false);
-                image8.setVisible(false);
+                title3OnLibraryPage.setVisible(false);
+                image3OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title9.setText(list.get(counter).getTitle());
-                image9.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title4OnLibraryPage.setText(list.get(counter).getTitle());
+                image4OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title9.setVisible(false);
-                image9.setVisible(false);
+                title4OnLibraryPage.setVisible(false);
+                image4OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title10.setText(list.get(counter).getTitle());
-                image10.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title5OnLibraryPage.setText(list.get(counter).getTitle());
+                image5OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title10.setVisible(false);
-                image10.setVisible(false);
+                title5OnLibraryPage.setVisible(false);
+                image5OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title11.setText(list.get(counter).getTitle());
-                image11.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title6OnLibraryPage.setText(list.get(counter).getTitle());
+                image6OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title11.setVisible(false);
-                image11.setVisible(false);
+                title6OnLibraryPage.setVisible(false);
+                image6OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title12.setText(list.get(counter).getTitle());
-                image12.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title7OnLibraryPage.setText(list.get(counter).getTitle());
+                image7OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title12.setVisible(false);
-                image12.setVisible(false);
+                title7OnLibraryPage.setVisible(false);
+                image7OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title13.setText(list.get(counter).getTitle());
-                image13.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title8OnLibraryPage.setText(list.get(counter).getTitle());
+                image8OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title13.setVisible(false);
-                image13.setVisible(false);
+                title8OnLibraryPage.setVisible(false);
+                image8OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title14.setText(list.get(counter).getTitle());
-                image14.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title9OnLibraryPage.setText(list.get(counter).getTitle());
+                image9OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title14.setVisible(false);
-                image14.setVisible(false);
+                title9OnLibraryPage.setVisible(false);
+                image9OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title15.setText(list.get(counter).getTitle());
-                image15.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title10OnLibraryPage.setText(list.get(counter).getTitle());
+                image10OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title15.setVisible(false);
-                image15.setVisible(false);
+                title10OnLibraryPage.setVisible(false);
+                image10OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title16.setText(list.get(counter).getTitle());
-                image16.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title11OnLibraryPage.setText(list.get(counter).getTitle());
+                image11OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title16.setVisible(false);
-                image16.setVisible(false);
+                title11OnLibraryPage.setVisible(false);
+                image11OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title17.setText(list.get(counter).getTitle());
-                image17.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title12OnLibraryPage.setText(list.get(counter).getTitle());
+                image12OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title17.setVisible(false);
-                image17.setVisible(false);
+                title12OnLibraryPage.setVisible(false);
+                image12OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title18.setText(list.get(counter).getTitle());
-                image18.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title13OnLibraryPage.setText(list.get(counter).getTitle());
+                image13OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title18.setVisible(false);
-                image18.setVisible(false);
+                title13OnLibraryPage.setVisible(false);
+                image13OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title19.setText(list.get(counter).getTitle());
-                image19.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title14OnLibraryPage.setText(list.get(counter).getTitle());
+                image14OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title19.setVisible(false);
-                image19.setVisible(false);
+                title14OnLibraryPage.setVisible(false);
+                image14OnLibraryPage.setVisible(false);
             }
             if (counter + 1 < listSize) {
                 counter++;
-                title20.setText(list.get(counter).getTitle());
-                image20.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                title15OnLibraryPage.setText(list.get(counter).getTitle());
+                image15OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
             } else {
-                title20.setVisible(false);
-                image20.setVisible(false);
+                title15OnLibraryPage.setVisible(false);
+                image15OnLibraryPage.setVisible(false);
             }
             sd.setLastCounterChange(15);
             sd.setCounter(counter);
@@ -1880,9 +1764,9 @@ public class AppController {
     }
 
     private void likeDishView(SaveData sd, String title) {
-        scrollPane3.setVisible(false);
-        scrollPane4.setVisible(true);
-        scrollPane4.setVvalue(0);
+        libraryPageScroll.setVisible(false);
+        dishViewScrollOnLibraryPage.setVisible(true);
+        dishViewScrollOnLibraryPage.setVvalue(0);
         Dish dish = null;
         for (int i = 0; i < sd.getDishes().size(); i++) {
             if (sd.getDishes().get(i).getTitle().equals(title)) {
@@ -1892,9 +1776,9 @@ public class AppController {
         System.out.println();
         if (dish != null) {
             activeDish = dish;
-            likeDishTitle.setText(dish.getTitle());
-            likeDishImage.setImage(new Image(new File(Settings.getImageDir() + dish.getPhoto()).toURI().toString()));
-            likeDishDescription.setText(dish.getDescription());
+            dishTitleInDishViewOnLibraryPage.setText(dish.getTitle());
+            dishImageInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + dish.getPhoto()).toURI().toString()));
+            dishDescriptionInDishViewOnLibraryPage.setText(dish.getDescription());
             String s = "";
             for (int i = 0; i < dish.getRecipe().size(); i++) {
                 s += "Етап №" + (i + 1) + "\n" + "     " + dish.getRecipe().get(i);
@@ -1902,12 +1786,12 @@ public class AppController {
                     s += "\n\n";
                 }
             }
-            likeDishRecipe.setText(s);
+            dishRecipeInDishViewOnLibraryPage.setText(s);
             System.out.println(s + "\n");
             System.out.println(dishRecipeInDishViewOnHomePage.getPrefHeight() + " " + dishRecipeInDishViewOnHomePage.getHeight() + " " + dishRecipeInDishViewOnHomePage.getMaxHeight() + " " + dishRecipeInDishViewOnHomePage.getBaselineOffset());
             System.out.println(s.length() / 100 * 10 * dish.getRecipe().size());
-            likeDishRecipe.setMinHeight(s.length() / 100 * 10 * dish.getRecipe().size());
-            likeDishRecipe.setMaxHeight(s.length() / 100 * 10 * dish.getRecipe().size());
+            dishRecipeInDishViewOnLibraryPage.setMinHeight(s.length() / 100 * 10 * dish.getRecipe().size());
+            dishRecipeInDishViewOnLibraryPage.setMaxHeight(s.length() / 100 * 10 * dish.getRecipe().size());
             //зробить самоизменяющийся размер у label dishRecipe
             //убрать дублірувание інгрідієнтів
 
@@ -1917,22 +1801,22 @@ public class AppController {
             for (int i = 0; i < dish.getGroceryList().size(); i++) {
                 grocery.add(dish.getGroceryList().get(i));
             }
-            likeGroceryTableView.setItems(grocery);
+            groceryTableViewInDishViewOnLibraryPage.setItems(grocery);
 
             TableColumn<Shopping, String> groceryColumn = new TableColumn<>("Продукти");
             groceryColumn.setCellValueFactory(new PropertyValueFactory<>("grocery"));
-            likeGroceryTableView.getColumns().add(groceryColumn);
+            groceryTableViewInDishViewOnLibraryPage.getColumns().add(groceryColumn);
 
             TableColumn<Shopping, Double> weightColumn = new TableColumn<>("Вага");
             weightColumn.setCellValueFactory(new PropertyValueFactory<>("weight"));
-            likeGroceryTableView.getColumns().add(weightColumn);
+            groceryTableViewInDishViewOnLibraryPage.getColumns().add(weightColumn);
 
-            likeGroceryTableView.setVisible(true);
+            groceryTableViewInDishViewOnLibraryPage.setVisible(true);
 
             if (sd.getLike() != null && sd.getLike().indexOf(dish) != -1) {
-                likeFieldForLikedDish.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
+                likeFieldInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
             } else {
-                likeFieldForLikedDish.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
+                likeFieldInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
             }
         }
     }

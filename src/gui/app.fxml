@@ -7,7 +7,7 @@
 <?import javafx.scene.text.*?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
             minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0"
-            stylesheets="@../css/mycss.css" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="gui.AppController">
+            xmlns="http://javafx.com/javafx/11.0.1" fx:controller="gui.AppController">
     <children>
         <TabPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #2E3348;"
                  tabClosingPolicy="UNAVAILABLE">
@@ -222,10 +222,6 @@
                                                         <Image url="@../../images/addInFavourite.png"/>
                                                     </image>
                                                 </ImageView>
-                                                <Button fx:id="removeDishInPlaylistsDishView" layoutX="937.0"
-                                                        layoutY="10.0" mnemonicParsing="false" prefHeight="26.0"
-                                                        prefWidth="227.0" style="-fx-background-color: #8B008B;"
-                                                        text="Видалити страву із списків збережень" textFill="WHITE"/>
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -248,18 +244,19 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <AnchorPane fx:id="playlistsPane" minHeight="0.0" minWidth="0.0" prefHeight="672.0"
-                                            prefWidth="1185.0" style="-fx-background-color: #2E3348;">
+                                <AnchorPane fx:id="playlistsPaneOnLibraryPage" minHeight="0.0" minWidth="0.0"
+                                            prefHeight="672.0" prefWidth="1185.0"
+                                            style="-fx-background-color: #2E3348;">
                                     <children>
-                                        <Button fx:id="likePlaylistButton" alignment="TOP_LEFT" layoutX="10.0"
-                                                layoutY="102.0" mnemonicParsing="false" prefHeight="55.0"
+                                        <Button fx:id="likePlaylistButtonOnLibraryPage" alignment="TOP_LEFT"
+                                                layoutX="10.0" layoutY="102.0" mnemonicParsing="false" prefHeight="55.0"
                                                 prefWidth="1160.0" style="-fx-background-color: #F39C63;"
                                                 text="Рецепти, які вам сподобалися" textFill="WHITE">
                                             <font>
                                                 <Font size="25.0"/>
                                             </font>
                                         </Button>
-                                        <Button fx:id="playlistButton1" alignment="TOP_LEFT" layoutX="10.0"
+                                        <Button fx:id="playlistButton1OnLibraryPage" alignment="TOP_LEFT" layoutX="10.0"
                                                 layoutY="197.0" mnemonicParsing="false" prefHeight="55.0"
                                                 prefWidth="1160.0" style="-fx-background-color: #F39C63;"
                                                 text="Playlist" textFill="WHITE">
@@ -267,7 +264,7 @@
                                                 <Font size="25.0"/>
                                             </font>
                                         </Button>
-                                        <Button fx:id="playlistButton2" alignment="TOP_LEFT" layoutX="10.0"
+                                        <Button fx:id="playlistButton2OnLibraryPage" alignment="TOP_LEFT" layoutX="10.0"
                                                 layoutY="297.0" mnemonicParsing="false" prefHeight="55.0"
                                                 prefWidth="1160.0" style="-fx-background-color: #F39C63;"
                                                 text="Playlist" textFill="WHITE">
@@ -275,7 +272,7 @@
                                                 <Font size="25.0"/>
                                             </font>
                                         </Button>
-                                        <Button fx:id="playlistButton3" alignment="TOP_LEFT" layoutX="10.0"
+                                        <Button fx:id="playlistButton3OnLibraryPage" alignment="TOP_LEFT" layoutX="10.0"
                                                 layoutY="392.0" mnemonicParsing="false" prefHeight="55.0"
                                                 prefWidth="1160.0" style="-fx-background-color: #F39C63;"
                                                 text="Playlist" textFill="WHITE">
@@ -283,7 +280,7 @@
                                                 <Font size="25.0"/>
                                             </font>
                                         </Button>
-                                        <Button fx:id="playlistButton4" alignment="TOP_LEFT" layoutX="10.0"
+                                        <Button fx:id="playlistButton4OnLibraryPage" alignment="TOP_LEFT" layoutX="10.0"
                                                 layoutY="487.0" mnemonicParsing="false" prefHeight="55.0"
                                                 prefWidth="1160.0" style="-fx-background-color: #F39C63;"
                                                 text="Playlist" textFill="WHITE">
@@ -291,7 +288,7 @@
                                                 <Font size="25.0"/>
                                             </font>
                                         </Button>
-                                        <Button fx:id="playlistButton5" alignment="TOP_LEFT" layoutX="10.0"
+                                        <Button fx:id="playlistButton5OnLibraryPage" alignment="TOP_LEFT" layoutX="10.0"
                                                 layoutY="582.0" mnemonicParsing="false" prefHeight="55.0"
                                                 prefWidth="1160.0" style="-fx-background-color: #F39C63;"
                                                 text="Playlist" textFill="WHITE">
@@ -299,44 +296,49 @@
                                                 <Font size="25.0"/>
                                             </font>
                                         </Button>
-                                        <ImageView fx:id="nextIcon1" fitHeight="57.0" fitWidth="72.0" layoutX="1115.0"
-                                                   layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fx:id="playlistIcon1OnLibraryPage" fitHeight="57.0" fitWidth="72.0"
+                                                   layoutX="1115.0" layoutY="196.0" pickOnBounds="true"
+                                                   preserveRatio="true">
                                             <image>
                                                 <Image url="@../../images/next.png"/>
                                             </image>
                                         </ImageView>
-                                        <ImageView fx:id="nextLikeIcon" fitHeight="57.0" fitWidth="72.0"
+                                        <ImageView fx:id="likeListIconOnLibraryPage" fitHeight="57.0" fitWidth="72.0"
                                                    layoutX="1115.0" layoutY="101.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
                                                 <Image url="@../../images/next.png"/>
                                             </image>
                                         </ImageView>
-                                        <ImageView fx:id="nextIcon2" fitHeight="57.0" fitWidth="72.0" layoutX="1115.0"
-                                                   layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fx:id="playlistIcon2OnLibraryPage" fitHeight="57.0" fitWidth="72.0"
+                                                   layoutX="1115.0" layoutY="296.0" pickOnBounds="true"
+                                                   preserveRatio="true">
                                             <image>
                                                 <Image url="@../../images/next.png"/>
                                             </image>
                                         </ImageView>
-                                        <ImageView fx:id="nextIcon3" fitHeight="57.0" fitWidth="72.0" layoutX="1115.0"
-                                                   layoutY="391.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fx:id="playlistIcon3OnLibraryPage" fitHeight="57.0" fitWidth="72.0"
+                                                   layoutX="1115.0" layoutY="391.0" pickOnBounds="true"
+                                                   preserveRatio="true">
                                             <image>
                                                 <Image url="@../../images/next.png"/>
                                             </image>
                                         </ImageView>
-                                        <ImageView fx:id="nextIcon4" fitHeight="57.0" fitWidth="72.0" layoutX="1115.0"
-                                                   layoutY="486.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fx:id="playlistIcon4OnLibraryPage" fitHeight="57.0" fitWidth="72.0"
+                                                   layoutX="1115.0" layoutY="486.0" pickOnBounds="true"
+                                                   preserveRatio="true">
                                             <image>
                                                 <Image url="@../../images/next.png"/>
                                             </image>
                                         </ImageView>
-                                        <ImageView fx:id="nextIcon5" fitHeight="57.0" fitWidth="72.0" layoutX="1115.0"
-                                                   layoutY="581.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fx:id="playlistIcon5OnLibraryPage" fitHeight="57.0" fitWidth="72.0"
+                                                   layoutX="1115.0" layoutY="581.0" pickOnBounds="true"
+                                                   preserveRatio="true">
                                             <image>
                                                 <Image url="@../../images/next.png"/>
                                             </image>
                                         </ImageView>
-                                        <Button fx:id="addPlaylistsButton" layoutX="905.0" layoutY="10.0"
+                                        <Button fx:id="addPlaylistsButtonOnLibraryPage" layoutX="905.0" layoutY="10.0"
                                                 mnemonicParsing="false" prefHeight="30.0" prefWidth="266.0"
                                                 style="-fx-background-color: #8B008B;"
                                                 text="Добавити список відтворення" textFill="WHITE">
@@ -344,9 +346,9 @@
                                                 <Font size="15.0"/>
                                             </font>
                                         </Button>
-                                        <Button fx:id="removePlaylistsButton" layoutX="905.0" layoutY="55.0"
-                                                mnemonicParsing="false" prefHeight="30.0" prefWidth="266.0"
-                                                style="-fx-background-color: #8B008B;"
+                                        <Button fx:id="removePlaylistsButtonOnLibraryPage" layoutX="905.0"
+                                                layoutY="55.0" mnemonicParsing="false" prefHeight="30.0"
+                                                prefWidth="266.0" style="-fx-background-color: #8B008B;"
                                                 text="Видалити список відтворення" textFill="WHITE">
                                             <font>
                                                 <Font size="15.0"/>
@@ -354,305 +356,53 @@
                                         </Button>
                                     </children>
                                 </AnchorPane>
-                                <ScrollPane fx:id="scrollPane3" hbarPolicy="NEVER" minViewportHeight="600.0"
-                                            minViewportWidth="1150.0" pannable="true" prefHeight="675.0"
-                                            prefViewportHeight="600.0" prefViewportWidth="1150.0" prefWidth="1201.0"
+                                <ScrollPane fx:id="dishViewScrollOnLibraryPage" hbarPolicy="NEVER" prefHeight="674.0"
+                                            prefWidth="1201.0" style="-fx-background-color: #2E3348;"
                                             styleClass="scrollPaneClass" vbarPolicy="ALWAYS">
                                     <content>
-                                        <AnchorPane fx:id="frameScrollPane1" minHeight="0.0" minWidth="0.0"
-                                                    prefHeight="1398.0" prefWidth="1186.0"
-                                                    style="-fx-background-color: #2E3348;"
-                                                    styleClass="inScrollPaneClass">
-                                            <children>
-                                                <ImageView fx:id="image6" fitHeight="150.0" fitWidth="150.0"
-                                                           layoutX="20.0" layoutY="120.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <ImageView fx:id="image7" fitHeight="150.0" fitWidth="150.0"
-                                                           layoutX="410.0" layoutY="120.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <ImageView fx:id="image8" fitHeight="150.0" fitWidth="150.0"
-                                                           layoutX="800.0" layoutY="120.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <Button fx:id="backLikeButton" layoutX="326.0" layoutY="1228.0"
-                                                        mnemonicParsing="false" style="-fx-background-color: #F39C63;"
-                                                        text="Назад" textAlignment="CENTER" textFill="#ffffff">
-                                                    <font>
-                                                        <Font size="30.0"/>
-                                                    </font>
-                                                </Button>
-                                                <Button fx:id="nextLikeButton" layoutX="734.0" layoutY="1227.0"
-                                                        mnemonicParsing="false" style="-fx-background-color: #F39C63;"
-                                                        text="Вперед" textAlignment="CENTER" textFill="#ffffff">
-                                                    <font>
-                                                        <Font size="30.0"/>
-                                                    </font>
-                                                </Button>
-                                                <Button fx:id="title6" alignment="TOP_LEFT" layoutX="10.0"
-                                                        layoutY="65.0" mnemonicParsing="false" prefHeight="45.0"
-                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="20.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <Button fx:id="title8" alignment="TOP_LEFT" layoutX="790.0"
-                                                        layoutY="65.0" mnemonicParsing="false" prefHeight="45.0"
-                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="20.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <ImageView fx:id="image18" fitHeight="100.0" fitWidth="100.0"
-                                                           layoutX="97.0" layoutY="1082.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <ImageView fx:id="image19" fitHeight="100.0" fitWidth="100.0"
-                                                           layoutX="457.0" layoutY="1093.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <ImageView fx:id="image20" fitHeight="100.0" fitWidth="100.0"
-                                                           layoutX="838.0" layoutY="1078.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <Button fx:id="title18" alignment="TOP_LEFT" layoutX="69.0"
-                                                        layoutY="992.0" mnemonicParsing="false" prefHeight="66.0"
-                                                        prefWidth="306.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="30.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <Button fx:id="title19" alignment="TOP_LEFT" layoutX="436.0"
-                                                        layoutY="992.0" mnemonicParsing="false" prefHeight="66.0"
-                                                        prefWidth="306.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="30.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <Button fx:id="title20" alignment="TOP_LEFT" layoutX="802.0"
-                                                        layoutY="991.0" mnemonicParsing="false" prefHeight="66.0"
-                                                        prefWidth="306.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="30.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <Button fx:id="title7" alignment="TOP_LEFT" layoutX="400.0"
-                                                        layoutY="65.0" mnemonicParsing="false" prefHeight="45.0"
-                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="20.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <ImageView fx:id="image9" fitHeight="150.0" fitWidth="150.0"
-                                                           layoutX="20.0" layoutY="335.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <ImageView fx:id="image10" fitHeight="150.0" fitWidth="150.0"
-                                                           layoutX="410.0" layoutY="335.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <ImageView fx:id="image11" fitHeight="150.0" fitWidth="150.0"
-                                                           layoutX="800.0" layoutY="335.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <Button fx:id="title9" alignment="TOP_LEFT" layoutX="10.0"
-                                                        layoutY="280.0" mnemonicParsing="false" prefHeight="45.0"
-                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="20.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <Button fx:id="title11" alignment="TOP_LEFT" layoutX="790.0"
-                                                        layoutY="280.0" mnemonicParsing="false" prefHeight="45.0"
-                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="20.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <Button fx:id="title10" alignment="TOP_LEFT" layoutX="400.0"
-                                                        layoutY="280.0" mnemonicParsing="false" prefHeight="45.0"
-                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="20.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <Button fx:id="backToPlaylistsButton" layoutX="10.0" layoutY="10.0"
-                                                        mnemonicParsing="false" prefHeight="45.0" prefWidth="356.0"
-                                                        style="-fx-background-color: #F39C63;"
-                                                        text="Повернутися до списків відтворень" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="20.0"/>
-                                                    </font>
-                                                </Button>
-                                                <ImageView fx:id="image12" fitHeight="150.0" fitWidth="150.0"
-                                                           layoutX="20.0" layoutY="550.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <ImageView fx:id="image13" fitHeight="150.0" fitWidth="150.0"
-                                                           layoutX="410.0" layoutY="550.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <ImageView fx:id="image14" fitHeight="150.0" fitWidth="150.0"
-                                                           layoutX="800.0" layoutY="550.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <Button fx:id="title12" alignment="TOP_LEFT" layoutX="10.0"
-                                                        layoutY="495.0" mnemonicParsing="false" prefHeight="45.0"
-                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="20.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <Button fx:id="title14" alignment="TOP_LEFT" layoutX="790.0"
-                                                        layoutY="495.0" mnemonicParsing="false" prefHeight="45.0"
-                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="20.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <Button fx:id="title13" alignment="TOP_LEFT" layoutX="400.0"
-                                                        layoutY="495.0" mnemonicParsing="false" prefHeight="45.0"
-                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="20.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <ImageView fx:id="image15" fitHeight="150.0" fitWidth="150.0"
-                                                           layoutX="20.0" layoutY="765.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <ImageView fx:id="image16" fitHeight="150.0" fitWidth="150.0"
-                                                           layoutX="410.0" layoutY="765.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <ImageView fx:id="image17" fitHeight="150.0" fitWidth="150.0"
-                                                           layoutX="800.0" layoutY="765.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <Button fx:id="title15" alignment="TOP_LEFT" layoutX="10.0"
-                                                        layoutY="710.0" mnemonicParsing="false" prefHeight="45.0"
-                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="20.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <Button fx:id="title17" alignment="TOP_LEFT" layoutX="790.0"
-                                                        layoutY="710.0" mnemonicParsing="false" prefHeight="45.0"
-                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="20.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <Button fx:id="title16" alignment="TOP_LEFT" layoutX="400.0"
-                                                        layoutY="710.0" mnemonicParsing="false" prefHeight="45.0"
-                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
-                                                        text="Title" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="20.0"/>
-                                                    </font>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND"/>
-                                                    </cursor>
-                                                </Button>
-                                                <Button fx:id="removeDishInPlaylistButton" layoutX="1022.0"
-                                                        layoutY="5.0" mnemonicParsing="false" prefHeight="25.0"
-                                                        prefWidth="150.0" style="-fx-background-color: #8B008B;"
-                                                        text="Удалить страву з списку" textFill="WHITE"/>
-                                                <Button fx:id="removePlaylistButton" layoutX="1022.0" layoutY="35.0"
-                                                        mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0"
-                                                        style="-fx-background-color: #8B008B;" text="Удалить список"
-                                                        textFill="WHITE"/>
-                                            </children>
-                                        </AnchorPane>
-                                    </content>
-                                </ScrollPane>
-                                <ScrollPane fx:id="scrollPane4" hbarPolicy="NEVER" prefHeight="674.0" prefWidth="1201.0"
-                                            style="-fx-background-color: #2E3348;" styleClass="scrollPaneClass"
-                                            vbarPolicy="ALWAYS">
-                                    <content>
-                                        <AnchorPane fx:id="dishViewPane1" minHeight="0.0" minWidth="0.0"
+                                        <AnchorPane fx:id="dishViewPaneOnLibraryPage" minHeight="0.0" minWidth="0.0"
                                                     prefHeight="1397.0" prefWidth="1186.0"
                                                     style="-fx-background-color: #2E3348;"
                                                     styleClass="inScrollPaneClass">
                                             <children>
-                                                <Label fx:id="likeDishTitle" layoutX="280.0" layoutY="70.0"
-                                                       prefHeight="35.0" prefWidth="890.0" text="Title"
+                                                <Label fx:id="dishTitleInDishViewOnLibraryPage" layoutX="280.0"
+                                                       layoutY="70.0" prefHeight="35.0" prefWidth="890.0" text="Title"
                                                        textAlignment="CENTER" textFill="WHITE">
                                                     <font>
                                                         <Font name="System Bold" size="20.0"/>
                                                     </font>
                                                 </Label>
-                                                <ImageView fx:id="likeDishImage" fitHeight="250.0" fitWidth="250.0"
-                                                           layoutX="10.0" layoutY="70.0" pickOnBounds="true"
-                                                           preserveRatio="true"/>
-                                                <Label fx:id="likeDishDescription" alignment="TOP_LEFT" layoutX="280.0"
-                                                       layoutY="115.0" prefHeight="120.0" prefWidth="890.0"
-                                                       text="Description" textAlignment="CENTER" textFill="WHITE"
-                                                       wrapText="true">
+                                                <ImageView fx:id="dishImageInDishViewOnLibraryPage" fitHeight="250.0"
+                                                           fitWidth="250.0" layoutX="10.0" layoutY="70.0"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <Label fx:id="dishDescriptionInDishViewOnLibraryPage"
+                                                       alignment="TOP_LEFT" layoutX="280.0" layoutY="115.0"
+                                                       prefHeight="120.0" prefWidth="890.0" text="Description"
+                                                       textAlignment="CENTER" textFill="WHITE" wrapText="true">
                                                     <font>
                                                         <Font size="15.0"/>
                                                     </font>
                                                 </Label>
-                                                <Label fx:id="likeDishRecipe" alignment="TOP_LEFT" layoutX="10.0"
-                                                       layoutY="370.0" prefHeight="649.0" prefWidth="835.0"
-                                                       text="Recipe" textFill="WHITE" wrapText="true">
+                                                <Label fx:id="dishRecipeInDishViewOnLibraryPage" alignment="TOP_LEFT"
+                                                       layoutX="10.0" layoutY="370.0" prefHeight="649.0"
+                                                       prefWidth="835.0" text="Recipe" textFill="WHITE" wrapText="true">
                                                     <font>
                                                         <Font size="15.0"/>
                                                     </font>
                                                 </Label>
-                                                <Button fx:id="likeBackToCategoryButton" layoutX="10.0" layoutY="10.0"
-                                                        mnemonicParsing="false" prefHeight="44.0" prefWidth="299.0"
+                                                <Button fx:id="backToCategoryButtonInDishViewOnLibraryPage"
+                                                        layoutX="10.0" layoutY="10.0" mnemonicParsing="false"
+                                                        prefHeight="44.0" prefWidth="299.0"
                                                         style="-fx-background-color: #F39C63;"
                                                         text="Повернутися до списку страв" textFill="WHITE">
                                                     <font>
                                                         <Font size="20.0"/>
                                                     </font>
                                                 </Button>
-                                                <TableView fx:id="likeGroceryTableView" layoutX="855.0" layoutY="370.0"
-                                                           prefHeight="500.0" prefWidth="310.0"/>
-                                                <ImageView fx:id="likeFieldForLikedDish" fitHeight="75.0"
+                                                <TableView fx:id="groceryTableViewInDishViewOnLibraryPage"
+                                                           layoutX="855.0" layoutY="370.0" prefHeight="500.0"
+                                                           prefWidth="310.0"/>
+                                                <ImageView fx:id="likeFieldInDishViewOnLibraryPage" fitHeight="75.0"
                                                            fitWidth="75.0" layoutX="280.0" layoutY="245.0"
                                                            pickOnBounds="true" preserveRatio="true"/>
                                                 <Label alignment="CENTER" layoutX="280.0" layoutY="330.0"
@@ -669,17 +419,275 @@
                                                         <Font name="System Bold" size="20.0"/>
                                                     </font>
                                                 </Label>
-                                                <ImageView fx:id="likeAddInFavouriteButton" fitHeight="75.0"
-                                                           fitWidth="75.0" layoutX="365.0" layoutY="245.0"
-                                                           pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="addInFavouriteButtonInDishViewOnLibraryPage"
+                                                           fitHeight="75.0" fitWidth="75.0" layoutX="365.0"
+                                                           layoutY="245.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
                                                         <Image url="@../../images/addInFavourite.png"/>
                                                     </image>
                                                 </ImageView>
-                                                <Button fx:id="removeDishInPlaylistDishView" layoutX="981.0"
+                                                <Button fx:id="removeDishInDishViewOnLibraryPage" layoutX="981.0"
                                                         layoutY="10.0" mnemonicParsing="false" prefHeight="26.0"
                                                         prefWidth="188.0" style="-fx-background-color: #8B008B;"
                                                         text="Удалить страву з цього списку" textFill="WHITE"/>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </ScrollPane>
+                                <ScrollPane fx:id="libraryPageScroll" hbarPolicy="NEVER" minViewportHeight="600.0"
+                                            minViewportWidth="1150.0" pannable="true" prefHeight="675.0"
+                                            prefViewportHeight="600.0" prefViewportWidth="1150.0" prefWidth="1201.0"
+                                            styleClass="scrollPaneClass" vbarPolicy="ALWAYS">
+                                    <content>
+                                        <AnchorPane fx:id="libraryPagePane" minHeight="0.0" minWidth="0.0"
+                                                    prefHeight="1398.0" prefWidth="1186.0"
+                                                    style="-fx-background-color: #2E3348;"
+                                                    styleClass="inScrollPaneClass">
+                                            <children>
+                                                <ImageView fx:id="image1OnLibraryPage" fitHeight="150.0"
+                                                           fitWidth="150.0" layoutX="20.0" layoutY="120.0"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <ImageView fx:id="image2OnLibraryPage" fitHeight="150.0"
+                                                           fitWidth="150.0" layoutX="410.0" layoutY="120.0"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <ImageView fx:id="image3OnLibraryPage" fitHeight="150.0"
+                                                           fitWidth="150.0" layoutX="800.0" layoutY="120.0"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <Button fx:id="backButtonOnLibraryPage" layoutX="326.0" layoutY="1228.0"
+                                                        mnemonicParsing="false" style="-fx-background-color: #F39C63;"
+                                                        text="Назад" textAlignment="CENTER" textFill="#ffffff">
+                                                    <font>
+                                                        <Font size="30.0"/>
+                                                    </font>
+                                                </Button>
+                                                <Button fx:id="nextButtonOnLibraryPage" layoutX="734.0" layoutY="1227.0"
+                                                        mnemonicParsing="false" style="-fx-background-color: #F39C63;"
+                                                        text="Вперед" textAlignment="CENTER" textFill="#ffffff">
+                                                    <font>
+                                                        <Font size="30.0"/>
+                                                    </font>
+                                                </Button>
+                                                <Button fx:id="title1OnLibraryPage" alignment="TOP_LEFT" layoutX="10.0"
+                                                        layoutY="65.0" mnemonicParsing="false" prefHeight="45.0"
+                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
+                                                        text="Title" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                                <Button fx:id="title3OnLibraryPage" alignment="TOP_LEFT" layoutX="790.0"
+                                                        layoutY="65.0" mnemonicParsing="false" prefHeight="45.0"
+                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
+                                                        text="Title" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                                <ImageView fx:id="image13OnLibraryPage" fitHeight="100.0"
+                                                           fitWidth="100.0" layoutX="97.0" layoutY="1082.0"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <ImageView fx:id="image14OnLibraryPage" fitHeight="100.0"
+                                                           fitWidth="100.0" layoutX="457.0" layoutY="1093.0"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <ImageView fx:id="image15OnLibraryPage" fitHeight="100.0"
+                                                           fitWidth="100.0" layoutX="838.0" layoutY="1078.0"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <Button fx:id="title13OnLibraryPage" alignment="TOP_LEFT" layoutX="69.0"
+                                                        layoutY="992.0" mnemonicParsing="false" prefHeight="66.0"
+                                                        prefWidth="306.0" style="-fx-background-color: #2E3348;"
+                                                        text="Title" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="30.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                                <Button fx:id="title14OnLibraryPage" alignment="TOP_LEFT"
+                                                        layoutX="436.0" layoutY="992.0" mnemonicParsing="false"
+                                                        prefHeight="66.0" prefWidth="306.0"
+                                                        style="-fx-background-color: #2E3348;" text="Title"
+                                                        textFill="WHITE">
+                                                    <font>
+                                                        <Font size="30.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                                <Button fx:id="title15OnLibraryPage" alignment="TOP_LEFT"
+                                                        layoutX="802.0" layoutY="991.0" mnemonicParsing="false"
+                                                        prefHeight="66.0" prefWidth="306.0"
+                                                        style="-fx-background-color: #2E3348;" text="Title"
+                                                        textFill="WHITE">
+                                                    <font>
+                                                        <Font size="30.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                                <Button fx:id="title2OnLibraryPage" alignment="TOP_LEFT" layoutX="400.0"
+                                                        layoutY="65.0" mnemonicParsing="false" prefHeight="45.0"
+                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
+                                                        text="Title" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                                <ImageView fx:id="image4OnLibraryPage" fitHeight="150.0"
+                                                           fitWidth="150.0" layoutX="20.0" layoutY="335.0"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <ImageView fx:id="image5OnLibraryPage" fitHeight="150.0"
+                                                           fitWidth="150.0" layoutX="410.0" layoutY="335.0"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <ImageView fx:id="image6OnLibraryPage" fitHeight="150.0"
+                                                           fitWidth="150.0" layoutX="800.0" layoutY="335.0"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <Button fx:id="title4OnLibraryPage" alignment="TOP_LEFT" layoutX="10.0"
+                                                        layoutY="280.0" mnemonicParsing="false" prefHeight="45.0"
+                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
+                                                        text="Title" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                                <Button fx:id="title5OnLibraryPage" alignment="TOP_LEFT" layoutX="790.0"
+                                                        layoutY="280.0" mnemonicParsing="false" prefHeight="45.0"
+                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
+                                                        text="Title" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                                <Button fx:id="title6OnLibraryPage" alignment="TOP_LEFT" layoutX="400.0"
+                                                        layoutY="280.0" mnemonicParsing="false" prefHeight="45.0"
+                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
+                                                        text="Title" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                                <Button fx:id="backToPlaylistsButtonOnLibraryPage" layoutX="10.0"
+                                                        layoutY="10.0" mnemonicParsing="false" prefHeight="45.0"
+                                                        prefWidth="356.0" style="-fx-background-color: #F39C63;"
+                                                        text="Повернутися до списків відтворень" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                </Button>
+                                                <ImageView fx:id="image7OnLibraryPage" fitHeight="150.0"
+                                                           fitWidth="150.0" layoutX="20.0" layoutY="550.0"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <ImageView fx:id="image8OnLibraryPage" fitHeight="150.0"
+                                                           fitWidth="150.0" layoutX="410.0" layoutY="550.0"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <ImageView fx:id="image9OnLibraryPage" fitHeight="150.0"
+                                                           fitWidth="150.0" layoutX="800.0" layoutY="550.0"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <Button fx:id="title7OnLibraryPage" alignment="TOP_LEFT" layoutX="10.0"
+                                                        layoutY="495.0" mnemonicParsing="false" prefHeight="45.0"
+                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
+                                                        text="Title" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                                <Button fx:id="title8OnLibraryPage" alignment="TOP_LEFT" layoutX="790.0"
+                                                        layoutY="495.0" mnemonicParsing="false" prefHeight="45.0"
+                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
+                                                        text="Title" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                                <Button fx:id="title9OnLibraryPage" alignment="TOP_LEFT" layoutX="400.0"
+                                                        layoutY="495.0" mnemonicParsing="false" prefHeight="45.0"
+                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
+                                                        text="Title" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                                <ImageView fx:id="image10OnLibraryPage" fitHeight="150.0"
+                                                           fitWidth="150.0" layoutX="20.0" layoutY="765.0"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <ImageView fx:id="image11OnLibraryPage" fitHeight="150.0"
+                                                           fitWidth="150.0" layoutX="410.0" layoutY="765.0"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <ImageView fx:id="image12OnLibraryPage" fitHeight="150.0"
+                                                           fitWidth="150.0" layoutX="800.0" layoutY="765.0"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <Button fx:id="title10OnLibraryPage" alignment="TOP_LEFT" layoutX="10.0"
+                                                        layoutY="710.0" mnemonicParsing="false" prefHeight="45.0"
+                                                        prefWidth="380.0" style="-fx-background-color: #2E3348;"
+                                                        text="Title" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                                <Button fx:id="title11OnLibraryPage" alignment="TOP_LEFT"
+                                                        layoutX="790.0" layoutY="710.0" mnemonicParsing="false"
+                                                        prefHeight="45.0" prefWidth="380.0"
+                                                        style="-fx-background-color: #2E3348;" text="Title"
+                                                        textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                                <Button fx:id="title12OnLibraryPage" alignment="TOP_LEFT"
+                                                        layoutX="400.0" layoutY="710.0" mnemonicParsing="false"
+                                                        prefHeight="45.0" prefWidth="380.0"
+                                                        style="-fx-background-color: #2E3348;" text="Title"
+                                                        textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                                <Button fx:id="removeDishInPlaylistButton" layoutX="1022.0"
+                                                        layoutY="5.0" mnemonicParsing="false" prefHeight="25.0"
+                                                        prefWidth="150.0" style="-fx-background-color: #8B008B;"
+                                                        text="Удалить страву з списку" textFill="WHITE"/>
+                                                <Button fx:id="removePlaylistButton" layoutX="1022.0" layoutY="35.0"
+                                                        mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0"
+                                                        style="-fx-background-color: #8B008B;" text="Удалить список"
+                                                        textFill="WHITE"/>
                                             </children>
                                         </AnchorPane>
                                     </content>
