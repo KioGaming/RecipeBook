@@ -28,6 +28,10 @@ public final class SaveData {
 
     public SaveData(int idUser) {
         SaveLoad.load(this, idUser);
+        reloadAllLists();
+    }
+
+    public void reloadAllLists() {
         for (int i = 0; i < dishes.size(); i++) {
             if (dishes.get(i).getCategory().equals("Перші страви")) {
                 category1.add(dishes.get(i));
@@ -89,6 +93,9 @@ public final class SaveData {
 
     public void setCounter(int counter) {
         this.counter = counter;
+        if (this.counter < 0) {
+            this.counter = 0;
+        }
     }
 
     public int getLastCounterChange() {
@@ -129,6 +136,9 @@ public final class SaveData {
 
     public void setLikeCounter(int likeCounter) {
         this.likeCounter = likeCounter;
+        if (this.likeCounter < 0) {
+            this.likeCounter = 0;
+        }
     }
 
     public int getLikeLastCounterChange() {

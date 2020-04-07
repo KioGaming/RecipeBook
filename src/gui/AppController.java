@@ -9,10 +9,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.StageStyle;
-import login.Account;
 import login.DatabaseHandler;
 import login.Filter;
 import login.Login;
+import model.Account;
 import model.Dish;
 import model.Playlist;
 import model.Shopping;
@@ -92,6 +92,8 @@ public class AppController {
     @FXML
     private Label dishRecipeInDishViewOnHomePage;
     @FXML
+    private Label numberOfLikeInDishViewOnHomePage;
+    @FXML
     private TableView<Shopping> groceryTableViewInDishViewOnHomePage;
     @FXML
     private ImageView likeFieldInDishViewOnHomePage;
@@ -138,7 +140,9 @@ public class AppController {
     @FXML
     private Button removeDishInPlaylistButton;
     @FXML
-    private Button removePlaylistButton;///
+    private Button removePlaylistButton;
+    @FXML
+    private Label numberOfLikeInDishViewOnLibraryPage;
     @FXML
     private ImageView image1OnLibraryPage;
     @FXML
@@ -303,11 +307,17 @@ public class AppController {
         });
         likeFieldInDishViewOnHomePage.setOnMouseClicked(event -> {
             if (sd.getLike().indexOf(activeDish) != -1) {
+                int numberOfLike = activeDish.getNumberOfLikes();
+                removeLikedDish(numberOfLike);
+                sd.reloadAllLists();
                 likeFieldInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
-                removeLikedDish();
+                numberOfLikeInDishViewOnHomePage.setText(String.valueOf(activeDish.getNumberOfLikes()));
             } else {
+                int numberOfLike = activeDish.getNumberOfLikes();
+                addLikedDish(numberOfLike);
+                sd.reloadAllLists();
                 likeFieldInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
-                addLikedDish();
+                numberOfLikeInDishViewOnHomePage.setText(String.valueOf(activeDish.getNumberOfLikes()));
             }
         });
         addInFavouriteButtonInDishViewOnHomePage.setOnMouseClicked(mouseEvent -> {
@@ -348,7 +358,24 @@ public class AppController {
             });
         });
         /*Library page*/
-        libraryTab.setOnSelectionChanged(event -> playlistsPaneRedraw());
+        libraryTab.setOnSelectionChanged(event -> {
+            if (playlistsPaneOnLibraryPage.isVisible()) {
+                playlistsPaneRedraw();
+                System.out.println("1");
+            } else if (libraryPageScroll.isVisible()) {
+                sd.setLikeCounter(sd.getLikeCounter() - sd.getLikeLastCounterChange());
+                sd.setLikeLastCounterChange(14);
+                if (idActivePlaylist == -1) {
+                    likeNext("like");
+                } else {
+                    likeNext("playlist" + (idActivePlaylist + 1));
+                }
+                System.out.println("2");
+            } else if (dishViewPaneOnLibraryPage.isVisible() && activeDish != null) {
+                likeDishView(activeDish.getTitle());
+                System.out.println("3");
+            }
+        });
         likePlaylistButtonOnLibraryPage.setOnAction(actionEvent -> {
             idActivePlaylist = -1;
             filters = "like";
@@ -411,21 +438,66 @@ public class AppController {
         });
         backButtonOnLibraryPage.setOnAction(event -> likeBack(filters));
         nextButtonOnLibraryPage.setOnAction(event -> likeNext(filters));
-        title1OnLibraryPage.setOnAction(event -> likeDishView(title1OnLibraryPage.getText()));
-        title2OnLibraryPage.setOnAction(event -> likeDishView(title2OnLibraryPage.getText()));
-        title3OnLibraryPage.setOnAction(event -> likeDishView(title3OnLibraryPage.getText()));
-        title4OnLibraryPage.setOnAction(event -> likeDishView(title4OnLibraryPage.getText()));
-        title5OnLibraryPage.setOnAction(event -> likeDishView(title5OnLibraryPage.getText()));
-        title6OnLibraryPage.setOnAction(event -> likeDishView(title6OnLibraryPage.getText()));
-        title7OnLibraryPage.setOnAction(event -> likeDishView(title7OnLibraryPage.getText()));
-        title8OnLibraryPage.setOnAction(event -> likeDishView(title8OnLibraryPage.getText()));
-        title9OnLibraryPage.setOnAction(event -> likeDishView(title9OnLibraryPage.getText()));
-        title10OnLibraryPage.setOnAction(event -> likeDishView(title10OnLibraryPage.getText()));
-        title11OnLibraryPage.setOnAction(event -> likeDishView(title11OnLibraryPage.getText()));
-        title12OnLibraryPage.setOnAction(event -> likeDishView(title12OnLibraryPage.getText()));
-        title13OnLibraryPage.setOnAction(event -> likeDishView(title13OnLibraryPage.getText()));
-        title14OnLibraryPage.setOnAction(event -> likeDishView(title14OnLibraryPage.getText()));
-        title15OnLibraryPage.setOnAction(event -> likeDishView(title15OnLibraryPage.getText()));
+        title2OnLibraryPage.setOnAction(event -> {
+            libraryPageScroll.setVisible(false);
+            likeDishView(title2OnLibraryPage.getText());
+        });
+        title3OnLibraryPage.setOnAction(event -> {
+            libraryPageScroll.setVisible(false);
+            likeDishView(title3OnLibraryPage.getText());
+        });
+        title4OnLibraryPage.setOnAction(event -> {
+            libraryPageScroll.setVisible(false);
+            likeDishView(title4OnLibraryPage.getText());
+        });
+        title5OnLibraryPage.setOnAction(event -> {
+            libraryPageScroll.setVisible(false);
+            likeDishView(title5OnLibraryPage.getText());
+        });
+        title6OnLibraryPage.setOnAction(event -> {
+            libraryPageScroll.setVisible(false);
+            likeDishView(title6OnLibraryPage.getText());
+        });
+        title7OnLibraryPage.setOnAction(event -> {
+            libraryPageScroll.setVisible(false);
+            likeDishView(title7OnLibraryPage.getText());
+        });
+        title8OnLibraryPage.setOnAction(event -> {
+            libraryPageScroll.setVisible(false);
+            likeDishView(title8OnLibraryPage.getText());
+        });
+        title9OnLibraryPage.setOnAction(event -> {
+            libraryPageScroll.setVisible(false);
+            likeDishView(title9OnLibraryPage.getText());
+        });
+        title10OnLibraryPage.setOnAction(event -> {
+            libraryPageScroll.setVisible(false);
+            likeDishView(title10OnLibraryPage.getText());
+        });
+        title11OnLibraryPage.setOnAction(event -> {
+            libraryPageScroll.setVisible(false);
+            likeDishView(title11OnLibraryPage.getText());
+        });
+        title12OnLibraryPage.setOnAction(event -> {
+            libraryPageScroll.setVisible(false);
+            likeDishView(title12OnLibraryPage.getText());
+        });
+        title13OnLibraryPage.setOnAction(event -> {
+            libraryPageScroll.setVisible(false);
+            likeDishView(title13OnLibraryPage.getText());
+        });
+        title14OnLibraryPage.setOnAction(event -> {
+            libraryPageScroll.setVisible(false);
+            likeDishView(title14OnLibraryPage.getText());
+        });
+        title15OnLibraryPage.setOnAction(event -> {
+            libraryPageScroll.setVisible(false);
+            likeDishView(title15OnLibraryPage.getText());
+        });
+        title1OnLibraryPage.setOnAction(event -> {
+            libraryPageScroll.setVisible(false);
+            likeDishView(title1OnLibraryPage.getText());
+        });
         removeDishInDishViewOnLibraryPage.setOnAction(actionEvent -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("RecipeBook");
@@ -454,11 +526,17 @@ public class AppController {
         });
         likeFieldInDishViewOnLibraryPage.setOnMouseClicked(event -> {
             if (sd.getLike().indexOf(activeDish) != -1) {
+                int numberOfLike = activeDish.getNumberOfLikes();
+                removeLikedDish(numberOfLike);
+                sd.reloadAllLists();
                 likeFieldInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
-                removeLikedDish();
+                numberOfLikeInDishViewOnLibraryPage.setText(String.valueOf(activeDish.getNumberOfLikes()));
             } else {
+                int numberOfLike = activeDish.getNumberOfLikes();
+                addLikedDish(numberOfLike);
+                sd.reloadAllLists();
                 likeFieldInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
-                addLikedDish();
+                numberOfLikeInDishViewOnLibraryPage.setText(String.valueOf(activeDish.getNumberOfLikes()));
             }
         });
         backToPlaylistsButtonOnLibraryPage.setOnAction(actionEvent -> {
@@ -470,6 +548,7 @@ public class AppController {
         });
         backToCategoryButtonInDishViewOnLibraryPage.setOnAction(event -> {
             dishViewScrollOnLibraryPage.setVisible(false);
+            playlistsPaneOnLibraryPage.setVisible(false);
             libraryPageScroll.setVisible(true);
             sd.setLikeLastCounterChange(15);
             sd.setLikeCounter(0);
@@ -718,14 +797,22 @@ public class AppController {
         aboutUsPane.setVisible(false);
     }
 
-    private void addLikedDish() {
+    private void addLikedDish(int numberOfLike) {
+        int index = sd.getDishes().indexOf(activeDish);
+        sd.getDishes().get(index).setNumberOfLikes(numberOfLike + 1);
+        activeDish = sd.getDishes().get(index);
         sd.getLike().add(activeDish);
         sd.saveLikedDishes(account.getIdUser(), activeDish.getId());
+        SaveLoad.addOneLike(activeDish.getId());
     }
 
-    private void removeLikedDish() {
+    private void removeLikedDish(int numberOfLike) {
+        int index = sd.getDishes().indexOf(activeDish);
+        sd.getDishes().get(index).setNumberOfLikes(numberOfLike - 1);
+        activeDish = sd.getDishes().get(index);
         sd.getLike().remove(activeDish);
         sd.removeLikedDishes(account.getIdUser(), activeDish.getId());
+        SaveLoad.removeOneLike(activeDish.getId());
     }
 
     private void playlistsPaneRedraw() {
@@ -1042,6 +1129,7 @@ public class AppController {
             } else {
                 likeFieldInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
             }
+            numberOfLikeInDishViewOnHomePage.setText(String.valueOf(dish.getNumberOfLikes()));
         }
     }
 
@@ -1413,6 +1501,7 @@ public class AppController {
             }
         }
         if (dish != null) {
+            System.out.println("\n" + activeDish + "\n" + dish + "\n" + sd.getLike() + "\n" + sd.getDishes().get(sd.getDishes().indexOf(activeDish)));
             activeDish = dish;
             dishTitleInDishViewOnLibraryPage.setText(dish.getTitle());
             dishImageInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + dish.getPhoto()).toURI().toString()));
@@ -1444,6 +1533,7 @@ public class AppController {
             } else {
                 likeFieldInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
             }
+            numberOfLikeInDishViewOnLibraryPage.setText(String.valueOf(dish.getNumberOfLikes()));
         }
     }
 }

@@ -1,6 +1,7 @@
 package model;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Playlist {
 
@@ -45,5 +46,20 @@ public class Playlist {
                 ", title='" + title + '\'' +
                 ", dishes=" + dishes +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Playlist)) return false;
+        Playlist playlist = (Playlist) o;
+        return getId() == playlist.getId() &&
+                getTitle().equals(playlist.getTitle()) &&
+                getDishes().equals(playlist.getDishes());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getTitle(), getDishes());
     }
 }

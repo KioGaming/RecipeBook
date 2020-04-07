@@ -218,4 +218,14 @@ public class SaveLoad {
         return b;*/
         return false;
     }
+
+    public static void addOneLike(int idDish) {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        databaseHandler.addOneLike(idDish);
+    }
+
+    public static void removeOneLike(int idDish) {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        databaseHandler.removeOneLike(idDish);
+    }
 }

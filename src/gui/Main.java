@@ -2,9 +2,9 @@ package gui;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import login.Account;
 import login.DatabaseHandler;
 import login.Login;
+import model.Account;
 import settings.Text;
 
 import java.io.File;

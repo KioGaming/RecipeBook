@@ -2,9 +2,9 @@ package gui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import login.Account;
 import login.DatabaseHandler;
 import login.Login;
+import model.Account;
 import settings.Text;
 
 import java.net.URL;
@@ -14,28 +14,20 @@ public class SignInController {
 
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
     @FXML
     private TextField mailField;
-
     @FXML
     private PasswordField passwordField;
-
     @FXML
     private Button authSignInButton;
-
     @FXML
     private Label errorMessagesField;
-
     @FXML
     private Button loginSignUpButton;
-
     @FXML
     private ProgressIndicator loadProgress;
-
     @FXML
     private CheckBox savePasswordCheckBox;
 

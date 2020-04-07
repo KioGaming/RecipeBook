@@ -1,5 +1,7 @@
 package login;
 
+import model.Account;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;

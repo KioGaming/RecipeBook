@@ -356,4 +356,32 @@ public class DatabaseHandler extends Configs {
         }
         return str;
     }
+
+    public void addOneLike(int idDish) {
+        String update = "UPDATE " + Settings.DISH_TABLE + " SET " + Settings.DISH_NUMBER_OF_LIKES + " = " + Settings.DISH_NUMBER_OF_LIKES + " + 1 WHERE "
+                + Settings.DISH_ID + " = ?";
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(update);
+            prSt.setInt(1, idDish);
+            prSt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void removeOneLike(int idDish) {
+        String update = "UPDATE " + Settings.DISH_TABLE + " SET " + Settings.DISH_NUMBER_OF_LIKES + " = " + Settings.DISH_NUMBER_OF_LIKES + " - 1 WHERE "
+                + Settings.DISH_ID + " = ?";
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(update);
+            prSt.setInt(1, idDish);
+            prSt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -95,7 +95,7 @@ public class Dish {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getTitle(), getPhoto(), getDescription(), getCategory(), getRecipe(), getGroceryList(), getNumberOfLikes());
+        return Objects.hash(getId(), getTitle(), getPhoto(), getDescription(), getCategory(), getRecipe(), getGroceryList(), getNumberOfLikes());
     }
 
     @Override
@@ -103,7 +103,8 @@ public class Dish {
         if (this == o) return true;
         if (!(o instanceof Dish)) return false;
         Dish dish = (Dish) o;
-        return getNumberOfLikes() == dish.getNumberOfLikes() &&
+        return getId() == dish.getId() &&
+                getNumberOfLikes() == dish.getNumberOfLikes() &&
                 getTitle().equals(dish.getTitle()) &&
                 getPhoto().equals(dish.getPhoto()) &&
                 getDescription().equals(dish.getDescription()) &&

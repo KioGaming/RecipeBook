@@ -4,9 +4,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import login.Account;
 import login.DatabaseHandler;
 import login.Login;
+import model.Account;
 import settings.Text;
 
 import java.net.URL;
@@ -16,31 +16,22 @@ public class SignUpController {
 
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
     @FXML
     private TextField mailField;
-
     @FXML
     private PasswordField passwordField;
-
     @FXML
     private Button signUpButton;
-
     @FXML
     private TextField usernameField;
-
     @FXML
     private ComboBox locationComboBox;
-
     @FXML
     private Label signUpErrorMessages;
-
     @FXML
     private Button authSignInButton;
-
     @FXML
     private CheckBox savePasswordCheckBox;
 

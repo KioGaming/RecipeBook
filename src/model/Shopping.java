@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Shopping {
 
     private String grocery;
@@ -32,5 +34,19 @@ public class Shopping {
                 "grocery='" + grocery + '\'' +
                 ", weight='" + weight + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Shopping)) return false;
+        Shopping shopping = (Shopping) o;
+        return getGrocery().equals(shopping.getGrocery()) &&
+                getWeight().equals(shopping.getWeight());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getGrocery(), getWeight());
     }
 }

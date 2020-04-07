@@ -200,7 +200,11 @@
                                                            layoutY="370.0" prefHeight="500.0" prefWidth="310.0"/>
                                                 <ImageView fx:id="likeFieldInDishViewOnHomePage" fitHeight="75.0"
                                                            fitWidth="75.0" layoutX="280.0" layoutY="245.0"
-                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                           pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../../images/liked.png"/>
+                                                    </image>
+                                                </ImageView>
                                                 <Label alignment="CENTER" layoutX="280.0" layoutY="330.0"
                                                        prefHeight="30.0" prefWidth="125.0" text="РЕЦЕПТ"
                                                        textFill="WHITE">
@@ -222,6 +226,13 @@
                                                         <Image url="@../../images/addInFavourite.png"/>
                                                     </image>
                                                 </ImageView>
+                                                <Label fx:id="numberOfLikeInDishViewOnHomePage" alignment="TOP_CENTER"
+                                                       layoutX="289.0" layoutY="265.0" prefHeight="27.0"
+                                                       prefWidth="56.0" text="10000" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                </Label>
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -356,84 +367,6 @@
                                         </Button>
                                     </children>
                                 </AnchorPane>
-                                <ScrollPane fx:id="dishViewScrollOnLibraryPage" hbarPolicy="NEVER" prefHeight="674.0"
-                                            prefWidth="1201.0" style="-fx-background-color: #2E3348;"
-                                            styleClass="scrollPaneClass" vbarPolicy="ALWAYS">
-                                    <content>
-                                        <AnchorPane fx:id="dishViewPaneOnLibraryPage" minHeight="0.0" minWidth="0.0"
-                                                    prefHeight="1397.0" prefWidth="1186.0"
-                                                    style="-fx-background-color: #2E3348;"
-                                                    styleClass="inScrollPaneClass">
-                                            <children>
-                                                <Label fx:id="dishTitleInDishViewOnLibraryPage" layoutX="280.0"
-                                                       layoutY="70.0" prefHeight="35.0" prefWidth="890.0" text="Title"
-                                                       textAlignment="CENTER" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="System Bold" size="20.0"/>
-                                                    </font>
-                                                </Label>
-                                                <ImageView fx:id="dishImageInDishViewOnLibraryPage" fitHeight="250.0"
-                                                           fitWidth="250.0" layoutX="10.0" layoutY="70.0"
-                                                           pickOnBounds="true" preserveRatio="true"/>
-                                                <Label fx:id="dishDescriptionInDishViewOnLibraryPage"
-                                                       alignment="TOP_LEFT" layoutX="280.0" layoutY="115.0"
-                                                       prefHeight="120.0" prefWidth="890.0" text="Description"
-                                                       textAlignment="CENTER" textFill="WHITE" wrapText="true">
-                                                    <font>
-                                                        <Font size="15.0"/>
-                                                    </font>
-                                                </Label>
-                                                <Label fx:id="dishRecipeInDishViewOnLibraryPage" alignment="TOP_LEFT"
-                                                       layoutX="10.0" layoutY="370.0" prefHeight="649.0"
-                                                       prefWidth="835.0" text="Recipe" textFill="WHITE" wrapText="true">
-                                                    <font>
-                                                        <Font size="15.0"/>
-                                                    </font>
-                                                </Label>
-                                                <Button fx:id="backToCategoryButtonInDishViewOnLibraryPage"
-                                                        layoutX="10.0" layoutY="10.0" mnemonicParsing="false"
-                                                        prefHeight="44.0" prefWidth="299.0"
-                                                        style="-fx-background-color: #F39C63;"
-                                                        text="Повернутися до списку страв" textFill="WHITE">
-                                                    <font>
-                                                        <Font size="20.0"/>
-                                                    </font>
-                                                </Button>
-                                                <TableView fx:id="groceryTableViewInDishViewOnLibraryPage"
-                                                           layoutX="855.0" layoutY="370.0" prefHeight="500.0"
-                                                           prefWidth="310.0"/>
-                                                <ImageView fx:id="likeFieldInDishViewOnLibraryPage" fitHeight="75.0"
-                                                           fitWidth="75.0" layoutX="280.0" layoutY="245.0"
-                                                           pickOnBounds="true" preserveRatio="true"/>
-                                                <Label alignment="CENTER" layoutX="280.0" layoutY="330.0"
-                                                       prefHeight="30.0" prefWidth="125.0" text="РЕЦЕПТ"
-                                                       textFill="WHITE">
-                                                    <font>
-                                                        <Font name="System Bold" size="20.0"/>
-                                                    </font>
-                                                </Label>
-                                                <Label alignment="CENTER" layoutX="950.0" layoutY="330.0"
-                                                       prefHeight="30.0" prefWidth="138.0" text="ІНГРЕДІЄНТИ"
-                                                       textFill="WHITE">
-                                                    <font>
-                                                        <Font name="System Bold" size="20.0"/>
-                                                    </font>
-                                                </Label>
-                                                <ImageView fx:id="addInFavouriteButtonInDishViewOnLibraryPage"
-                                                           fitHeight="75.0" fitWidth="75.0" layoutX="365.0"
-                                                           layoutY="245.0" pickOnBounds="true" preserveRatio="true">
-                                                    <image>
-                                                        <Image url="@../../images/addInFavourite.png"/>
-                                                    </image>
-                                                </ImageView>
-                                                <Button fx:id="removeDishInDishViewOnLibraryPage" layoutX="981.0"
-                                                        layoutY="10.0" mnemonicParsing="false" prefHeight="26.0"
-                                                        prefWidth="188.0" style="-fx-background-color: #8B008B;"
-                                                        text="Удалить страву з цього списку" textFill="WHITE"/>
-                                            </children>
-                                        </AnchorPane>
-                                    </content>
-                                </ScrollPane>
                                 <ScrollPane fx:id="libraryPageScroll" hbarPolicy="NEVER" minViewportHeight="600.0"
                                             minViewportWidth="1150.0" pannable="true" prefHeight="675.0"
                                             prefViewportHeight="600.0" prefViewportWidth="1150.0" prefWidth="1201.0"
@@ -688,6 +621,95 @@
                                                         mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0"
                                                         style="-fx-background-color: #8B008B;" text="Удалить список"
                                                         textFill="WHITE"/>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </ScrollPane>
+                                <ScrollPane fx:id="dishViewScrollOnLibraryPage" hbarPolicy="NEVER" prefHeight="674.0"
+                                            prefWidth="1201.0" style="-fx-background-color: #2E3348;"
+                                            styleClass="scrollPaneClass" vbarPolicy="ALWAYS">
+                                    <content>
+                                        <AnchorPane fx:id="dishViewPaneOnLibraryPage" minHeight="0.0" minWidth="0.0"
+                                                    prefHeight="1397.0" prefWidth="1186.0"
+                                                    style="-fx-background-color: #2E3348;"
+                                                    styleClass="inScrollPaneClass">
+                                            <children>
+                                                <Label fx:id="dishTitleInDishViewOnLibraryPage" layoutX="280.0"
+                                                       layoutY="70.0" prefHeight="35.0" prefWidth="890.0" text="Title"
+                                                       textAlignment="CENTER" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="System Bold" size="20.0"/>
+                                                    </font>
+                                                </Label>
+                                                <ImageView fx:id="dishImageInDishViewOnLibraryPage" fitHeight="250.0"
+                                                           fitWidth="250.0" layoutX="10.0" layoutY="70.0"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <Label fx:id="dishDescriptionInDishViewOnLibraryPage"
+                                                       alignment="TOP_LEFT" layoutX="280.0" layoutY="115.0"
+                                                       prefHeight="120.0" prefWidth="890.0" text="Description"
+                                                       textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                                    <font>
+                                                        <Font size="15.0"/>
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="dishRecipeInDishViewOnLibraryPage" alignment="TOP_LEFT"
+                                                       layoutX="10.0" layoutY="370.0" prefHeight="649.0"
+                                                       prefWidth="835.0" text="Recipe" textFill="WHITE" wrapText="true">
+                                                    <font>
+                                                        <Font size="15.0"/>
+                                                    </font>
+                                                </Label>
+                                                <Button fx:id="backToCategoryButtonInDishViewOnLibraryPage"
+                                                        layoutX="10.0" layoutY="10.0" mnemonicParsing="false"
+                                                        prefHeight="44.0" prefWidth="299.0"
+                                                        style="-fx-background-color: #F39C63;"
+                                                        text="Повернутися до списку страв" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                </Button>
+                                                <TableView fx:id="groceryTableViewInDishViewOnLibraryPage"
+                                                           layoutX="855.0" layoutY="370.0" prefHeight="500.0"
+                                                           prefWidth="310.0"/>
+                                                <ImageView fx:id="likeFieldInDishViewOnLibraryPage" fitHeight="75.0"
+                                                           fitWidth="75.0" layoutX="280.0" layoutY="245.0"
+                                                           pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../../images/noliked.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" layoutX="280.0" layoutY="330.0"
+                                                       prefHeight="30.0" prefWidth="125.0" text="РЕЦЕПТ"
+                                                       textFill="WHITE">
+                                                    <font>
+                                                        <Font name="System Bold" size="20.0"/>
+                                                    </font>
+                                                </Label>
+                                                <Label alignment="CENTER" layoutX="950.0" layoutY="330.0"
+                                                       prefHeight="30.0" prefWidth="138.0" text="ІНГРЕДІЄНТИ"
+                                                       textFill="WHITE">
+                                                    <font>
+                                                        <Font name="System Bold" size="20.0"/>
+                                                    </font>
+                                                </Label>
+                                                <ImageView fx:id="addInFavouriteButtonInDishViewOnLibraryPage"
+                                                           fitHeight="75.0" fitWidth="75.0" layoutX="365.0"
+                                                           layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../../images/addInFavourite.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <Button fx:id="removeDishInDishViewOnLibraryPage" layoutX="981.0"
+                                                        layoutY="10.0" mnemonicParsing="false" prefHeight="26.0"
+                                                        prefWidth="188.0" style="-fx-background-color: #8B008B;"
+                                                        text="Удалить страву з цього списку" textFill="WHITE"/>
+                                                <Label fx:id="numberOfLikeInDishViewOnLibraryPage"
+                                                       alignment="TOP_CENTER" layoutX="289.0" layoutY="265.0"
+                                                       prefHeight="27.0" prefWidth="56.0" text="10000" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                </Label>
                                             </children>
                                         </AnchorPane>
                                     </content>
