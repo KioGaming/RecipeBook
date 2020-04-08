@@ -5,8 +5,11 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import login.DatabaseHandler;
+import login.Filter;
 import login.Login;
+import login.MailSender;
 import model.Account;
+import settings.Settings;
 import settings.Text;
 
 import java.net.URL;
@@ -34,28 +37,65 @@ public class SignUpController {
     private Button authSignInButton;
     @FXML
     private CheckBox savePasswordCheckBox;
+    String username;
+    String mail;
+    String password;
+    String locale;
+    int confirmMail;
+    Boolean savePassword;
+    @FXML
+    private Label confirmLabel;
+    @FXML
+    private TextField confirmField;
 
     @FXML
     void initialize() {
+        confirmField.setVisible(false);
+        confirmLabel.setVisible(false);
+        usernameField.setVisible(true);
+        mailField.setVisible(true);
+        passwordField.setVisible(true);
+        locationComboBox.setVisible(true);
+        savePasswordCheckBox.setVisible(true);
         ObservableList<String> comboBoxList = FXCollections.observableArrayList("Россия, ru", "Україна, ua", "England, uk");
         locationComboBox.setValue(Text.get("LOCATION"));
         locationComboBox.setItems(comboBoxList);
 
         signUpButton.setOnAction(event -> {
-            String username = usernameField.getText();
-            String mail = mailField.getText();
-            String password = passwordField.getText();
-            String locale = locationComboBox.getValue().toString();
-            if (!username.equals("") && !mail.equals("") && !password.equals("") && !locale.equals("") && !locale.equals("Страна, язык")) {
-                Account account = Login.signUp(username, mail, password, locale, new DatabaseHandler(), savePasswordCheckBox.isSelected());
-                if (account != null) {
-                    signUpButton.getScene().getWindow().hide();
-                    LoaderNewScene.load("/gui/app.fxml");
+            if (usernameField.isVisible() && mailField.isVisible() && passwordField.isVisible() && locationComboBox.isVisible()) {
+                username = usernameField.getText();
+                mail = mailField.getText();
+                password = passwordField.getText();
+                locale = locationComboBox.getValue().toString();
+                savePassword = savePasswordCheckBox.isSelected();
+                DatabaseHandler dbHandler = new DatabaseHandler();
+                if (!username.equals("") && !mail.equals("") && !password.equals("") && !locale.equals("") && !locale.equals("Страна, язык")) {
+                    System.out.println(Filter.verifyUsername(username) + " " + Filter.verifyMail(mail) + " " + Filter.verifyPassword(password) + " " + Filter.verifyLocation(locale) + " " +
+                            dbHandler.verifyUsernameDB(username) + " " + dbHandler.verifyMailDB(mail));
+                    if (Filter.verifyUsername(username) && Filter.verifyMail(mail) && Filter.verifyPassword(password) && Filter.verifyLocation(locale) &&
+                            dbHandler.verifyUsernameDB(username) && dbHandler.verifyMailDB(mail)) {
+                        usernameField.setVisible(false);
+                        mailField.setVisible(false);
+                        passwordField.setVisible(false);
+                        locationComboBox.setVisible(false);
+                        savePasswordCheckBox.setVisible(false);
+                        confirmLabel.setVisible(true);
+                        confirmField.setVisible(true);
+                        confirmMail = (int) Math.floor(Math.random() * 1000000);
+                        MailSender sender = new MailSender(Settings.MAIL_ADDRESS, Settings.MAIL_PASSWORD);
+                        sender.send("Підтвердіть почту для реєстрації в додатку RecipeBook", "Ваш код: " + confirmMail, "recipebook@gmail.com", "olexienko.vova.k@gmail.com");
+                    } else {
+                        signUpErrorMessages.setText(Text.get("SIGN_UP_REPEAT_ERROR"));
+                    }
                 } else {
-                    signUpErrorMessages.setText(Text.get("SIGN_UP_REPEAT_ERROR"));
+                    signUpErrorMessages.setText(Text.get("SIGN_UP_EMPTY_ERROR"));
                 }
             } else {
-                signUpErrorMessages.setText(Text.get("SIGN_UP_EMPTY_ERROR"));
+                if (confirmMail == Integer.parseInt(confirmField.getText().trim())) {
+                    Account account = Login.signUp(username, mail, password, locale, new DatabaseHandler(), savePassword);
+                    signUpButton.getScene().getWindow().hide();
+                    LoaderNewScene.load("/gui/app.fxml");
+                }
             }
         });
 

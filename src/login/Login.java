@@ -13,24 +13,18 @@ import java.sql.SQLException;
 public class Login {
 
     public static Account signUp(String username, String mail, String originalPassword, String location, DatabaseHandler dbHandler, boolean savePassword) {
-        if (Filter.verifyUsername(username) == true && Filter.verifyMail(mail) == true &&
-                Filter.verifyPassword(originalPassword) == true && Filter.verifyLocation(location) == true &&
-                dbHandler.verifyUsernameDB(username) == true && dbHandler.verifyMailDB(mail) == true) {
-            byte[] salt = new byte[16];
-            SecureRandom secureRandom = new SecureRandom();
-            secureRandom.nextBytes(salt);
-            String generatedSecuredPasswordHash = lambdaworks.crypto.SCryptUtil.scrypt(originalPassword + salt.toString(), 16, 16, 16);
-            dbHandler.signUpUser(username, mail, generatedSecuredPasswordHash, salt.toString(), location);
-            int iduser = dbHandler.maxIdUser();
-            if (savePassword) {
-                savePassword(mail, originalPassword);
-            } else {
-                noSavePassword();
-            }
-            return new Account(iduser, username, mail, generatedSecuredPasswordHash, location, "user");
+        byte[] salt = new byte[16];
+        SecureRandom secureRandom = new SecureRandom();
+        secureRandom.nextBytes(salt);
+        String generatedSecuredPasswordHash = lambdaworks.crypto.SCryptUtil.scrypt(originalPassword + salt.toString(), 16, 16, 16);
+        dbHandler.signUpUser(username, mail, generatedSecuredPasswordHash, salt.toString(), location);
+        int iduser = dbHandler.maxIdUser();
+        if (savePassword) {
+            savePassword(mail, originalPassword);
         } else {
-            return null;
+            noSavePassword();
         }
+        return new Account(iduser, username, mail, generatedSecuredPasswordHash, location, "user");
     }
 
     public static Account signIn(String mail, String password, DatabaseHandler dbHandler, boolean savePassword) {

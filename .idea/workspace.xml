@@ -2,22 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48ba578d-8e07-482c-9c8d-b5e1de7aa23d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/javax_mail_mail_1_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.annotation.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.ejb.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.jms.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.persistence.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.resource.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.servlet.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.servlet.jsp.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.servlet.jsp.jstl.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.transaction.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/login/MailSender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RecipeBook.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RecipeBook.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/AppController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignInController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignUpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignUpController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/app.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/Account.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/DatabaseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/login/DatabaseHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/login/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/model/Dish.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/model/Dish.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/model/Playlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/model/Playlist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/model/Shopping.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/model/Shopping.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/saveload/SaveData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/saveload/SaveData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/saveload/SaveLoad.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/saveload/SaveLoad.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/app.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/signUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/signUp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/login/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/login/Filter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/login/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/login/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/settings/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/settings/Settings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +220,7 @@
       <workItem from="1586188364999" duration="209000" />
       <workItem from="1586240950795" duration="11414000" />
       <workItem from="1586256479493" duration="596000" />
-      <workItem from="1586326712128" duration="2339000" />
+      <workItem from="1586326712128" duration="8478000" />
     </task>
     <task id="LOCAL-00001" summary="Optimize code">
       <created>1582997732138</created>
@@ -502,7 +509,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586251603642</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Show like count - done">
+      <created>1586329167457</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1586329167457</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,7 +555,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Create new design in all application 2" />
     <MESSAGE value="Create new design in all application 3" />
     <MESSAGE value="Create new design in all application 4" />
     <MESSAGE value="Fix bugs with tableView" />
@@ -566,7 +579,8 @@
     <MESSAGE value="Refactor all program 3.0" />
     <MESSAGE value="Refactor all program 4.0 - done" />
     <MESSAGE value="Show like count 1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Show like count 1.0" />
+    <MESSAGE value="Show like count - done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Show like count - done" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -588,30 +602,30 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1586107891336" />
-    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1586251601030">
+    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1586329163999">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1586251601030" />
-    <state x="473" y="153" key="FileChooserDialogImpl" timestamp="1585937736161">
+    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1586329163999" />
+    <state x="473" y="153" key="FileChooserDialogImpl" timestamp="1586332321245">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="473" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1585937736161" />
-    <state width="1493" height="258" key="GridCell.Tab.0.bottom" timestamp="1586328891574">
+    <state x="473" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586332321245" />
+    <state width="1493" height="258" key="GridCell.Tab.0.bottom" timestamp="1586335112619">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586328891574" />
-    <state width="1493" height="258" key="GridCell.Tab.0.center" timestamp="1586328891574">
+    <state width="1493" height="258" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586335112619" />
+    <state width="1493" height="258" key="GridCell.Tab.0.center" timestamp="1586335112619">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586328891574" />
-    <state width="1493" height="258" key="GridCell.Tab.0.left" timestamp="1586328891573">
+    <state width="1493" height="258" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586335112619" />
+    <state width="1493" height="258" key="GridCell.Tab.0.left" timestamp="1586335112619">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586328891573" />
-    <state width="1493" height="258" key="GridCell.Tab.0.right" timestamp="1586328891574">
+    <state width="1493" height="258" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586335112619" />
+    <state width="1493" height="258" key="GridCell.Tab.0.right" timestamp="1586335112619">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586328891574" />
+    <state width="1493" height="258" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586335112619" />
     <state width="1493" height="260" key="GridCell.Tab.1.bottom" timestamp="1586254253891">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -628,22 +642,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="260" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1586254253891" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1585938357223">
+    <state x="249" y="0" key="SettingsEditor" timestamp="1586332474127">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1585938357223" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1586251612611">
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1586332474127" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1586329179278">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1586251612611" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1586329179278" />
     <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1586327235636">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586327235636" />
-    <state x="498" y="305" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1585937993432">
+    <state x="498" y="305" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1586332469429">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="498" y="305" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1585937993432" />
+    <state x="498" y="305" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1586332469429" />
     <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585723386551">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

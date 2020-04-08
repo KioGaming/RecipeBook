@@ -14,9 +14,8 @@ public class Filter {
     }
 
     public static boolean verifyMail(String mail){
-        Pattern pattern = Pattern.compile(Settings.EMAIL_PATTERN);
-        Matcher matcher = pattern.matcher(mail);
-        return matcher.matches();
+        Matcher matcher = Settings.VALID_EMAIL_ADDRESS_REGEX.matcher(mail);
+        return matcher.find();
     }
 
     public static boolean verifyPassword(String password){

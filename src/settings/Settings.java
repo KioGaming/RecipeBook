@@ -1,11 +1,16 @@
 package settings;
 
+import java.util.regex.Pattern;
+
 final public class Settings {
+
+    public static final String MAIL_ADDRESS = "olexienko.alex@gmail.com";
+    public static final String MAIL_PASSWORD = "Vova_2003";
 
     public static final String USERNAME_PATTERN = "^[A-Za-z0-9_]{4,16}$";
 
-    public static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" +
-            "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{4,})$";
+    public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
+            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
     public static final String PASSWORD_PATTERN = "^[A-Za-z0-9_]{6,20}$";
 
