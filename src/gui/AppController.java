@@ -34,6 +34,7 @@ public class AppController {
     private ResourceBundle resources;
     @FXML
     private URL location;
+    Dish activeDish1;
     @FXML
     private ScrollPane homeScroll;
     @FXML
@@ -63,7 +64,9 @@ public class AppController {
     Account account = new Account();
     SaveData sd = account.getSaveData();
     String filters;
-    Dish activeDish;
+    Dish activeDish2;
+    @FXML
+    private Tab homeTab;
     int idActivePlaylist = -1;
     @FXML
     private Label description1OnHomePage;
@@ -264,6 +267,16 @@ public class AppController {
     void initialize() {
         init();
         /*Home page*/
+        homeTab.setOnSelectionChanged(event -> {
+            if (homeScroll.isVisible()) {
+                sd.setCounter(sd.getCounter() - sd.getLastCounterChange());
+                sd.setLastCounterChange(14);
+                if (filterComboBoxOnHomePage.getValue() == null) next("Всі страви");
+                else next(filterComboBoxOnHomePage.getValue());
+            } else if (dishViewOnHomePagePane.isVisible() && activeDish1 != null) {
+                dishView(activeDish1.getTitle());
+            }
+        });
         filterComboBoxOnHomePage.setOnAction(event -> {
             backButtonOnHomePage.setDisable(true);
             nextButtonOnHomePage.setDisable(false);
@@ -296,28 +309,58 @@ public class AppController {
                 back("Всі страви");
             else back(filterComboBoxOnHomePage.getValue());
         });
-        title1OnHomePage.setOnAction(event -> dishView(title1OnHomePage.getText()));
-        title2OnHomePage.setOnAction(event -> dishView(title2OnHomePage.getText()));
-        title3OnHomePage.setOnAction(event -> dishView(title3OnHomePage.getText()));
-        title4OnHomePage.setOnAction(event -> dishView(title4OnHomePage.getText()));
-        title5OnHomePage.setOnAction(event -> dishView(title5OnHomePage.getText()));
+        title1OnHomePage.setOnAction(event -> {
+            homeScroll.setVisible(false);
+            dishView(title1OnHomePage.getText());
+        });
+        title2OnHomePage.setOnAction(event -> {
+            homeScroll.setVisible(false);
+            dishView(title2OnHomePage.getText());
+        });
+        title3OnHomePage.setOnAction(event -> {
+            homeScroll.setVisible(false);
+            dishView(title3OnHomePage.getText());
+        });
+        title4OnHomePage.setOnAction(event -> {
+            homeScroll.setVisible(false);
+            dishView(title4OnHomePage.getText());
+        });
+        title5OnHomePage.setOnAction(event -> {
+            homeScroll.setVisible(false);
+            dishView(title5OnHomePage.getText());
+        });
         backToCategoryButtonInDishViewOnHomePage.setOnAction(event -> {
             dishViewOnHomePageScroll.setVisible(false);
             homeScroll.setVisible(true);
         });
         likeFieldInDishViewOnHomePage.setOnMouseClicked(event -> {
-            if (sd.getLike().indexOf(activeDish) != -1) {
-                int numberOfLike = activeDish.getNumberOfLikes();
-                removeLikedDish(numberOfLike);
+            if (sd.getLike().indexOf(activeDish1) != -1) {
+                int numberOfLike = activeDish1.getNumberOfLikes();
+                removeLikedDish(numberOfLike, activeDish1);
                 sd.reloadAllLists();
                 likeFieldInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
-                numberOfLikeInDishViewOnHomePage.setText(String.valueOf(activeDish.getNumberOfLikes()));
+                numberOfLikeInDishViewOnHomePage.setText(String.valueOf(activeDish1.getNumberOfLikes()));
             } else {
-                int numberOfLike = activeDish.getNumberOfLikes();
-                addLikedDish(numberOfLike);
+                int numberOfLike = activeDish1.getNumberOfLikes();
+                addLikedDish(numberOfLike, activeDish1);
                 sd.reloadAllLists();
                 likeFieldInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
-                numberOfLikeInDishViewOnHomePage.setText(String.valueOf(activeDish.getNumberOfLikes()));
+                numberOfLikeInDishViewOnHomePage.setText(String.valueOf(activeDish1.getNumberOfLikes()));
+            }
+        });
+        numberOfLikeInDishViewOnHomePage.setOnMouseClicked(mouseEvent -> {
+            if (sd.getLike().indexOf(activeDish1) != -1) {
+                int numberOfLike = activeDish1.getNumberOfLikes();
+                removeLikedDish(numberOfLike, activeDish1);
+                sd.reloadAllLists();
+                likeFieldInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
+                numberOfLikeInDishViewOnHomePage.setText(String.valueOf(activeDish1.getNumberOfLikes()));
+            } else {
+                int numberOfLike = activeDish1.getNumberOfLikes();
+                addLikedDish(numberOfLike, activeDish1);
+                sd.reloadAllLists();
+                likeFieldInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
+                numberOfLikeInDishViewOnHomePage.setText(String.valueOf(activeDish1.getNumberOfLikes()));
             }
         });
         addInFavouriteButtonInDishViewOnHomePage.setOnMouseClicked(mouseEvent -> {
@@ -342,14 +385,14 @@ public class AppController {
                         if (sd.getPlaylists().get(i).getTitle().equals(letter)) {
                             boolean b = true;
                             for (int j = 0; j < sd.getPlaylists().get(i).getDishes().size(); j++) {
-                                if (sd.getPlaylists().get(i).getDishes().get(j).getTitle().equals(activeDish.getTitle())) {
+                                if (sd.getPlaylists().get(i).getDishes().get(j).getTitle().equals(activeDish1.getTitle())) {
                                     b = false;
                                     break;
                                 }
                             }
                             if (b) {
-                                SaveLoad.addDishInPlaylist(sd.getPlaylists().get(i).getId(), activeDish.getId());
-                                sd.getPlaylists().get(i).getDishes().add(activeDish);
+                                SaveLoad.addDishInPlaylist(sd.getPlaylists().get(i).getId(), activeDish1.getId());
+                                sd.getPlaylists().get(i).getDishes().add(activeDish1);
                             }
                             break;
                         }
@@ -361,7 +404,6 @@ public class AppController {
         libraryTab.setOnSelectionChanged(event -> {
             if (playlistsPaneOnLibraryPage.isVisible()) {
                 playlistsPaneRedraw();
-                System.out.println("1");
             } else if (libraryPageScroll.isVisible()) {
                 sd.setLikeCounter(sd.getLikeCounter() - sd.getLikeLastCounterChange());
                 sd.setLikeLastCounterChange(14);
@@ -370,10 +412,8 @@ public class AppController {
                 } else {
                     likeNext("playlist" + (idActivePlaylist + 1));
                 }
-                System.out.println("2");
-            } else if (dishViewPaneOnLibraryPage.isVisible() && activeDish != null) {
-                likeDishView(activeDish.getTitle());
-                System.out.println("3");
+            } else if (dishViewPaneOnLibraryPage.isVisible() && activeDish2 != null) {
+                likeDishView(activeDish2.getTitle());
             }
         });
         likePlaylistButtonOnLibraryPage.setOnAction(actionEvent -> {
@@ -506,16 +546,16 @@ public class AppController {
             Optional<ButtonType> option = alert.showAndWait();
             if (option.get().equals(ButtonType.OK)) {
                 if (idActivePlaylist != -1) {
-                    SaveLoad.removeDishInPlaylist(sd.getPlaylists().get(idActivePlaylist).getId(), activeDish.getId());
-                    sd.getPlaylists().get(idActivePlaylist).getDishes().remove(activeDish);
+                    SaveLoad.removeDishInPlaylist(sd.getPlaylists().get(idActivePlaylist).getId(), activeDish2.getId());
+                    sd.getPlaylists().get(idActivePlaylist).getDishes().remove(activeDish2);
                     libraryPageScroll.setVisible(true);
                     dishViewScrollOnLibraryPage.setVisible(false);
                     sd.setLikeCounter(0);
                     sd.setLikeLastCounterChange(14);
                     likeNext("playlist" + (idActivePlaylist + 1));
                 } else {
-                    SaveLoad.removeLikedDishes(account.getIdUser(), activeDish.getId());
-                    sd.getLike().remove(activeDish);
+                    SaveLoad.removeLikedDishes(account.getIdUser(), activeDish2.getId());
+                    sd.getLike().remove(activeDish2);
                     libraryPageScroll.setVisible(true);
                     dishViewScrollOnLibraryPage.setVisible(false);
                     sd.setLikeCounter(0);
@@ -525,18 +565,33 @@ public class AppController {
             }
         });
         likeFieldInDishViewOnLibraryPage.setOnMouseClicked(event -> {
-            if (sd.getLike().indexOf(activeDish) != -1) {
-                int numberOfLike = activeDish.getNumberOfLikes();
-                removeLikedDish(numberOfLike);
+            if (sd.getLike().indexOf(activeDish2) != -1) {
+                int numberOfLike = activeDish2.getNumberOfLikes();
+                removeLikedDish(numberOfLike, activeDish2);
                 sd.reloadAllLists();
                 likeFieldInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
-                numberOfLikeInDishViewOnLibraryPage.setText(String.valueOf(activeDish.getNumberOfLikes()));
+                numberOfLikeInDishViewOnLibraryPage.setText(String.valueOf(activeDish2.getNumberOfLikes()));
             } else {
-                int numberOfLike = activeDish.getNumberOfLikes();
-                addLikedDish(numberOfLike);
+                int numberOfLike = activeDish2.getNumberOfLikes();
+                addLikedDish(numberOfLike, activeDish2);
                 sd.reloadAllLists();
                 likeFieldInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
-                numberOfLikeInDishViewOnLibraryPage.setText(String.valueOf(activeDish.getNumberOfLikes()));
+                numberOfLikeInDishViewOnLibraryPage.setText(String.valueOf(activeDish2.getNumberOfLikes()));
+            }
+        });
+        numberOfLikeInDishViewOnLibraryPage.setOnMouseClicked(mouseEvent -> {
+            if (sd.getLike().indexOf(activeDish2) != -1) {
+                int numberOfLike = activeDish2.getNumberOfLikes();
+                removeLikedDish(numberOfLike, activeDish2);
+                sd.reloadAllLists();
+                likeFieldInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
+                numberOfLikeInDishViewOnLibraryPage.setText(String.valueOf(activeDish2.getNumberOfLikes()));
+            } else {
+                int numberOfLike = activeDish2.getNumberOfLikes();
+                addLikedDish(numberOfLike, activeDish2);
+                sd.reloadAllLists();
+                likeFieldInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
+                numberOfLikeInDishViewOnLibraryPage.setText(String.valueOf(activeDish2.getNumberOfLikes()));
             }
         });
         backToPlaylistsButtonOnLibraryPage.setOnAction(actionEvent -> {
@@ -627,14 +682,14 @@ public class AppController {
                         if (sd.getPlaylists().get(i).getTitle().equals(letter)) {
                             boolean b = true;
                             for (int j = 0; j < sd.getPlaylists().get(i).getDishes().size(); j++) {
-                                if (sd.getPlaylists().get(i).getDishes().get(j).getTitle().equals(activeDish.getTitle())) {
+                                if (sd.getPlaylists().get(i).getDishes().get(j).getTitle().equals(activeDish2.getTitle())) {
                                     b = false;
                                     break;
                                 }
                             }
                             if (b) {
-                                SaveLoad.addDishInPlaylist(sd.getPlaylists().get(i).getId(), activeDish.getId());
-                                sd.getPlaylists().get(i).getDishes().add(activeDish);
+                                SaveLoad.addDishInPlaylist(sd.getPlaylists().get(i).getId(), activeDish2.getId());
+                                sd.getPlaylists().get(i).getDishes().add(activeDish2);
                             }
                             break;
                         }
@@ -797,22 +852,22 @@ public class AppController {
         aboutUsPane.setVisible(false);
     }
 
-    private void addLikedDish(int numberOfLike) {
-        int index = sd.getDishes().indexOf(activeDish);
+    private void addLikedDish(int numberOfLike, Dish dish) {
+        int index = sd.getDishes().indexOf(dish);
         sd.getDishes().get(index).setNumberOfLikes(numberOfLike + 1);
-        activeDish = sd.getDishes().get(index);
-        sd.getLike().add(activeDish);
-        sd.saveLikedDishes(account.getIdUser(), activeDish.getId());
-        SaveLoad.addOneLike(activeDish.getId());
+        dish = sd.getDishes().get(index);
+        sd.getLike().add(dish);
+        sd.saveLikedDishes(account.getIdUser(), dish.getId());
+        SaveLoad.addOneLike(dish.getId());
     }
 
-    private void removeLikedDish(int numberOfLike) {
-        int index = sd.getDishes().indexOf(activeDish);
+    private void removeLikedDish(int numberOfLike, Dish dish) {
+        int index = sd.getDishes().indexOf(dish);
         sd.getDishes().get(index).setNumberOfLikes(numberOfLike - 1);
-        activeDish = sd.getDishes().get(index);
-        sd.getLike().remove(activeDish);
-        sd.removeLikedDishes(account.getIdUser(), activeDish.getId());
-        SaveLoad.removeOneLike(activeDish.getId());
+        dish = sd.getDishes().get(index);
+        sd.getLike().remove(dish);
+        sd.removeLikedDishes(account.getIdUser(), dish.getId());
+        SaveLoad.removeOneLike(dish.getId());
     }
 
     private void playlistsPaneRedraw() {
@@ -1097,7 +1152,7 @@ public class AppController {
             }
         }
         if (dish != null) {
-            activeDish = dish;
+            activeDish1 = dish;
 
             homeScroll.setVisible(false);
             dishTitleInDishViewOnHomePage.setText(dish.getTitle());
@@ -1501,8 +1556,7 @@ public class AppController {
             }
         }
         if (dish != null) {
-            System.out.println("\n" + activeDish + "\n" + dish + "\n" + sd.getLike() + "\n" + sd.getDishes().get(sd.getDishes().indexOf(activeDish)));
-            activeDish = dish;
+            activeDish2 = dish;
             dishTitleInDishViewOnLibraryPage.setText(dish.getTitle());
             dishImageInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + dish.getPhoto()).toURI().toString()));
             dishDescriptionInDishViewOnLibraryPage.setText(dish.getDescription());
