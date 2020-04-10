@@ -1,14 +1,13 @@
 package gui;
 
+import database.DatabaseHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import login.DatabaseHandler;
 import login.Filter;
 import login.Login;
 import login.MailSender;
-import model.Account;
 import settings.Settings;
 import settings.Text;
 
@@ -92,7 +91,7 @@ public class SignUpController {
                 }
             } else {
                 if (confirmMail == Integer.parseInt(confirmField.getText().trim())) {
-                    Account account = Login.signUp(username, mail, password, locale, new DatabaseHandler(), savePassword);
+                    Login.signUp(username, mail, password, locale, new DatabaseHandler(), savePassword);
                     signUpButton.getScene().getWindow().hide();
                     LoaderNewScene.load("/gui/app.fxml");
                 }

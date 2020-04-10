@@ -1,8 +1,8 @@
 package gui;
 
+import database.DatabaseHandler;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import login.DatabaseHandler;
 import login.Login;
 import model.Account;
 import settings.Text;

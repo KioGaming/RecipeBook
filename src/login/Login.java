@@ -1,5 +1,6 @@
 package login;
 
+import database.DatabaseHandler;
 import model.Account;
 
 import java.io.File;

@@ -1,5 +1,6 @@
 package gui;
 
+import database.DatabaseHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,14 +10,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.StageStyle;
-import login.DatabaseHandler;
 import login.Filter;
 import login.Login;
-import model.Account;
-import model.Dish;
-import model.Playlist;
-import model.Shopping;
-import saveload.SaveData;
+import model.*;
 import saveload.SaveLoad;
 import settings.Settings;
 import settings.Text;
@@ -280,7 +276,6 @@ public class AppController {
         filterComboBoxOnHomePage.setOnAction(event -> {
             backButtonOnHomePage.setDisable(true);
             nextButtonOnHomePage.setDisable(false);
-            homeScroll.setFitToHeight(false);
             nextButtonOnHomePage.setLayoutY(850);
             backButtonOnHomePage.setLayoutY(850);
             homePagePane.setMinHeight(959);

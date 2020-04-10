@@ -1,7 +1,5 @@
 package model;
 
-import saveload.SaveData;
-
 public class Account {
 
     private static int id;

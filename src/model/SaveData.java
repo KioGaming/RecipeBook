@@ -1,7 +1,6 @@
-package saveload;
+package model;
 
-import model.Dish;
-import model.Playlist;
+import saveload.SaveLoad;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +31,13 @@ public final class SaveData {
     }
 
     public void reloadAllLists() {
+        category1 = new ArrayList<>();
+        category2 = new ArrayList<>();
+        category3 = new ArrayList<>();
+        category4 = new ArrayList<>();
+        category5 = new ArrayList<>();
+        category6 = new ArrayList<>();
+        category7 = new ArrayList<>();
         for (int i = 0; i < dishes.size(); i++) {
             if (dishes.get(i).getCategory().equals("Перші страви")) {
                 category1.add(dishes.get(i));

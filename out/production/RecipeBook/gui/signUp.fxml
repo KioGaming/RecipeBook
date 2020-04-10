@@ -55,6 +55,18 @@
                         <Font size="15.0"/>
                     </font>
                 </CheckBox>
+                <Label fx:id="confirmLabel" layoutX="259.0" layoutY="187.0" prefHeight="40.0" prefWidth="682.0"
+                       text="На вашу почту відправлений лист з кодом для підтвердження">
+                    <font>
+                        <Font name="Lobster" size="25.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="confirmField" layoutX="359.0" layoutY="293.0" prefHeight="51.0" prefWidth="482.0"
+                           promptText="Введіть код">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </TextField>
             </children>
         </AnchorPane>
         <Label layoutX="441.0" layoutY="29.0" prefHeight="100.0" prefWidth="318.0" text="Recipe Book" textFill="WHITE">
