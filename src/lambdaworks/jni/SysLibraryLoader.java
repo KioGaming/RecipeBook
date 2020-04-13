@@ -1,6 +1,6 @@
 // Copyright (C) 2011 - Will Glozer.  All rights reserved.
 
-package com.lambdaworks.jni;
+package lambdaworks.jni;
 
 /**
  * A native library loader that simply invokes {@link System#loadLibrary}. The shared

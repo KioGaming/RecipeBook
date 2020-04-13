@@ -1,8 +1,9 @@
 // Copyright (C) 2011 - Will Glozer.  All rights reserved.
 
-package com.lambdaworks.crypto;
+package lambdaworks.crypto;
 
-import com.lambdaworks.jni.*;
+import lambdaworks.jni.LibraryLoader;
+import lambdaworks.jni.LibraryLoaders;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;

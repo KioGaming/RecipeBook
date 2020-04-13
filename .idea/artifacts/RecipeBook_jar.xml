@@ -1,0 +1,26 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="RecipeBook:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/RecipeBook_jar</output-path>
+    <root id="archive" name="RecipeBook.jar">
+      <element id="module-output" name="RecipeBook" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/mysql-connector-java-8.0.19/mysql-connector-java-8.0.19.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy/1.9.7/byte-buddy-1.9.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy-agent/1.9.7/byte-buddy-agent-1.9.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/objenesis/objenesis/2.6/objenesis-2.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Java/OpenJFX/lib/src.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Java/OpenJFX/lib/javafx-swt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Java/OpenJFX/lib/javafx.web.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Java/OpenJFX/lib/javafx.base.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Java/OpenJFX/lib/javafx.fxml.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Java/OpenJFX/lib/javafx.media.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Java/OpenJFX/lib/javafx.swing.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Java/OpenJFX/lib/javafx.controls.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Java/OpenJFX/lib/javafx.graphics.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/javax/mail/mail/1.4/mail-1.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/javax/activation/activation/1.1/activation-1.1.jar" path-in-jar="/" />
+      <element id="directory" name="resources">
+        <element id="dir-copy" path="$PROJECT_DIR$/resources" />
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,6 +1,6 @@
 // Copyright (C) 2011 - Will Glozer.  All rights reserved.
 
-package com.lambdaworks.jni;
+package lambdaworks.jni;
 
 import java.util.regex.Pattern;
 
@@ -29,7 +29,7 @@ public class Platform {
      * @return The current platform.
      * @throws UnsupportedPlatformException if the platform cannot be detected.
      */
-    public static Platform detect() throws UnsupportedPlatformException {
+    public static Platform detect() throws lambdaworks.jni.UnsupportedPlatformException {
         String osArch = getProperty("os.arch");
         String osName = getProperty("os.name");
 
@@ -44,7 +44,7 @@ public class Platform {
         }
 
         String msg = String.format("Unsupported platform %s %s", osArch, osName);
-        throw new UnsupportedPlatformException(msg);
+        throw new lambdaworks.jni.UnsupportedPlatformException(msg);
     }
 
     public enum Arch {

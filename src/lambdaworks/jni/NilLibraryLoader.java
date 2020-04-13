@@ -1,13 +1,13 @@
 // Copyright (C) 2013 - Will Glozer.  All rights reserved.
 
-package com.lambdaworks.jni;
+package lambdaworks.jni;
 
 /**
  * A native library loader that refuses to load libraries.
  *
  * @author Will Glozer
  */
-public class NilLibraryLoader implements LibraryLoader {
+public class NilLibraryLoader implements lambdaworks.jni.LibraryLoader {
     /**
      * Don't load a shared library.
      *

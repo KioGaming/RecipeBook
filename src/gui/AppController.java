@@ -333,13 +333,13 @@ public class AppController {
                 int numberOfLike = activeDish1.getNumberOfLikes();
                 removeLikedDish(numberOfLike, activeDish1);
                 sd.reloadAllLists();
-                likeFieldInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
+                likeFieldInDishViewOnHomePage.setImage(new Image("https://cdn4.iconfinder.com/data/icons/app-custom-ui-1/48/Heart-512.png"));
                 numberOfLikeInDishViewOnHomePage.setText(String.valueOf(activeDish1.getNumberOfLikes()));
             } else {
                 int numberOfLike = activeDish1.getNumberOfLikes();
                 addLikedDish(numberOfLike, activeDish1);
                 sd.reloadAllLists();
-                likeFieldInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
+                likeFieldInDishViewOnHomePage.setImage(new Image("https://cdn1.iconfinder.com/data/icons/instagram-ui-flat/48/Instagram_UI-07-512.png"));
                 numberOfLikeInDishViewOnHomePage.setText(String.valueOf(activeDish1.getNumberOfLikes()));
             }
         });
@@ -348,13 +348,13 @@ public class AppController {
                 int numberOfLike = activeDish1.getNumberOfLikes();
                 removeLikedDish(numberOfLike, activeDish1);
                 sd.reloadAllLists();
-                likeFieldInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
+                likeFieldInDishViewOnHomePage.setImage(new Image("https://cdn4.iconfinder.com/data/icons/app-custom-ui-1/48/Heart-512.png"));
                 numberOfLikeInDishViewOnHomePage.setText(String.valueOf(activeDish1.getNumberOfLikes()));
             } else {
                 int numberOfLike = activeDish1.getNumberOfLikes();
                 addLikedDish(numberOfLike, activeDish1);
                 sd.reloadAllLists();
-                likeFieldInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
+                likeFieldInDishViewOnHomePage.setImage(new Image("https://cdn1.iconfinder.com/data/icons/instagram-ui-flat/48/Instagram_UI-07-512.png"));
                 numberOfLikeInDishViewOnHomePage.setText(String.valueOf(activeDish1.getNumberOfLikes()));
             }
         });
@@ -564,13 +564,13 @@ public class AppController {
                 int numberOfLike = activeDish2.getNumberOfLikes();
                 removeLikedDish(numberOfLike, activeDish2);
                 sd.reloadAllLists();
-                likeFieldInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
+                likeFieldInDishViewOnLibraryPage.setImage(new Image("https://cdn4.iconfinder.com/data/icons/app-custom-ui-1/48/Heart-512.png"));
                 numberOfLikeInDishViewOnLibraryPage.setText(String.valueOf(activeDish2.getNumberOfLikes()));
             } else {
                 int numberOfLike = activeDish2.getNumberOfLikes();
                 addLikedDish(numberOfLike, activeDish2);
                 sd.reloadAllLists();
-                likeFieldInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
+                likeFieldInDishViewOnLibraryPage.setImage(new Image("https://cdn1.iconfinder.com/data/icons/instagram-ui-flat/48/Instagram_UI-07-512.png"));
                 numberOfLikeInDishViewOnLibraryPage.setText(String.valueOf(activeDish2.getNumberOfLikes()));
             }
         });
@@ -579,13 +579,13 @@ public class AppController {
                 int numberOfLike = activeDish2.getNumberOfLikes();
                 removeLikedDish(numberOfLike, activeDish2);
                 sd.reloadAllLists();
-                likeFieldInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
+                likeFieldInDishViewOnLibraryPage.setImage(new Image("https://cdn4.iconfinder.com/data/icons/app-custom-ui-1/48/Heart-512.png"));
                 numberOfLikeInDishViewOnLibraryPage.setText(String.valueOf(activeDish2.getNumberOfLikes()));
             } else {
                 int numberOfLike = activeDish2.getNumberOfLikes();
                 addLikedDish(numberOfLike, activeDish2);
                 sd.reloadAllLists();
-                likeFieldInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
+                likeFieldInDishViewOnLibraryPage.setImage(new Image("https://cdn1.iconfinder.com/data/icons/instagram-ui-flat/48/Instagram_UI-07-512.png"));
                 numberOfLikeInDishViewOnLibraryPage.setText(String.valueOf(activeDish2.getNumberOfLikes()));
             }
         });
@@ -776,7 +776,7 @@ public class AppController {
         exitButton.setOnAction(event -> {
             Login.noSavePassword();
             exitButton.getScene().getWindow().hide();
-            LoaderNewScene.load("/gui/SignIn.fxml");
+            LoaderNewScene.load("/gui/signIn.fxml");
         });
         aboutUsButton.setOnAction(event -> {
             settingsMenuPane.setVisible(false);
@@ -830,14 +830,14 @@ public class AppController {
         backButtonOnHomePage.setDisable(true);
         next("Всі страви");
         addInFavouriteButtonInDishViewOnHomePage.setVisible(true);
-        addInFavouriteButtonInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "addInFavourite.png").toURI().toString()));
+        addInFavouriteButtonInDishViewOnHomePage.setImage(new Image("https://cdn1.iconfinder.com/data/icons/social-shade-rounded-rects/512/addthis-512.png"));
         likeListIconOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
         playlistIcon1OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
         playlistIcon2OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
         playlistIcon3OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
         playlistIcon4OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
         playlistIcon5OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
-        addInFavouriteButtonInDishViewOnLibraryPage.setImage(new Image((new File(Settings.getImageDir() + "addInFavourite.png").toURI().toString())));
+        addInFavouriteButtonInDishViewOnLibraryPage.setImage(new Image("https://cdn1.iconfinder.com/data/icons/social-shade-rounded-rects/512/addthis-512.png"));
         dishViewScrollOnLibraryPage.setVisible(false);
         libraryPageScroll.setVisible(false);
         backButtonOnLibraryPage.setDisable(true);
@@ -988,7 +988,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title1OnHomePage.setText(list.get(counter).getTitle());
-                image1OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image1OnHomePage.setImage(new Image(list.get(counter).getPhoto()));
                 description1OnHomePage.setText(list.get(counter).getDescription());
             } else {
                 title1OnHomePage.setVisible(false);
@@ -998,7 +998,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title2OnHomePage.setText(list.get(counter).getTitle());
-                image2OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image2OnHomePage.setImage(new Image(list.get(counter).getPhoto()));
                 description2OnHomePage.setText(list.get(counter).getDescription());
             } else {
                 title2OnHomePage.setVisible(false);
@@ -1008,7 +1008,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title3OnHomePage.setText(list.get(counter).getTitle());
-                image3OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image3OnHomePage.setImage(new Image(list.get(counter).getPhoto()));
                 description3OnHomePage.setText(list.get(counter).getDescription());
             } else {
                 title3OnHomePage.setVisible(false);
@@ -1018,7 +1018,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title4OnHomePage.setText(list.get(counter).getTitle());
-                image4OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image4OnHomePage.setImage(new Image(list.get(counter).getPhoto()));
                 description4OnHomePage.setText(list.get(counter).getDescription());
             } else {
                 title4OnHomePage.setVisible(false);
@@ -1028,7 +1028,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title5OnHomePage.setText(list.get(counter).getTitle());
-                image5OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image5OnHomePage.setImage(new Image(list.get(counter).getPhoto()));
                 description5OnHomePage.setText(list.get(counter).getDescription());
             } else {
                 title5OnHomePage.setVisible(false);
@@ -1079,7 +1079,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title1OnHomePage.setText(list.get(counter).getTitle());
-                image1OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image1OnHomePage.setImage(new Image(list.get(counter).getPhoto()));
                 description1OnHomePage.setText(list.get(counter).getDescription());
             } else {
                 title1OnHomePage.setVisible(false);
@@ -1089,7 +1089,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title2OnHomePage.setText(list.get(counter).getTitle());
-                image2OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image2OnHomePage.setImage(new Image(list.get(counter).getPhoto()));
                 description2OnHomePage.setText(list.get(counter).getDescription());
             } else {
                 title2OnHomePage.setVisible(false);
@@ -1099,7 +1099,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title3OnHomePage.setText(list.get(counter).getTitle());
-                image3OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image3OnHomePage.setImage(new Image(list.get(counter).getPhoto()));
                 description3OnHomePage.setText(list.get(counter).getDescription());
             } else {
                 title3OnHomePage.setVisible(false);
@@ -1109,7 +1109,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title4OnHomePage.setText(list.get(counter).getTitle());
-                image4OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image4OnHomePage.setImage(new Image(list.get(counter).getPhoto()));
                 description4OnHomePage.setText(list.get(counter).getDescription());
             } else {
                 title4OnHomePage.setVisible(false);
@@ -1119,7 +1119,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title5OnHomePage.setText(list.get(counter).getTitle());
-                image5OnHomePage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image5OnHomePage.setImage(new Image(list.get(counter).getPhoto()));
                 description5OnHomePage.setText(list.get(counter).getDescription());
             } else {
                 title5OnHomePage.setVisible(false);
@@ -1151,7 +1151,7 @@ public class AppController {
 
             homeScroll.setVisible(false);
             dishTitleInDishViewOnHomePage.setText(dish.getTitle());
-            dishImageInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + dish.getPhoto()).toURI().toString()));
+            dishImageInDishViewOnHomePage.setImage(new Image(dish.getPhoto()));
             dishDescriptionInDishViewOnHomePage.setText(dish.getDescription());
             StringBuilder s = new StringBuilder();
             for (int i = 0; i < dish.getRecipe().size(); i++) {
@@ -1175,9 +1175,10 @@ public class AppController {
             groceryTableViewInDishViewOnHomePage.getColumns().add(weightColumn);
             groceryTableViewInDishViewOnHomePage.setVisible(true);
             if (sd.getLike() != null && sd.getLike().indexOf(dish) != -1) {
-                likeFieldInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
+                //System.out.println(new File("resources/images/liked.png").toString());
+                likeFieldInDishViewOnHomePage.setImage(new Image("https://cdn1.iconfinder.com/data/icons/instagram-ui-flat/48/Instagram_UI-07-512.png"));
             } else {
-                likeFieldInDishViewOnHomePage.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
+                likeFieldInDishViewOnHomePage.setImage(new Image("https://cdn4.iconfinder.com/data/icons/app-custom-ui-1/48/Heart-512.png"));
             }
             numberOfLikeInDishViewOnHomePage.setText(String.valueOf(dish.getNumberOfLikes()));
         }
@@ -1247,7 +1248,7 @@ public class AppController {
         if (counter + 1 < listSize) {
             counter++;
             title1OnLibraryPage.setText(list.get(counter).getTitle());
-            image1OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+            image1OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
         } else {
             title1OnLibraryPage.setVisible(false);
             image1OnLibraryPage.setVisible(false);
@@ -1255,7 +1256,7 @@ public class AppController {
         if (counter + 1 < listSize) {
             counter++;
             title2OnLibraryPage.setText(list.get(counter).getTitle());
-            image2OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+            image2OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
         } else {
             title2OnLibraryPage.setVisible(false);
             image2OnLibraryPage.setVisible(false);
@@ -1263,7 +1264,7 @@ public class AppController {
         if (counter + 1 < listSize) {
             counter++;
             title3OnLibraryPage.setText(list.get(counter).getTitle());
-            image3OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+            image3OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
         } else {
             title3OnLibraryPage.setVisible(false);
             image3OnLibraryPage.setVisible(false);
@@ -1271,7 +1272,7 @@ public class AppController {
         if (counter + 1 < listSize) {
             counter++;
             title4OnLibraryPage.setText(list.get(counter).getTitle());
-            image4OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+            image4OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
         } else {
             title4OnLibraryPage.setVisible(false);
             image4OnLibraryPage.setVisible(false);
@@ -1279,7 +1280,7 @@ public class AppController {
         if (counter + 1 < listSize) {
             counter++;
             title5OnLibraryPage.setText(list.get(counter).getTitle());
-            image5OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+            image5OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
         } else {
             title5OnLibraryPage.setVisible(false);
             image5OnLibraryPage.setVisible(false);
@@ -1287,7 +1288,7 @@ public class AppController {
         if (counter + 1 < listSize) {
             counter++;
             title6OnLibraryPage.setText(list.get(counter).getTitle());
-            image6OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+            image6OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
         } else {
             title6OnLibraryPage.setVisible(false);
             image6OnLibraryPage.setVisible(false);
@@ -1295,7 +1296,7 @@ public class AppController {
         if (counter + 1 < listSize) {
             counter++;
             title7OnLibraryPage.setText(list.get(counter).getTitle());
-            image7OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+            image7OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
         } else {
             title7OnLibraryPage.setVisible(false);
             image7OnLibraryPage.setVisible(false);
@@ -1303,7 +1304,7 @@ public class AppController {
         if (counter + 1 < listSize) {
             counter++;
             title8OnLibraryPage.setText(list.get(counter).getTitle());
-            image8OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+            image8OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
         } else {
             title8OnLibraryPage.setVisible(false);
             image8OnLibraryPage.setVisible(false);
@@ -1311,7 +1312,7 @@ public class AppController {
         if (counter + 1 < listSize) {
             counter++;
             title9OnLibraryPage.setText(list.get(counter).getTitle());
-            image9OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+            image9OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
         } else {
             title9OnLibraryPage.setVisible(false);
             image9OnLibraryPage.setVisible(false);
@@ -1319,7 +1320,7 @@ public class AppController {
         if (counter + 1 < listSize) {
             counter++;
             title10OnLibraryPage.setText(list.get(counter).getTitle());
-            image10OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+            image10OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
         } else {
             title10OnLibraryPage.setVisible(false);
             image10OnLibraryPage.setVisible(false);
@@ -1327,7 +1328,7 @@ public class AppController {
         if (counter + 1 < listSize) {
             counter++;
             title11OnLibraryPage.setText(list.get(counter).getTitle());
-            image11OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+            image11OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
         } else {
             title11OnLibraryPage.setVisible(false);
             image11OnLibraryPage.setVisible(false);
@@ -1335,7 +1336,7 @@ public class AppController {
         if (counter + 1 < listSize) {
             counter++;
             title12OnLibraryPage.setText(list.get(counter).getTitle());
-            image12OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+            image12OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
         } else {
             title12OnLibraryPage.setVisible(false);
             image12OnLibraryPage.setVisible(false);
@@ -1343,7 +1344,7 @@ public class AppController {
         if (counter + 1 < listSize) {
             counter++;
             title13OnLibraryPage.setText(list.get(counter).getTitle());
-            image13OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+            image13OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
         } else {
             title13OnLibraryPage.setVisible(false);
             image13OnLibraryPage.setVisible(false);
@@ -1351,7 +1352,7 @@ public class AppController {
         if (counter + 1 < listSize) {
             counter++;
             title14OnLibraryPage.setText(list.get(counter).getTitle());
-            image14OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+            image14OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
         } else {
             title14OnLibraryPage.setVisible(false);
             image14OnLibraryPage.setVisible(false);
@@ -1359,7 +1360,7 @@ public class AppController {
         if (counter + 1 < listSize) {
             counter++;
             title15OnLibraryPage.setText(list.get(counter).getTitle());
-            image15OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+            image15OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
         } else {
             title15OnLibraryPage.setVisible(false);
             image15OnLibraryPage.setVisible(false);
@@ -1412,7 +1413,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title1OnLibraryPage.setText(list.get(counter).getTitle());
-                image1OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image1OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
             } else {
                 title1OnLibraryPage.setVisible(false);
                 image1OnLibraryPage.setVisible(false);
@@ -1420,7 +1421,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title2OnLibraryPage.setText(list.get(counter).getTitle());
-                image2OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image2OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
             } else {
                 title2OnLibraryPage.setVisible(false);
                 image2OnLibraryPage.setVisible(false);
@@ -1428,7 +1429,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title3OnLibraryPage.setText(list.get(counter).getTitle());
-                image3OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image3OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
             } else {
                 title3OnLibraryPage.setVisible(false);
                 image3OnLibraryPage.setVisible(false);
@@ -1436,7 +1437,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title4OnLibraryPage.setText(list.get(counter).getTitle());
-                image4OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image4OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
             } else {
                 title4OnLibraryPage.setVisible(false);
                 image4OnLibraryPage.setVisible(false);
@@ -1444,7 +1445,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title5OnLibraryPage.setText(list.get(counter).getTitle());
-                image5OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image5OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
             } else {
                 title5OnLibraryPage.setVisible(false);
                 image5OnLibraryPage.setVisible(false);
@@ -1452,7 +1453,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title6OnLibraryPage.setText(list.get(counter).getTitle());
-                image6OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image6OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
             } else {
                 title6OnLibraryPage.setVisible(false);
                 image6OnLibraryPage.setVisible(false);
@@ -1460,7 +1461,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title7OnLibraryPage.setText(list.get(counter).getTitle());
-                image7OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image7OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
             } else {
                 title7OnLibraryPage.setVisible(false);
                 image7OnLibraryPage.setVisible(false);
@@ -1468,7 +1469,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title8OnLibraryPage.setText(list.get(counter).getTitle());
-                image8OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image8OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
             } else {
                 title8OnLibraryPage.setVisible(false);
                 image8OnLibraryPage.setVisible(false);
@@ -1476,7 +1477,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title9OnLibraryPage.setText(list.get(counter).getTitle());
-                image9OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image9OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
             } else {
                 title9OnLibraryPage.setVisible(false);
                 image9OnLibraryPage.setVisible(false);
@@ -1484,7 +1485,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title10OnLibraryPage.setText(list.get(counter).getTitle());
-                image10OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image10OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
             } else {
                 title10OnLibraryPage.setVisible(false);
                 image10OnLibraryPage.setVisible(false);
@@ -1492,7 +1493,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title11OnLibraryPage.setText(list.get(counter).getTitle());
-                image11OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image11OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
             } else {
                 title11OnLibraryPage.setVisible(false);
                 image11OnLibraryPage.setVisible(false);
@@ -1500,7 +1501,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title12OnLibraryPage.setText(list.get(counter).getTitle());
-                image12OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image12OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
             } else {
                 title12OnLibraryPage.setVisible(false);
                 image12OnLibraryPage.setVisible(false);
@@ -1508,7 +1509,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title13OnLibraryPage.setText(list.get(counter).getTitle());
-                image13OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image13OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
             } else {
                 title13OnLibraryPage.setVisible(false);
                 image13OnLibraryPage.setVisible(false);
@@ -1516,7 +1517,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title14OnLibraryPage.setText(list.get(counter).getTitle());
-                image14OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image14OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
             } else {
                 title14OnLibraryPage.setVisible(false);
                 image14OnLibraryPage.setVisible(false);
@@ -1524,7 +1525,7 @@ public class AppController {
             if (counter + 1 < listSize) {
                 counter++;
                 title15OnLibraryPage.setText(list.get(counter).getTitle());
-                image15OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + list.get(counter).getPhoto()).toURI().toString()));
+                image15OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
             } else {
                 title15OnLibraryPage.setVisible(false);
                 image15OnLibraryPage.setVisible(false);
@@ -1553,7 +1554,7 @@ public class AppController {
         if (dish != null) {
             activeDish2 = dish;
             dishTitleInDishViewOnLibraryPage.setText(dish.getTitle());
-            dishImageInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + dish.getPhoto()).toURI().toString()));
+            dishImageInDishViewOnLibraryPage.setImage(new Image(dish.getPhoto()));
             dishDescriptionInDishViewOnLibraryPage.setText(dish.getDescription());
             StringBuilder s = new StringBuilder();
             for (int i = 0; i < dish.getRecipe().size(); i++) {
@@ -1578,9 +1579,9 @@ public class AppController {
             groceryTableViewInDishViewOnLibraryPage.getColumns().add(weightColumn);
             groceryTableViewInDishViewOnLibraryPage.setVisible(true);
             if (sd.getLike() != null && sd.getLike().indexOf(dish) != -1) {
-                likeFieldInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "liked.png").toURI().toString()));
+                likeFieldInDishViewOnLibraryPage.setImage(new Image("https://cdn1.iconfinder.com/data/icons/instagram-ui-flat/48/Instagram_UI-07-512.png"));
             } else {
-                likeFieldInDishViewOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "noliked.png").toURI().toString()));
+                likeFieldInDishViewOnLibraryPage.setImage(new Image("https://cdn4.iconfinder.com/data/icons/app-custom-ui-1/48/Heart-512.png"));
             }
             numberOfLikeInDishViewOnLibraryPage.setText(String.valueOf(dish.getNumberOfLikes()));
         }

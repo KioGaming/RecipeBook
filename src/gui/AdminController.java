@@ -106,7 +106,7 @@ public class AdminController {
 
         exitButton.setOnAction(event -> {
             exitButton.getScene().getWindow().hide();
-            LoaderNewScene.load("/gui/SignIn.fxml");
+            LoaderNewScene.load("/gui/signIn.fxml");
         });
     }
 }

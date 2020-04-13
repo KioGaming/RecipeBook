@@ -34,9 +34,7 @@ public class DatabaseHandler extends Configs {
             prSt.setString(5, location);
             prSt.setInt(6, 2);
             prSt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

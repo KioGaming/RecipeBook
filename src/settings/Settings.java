@@ -16,7 +16,7 @@ final public class Settings {
 
 
     public static final String FONT_LOBSTER = "fonts/lobster.ttf";
-    private static final String IMAGE_DIR = "images/";
+    private static final String IMAGE_DIR = "resources/images/";
 
     public static final String USER_TABLE = "users";
     public static final String USER_ID = "idusers";

@@ -100,7 +100,7 @@ public class SignUpController {
 
         authSignInButton.setOnAction(event -> {
             authSignInButton.getScene().getWindow().hide();
-            LoaderNewScene.load("/gui/SignIn.fxml");
+            LoaderNewScene.load("/gui/signIn.fxml");
         });
     }
 }

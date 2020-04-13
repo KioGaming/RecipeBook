@@ -44,7 +44,7 @@ public class SCryptUtil {
             byte[] salt = new byte[16];
             SecureRandom.getInstance("SHA1PRNG").nextBytes(salt);
 
-            byte[] derived = com.lambdaworks.crypto.SCrypt.scrypt(passwd.getBytes(StandardCharsets.UTF_8), salt, N, r, p, 32);
+            byte[] derived = lambdaworks.crypto.SCrypt.scrypt(passwd.getBytes(StandardCharsets.UTF_8), salt, N, r, p, 32);
 
             String params = Long.toString(log2(N) << 16L | r << 8 | p, 16);
 
@@ -82,7 +82,7 @@ public class SCryptUtil {
             int r = (int) params >> 8 & 0xff;
             int p = (int) params & 0xff;
 
-            byte[] derived1 = com.lambdaworks.crypto.SCrypt.scrypt(passwd.getBytes(StandardCharsets.UTF_8), salt, N, r, p, 32);
+            byte[] derived1 = lambdaworks.crypto.SCrypt.scrypt(passwd.getBytes(StandardCharsets.UTF_8), salt, N, r, p, 32);
 
             if (derived0.length != derived1.length) return false;
 

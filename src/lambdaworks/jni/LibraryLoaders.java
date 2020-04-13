@@ -1,6 +1,6 @@
 // Copyright (C) 2011 - Will Glozer.  All rights reserved.
 
-package com.lambdaworks.jni;
+package lambdaworks.jni;
 
 /**
  * {@code LibraryLoaders} will create the appropriate {@link LibraryLoader} for

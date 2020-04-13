@@ -64,7 +64,7 @@
                                                            fitWidth="75.0" layoutX="280.0" layoutY="245.0"
                                                            pickOnBounds="true" preserveRatio="true">
                                                     <image>
-                                                        <Image url="@../../images/liked.png"/>
+                                                        <Image url="@../../resources/images/liked.png"/>
                                                     </image>
                                                 </ImageView>
                                                 <Label alignment="CENTER" layoutX="280.0" layoutY="330.0"
@@ -85,7 +85,7 @@
                                                            fitHeight="75.0" fitWidth="75.0" layoutX="365.0"
                                                            layoutY="245.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
-                                                        <Image url="@../../images/addInFavourite.png"/>
+                                                        <Image url="@../../resources/images/addInFavourite.png"/>
                                                     </image>
                                                 </ImageView>
                                                 <Label fx:id="numberOfLikeInDishViewOnHomePage" alignment="TOP_CENTER"
@@ -305,7 +305,7 @@
                                                            fitWidth="75.0" layoutX="280.0" layoutY="245.0"
                                                            pickOnBounds="true" preserveRatio="true">
                                                     <image>
-                                                        <Image url="@../../images/noliked.png"/>
+                                                        <Image url="@../../resources/images/noliked.png"/>
                                                     </image>
                                                 </ImageView>
                                                 <Label alignment="CENTER" layoutX="280.0" layoutY="330.0"
@@ -326,7 +326,7 @@
                                                            fitHeight="75.0" fitWidth="75.0" layoutX="365.0"
                                                            layoutY="245.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
-                                                        <Image url="@../../images/addInFavourite.png"/>
+                                                        <Image url="@../../resources/images/addInFavourite.png"/>
                                                     </image>
                                                 </ImageView>
                                                 <Button fx:id="removeDishInDishViewOnLibraryPage" layoutX="981.0"
@@ -658,42 +658,42 @@
                                                    layoutX="1115.0" layoutY="196.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="@../../images/next.png"/>
+                                                <Image url="@../../resources/images/next.png"/>
                                             </image>
                                         </ImageView>
                                         <ImageView fx:id="likeListIconOnLibraryPage" fitHeight="57.0" fitWidth="72.0"
                                                    layoutX="1115.0" layoutY="101.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="@../../images/next.png"/>
+                                                <Image url="@../../resources/images/next.png"/>
                                             </image>
                                         </ImageView>
                                         <ImageView fx:id="playlistIcon2OnLibraryPage" fitHeight="57.0" fitWidth="72.0"
                                                    layoutX="1115.0" layoutY="296.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="@../../images/next.png"/>
+                                                <Image url="@../../resources/images/next.png"/>
                                             </image>
                                         </ImageView>
                                         <ImageView fx:id="playlistIcon3OnLibraryPage" fitHeight="57.0" fitWidth="72.0"
                                                    layoutX="1115.0" layoutY="391.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="@../../images/next.png"/>
+                                                <Image url="@../../resources/images/next.png"/>
                                             </image>
                                         </ImageView>
                                         <ImageView fx:id="playlistIcon4OnLibraryPage" fitHeight="57.0" fitWidth="72.0"
                                                    layoutX="1115.0" layoutY="486.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="@../../images/next.png"/>
+                                                <Image url="@../../resources/images/next.png"/>
                                             </image>
                                         </ImageView>
                                         <ImageView fx:id="playlistIcon5OnLibraryPage" fitHeight="57.0" fitWidth="72.0"
                                                    layoutX="1115.0" layoutY="581.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="@../../images/next.png"/>
+                                                <Image url="@../../resources/images/next.png"/>
                                             </image>
                                         </ImageView>
                                         <Button fx:id="addPlaylistsButtonOnLibraryPage" layoutX="905.0" layoutY="10.0"

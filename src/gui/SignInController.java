@@ -33,6 +33,7 @@ public class SignInController {
 
     @FXML
     void initialize() {
+        loadProgress.setVisible(false);
         authSignInButton.setOnAction(event -> {
             errorMessagesField.setVisible(false);
             String mail = mailField.getText();
@@ -49,16 +50,18 @@ public class SignInController {
                         authSignInButton.getScene().getWindow().hide();
                     }
                 } else {
+                    errorMessagesField.setVisible(true);
                     errorMessagesField.setText(Text.get("SIGN_IN_EMPTY_ERROR"));
                 }
             } else {
+                errorMessagesField.setVisible(true);
                 errorMessagesField.setText(Text.get("SIGN_IN_EMPTY_ERROR"));
             }
         });
 
         loginSignUpButton.setOnAction(event -> {
             loginSignUpButton.getScene().getWindow().hide();
-            LoaderNewScene.load("/gui/SignUp.fxml");
+            LoaderNewScene.load("/gui/signUp.fxml");
         });
     }
 }

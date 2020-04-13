@@ -1,6 +1,6 @@
 // Copyright (C) 2011 - Will Glozer.  All rights reserved.
 
-package com.lambdaworks.jni;
+package lambdaworks.jni;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -22,7 +22,7 @@ import java.util.jar.JarFile;
  *
  * @author Will Glozer
  */
-public class JarLibraryLoader implements LibraryLoader {
+public class JarLibraryLoader implements lambdaworks.jni.LibraryLoader {
     private final CodeSource codeSource;
     private final String libraryPath;
 
