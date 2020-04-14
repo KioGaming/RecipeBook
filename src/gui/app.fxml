@@ -730,7 +730,7 @@
                                                 style="-fx-background-radius: 4; -fx-background-color: #F39C63;"
                                                 text="Про нас" textFill="WHITE">
                                             <font>
-                                                <Font name="Lobster" size="30.0"/>
+                                                <Font size="30.0"/>
                                             </font>
                                         </Button>
                                         <Button fx:id="supportButton" layoutX="450.0" layoutY="104.0"
@@ -746,7 +746,7 @@
                                                 style="-fx-background-radius: 4; -fx-background-color: #8B008B;"
                                                 text="Вийти" textFill="WHITE">
                                             <font>
-                                                <Font name="Lobster" size="30.0"/>
+                                                <Font size="30.0"/>
                                             </font>
                                         </Button>
                                         <Button fx:id="changeUserInfoButton" layoutX="820.0" layoutY="104.0"
@@ -773,7 +773,7 @@
                                                 <Font name="Lobster" size="20.0"/>
                                             </font>
                                         </Label>
-                                        <Button fx:id="changePassword" layoutX="481.0" layoutY="358.0"
+                                        <Button fx:id="changePassword" layoutX="455.0" layoutY="358.0"
                                                 mnemonicParsing="false" prefHeight="65.0" prefWidth="290.0"
                                                 style="-fx-background-radius: 4; -fx-background-color: #F39C63;"
                                                 text="Змінити пароль" textFill="WHITE">
@@ -781,21 +781,21 @@
                                                 <Font size="30.0"/>
                                             </font>
                                         </Button>
-                                        <Button fx:id="backToMenuSettingsButtonFromChangeUserInfoPain" layoutX="481.0"
+                                        <Button fx:id="backToMenuSettingsButtonFromChangeUserInfoPain" layoutX="455.0"
                                                 layoutY="558.0" mnemonicParsing="false" prefHeight="65.0"
                                                 prefWidth="290.0"
                                                 style="-fx-background-radius: 4; -fx-background-color: #8B008B;"
                                                 text="Назад" textFill="WHITE">
                                             <font>
-                                                <Font name="Lobster" size="30.0"/>
+                                                <Font size="30.0"/>
                                             </font>
                                         </Button>
-                                        <TextField fx:id="passwordLabel" layoutX="491.0" layoutY="152.0"
+                                        <TextField fx:id="passwordLabel" layoutX="465.0" layoutY="152.0"
                                                    prefHeight="38.0" prefWidth="270.0" promptText="Новий пароль"/>
-                                        <TextField fx:id="repeatPasswordLabel" layoutX="490.0" layoutY="231.0"
+                                        <TextField fx:id="repeatPasswordLabel" layoutX="464.0" layoutY="231.0"
                                                    prefHeight="35.0" prefWidth="272.0"
                                                    promptText="Повторіть новий пароль"/>
-                                        <TextField fx:id="passwordLabel1" layoutX="491.0" layoutY="75.0"
+                                        <TextField fx:id="passwordLabel1" layoutX="465.0" layoutY="75.0"
                                                    prefHeight="38.0" prefWidth="270.0" promptText="Старий пароль"/>
                                     </children>
                                 </AnchorPane>

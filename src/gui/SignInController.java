@@ -44,7 +44,7 @@ public class SignInController {
                 if (account != null) {
                     if (Account.getRole().equals("admin")) {
                         authSignInButton.getScene().getWindow().hide();
-                        LoaderNewScene.load("/gui/admin.fxml");
+                        LoaderNewScene.load("/gui/app.fxml");//admin
                     } else {
                         LoaderNewScene.load("/gui/app.fxml");
                         authSignInButton.getScene().getWindow().hide();

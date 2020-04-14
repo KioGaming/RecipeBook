@@ -14,18 +14,7 @@ public class LoaderNewScene {
 
     public static void load(String file) {
         FXMLLoader loader = new FXMLLoader();
-        /*System.out.println(LoaderNewScene.class.getResource(file).toString());
-        if(dir.length() < file.length()) {
-            StringBuffer buffer = new StringBuffer(LoaderNewScene.class.getResource(file).toString());
-            buffer.delete(buffer.length() - file.length(), buffer.length());
-            dir = buffer.toString();
-        }
-        System.out.println(dir + file);*/
-        // try {
-        loader.setLocation(LoaderNewScene.class.getResource(file));//new URL(dir + file));
-        // }  catch (MalformedURLException e) {
-        //      e.printStackTrace();
-        // }
+        loader.setLocation(LoaderNewScene.class.getResource(file));
         try {
             loader.load();
         } catch (IOException e) {

@@ -1,6 +1,5 @@
 package database;
 
-import model.Playlist;
 import settings.Settings;
 
 import java.sql.*;
@@ -12,13 +11,24 @@ public class DatabaseHandler extends Configs {
     Connection dbConnection;
 
     public Connection getDbConnection() throws ClassNotFoundException, SQLException {
-        String connectionString  = "jdbc:mysql://" + dbHost + ":" +
-                                   dbPort + "/" + dbName+ "?useUnicode=true&serverTimezone=UTC";
-
+        String connectionString = "jdbc:mysql://" + dbHost + ":" +
+                dbPort + "/" + dbName + "?useUnicode=true&serverTimezone=UTC";
         Class.forName("com.mysql.cj.jdbc.Driver");
         dbConnection = DriverManager.getConnection(connectionString, dbUser, dbPass);
-
         return dbConnection;
+    }
+
+    public ResultSet signInUser(String mail) {
+        ResultSet resSet = null;
+        String select = "SELECT * FROM " + Settings.USER_TABLE + " WHERE " + Settings.USER_MAIL + "=?";
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(select);
+            prSt.setString(1, mail);
+            resSet = prSt.executeQuery();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return resSet;
     }
 
     public void signUpUser(String username, String mail, String password, String salt, String location) {
@@ -39,35 +49,18 @@ public class DatabaseHandler extends Configs {
         }
     }
 
-    public ResultSet signInUser(String mail) {
-        ResultSet resSet = null;
-        String select = "SELECT * FROM " + Settings.USER_TABLE + " WHERE " + Settings.USER_MAIL + "=?";// AND "
-        try {
-            PreparedStatement prSt = getDbConnection().prepareStatement(select);
-            prSt.setString(1, mail);
-            resSet = prSt.executeQuery();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return resSet;
-    }
-
     public boolean verifyMailDB(String mail){
         boolean b = true;
-        ResultSet resultSet = null;
+        ResultSet resultSet;
         String select = "SELECT * FROM " + Settings.USER_TABLE + " WHERE " + Settings.USER_MAIL + "=?";
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(select);
             prSt.setString(1, mail);
             resultSet = prSt.executeQuery();
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 b = false;
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return b;
@@ -75,38 +68,20 @@ public class DatabaseHandler extends Configs {
 
     public boolean verifyUsernameDB(String username){
         boolean b = true;
-        ResultSet resultSet = null;
+        ResultSet resultSet;
         String select = "SELECT * FROM " + Settings.USER_TABLE + " WHERE " + Settings.USER_USERNAME + "=?";
 
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(select);
             prSt.setString(1, username);
             resultSet = prSt.executeQuery();
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 b = false;
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return b;
-    }
-
-    public void changePassword(String mail, String oldPassword, String newPassword) {
-        String update = "UPDATE " + Settings.USER_TABLE + " SET " + Settings.USER_PASSWORD
-                + " = ? WHERE " + Settings.USER_PASSWORD + " = ?" + " AND " + Settings.USER_MAIL + " = ?";
-        try {
-            PreparedStatement prSt = getDbConnection().prepareStatement(update);
-            prSt.setString(1, newPassword);
-            prSt.setString(2, oldPassword);
-            prSt.setString(3, mail);
-            prSt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 
     public int maxIdUser() {
@@ -118,49 +93,56 @@ public class DatabaseHandler extends Configs {
             resultSet = prSt.executeQuery();
             resultSet.next();
             last_id = Integer.parseInt(resultSet.getString("last_id"));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return last_id;
     }
 
+    public void changePassword(String mail, String oldPassword, String newPassword) {
+        String update = "UPDATE " + Settings.USER_TABLE + " SET " + Settings.USER_PASSWORD
+                + " = ? WHERE " + Settings.USER_PASSWORD + " = ?" + " AND " + Settings.USER_MAIL + " = ?";
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(update);
+            prSt.setString(1, newPassword);
+            prSt.setString(2, oldPassword);
+            prSt.setString(3, mail);
+            prSt.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     public ResultSet getRecipe() {
         ResultSet resSet = null;
-
         String select = "SELECT * FROM " + Settings.DISH_TABLE;
-
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(select);
             resSet = prSt.executeQuery();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return resSet;
     }
 
-    public void setRecipe(String title, String photo, String description, ArrayList<String> recipe, ArrayList<String> groceryList,
+    public void setRecipe(String title, String category, String photo, String description, ArrayList<String> recipe, ArrayList<String> groceryList,
                           ArrayList<String> countList, ArrayList<String> unitsOfMeasurementList, int numberOfLikes) {
-        String insert = "INSERT INTO " + Settings.DISH_TABLE + "(" + Settings.DISH_TITLE + "," + Settings.DISH_PHOTO + ","
+        String insert = "INSERT INTO " + Settings.DISH_TABLE + "(" + Settings.DISH_TITLE + "," + Settings.DISH_CATEGORY + "," + Settings.DISH_PHOTO + ","
                 + Settings.DISH_DESCRIPTION + "," + Settings.DISH_RECIPE + "," + Settings.DISH_GROCERYLIST + ","
-                + Settings.DISH_WEIGTHLIST + "," + Settings.DISH_NUMBER_OF_LIKES + ")" + "VALUES(?,?,?,?,?,?,?,?)";
+                + Settings.DISH_WEIGTHLIST + "," + Settings.DISH_NUMBER_OF_LIKES + ")" + "VALUES(?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
             prSt.setString(1, title);
-            prSt.setString(2, photo);
-            prSt.setString(3, description);
-            prSt.setString(4, listToStr(recipe));
-            prSt.setString(5, listToStr(groceryList));
-            prSt.setString(6, listToStr(countList));
-            prSt.setString(7, listToStr(unitsOfMeasurementList));
-            prSt.setLong(8, numberOfLikes);
+            prSt.setString(2, category);
+            prSt.setString(3, photo);
+            prSt.setString(4, description);
+            prSt.setString(5, listToStr(recipe));
+            prSt.setString(6, listToStr(groceryList));
+            prSt.setString(7, listToStr(countList));
+            prSt.setString(8, listToStr(unitsOfMeasurementList));
+            prSt.setLong(9, numberOfLikes);
             prSt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -175,25 +157,20 @@ public class DatabaseHandler extends Configs {
             PreparedStatement prSt = getDbConnection().prepareStatement(select);
             prSt.setInt(1, iduser);
             resSet = prSt.executeQuery();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return resSet;
     }
 
     public void addLikedDishes(int iduser, int iddish) {
-        String insert = "INSERT INTO " + Settings.LIKED_DISHES_TABLE + "(" + Settings.LIKED_DISHES_USER_ID + "," + Settings.LIKED_DISHES_DISH_ID + ")"
-                + "VALUES(?,?)";
+        String insert = "INSERT INTO " + Settings.LIKED_DISHES_TABLE + "(" + Settings.LIKED_DISHES_USER_ID + "," + Settings.LIKED_DISHES_DISH_ID + ")" + "VALUES(?,?)";
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
             prSt.setInt(1, iduser);
             prSt.setInt(2, iddish);
             prSt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -204,15 +181,12 @@ public class DatabaseHandler extends Configs {
         try {
             Statement statement = getDbConnection().createStatement();
             statement.executeUpdate(delete);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
     public ResultSet getPlaylists(int iduser) {
-        List<Playlist> list = new ArrayList<>();
         ResultSet resultSet = null;
         String select = "SELECT " + Settings.DISH_ID + ", " + Settings.DISH_TITLE + ", " + Settings.DISH_PHOTO + ", " + Settings.DISH_DESCRIPTION + ", "
                 + Settings.DISH_RECIPE + ", " + Settings.DISH_GROCERYLIST + ", " + Settings.DISH_WEIGTHLIST + ", " + Settings.DISH_NUMBER_OF_LIKES
@@ -225,9 +199,7 @@ public class DatabaseHandler extends Configs {
             PreparedStatement prSt = getDbConnection().prepareStatement(select);
             prSt.setInt(1, iduser);
             resultSet = prSt.executeQuery();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return resultSet;
@@ -237,14 +209,11 @@ public class DatabaseHandler extends Configs {
         ResultSet resultSet = null;
         String select = "SELECT * FROM " + Settings.PLAYLISTS_TABLE + " p JOIN " + Settings.USER_PLAYLISTS_TABLE + " up ON p."
                 + Settings.PLAYLISTS_ID + " = up." + Settings.USER_PLAYLISTS_IDPLAYLIST + " WHERE up." + Settings.USER_PLAYLISTS_IDUSER + " =?";
-        PreparedStatement prSt = null;
         try {
-            prSt = getDbConnection().prepareStatement(select);
+            PreparedStatement prSt = getDbConnection().prepareStatement(select);
             prSt.setInt(1, idUser);
             resultSet = prSt.executeQuery();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return resultSet;
@@ -256,9 +225,7 @@ public class DatabaseHandler extends Configs {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert1);
             prSt.setString(1, name);
             prSt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         int last_id = 0;
@@ -268,9 +235,7 @@ public class DatabaseHandler extends Configs {
             ResultSet resultSet = prSt.executeQuery();
             resultSet.next();
             last_id = resultSet.getInt("last_id");
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } catch (ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             ex.printStackTrace();
         }
         String insert2 = "INSERT INTO " + Settings.USER_PLAYLISTS_TABLE + "(" + Settings.USER_PLAYLISTS_IDUSER + ", "
@@ -280,9 +245,7 @@ public class DatabaseHandler extends Configs {
             prSt.setInt(1, idUser);
             prSt.setInt(2, last_id);
             prSt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return last_id;
@@ -293,27 +256,21 @@ public class DatabaseHandler extends Configs {
         try {
             Statement statement = getDbConnection().createStatement();
             statement.executeUpdate(delete1);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         String delete2 = "DELETE FROM " + Settings.USER_PLAYLISTS_TABLE + " WHERE " + Settings.USER_PLAYLISTS_IDPLAYLIST + " = " + idPlaylist;
         try {
             Statement statement = getDbConnection().createStatement();
             statement.executeUpdate(delete2);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         String delete3 = "DELETE FROM " + Settings.PLAYLISTS_DISH_TABLE + " WHERE " + Settings.PLAYLISTS_DISH_PLAYLISTID + " = " + idPlaylist;
         try {
             Statement statement = getDbConnection().createStatement();
             statement.executeUpdate(delete3);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -326,9 +283,7 @@ public class DatabaseHandler extends Configs {
             prSt.setInt(1, idPlaylists);
             prSt.setInt(2, idDish);
             prSt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -339,20 +294,18 @@ public class DatabaseHandler extends Configs {
         try {
             Statement statement = getDbConnection().createStatement();
             statement.executeUpdate(delete);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    private String listToStr(ArrayList list) {
-        String str = "";
-        str += list.get(0);
+    private String listToStr(List list) {
+        StringBuilder str = new StringBuilder();
+        str.append(list.get(0));
         for (int i = 1; i < list.size(); i++) {
-            str += "/" + list.get(i);
+            str.append("/").append(list.get(i));
         }
-        return str;
+        return str.toString();
     }
 
     public void addOneLike(int idDish) {
@@ -362,9 +315,7 @@ public class DatabaseHandler extends Configs {
             PreparedStatement prSt = getDbConnection().prepareStatement(update);
             prSt.setInt(1, idDish);
             prSt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -376,9 +327,7 @@ public class DatabaseHandler extends Configs {
             PreparedStatement prSt = getDbConnection().prepareStatement(update);
             prSt.setInt(1, idDish);
             prSt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

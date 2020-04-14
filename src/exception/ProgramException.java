@@ -4,8 +4,7 @@ import settings.Text;
 
 public class ProgramException extends Exception {
 
-    public static final int PROGRAM_ERROR = 1;
-    public static final int ADDING_ERROR = 2;
+    private static final int DATABASE_CONNECTION_ERROR = 1;
 
     private final int code;
 
@@ -14,13 +13,12 @@ public class ProgramException extends Exception {
     }
 
     public String getMessage(){
-        switch (code){
-            case PROGRAM_ERROR:
-                return Text.get("PROGRAM_ERROR_TITLE");
-            case  ADDING_ERROR:
-                return  Text.get("ADDING_ERROR_TITLE");
+        switch (code) {
+            case DATABASE_CONNECTION_ERROR:
+                return Text.get("");
+            default:
+                return "";
         }
-        return "";
     }
 }
 

@@ -14,9 +14,4 @@
       <entry name="!?*.css" />
     </wildcardResourcePatterns>
   </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="RecipeBook" options="" />
-    </option>
-  </component>
 </project>

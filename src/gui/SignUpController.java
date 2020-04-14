@@ -82,7 +82,7 @@ public class SignUpController {
                         confirmField.setVisible(true);
                         confirmMail = (int) Math.floor(Math.random() * 1000000);
                         MailSender sender = new MailSender(Settings.MAIL_ADDRESS, Settings.MAIL_PASSWORD);
-                        sender.send("Підтвердіть почту для реєстрації в додатку RecipeBook", "Ваш код: " + confirmMail, "recipebook@gmail.com", "olexienko.vova.k@gmail.com");
+                        sender.send("Підтвердіть почту для реєстрації в додатку RecipeBook", "Ваш код: " + confirmMail, "recipebook@gmail.com", mail);
                     } else {
                         signUpErrorMessages.setText(Text.get("SIGN_UP_REPEAT_ERROR"));
                     }

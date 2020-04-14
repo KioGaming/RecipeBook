@@ -14,10 +14,8 @@ import login.Filter;
 import login.Login;
 import model.*;
 import saveload.SaveLoad;
-import settings.Settings;
 import settings.Text;
 
-import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -831,12 +829,12 @@ public class AppController {
         next("Всі страви");
         addInFavouriteButtonInDishViewOnHomePage.setVisible(true);
         addInFavouriteButtonInDishViewOnHomePage.setImage(new Image("https://cdn1.iconfinder.com/data/icons/social-shade-rounded-rects/512/addthis-512.png"));
-        likeListIconOnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
-        playlistIcon1OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
-        playlistIcon2OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
-        playlistIcon3OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
-        playlistIcon4OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
-        playlistIcon5OnLibraryPage.setImage(new Image(new File(Settings.getImageDir() + "next.png").toURI().toString()));
+        likeListIconOnLibraryPage.setImage(new Image("https://www.materialui.co/materialIcons/image/navigate_next_black_144x144.png"));
+        playlistIcon1OnLibraryPage.setImage(new Image("https://www.materialui.co/materialIcons/image/navigate_next_black_144x144.png"));
+        playlistIcon2OnLibraryPage.setImage(new Image("https://www.materialui.co/materialIcons/image/navigate_next_black_144x144.png"));
+        playlistIcon3OnLibraryPage.setImage(new Image("https://www.materialui.co/materialIcons/image/navigate_next_black_144x144.png"));
+        playlistIcon4OnLibraryPage.setImage(new Image("https://www.materialui.co/materialIcons/image/navigate_next_black_144x144.png"));
+        playlistIcon5OnLibraryPage.setImage(new Image("https://www.materialui.co/materialIcons/image/navigate_next_black_144x144.png"));
         addInFavouriteButtonInDishViewOnLibraryPage.setImage(new Image("https://cdn1.iconfinder.com/data/icons/social-shade-rounded-rects/512/addthis-512.png"));
         dishViewScrollOnLibraryPage.setVisible(false);
         libraryPageScroll.setVisible(false);
@@ -1163,6 +1161,7 @@ public class AppController {
             dishRecipeInDishViewOnHomePage.setText(s.toString());
             //System.out.println(s + "\n");
             //зробить самоизменяющийся размер у label dishRecipe
+            groceryTableViewInDishViewOnHomePage.getColumns().clear();
             groceryTableViewInDishViewOnHomePage.setPrefHeight(dish.getGroceryList().size() * 25 + 20);
             ObservableList<Shopping> grocery = FXCollections.observableArrayList();
             grocery.addAll(dish.getGroceryList());
@@ -1175,7 +1174,6 @@ public class AppController {
             groceryTableViewInDishViewOnHomePage.getColumns().add(weightColumn);
             groceryTableViewInDishViewOnHomePage.setVisible(true);
             if (sd.getLike() != null && sd.getLike().indexOf(dish) != -1) {
-                //System.out.println(new File("resources/images/liked.png").toString());
                 likeFieldInDishViewOnHomePage.setImage(new Image("https://cdn1.iconfinder.com/data/icons/instagram-ui-flat/48/Instagram_UI-07-512.png"));
             } else {
                 likeFieldInDishViewOnHomePage.setImage(new Image("https://cdn4.iconfinder.com/data/icons/app-custom-ui-1/48/Heart-512.png"));

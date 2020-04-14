@@ -43,7 +43,7 @@ public class Main extends Application {
                 Account account = Login.signIn(savedMail, savedPassword, new DatabaseHandler(), true);
                 if (account != null) {
                     if (Account.getRole().equals("admin")) {
-                        LoaderNewScene.load("/gui/admin.fxml");
+                        LoaderNewScene.load("/gui/app.fxml");//admin
                     } else {
                         LoaderNewScene.load("/gui/app.fxml");
                     }
