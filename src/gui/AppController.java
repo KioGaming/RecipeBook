@@ -1565,6 +1565,7 @@ public class AppController {
             //System.out.println(s + "\n");
             //зробить самоизменяющийся размер у label dishRecipe
             //убрать дублірувание інгрідієнтів
+            groceryTableViewInDishViewOnLibraryPage.getColumns().clear();
             groceryTableViewInDishViewOnHomePage.setPrefHeight(dish.getGroceryList().size() * 25 + 20);
             ObservableList<Shopping> grocery = FXCollections.observableArrayList();
             grocery.addAll(dish.getGroceryList());

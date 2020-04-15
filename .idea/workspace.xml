@@ -6,75 +6,50 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48ba578d-8e07-482c-9c8d-b5e1de7aa23d" name="Default Changelist" comment="Test build">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="48ba578d-8e07-482c-9c8d-b5e1de7aa23d" name="Default Changelist" comment="Stable version of the application">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/RecipeBook_jar/RecipeBook.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/RecipeBook_jar/RecipeBook.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/com/lambdaworks/crypto/PBKDF.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/com/lambdaworks/crypto/SCrypt.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/com/lambdaworks/jni/JarLibraryLoader$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/com/lambdaworks/jni/JarLibraryLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/com/lambdaworks/jni/LibraryLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/com/lambdaworks/jni/LibraryLoaders.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/com/lambdaworks/jni/NilLibraryLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/com/lambdaworks/jni/Platform$Arch.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/com/lambdaworks/jni/Platform$OS.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/com/lambdaworks/jni/Platform.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/com/lambdaworks/jni/SysLibraryLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/com/lambdaworks/jni/UnsupportedPlatformException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/database/Configs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/database/Configs.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/database/DatabaseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/database/DatabaseHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/exception/ProgramException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/exception/ProgramException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/AdminController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/AppController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/LoaderNewScene.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/LoaderNewScene.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignInController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignUpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignUpController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/admin.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/app.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/signIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/signIn.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/signUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/signUp.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/addInFavourite.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/back1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/liked.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/menuAboutUs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/menuHome.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/menuLibrary.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/menuSettings.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/menuShoppingList.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/menuSignOut.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/menuSupport.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/menuThreeDots.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/menuTryPro.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/menuView.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/next.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/noliked.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/images/recipe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/codec/Base64.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/codec/Base64.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/crypto/PBKDF.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/crypto/PBKDF.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/crypto/SCrypt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/crypto/SCrypt.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/crypto/SCryptUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/crypto/SCryptUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/Configs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/Configs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/DatabaseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exception/ProgramException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/ProgramException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/AdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/JarLibraryLoader$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/JarLibraryLoader$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/JarLibraryLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/JarLibraryLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/LibraryLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/LibraryLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/LibraryLoaders.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/LibraryLoaders.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/NilLibraryLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/NilLibraryLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/Platform$Arch.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/Platform$Arch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/Platform$OS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/Platform$OS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/Platform.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/Platform.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/SysLibraryLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/SysLibraryLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/UnsupportedPlatformException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/UnsupportedPlatformException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/Filter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/login/Filter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/login/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/MailSender$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/login/MailSender$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/MailSender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/login/MailSender.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/model/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/model/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/model/Dish.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/model/Dish.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/model/Playlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/model/Playlist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/model/SaveData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/model/SaveData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/model/Shopping.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/model/Shopping.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/saveload/SaveLoad.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/saveload/SaveLoad.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/settings/Settings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/settings/Settings.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/settings/Text.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/settings/Text.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/LoaderNewScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LoaderNewScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignInController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/admin.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/app.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/signIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/signIn.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/signUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/signUp.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -309,7 +284,8 @@
       <workItem from="1586709095107" duration="48000" />
       <workItem from="1586768148842" duration="15002000" />
       <workItem from="1586803750513" duration="9000" />
-      <workItem from="1586853770170" duration="280000" />
+      <workItem from="1586853770170" duration="2836000" />
+      <workItem from="1586951247485" duration="2368000" />
     </task>
     <task id="LOCAL-00001" summary="Optimize code">
       <created>1582997732138</created>
@@ -626,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586775225730</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Stable version of the application">
+      <created>1586854234752</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1586854234752</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -665,7 +648,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add playlist systems 1.0" />
     <MESSAGE value="Add playlist systems 2.0" />
     <MESSAGE value="Add playlist systems 3.0" />
     <MESSAGE value="Add playlist systems 4.0" />
@@ -690,7 +672,8 @@
     <MESSAGE value="Add facebook oauth system" />
     <MESSAGE value="Fix bugs" />
     <MESSAGE value="Test build" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test build" />
+    <MESSAGE value="Stable version of the application" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stable version of the application" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -724,10 +707,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1586107891336" />
-    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1586781294409">
+    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1586953616646">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1586781294409" />
+    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1586953616646" />
     <state x="523" y="127" key="DetectedRootsChooserDialog" timestamp="1586547809498">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -736,22 +719,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="473" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586687299455" />
-    <state width="1493" height="260" key="GridCell.Tab.0.bottom" timestamp="1586789236174">
+    <state width="1493" height="258" key="GridCell.Tab.0.bottom" timestamp="1586953549691">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586789236174" />
-    <state width="1493" height="260" key="GridCell.Tab.0.center" timestamp="1586789236174">
+    <state width="1493" height="258" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586953549691" />
+    <state width="1493" height="258" key="GridCell.Tab.0.center" timestamp="1586953549691">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586789236174" />
-    <state width="1493" height="260" key="GridCell.Tab.0.left" timestamp="1586789236174">
+    <state width="1493" height="258" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586953549691" />
+    <state width="1493" height="258" key="GridCell.Tab.0.left" timestamp="1586953549691">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586789236174" />
-    <state width="1493" height="260" key="GridCell.Tab.0.right" timestamp="1586789236174">
+    <state width="1493" height="258" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586953549691" />
+    <state width="1493" height="258" key="GridCell.Tab.0.right" timestamp="1586953549691">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586789236174" />
+    <state width="1493" height="258" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586953549691" />
     <state width="1493" height="260" key="GridCell.Tab.1.bottom" timestamp="1586789236175">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -768,10 +751,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="260" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1586789236175" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1586782549660">
+    <state x="249" y="0" key="SettingsEditor" timestamp="1586854917296">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1586782549660" />
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1586854917296" />
     <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1586773678815">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -780,10 +763,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="573" y="280" key="classpath-attribute-editor/0.0.1536.824@0.0.1536.824" timestamp="1586541335750" />
-    <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1586854050327">
+    <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1586951307591">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586854050327" />
+    <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586951307591" />
     <state x="498" y="305" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1586538610438">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

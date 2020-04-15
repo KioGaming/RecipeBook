@@ -36,6 +36,8 @@ public class SignUpController {
     private Button authSignInButton;
     @FXML
     private CheckBox savePasswordCheckBox;
+    @FXML
+    private Button backToRegistrationFormBuuton;
     String username;
     String mail;
     String password;
@@ -49,18 +51,9 @@ public class SignUpController {
 
     @FXML
     void initialize() {
-        confirmField.setVisible(false);
-        confirmLabel.setVisible(false);
-        usernameField.setVisible(true);
-        mailField.setVisible(true);
-        passwordField.setVisible(true);
-        locationComboBox.setVisible(true);
-        savePasswordCheckBox.setVisible(true);
-        ObservableList<String> comboBoxList = FXCollections.observableArrayList("Россия, ru", "Україна, ua", "England, uk");
-        locationComboBox.setValue(Text.get("LOCATION"));
-        locationComboBox.setItems(comboBoxList);
-
+        init();
         signUpButton.setOnAction(event -> {
+            signUpErrorMessages.setVisible(false);
             if (usernameField.isVisible() && mailField.isVisible() && passwordField.isVisible() && locationComboBox.isVisible()) {
                 username = usernameField.getText();
                 mail = mailField.getText();
@@ -69,8 +62,6 @@ public class SignUpController {
                 savePassword = savePasswordCheckBox.isSelected();
                 DatabaseHandler dbHandler = new DatabaseHandler();
                 if (!username.equals("") && !mail.equals("") && !password.equals("") && !locale.equals("") && !locale.equals("Страна, язык")) {
-                    System.out.println(Filter.verifyUsername(username) + " " + Filter.verifyMail(mail) + " " + Filter.verifyPassword(password) + " " + Filter.verifyLocation(locale) + " " +
-                            dbHandler.verifyUsernameDB(username) + " " + dbHandler.verifyMailDB(mail));
                     if (Filter.verifyUsername(username) && Filter.verifyMail(mail) && Filter.verifyPassword(password) && Filter.verifyLocation(locale) &&
                             dbHandler.verifyUsernameDB(username) && dbHandler.verifyMailDB(mail)) {
                         usernameField.setVisible(false);
@@ -80,13 +71,16 @@ public class SignUpController {
                         savePasswordCheckBox.setVisible(false);
                         confirmLabel.setVisible(true);
                         confirmField.setVisible(true);
+                        backToRegistrationFormBuuton.setVisible(true);
                         confirmMail = (int) Math.floor(Math.random() * 1000000);
                         MailSender sender = new MailSender(Settings.MAIL_ADDRESS, Settings.MAIL_PASSWORD);
                         sender.send("Підтвердіть почту для реєстрації в додатку RecipeBook", "Ваш код: " + confirmMail, "recipebook@gmail.com", mail);
                     } else {
+                        signUpErrorMessages.setVisible(true);
                         signUpErrorMessages.setText(Text.get("SIGN_UP_REPEAT_ERROR"));
                     }
                 } else {
+                    signUpErrorMessages.setVisible(true);
                     signUpErrorMessages.setText(Text.get("SIGN_UP_EMPTY_ERROR"));
                 }
             } else {
@@ -94,13 +88,40 @@ public class SignUpController {
                     Login.signUp(username, mail, password, locale, new DatabaseHandler(), savePassword);
                     signUpButton.getScene().getWindow().hide();
                     LoaderNewScene.load("/gui/app.fxml");
+                } else {
+                    signUpErrorMessages.setVisible(true);
+                    signUpErrorMessages.setText("Неправильний код підтвердження");
                 }
             }
+        });
+
+        backToRegistrationFormBuuton.setOnAction(event -> {
+            init();
         });
 
         authSignInButton.setOnAction(event -> {
             authSignInButton.getScene().getWindow().hide();
             LoaderNewScene.load("/gui/signIn.fxml");
         });
+    }
+
+    private void init() {
+        confirmField.setVisible(false);
+        confirmLabel.setVisible(false);
+        signUpErrorMessages.setVisible(false);
+        backToRegistrationFormBuuton.setVisible(false);
+        usernameField.setVisible(true);
+        mailField.setVisible(true);
+        passwordField.setVisible(true);
+        locationComboBox.setVisible(true);
+        savePasswordCheckBox.setVisible(true);
+        confirmField.clear();
+        usernameField.clear();
+        mailField.clear();
+        passwordField.clear();
+        locationComboBox.setItems(null);
+        ObservableList<String> comboBoxList = FXCollections.observableArrayList("Россия, ru", "Україна, ua", "England, uk");
+        locationComboBox.setItems(comboBoxList);
+        locationComboBox.setValue(Text.get("LOCATION"));
     }
 }

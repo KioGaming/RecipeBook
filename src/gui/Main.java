@@ -29,7 +29,6 @@ public class Main extends Application {
         if (file.exists()) {
             try {
                 scanner = new Scanner(file);
-
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -38,15 +37,25 @@ public class Main extends Application {
             boolean bool = scanner.nextBoolean();
             if (bool) {
                 scanner.nextLine();
-                savedMail = scanner.nextLine();
-                savedPassword = scanner.nextLine();
-                Account account = Login.signIn(savedMail, savedPassword, new DatabaseHandler(), true);
-                if (account != null) {
-                    if (Account.getRole().equals("admin")) {
-                        LoaderNewScene.load("/gui/app.fxml");//admin
+                if (scanner.hasNext()) {
+                    savedMail = scanner.nextLine();
+                    if (scanner.hasNext()) {
+                        savedPassword = scanner.nextLine();
+                        Account account = Login.signIn(savedMail, savedPassword, new DatabaseHandler(), true);
+                        if (account != null) {
+                            if (Account.getRole().equals("admin")) {
+                                LoaderNewScene.load("/gui/app.fxml");//admin
+                            } else {
+                                LoaderNewScene.load("/gui/app.fxml");
+                            }
+                        } else {
+                            LoaderNewScene.load("/gui/signIn.fxml");
+                        }
                     } else {
-                        LoaderNewScene.load("/gui/app.fxml");
+                        LoaderNewScene.load("/gui/signIn.fxml");
                     }
+                } else {
+                    LoaderNewScene.load("/gui/signIn.fxml");
                 }
             } else {
                 LoaderNewScene.load("/gui/signIn.fxml");
