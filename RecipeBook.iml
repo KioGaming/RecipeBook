@@ -13,5 +13,6 @@
     <orderEntry type="library" exported="" name="javax.mail:mail:1.4" level="project" />
     <orderEntry type="library" exported="" name="lib" level="project" />
     <orderEntry type="library" exported="" name="mysql-connector-java-8.0" level="project" />
+    <orderEntry type="library" exported="" name="restfb-3.4.0" level="project" />
   </component>
 </module>
