@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
@@ -50,6 +51,8 @@
                         <Font size="15.0"/>
                     </font>
                 </CheckBox>
+                <ImageView fx:id="facebookIcon" fitHeight="75.0" fitWidth="75.0" layoutX="912.0" layoutY="188.0"
+                           pickOnBounds="true" preserveRatio="true"/>
             </children>
         </AnchorPane>
         <Label layoutX="433.0" layoutY="29.0" prefHeight="100.0" prefWidth="334.0" text="Recipe Book" textFill="WHITE">

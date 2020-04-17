@@ -256,6 +256,14 @@ public class AppController {
     private Label aboutUsLabel;
     @FXML
     private Button backToSettingsMenuFromAboutUsPaneButton;
+    @FXML
+    private Button changeUsername;
+    @FXML
+    private TextField usernameLabel;
+    @FXML
+    private ComboBox<String> locationField;
+    @FXML
+    private Button changeLocation;
 
     @FXML
     void initialize() {
@@ -805,12 +813,43 @@ public class AppController {
         changePassword.setOnAction(event -> {
             if (passwordLabel.getText().equals(repeatPasswordLabel.getText()) && !passwordLabel.getText().equals("")) {
                 if (Filter.verifyPassword(passwordLabel.getText())) {
+                    Login.noSavePassword();
                     DatabaseHandler databaseHandler = new DatabaseHandler();
-                    databaseHandler.changePassword(account.getMail(), account.getPassword(), passwordLabel.getText());
+                    databaseHandler.changePassword(account.getMail(), passwordLabel.getText());
                     changePasswordErrorField.setText(Text.get("SUCCESSFUL_REPLACEMENT_PASSWORD"));
                     account.setPassword(passwordLabel.getText());
                     passwordLabel.clear();
                     repeatPasswordLabel.clear();
+                } else {
+                    changePasswordErrorField.setText(Text.get("CHANGE_PASSWORD_BAD_PASSWORD_ERROR"));
+                }
+            } else {
+                changePasswordErrorField.setText(Text.get("CHANGE_EMPTY_ERROR"));
+            }
+        });
+        changeUsername.setOnAction(actionEvent -> {
+            if (!usernameLabel.getText().equals("")) {
+                DatabaseHandler databaseHandler = new DatabaseHandler();
+                if (Filter.verifyUsername(usernameLabel.getText()) && databaseHandler.verifyUsernameDB(usernameLabel.getText())) {
+                    databaseHandler.changeUsername(account.getMail(), usernameLabel.getText());
+                    changePasswordErrorField.setText(Text.get("SUCCESSFUL_REPLACEMENT_PASSWORD"));
+                    account.setUserName(usernameLabel.getText());
+                    usernameLabel.clear();
+                } else {
+                    changePasswordErrorField.setText(Text.get("CHANGE_PASSWORD_BAD_PASSWORD_ERROR"));
+                }
+            } else {
+                changePasswordErrorField.setText(Text.get("CHANGE_EMPTY_ERROR"));
+            }
+        });
+        changeLocation.setOnAction(actionEvent -> {
+            if (!locationField.getValue().equals(null) && !locationField.getValue().equals("Виберіть країну")) {
+                if (Filter.verifyLocation(locationField.getValue())) {
+                    DatabaseHandler databaseHandler = new DatabaseHandler();
+                    databaseHandler.changeLocation(account.getMail(), locationField.getValue());
+                    changePasswordErrorField.setText(Text.get("SUCCESSFUL_REPLACEMENT_PASSWORD"));
+                    account.setLocation(locationField.getValue());
+                    locationField.setValue("Виберіть країну");
                 } else {
                     changePasswordErrorField.setText(Text.get("CHANGE_PASSWORD_BAD_PASSWORD_ERROR"));
                 }
@@ -843,6 +882,9 @@ public class AppController {
         settingsMenuPane.setVisible(true);
         changeUserInfoPain.setVisible(false);
         aboutUsPane.setVisible(false);
+        ObservableList<String> comboBoxListForChangeLocation = FXCollections.observableArrayList("Виберіть країну", "Россия, ru", "Україна, ua", "England, uk");
+        locationField.setItems(comboBoxListForChangeLocation);
+        locationField.setValue("Виберіть країну");
     }
 
     private void addLikedDish(int numberOfLike, Dish dish) {

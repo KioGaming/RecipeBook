@@ -3,6 +3,8 @@ package gui;
 import database.DatabaseHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import login.Login;
 import model.Account;
 import settings.Text;
@@ -30,9 +32,12 @@ public class SignInController {
     private ProgressIndicator loadProgress;
     @FXML
     private CheckBox savePasswordCheckBox;
+    @FXML
+    private ImageView facebookIcon;
 
     @FXML
     void initialize() {
+        facebookIcon.setImage(new Image("https://cdn1.iconfinder.com/data/icons/logotypes/32/square-facebook-512.png"));
         loadProgress.setVisible(false);
         authSignInButton.setOnAction(event -> {
             errorMessagesField.setVisible(false);
@@ -58,10 +63,11 @@ public class SignInController {
                 errorMessagesField.setText(Text.get("SIGN_IN_EMPTY_ERROR"));
             }
         });
-
         loginSignUpButton.setOnAction(event -> {
             loginSignUpButton.getScene().getWindow().hide();
             LoaderNewScene.load("/gui/signUp.fxml");
+        });
+        facebookIcon.setOnMouseClicked(mouseEvent -> {
         });
     }
 }

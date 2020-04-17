@@ -8,14 +8,13 @@ final public class Settings {
     public static final String MAIL_PASSWORD = "Vova_2003";
 
     public static final String USERNAME_PATTERN = "^[A-Za-z0-9_]{4,16}$";
-
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
             Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
-
     public static final String PASSWORD_PATTERN = "^[A-Za-z0-9_]{6,20}$";
 
 
     public static final String FONT_LOBSTER = "fonts/lobster.ttf";
+    public static final String SUCCESS_URL = "https://localhost:8080";
     private static final String IMAGE_DIR = "resources/images/";
 
     public static final String USER_TABLE = "users";

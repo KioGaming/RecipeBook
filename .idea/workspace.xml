@@ -6,10 +6,26 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48ba578d-8e07-482c-9c8d-b5e1de7aa23d" name="Default Changelist" comment="">
+    <list default="true" id="48ba578d-8e07-482c-9c8d-b5e1de7aa23d" name="Default Changelist" comment="Registration with facebook">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/restfb_3_4_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RecipeBook.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RecipeBook.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/database/DatabaseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/database/DatabaseHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/AppController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignUpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignUpController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/app.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/signIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/signIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/signUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/signUp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/login/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/settings/Settings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/settings/Settings.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/app.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/signIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/signIn.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/login/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/login/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/settings/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/settings/Settings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,15 +53,18 @@
     <option name="autoscrollToSource" value="true" />
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="RecipeBook" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
         <option value="Interface" />
         <option value="JUnit4 Test Class" />
-        <option value="Class" />
         <option value="module-info" />
         <option value="package-info" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -105,7 +124,7 @@
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.Main" />
       <module name="RecipeBook" />
-      <option name="VM_PARAMETERS" value="--module-path C:/Java/OpenJFX/lib --add-modules javafx.controls,javafx.fxml " />
+      <option name="VM_PARAMETERS" value="--module-path C:/Java/OpenJFX/lib --add-modules javafx.controls,javafx.fxml,javafx.web" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="gui.*" />
@@ -247,7 +266,10 @@
       <workItem from="1586951247485" duration="3449000" />
       <workItem from="1587021214405" duration="2719000" />
       <workItem from="1587032907155" duration="1205000" />
-      <workItem from="1587061846210" duration="1869000" />
+      <workItem from="1587061846210" duration="1965000" />
+      <workItem from="1587105144695" duration="507000" />
+      <workItem from="1587105692960" duration="5019000" />
+      <workItem from="1587125575544" duration="15516000" />
     </task>
     <task id="LOCAL-00001" summary="Optimize code">
       <created>1582997732138</created>
@@ -578,7 +600,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586953874150</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Registration with facebook">
+      <created>1587063814752</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1587063814753</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -647,7 +676,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add playlist systems 3.0" />
     <MESSAGE value="Add playlist systems 4.0" />
     <MESSAGE value="Add playlist systems 5.0" />
     <MESSAGE value="Add playlist systems 6.0" />
@@ -672,7 +700,8 @@
     <MESSAGE value="Test build" />
     <MESSAGE value="Stable version of the application" />
     <MESSAGE value="Fix bugs(font size on Library page)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bugs(font size on Library page)" />
+    <MESSAGE value="Registration with facebook" />
+    <option name="LAST_COMMIT_MESSAGE" value="Registration with facebook" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -682,10 +711,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="70" key="#SQL_Dialects/0.0.1536.824@0.0.1536.824" timestamp="1586776903122" />
-    <state x="402" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586777942462">
+    <state x="402" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587127412087">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="402" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1586777942462" />
+    <state x="402" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1587127412087" />
     <state x="574" y="121" key="#com.intellij.ide.util.MemberChooser" timestamp="1586110022524">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -702,38 +731,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="599" y="105" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1536.824@0.0.1536.824" timestamp="1586543278661" />
-    <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586107891336">
+    <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587109606103">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1586107891336" />
-    <state x="533" y="2" key="CommitChangelistDialog2" timestamp="1587063774715">
+    <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587109606103" />
+    <state x="533" y="2" key="CommitChangelistDialog2" timestamp="1587145919327">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="533" y="2" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587063774715" />
+    <state x="533" y="2" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587145919327" />
     <state x="523" y="127" key="DetectedRootsChooserDialog" timestamp="1586547809498">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="523" y="127" key="DetectedRootsChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1586547809498" />
-    <state x="473" y="153" key="FileChooserDialogImpl" timestamp="1587022451265">
+    <state x="473" y="153" key="FileChooserDialogImpl" timestamp="1587109354709">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="473" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1587022451265" />
-    <state width="1493" height="258" key="GridCell.Tab.0.bottom" timestamp="1586956962411">
+    <state x="473" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1587109354709" />
+    <state width="1493" height="258" key="GridCell.Tab.0.bottom" timestamp="1587145545808">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586956962411" />
-    <state width="1493" height="258" key="GridCell.Tab.0.center" timestamp="1586956962411">
+    <state width="1493" height="258" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587145545808" />
+    <state width="1493" height="258" key="GridCell.Tab.0.center" timestamp="1587145545807">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586956962411" />
-    <state width="1493" height="258" key="GridCell.Tab.0.left" timestamp="1586956962411">
+    <state width="1493" height="258" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587145545807" />
+    <state width="1493" height="258" key="GridCell.Tab.0.left" timestamp="1587145545807">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586956962411" />
-    <state width="1493" height="258" key="GridCell.Tab.0.right" timestamp="1586956962411">
+    <state width="1493" height="258" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587145545807" />
+    <state width="1493" height="258" key="GridCell.Tab.0.right" timestamp="1587145545807">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586956962411" />
+    <state width="1493" height="258" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587145545807" />
     <state width="1493" height="260" key="GridCell.Tab.1.bottom" timestamp="1586789236175">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -750,33 +779,41 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="260" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1586789236175" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1587022476815">
+    <state x="249" y="0" key="SettingsEditor" timestamp="1587145915407">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1587022476815" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1586953896842">
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1587145915407" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1587063826600">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1586953896842" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587063826600" />
     <state x="573" y="280" key="classpath-attribute-editor" timestamp="1586541335750">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="573" y="280" key="classpath-attribute-editor/0.0.1536.824@0.0.1536.824" timestamp="1586541335750" />
-    <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1587062340676">
+    <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1587125698069">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1587062340676" />
-    <state x="498" y="305" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1586538610438">
+    <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1587125698069" />
+    <state x="498" y="305" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1587109210504">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="498" y="305" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1586538610438" />
+    <state x="498" y="305" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1587109210504" />
     <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586682901843">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1586682901843" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1586169236055">
+    <state x="209" y="113" key="new project wizard" timestamp="1587109363786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1586169236055" />
+    <state x="209" y="113" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1587109363786" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1587105300827">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1587105300827" />
+    <state x="431" y="146" width="672" height="678" key="search.everywhere.popup" timestamp="1587105564928">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="146" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1587105564928" />
   </component>
 </project>

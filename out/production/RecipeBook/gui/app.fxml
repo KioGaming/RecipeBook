@@ -508,19 +508,14 @@
                                 </AnchorPane>
                                 <AnchorPane fx:id="changeUserInfoPain" prefHeight="670.0" prefWidth="1200.0">
                                     <children>
-                                        <Label fx:id="changeMailErrorField" alignment="CENTER" layoutX="93.0" layoutY="143.0" prefHeight="40.0" prefWidth="274.0" textFill="WHITE">
-                                            <font>
-                                                <Font name="Lobster" size="20.0" />
-                                            </font>
-                                        </Label>
-                                        <Label fx:id="changePasswordErrorField" alignment="CENTER" layoutX="802.0" layoutY="143.0" prefHeight="40.0" prefWidth="275.0" textFill="WHITE">
+                                        <Label fx:id="changePasswordErrorField" alignment="CENTER" layoutX="462.0" layoutY="67.0" prefHeight="40.0" prefWidth="275.0" textFill="WHITE">
                                             <font>
                                                 <Font name="Lobster" size="20.0" />
                                             </font>
                                         </Label>
                                         <Button fx:id="changePassword" layoutX="455.0" layoutY="358.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="290.0" style="-fx-background-radius: 4; -fx-background-color: #F39C63;" text="Змінити пароль" textFill="WHITE">
                                             <font>
-                                                <Font size="30.0" />
+                                                <Font size="22.0" />
                                             </font>
                                         </Button>
                                         <Button fx:id="backToMenuSettingsButtonFromChangeUserInfoPain" layoutX="455.0" layoutY="558.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="290.0" style="-fx-background-radius: 4; -fx-background-color: #8B008B;" text="Назад" textFill="WHITE">
@@ -530,7 +525,18 @@
                                         </Button>
                                         <TextField fx:id="passwordLabel" layoutX="465.0" layoutY="152.0" prefHeight="38.0" prefWidth="270.0" promptText="Новий пароль" />
                                         <TextField fx:id="repeatPasswordLabel" layoutX="464.0" layoutY="231.0" prefHeight="35.0" prefWidth="272.0" promptText="Повторіть новий пароль" />
-                                        <TextField fx:id="passwordLabel1" layoutX="465.0" layoutY="75.0" prefHeight="38.0" prefWidth="270.0" promptText="Старий пароль" />
+                              <Button fx:id="changeUsername" layoutX="76.0" layoutY="357.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="290.0" style="-fx-background-radius: 4; -fx-background-color: #F39C63;" text="Змінити імя користувача" textFill="WHITE">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="usernameLabel" layoutX="85.0" layoutY="153.0" prefHeight="35.0" prefWidth="272.0" promptText="Нове імя користувача" />
+                              <ComboBox fx:id="locationField" layoutX="830.0" layoutY="151.0" prefHeight="38.0" prefWidth="289.0" />
+                              <Button fx:id="changeLocation" layoutX="830.0" layoutY="358.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="290.0" style="-fx-background-radius: 4; -fx-background-color: #F39C63;" text="Змінити країну" textFill="WHITE">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Button>
                                     </children>
                                 </AnchorPane>
                                 <AnchorPane fx:id="aboutUsPane" layoutY="-1.0" prefHeight="670.0" prefWidth="1200.0" visible="false">

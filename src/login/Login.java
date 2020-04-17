@@ -54,15 +54,6 @@ public class Login {
     }
 
     private static Account signUpWithFacebook(String mail, String password, DatabaseHandler dbHandler, boolean savePassword) {
-        /*FacebookClient facebookClient = new DefaultFacebookClient(Constants.MY_ACCESS_TOKEN);
-
-        Account user = facebookClient.fetchObject("me", Account.class, Parameter.with("fields",
-                        "id, name, email, first_name, last_name"));
-
-        System.out.println("First Name= " + user.getFirstName());
-        System.out.println("Last Name= " + user.getLastName());
-        System.out.println("Full Name= " + user.getFullName());
-        System.out.println("Email= " + user.getEmail());*/
         return null;
     }
 

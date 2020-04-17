@@ -2,6 +2,7 @@ package database;
 
 import settings.Settings;
 
+import java.security.SecureRandom;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -99,14 +100,27 @@ public class DatabaseHandler extends Configs {
         return last_id;
     }
 
-    public void changePassword(String mail, String oldPassword, String newPassword) {
+    public void changePassword(String mail, String newPassword) {
+        byte[] salt = new byte[16];
+        SecureRandom secureRandom = new SecureRandom();
+        secureRandom.nextBytes(salt);
+        String generatedSecuredPasswordHash = lambdaworks.crypto.SCryptUtil.scrypt(newPassword + salt.toString(), 16, 16, 16);
         String update = "UPDATE " + Settings.USER_TABLE + " SET " + Settings.USER_PASSWORD
-                + " = ? WHERE " + Settings.USER_PASSWORD + " = ?" + " AND " + Settings.USER_MAIL + " = ?";
+                + " = ? WHERE " + Settings.USER_MAIL + " = ?";
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(update);
-            prSt.setString(1, newPassword);
-            prSt.setString(2, oldPassword);
-            prSt.setString(3, mail);
+            prSt.setString(1, generatedSecuredPasswordHash);
+            prSt.setString(2, mail);
+            prSt.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        update = "UPDATE " + Settings.USER_TABLE + " SET " + Settings.USER_PASSWORD_SALT
+                + " = ? WHERE " + Settings.USER_MAIL + " = ?";
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(update);
+            prSt.setString(1, salt.toString());
+            prSt.setString(2, mail);
             prSt.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -326,6 +340,32 @@ public class DatabaseHandler extends Configs {
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(update);
             prSt.setInt(1, idDish);
+            prSt.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void changeUsername(String mail, String newUsername) {
+        String update = "UPDATE " + Settings.USER_TABLE + " SET " + Settings.USER_USERNAME
+                + " = ? WHERE " + Settings.USER_MAIL + " = ?";
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(update);
+            prSt.setString(1, newUsername);
+            prSt.setString(2, mail);
+            prSt.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void changeLocation(String mail, String location) {
+        String update = "UPDATE " + Settings.USER_TABLE + " SET " + Settings.USER_LOCATION
+                + " = ? WHERE " + Settings.USER_MAIL + " = ?";
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(update);
+            prSt.setString(1, location);
+            prSt.setString(2, mail);
             prSt.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
