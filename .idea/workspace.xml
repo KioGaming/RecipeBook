@@ -6,25 +6,75 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48ba578d-8e07-482c-9c8d-b5e1de7aa23d" name="Default Changelist" comment="Registration with facebook">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/restfb_3_4_0.xml" beforeDir="false" />
+    <list default="true" id="48ba578d-8e07-482c-9c8d-b5e1de7aa23d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/account.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/iconfinder_square-facebook_317727.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/login/SaveLoadRemote.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/login/ThreadForDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/login/Wrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RecipeBook.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RecipeBook.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/database/DatabaseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/database/DatabaseHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/database/Configs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/database/DatabaseHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/exception/ProgramException.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/AppController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/LoaderNewScene.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/LoaderNewScene.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignInController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignUpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignUpController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/app.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/signIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/signIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/signUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/signUp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/codec/Base64.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/crypto/PBKDF.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/crypto/SCrypt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/crypto/SCryptUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/JarLibraryLoader$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/JarLibraryLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/LibraryLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/LibraryLoaders.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/NilLibraryLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/Platform$Arch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/Platform$OS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/Platform.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/SysLibraryLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/lambdaworks/jni/UnsupportedPlatformException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/Filter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/login/Filter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/login/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/MailSender$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/login/MailSender$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/MailSender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/login/MailSender.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/model/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/model/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/model/Dish.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/model/Dish.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/model/Playlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/model/Playlist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/model/SaveData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/model/SaveData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/model/Shopping.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/model/Shopping.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/saveload/SaveLoad.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/settings/Settings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/settings/Settings.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/settings/Text.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/settings/Text.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/Configs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/DatabaseHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exception/ProgramException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/app.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/signIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/signIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lambdaworks/codec/Base64.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lambdaworks/crypto/PBKDF.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lambdaworks/crypto/SCrypt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lambdaworks/crypto/SCryptUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lambdaworks/jni/JarLibraryLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lambdaworks/jni/LibraryLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lambdaworks/jni/LibraryLoaders.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lambdaworks/jni/NilLibraryLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lambdaworks/jni/Platform.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lambdaworks/jni/SysLibraryLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lambdaworks/jni/UnsupportedPlatformException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/login/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/login/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Dish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/SaveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/SaveData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Shopping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Shopping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/saveload/SaveLoad.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/settings/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/settings/Settings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,8 +145,8 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Java Library/restfb-3.4.0.jar!/" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../RecipeBookServer" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15234375" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
@@ -105,6 +155,18 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="login" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="login" />
+      <recent name="com.recipebook.recipebookserver.model" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Java\GitProjects\RecipeBook\RecipeBook\src\com\recipebook\recipebookserver\model" />
+      <recent name="D:\Java\GitProjects\RecipeBook\RecipeBook\src" />
+      <recent name="D:\Java\Java Projects\RecipeBook\src\gui" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Java\GitProjects\RecipeBook\RecipeBook" />
       <recent name="D:\Java\GitProjects\RecipeBook\RecipeBook\src\main\resources\gui" />
@@ -112,19 +174,11 @@
       <recent name="D:\Java\GitProjects\RecipeBook\RecipeBook\resources" />
       <recent name="D:\Java\GitProjects\RecipeBook\RecipeBook\src" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Java\GitProjects\RecipeBook\RecipeBook\src" />
-      <recent name="D:\Java\Java Projects\RecipeBook\src\gui" />
-    </key>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.Main" />
       <module name="RecipeBook" />
-      <option name="VM_PARAMETERS" value="--module-path C:/Java/OpenJFX/lib --add-modules javafx.controls,javafx.fxml,javafx.web" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="gui.*" />
@@ -269,7 +323,11 @@
       <workItem from="1587061846210" duration="1965000" />
       <workItem from="1587105144695" duration="507000" />
       <workItem from="1587105692960" duration="5019000" />
-      <workItem from="1587125575544" duration="15516000" />
+      <workItem from="1587125575544" duration="15723000" />
+      <workItem from="1587314424203" duration="2281000" />
+      <workItem from="1587320699524" duration="2462000" />
+      <workItem from="1587363243711" duration="31033000" />
+      <workItem from="1587450152915" duration="3643000" />
     </task>
     <task id="LOCAL-00001" summary="Optimize code">
       <created>1582997732138</created>
@@ -607,7 +665,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587063814753</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Added ability for users to change their data">
+      <created>1587146107022</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1587146107022</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -676,7 +741,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add playlist systems 4.0" />
     <MESSAGE value="Add playlist systems 5.0" />
     <MESSAGE value="Add playlist systems 6.0" />
     <MESSAGE value="Add playlist systems 7.0" />
@@ -701,7 +765,8 @@
     <MESSAGE value="Stable version of the application" />
     <MESSAGE value="Fix bugs(font size on Library page)" />
     <MESSAGE value="Registration with facebook" />
-    <option name="LAST_COMMIT_MESSAGE" value="Registration with facebook" />
+    <MESSAGE value="Added ability for users to change their data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ability for users to change their data" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -711,14 +776,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="70" key="#SQL_Dialects/0.0.1536.824@0.0.1536.824" timestamp="1586776903122" />
-    <state x="402" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587127412087">
+    <state x="402" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587375173699">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="402" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1587127412087" />
-    <state x="574" y="121" key="#com.intellij.ide.util.MemberChooser" timestamp="1586110022524">
+    <state x="402" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1587375173699" />
+    <state x="574" y="121" key="#com.intellij.ide.util.MemberChooser" timestamp="1587321039767">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="121" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1586110022524" />
+    <state x="574" y="121" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1587321039767" />
     <state x="499" y="195" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1586627498882">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -731,70 +796,70 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="599" y="105" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1536.824@0.0.1536.824" timestamp="1586543278661" />
-    <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587109606103">
+    <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587382710843">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587109606103" />
-    <state x="533" y="2" key="CommitChangelistDialog2" timestamp="1587145919327">
+    <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587382710843" />
+    <state x="533" y="2" key="CommitChangelistDialog2" timestamp="1587146104953">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="533" y="2" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587145919327" />
+    <state x="533" y="2" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587146104953" />
     <state x="523" y="127" key="DetectedRootsChooserDialog" timestamp="1586547809498">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="523" y="127" key="DetectedRootsChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1586547809498" />
-    <state x="473" y="153" key="FileChooserDialogImpl" timestamp="1587109354709">
+    <state x="473" y="153" key="FileChooserDialogImpl" timestamp="1587450205663">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="473" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1587109354709" />
-    <state width="1493" height="258" key="GridCell.Tab.0.bottom" timestamp="1587145545808">
+    <state x="473" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1587450205663" />
+    <state width="1493" height="178" key="GridCell.Tab.0.bottom" timestamp="1587453119531">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587145545808" />
-    <state width="1493" height="258" key="GridCell.Tab.0.center" timestamp="1587145545807">
+    <state width="1493" height="178" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587453119531" />
+    <state width="1493" height="178" key="GridCell.Tab.0.center" timestamp="1587453119531">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587145545807" />
-    <state width="1493" height="258" key="GridCell.Tab.0.left" timestamp="1587145545807">
+    <state width="1493" height="178" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587453119531" />
+    <state width="1493" height="178" key="GridCell.Tab.0.left" timestamp="1587453119530">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587145545807" />
-    <state width="1493" height="258" key="GridCell.Tab.0.right" timestamp="1587145545807">
+    <state width="1493" height="178" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587453119530" />
+    <state width="1493" height="178" key="GridCell.Tab.0.right" timestamp="1587453119531">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587145545807" />
-    <state width="1493" height="260" key="GridCell.Tab.1.bottom" timestamp="1586789236175">
+    <state width="1493" height="178" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587453119531" />
+    <state width="1493" height="260" key="GridCell.Tab.1.bottom" timestamp="1587414846963">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586789236175" />
-    <state width="1493" height="260" key="GridCell.Tab.1.center" timestamp="1586789236174">
+    <state width="1493" height="260" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587414846963" />
+    <state width="1493" height="260" key="GridCell.Tab.1.center" timestamp="1587414846963">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1586789236174" />
-    <state width="1493" height="260" key="GridCell.Tab.1.left" timestamp="1586789236174">
+    <state width="1493" height="260" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1587414846963" />
+    <state width="1493" height="260" key="GridCell.Tab.1.left" timestamp="1587414846963">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1586789236174" />
-    <state width="1493" height="260" key="GridCell.Tab.1.right" timestamp="1586789236175">
+    <state width="1493" height="260" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1587414846963" />
+    <state width="1493" height="260" key="GridCell.Tab.1.right" timestamp="1587414846963">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1586789236175" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1587145915407">
+    <state width="1493" height="260" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1587414846963" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1587385319107">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1587145915407" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1587063826600">
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1587385319107" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1587146113128">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587063826600" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587146113128" />
     <state x="573" y="280" key="classpath-attribute-editor" timestamp="1586541335750">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="573" y="280" key="classpath-attribute-editor/0.0.1536.824@0.0.1536.824" timestamp="1586541335750" />
-    <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1587125698069">
+    <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1587450180479">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1587125698069" />
+    <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1587450180479" />
     <state x="498" y="305" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1587109210504">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -803,17 +868,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1586682901843" />
-    <state x="209" y="113" key="new project wizard" timestamp="1587109363786">
+    <state x="209" y="64" key="new project wizard" timestamp="1587317405317">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="209" y="113" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1587109363786" />
+    <state x="209" y="64" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1587317405317" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1587105300827">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1587105300827" />
-    <state x="431" y="146" width="672" height="678" key="search.everywhere.popup" timestamp="1587105564928">
+    <state x="431" y="146" width="672" height="678" key="search.everywhere.popup" timestamp="1587373036798">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="146" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1587105564928" />
+    <state x="431" y="146" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1587373036798" />
   </component>
 </project>

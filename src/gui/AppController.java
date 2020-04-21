@@ -1,6 +1,5 @@
 package gui;
 
-import database.DatabaseHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,8 +11,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.StageStyle;
 import login.Filter;
 import login.Login;
+import login.SaveLoadRemote;
 import model.*;
-import saveload.SaveLoad;
 import settings.Text;
 
 import java.net.URL;
@@ -392,7 +391,7 @@ public class AppController {
                                 }
                             }
                             if (b) {
-                                SaveLoad.addDishInPlaylist(sd.getPlaylists().get(i).getId(), activeDish1.getId());
+                                SaveLoadRemote.addDishInPlaylist(sd.getPlaylists().get(i).getId(), activeDish1.getId());
                                 sd.getPlaylists().get(i).getDishes().add(activeDish1);
                             }
                             break;
@@ -547,7 +546,7 @@ public class AppController {
             Optional<ButtonType> option = alert.showAndWait();
             if (option.get().equals(ButtonType.OK)) {
                 if (idActivePlaylist != -1) {
-                    SaveLoad.removeDishInPlaylist(sd.getPlaylists().get(idActivePlaylist).getId(), activeDish2.getId());
+                    SaveLoadRemote.removeDishInPlaylist(sd.getPlaylists().get(idActivePlaylist).getId(), activeDish2.getId());
                     sd.getPlaylists().get(idActivePlaylist).getDishes().remove(activeDish2);
                     libraryPageScroll.setVisible(true);
                     dishViewScrollOnLibraryPage.setVisible(false);
@@ -555,7 +554,7 @@ public class AppController {
                     sd.setLikeLastCounterChange(14);
                     likeNext("playlist" + (idActivePlaylist + 1));
                 } else {
-                    SaveLoad.removeLikedDishes(account.getIdUser(), activeDish2.getId());
+                    SaveLoadRemote.removeLikedDishes(account.getIdUser(), activeDish2.getId());
                     sd.getLike().remove(activeDish2);
                     libraryPageScroll.setVisible(true);
                     dishViewScrollOnLibraryPage.setVisible(false);
@@ -620,7 +619,7 @@ public class AppController {
             Optional<String> result = dialog.showAndWait();
             result.ifPresent(name -> {
                 if (sd.getPlaylists().size() < 5) {
-                    Playlist playlist = new Playlist(SaveLoad.addPlaylist(account.getIdUser(), name), name, new ArrayList<>());
+                    Playlist playlist = new Playlist(SaveLoadRemote.addPlaylist(account.getIdUser(), name), name, new ArrayList<>());
                     sd.getPlaylists().add(playlist);
                     playlistsPaneRedraw();
                 } else {
@@ -652,7 +651,7 @@ public class AppController {
                 if (!letter.equals("Виберіть список відтворення") && !letter.equals("У вас немає списків відтворення")) {
                     for (int i = 0; i < sd.getPlaylists().size(); i++) {
                         if (sd.getPlaylists().get(i).getTitle().equals(letter)) {
-                            SaveLoad.removePlaylist(sd.getPlaylists().get(i).getId());
+                            SaveLoadRemote.removePlaylist(sd.getPlaylists().get(i).getId());
                             sd.getPlaylists().remove(sd.getPlaylists().get(i));
                             playlistsPaneRedraw();
                             break;
@@ -689,7 +688,7 @@ public class AppController {
                                 }
                             }
                             if (b) {
-                                SaveLoad.addDishInPlaylist(sd.getPlaylists().get(i).getId(), activeDish2.getId());
+                                SaveLoadRemote.addDishInPlaylist(sd.getPlaylists().get(i).getId(), activeDish2.getId());
                                 sd.getPlaylists().get(i).getDishes().add(activeDish2);
                             }
                             break;
@@ -721,7 +720,7 @@ public class AppController {
                     if (!letter.equals("Виберіть страву") && !letter.equals("У цьому спискі немає страв")) {
                         for (int i = 0; i < sd.getPlaylists().get(idActivePlaylist).getDishes().size(); i++) {
                             if (sd.getPlaylists().get(idActivePlaylist).getDishes().get(i).getTitle().equals(letter)) {
-                                SaveLoad.removeDishInPlaylist(sd.getPlaylists().get(idActivePlaylist).getId(), sd.getPlaylists().get(idActivePlaylist).getDishes().get(i).getId());
+                                SaveLoadRemote.removeDishInPlaylist(sd.getPlaylists().get(idActivePlaylist).getId(), sd.getPlaylists().get(idActivePlaylist).getDishes().get(i).getId());
                                 sd.getPlaylists().get(idActivePlaylist).getDishes().remove(sd.getPlaylists().get(idActivePlaylist).getDishes().get(i));
                                 sd.setLikeCounter(0);
                                 sd.setLikeLastCounterChange(14);
@@ -751,7 +750,7 @@ public class AppController {
                     if (!letter.equals("Виберіть страву") && !letter.equals("У цьому спискі немає страв")) {
                         for (int i = 0; i < sd.getLike().size(); i++) {
                             if (sd.getLike().get(i).getTitle().equals(letter)) {
-                                SaveLoad.removeLikedDishes(account.getIdUser(), sd.getLike().get(i).getId());
+                                SaveLoadRemote.removeLikedDishes(account.getIdUser(), sd.getLike().get(i).getId());
                                 sd.getLike().remove(sd.getLike().get(i));
                                 sd.setLikeCounter(0);
                                 sd.setLikeLastCounterChange(14);
@@ -770,7 +769,7 @@ public class AppController {
             alert.setContentText("Ви справді хочете видалити цей список?");
             Optional<ButtonType> option = alert.showAndWait();
             if (option.get().equals(ButtonType.OK)) {
-                SaveLoad.removePlaylist(sd.getPlaylists().get(idActivePlaylist).getId());
+                SaveLoadRemote.removePlaylist(sd.getPlaylists().get(idActivePlaylist).getId());
                 sd.getPlaylists().remove(idActivePlaylist);
                 playlistsPaneOnLibraryPage.setVisible(true);
                 libraryPageScroll.setVisible(false);
@@ -810,12 +809,12 @@ public class AppController {
             changeUserInfoPain.setVisible(false);
             aboutUsPane.setVisible(false);
         });
+        ////////////////////////////////////////////////////////////////
         changePassword.setOnAction(event -> {
             if (passwordLabel.getText().equals(repeatPasswordLabel.getText()) && !passwordLabel.getText().equals("")) {
                 if (Filter.verifyPassword(passwordLabel.getText())) {
                     Login.noSavePassword();
-                    DatabaseHandler databaseHandler = new DatabaseHandler();
-                    databaseHandler.changePassword(account.getMail(), passwordLabel.getText());
+                    SaveLoadRemote.changePassword(account.getMail(), passwordLabel.getText());
                     changePasswordErrorField.setText(Text.get("SUCCESSFUL_REPLACEMENT_PASSWORD"));
                     account.setPassword(passwordLabel.getText());
                     passwordLabel.clear();
@@ -827,11 +826,15 @@ public class AppController {
                 changePasswordErrorField.setText(Text.get("CHANGE_EMPTY_ERROR"));
             }
         });
+        /////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////
+        //////////////////////добавить проверку ніка на унікальность
         changeUsername.setOnAction(actionEvent -> {
             if (!usernameLabel.getText().equals("")) {
-                DatabaseHandler databaseHandler = new DatabaseHandler();
-                if (Filter.verifyUsername(usernameLabel.getText()) && databaseHandler.verifyUsernameDB(usernameLabel.getText())) {
-                    databaseHandler.changeUsername(account.getMail(), usernameLabel.getText());
+                if (Filter.verifyUsername(usernameLabel.getText())) {
+                    SaveLoadRemote.changeUsername(account.getMail(), usernameLabel.getText());
                     changePasswordErrorField.setText(Text.get("SUCCESSFUL_REPLACEMENT_PASSWORD"));
                     account.setUserName(usernameLabel.getText());
                     usernameLabel.clear();
@@ -845,8 +848,7 @@ public class AppController {
         changeLocation.setOnAction(actionEvent -> {
             if (!locationField.getValue().equals(null) && !locationField.getValue().equals("Виберіть країну")) {
                 if (Filter.verifyLocation(locationField.getValue())) {
-                    DatabaseHandler databaseHandler = new DatabaseHandler();
-                    databaseHandler.changeLocation(account.getMail(), locationField.getValue());
+                    SaveLoadRemote.changeLocation(account.getMail(), locationField.getValue());
                     changePasswordErrorField.setText(Text.get("SUCCESSFUL_REPLACEMENT_PASSWORD"));
                     account.setLocation(locationField.getValue());
                     locationField.setValue("Виберіть країну");
@@ -893,7 +895,7 @@ public class AppController {
         dish = sd.getDishes().get(index);
         sd.getLike().add(dish);
         sd.saveLikedDishes(account.getIdUser(), dish.getId());
-        SaveLoad.addOneLike(dish.getId());
+        SaveLoadRemote.addOneLike(dish.getId());
     }
 
     private void removeLikedDish(int numberOfLike, Dish dish) {
@@ -902,58 +904,71 @@ public class AppController {
         dish = sd.getDishes().get(index);
         sd.getLike().remove(dish);
         sd.removeLikedDishes(account.getIdUser(), dish.getId());
-        SaveLoad.removeOneLike(dish.getId());
+        SaveLoadRemote.removeOneLike(dish.getId());
     }
 
     private void playlistsPaneRedraw() {
         likeListIconOnLibraryPage.setVisible(true);
-        playlistIcon1OnLibraryPage.setVisible(true);
-        playlistIcon2OnLibraryPage.setVisible(true);
-        playlistIcon3OnLibraryPage.setVisible(true);
-        playlistIcon4OnLibraryPage.setVisible(true);
-        playlistIcon5OnLibraryPage.setVisible(true);
-        playlistButton1OnLibraryPage.setVisible(true);
-        playlistButton2OnLibraryPage.setVisible(true);
-        playlistButton3OnLibraryPage.setVisible(true);
-        playlistButton4OnLibraryPage.setVisible(true);
-        playlistButton5OnLibraryPage.setVisible(true);
-        playlistIcon1OnLibraryPage.setVisible(true);
-        sd.setLikeLastCounterChange(15);
-        sd.setLikeCounter(0);
-        int i = 0;
-        if (sd.getPlaylists().size() > i) {
-            playlistButton1OnLibraryPage.setText(sd.getPlaylists().get(i).getTitle());
-            i++;
+        likePlaylistButtonOnLibraryPage.setVisible(true);
+        if (sd.getPlaylists() != null) {
+            playlistIcon1OnLibraryPage.setVisible(true);
+            playlistIcon2OnLibraryPage.setVisible(true);
+            playlistIcon3OnLibraryPage.setVisible(true);
+            playlistIcon4OnLibraryPage.setVisible(true);
+            playlistIcon5OnLibraryPage.setVisible(true);
+            playlistButton1OnLibraryPage.setVisible(true);
+            playlistButton2OnLibraryPage.setVisible(true);
+            playlistButton3OnLibraryPage.setVisible(true);
+            playlistButton4OnLibraryPage.setVisible(true);
+            playlistButton5OnLibraryPage.setVisible(true);
+            sd.setLikeLastCounterChange(15);
+            sd.setLikeCounter(0);
+            int i = 0;
+            if (sd.getPlaylists().size() > i) {
+                playlistButton1OnLibraryPage.setText(sd.getPlaylists().get(i).getTitle());
+                i++;
+            } else {
+                playlistIcon1OnLibraryPage.setVisible(false);
+                playlistButton1OnLibraryPage.setVisible(false);
+            }
+            if (sd.getPlaylists().size() > i) {
+                playlistButton2OnLibraryPage.setText(sd.getPlaylists().get(i).getTitle());
+                i++;
+            } else {
+                playlistIcon2OnLibraryPage.setVisible(false);
+                playlistButton2OnLibraryPage.setVisible(false);
+            }
+            if (sd.getPlaylists().size() > i) {
+                playlistButton3OnLibraryPage.setText(sd.getPlaylists().get(i).getTitle());
+                i++;
+            } else {
+                playlistIcon3OnLibraryPage.setVisible(false);
+                playlistButton3OnLibraryPage.setVisible(false);
+            }
+            if (sd.getPlaylists().size() > i) {
+                playlistButton4OnLibraryPage.setText(sd.getPlaylists().get(i).getTitle());
+                i++;
+            } else {
+                playlistIcon4OnLibraryPage.setVisible(false);
+                playlistButton4OnLibraryPage.setVisible(false);
+            }
+            if (sd.getPlaylists().size() > i) {
+                playlistButton5OnLibraryPage.setText(sd.getPlaylists().get(i).getTitle());
+                i++;
+            } else {
+                playlistIcon5OnLibraryPage.setVisible(false);
+                playlistButton5OnLibraryPage.setVisible(false);
+            }
         } else {
             playlistIcon1OnLibraryPage.setVisible(false);
-            playlistButton1OnLibraryPage.setVisible(false);
-        }
-        if (sd.getPlaylists().size() > i) {
-            playlistButton2OnLibraryPage.setText(sd.getPlaylists().get(i).getTitle());
-            i++;
-        } else {
             playlistIcon2OnLibraryPage.setVisible(false);
-            playlistButton2OnLibraryPage.setVisible(false);
-        }
-        if (sd.getPlaylists().size() > i) {
-            playlistButton3OnLibraryPage.setText(sd.getPlaylists().get(i).getTitle());
-            i++;
-        } else {
             playlistIcon3OnLibraryPage.setVisible(false);
-            playlistButton3OnLibraryPage.setVisible(false);
-        }
-        if (sd.getPlaylists().size() > i) {
-            playlistButton4OnLibraryPage.setText(sd.getPlaylists().get(i).getTitle());
-            i++;
-        } else {
             playlistIcon4OnLibraryPage.setVisible(false);
-            playlistButton4OnLibraryPage.setVisible(false);
-        }
-        if (sd.getPlaylists().size() > i) {
-            playlistButton5OnLibraryPage.setText(sd.getPlaylists().get(i).getTitle());
-            i++;
-        } else {
             playlistIcon5OnLibraryPage.setVisible(false);
+            playlistButton1OnLibraryPage.setVisible(false);
+            playlistButton2OnLibraryPage.setVisible(false);
+            playlistButton3OnLibraryPage.setVisible(false);
+            playlistButton4OnLibraryPage.setVisible(false);
             playlistButton5OnLibraryPage.setVisible(false);
         }
     }
@@ -1281,175 +1296,11 @@ public class AppController {
 
     private void likeNext(String filter) {
         List<Dish> list = setFieldForLibraryDishViewVisibleAndFilter(filter);
-        int counter = sd.getLikeCounter();
-        if (counter == 0) counter = -1;
-        int listSize = list.size();
+        if (list != null) {
+            int counter = sd.getLikeCounter();
+            if (counter == 0) counter = -1;
+            int listSize = list.size();
 
-        if (counter + 1 < listSize) {
-            counter++;
-            title1OnLibraryPage.setText(list.get(counter).getTitle());
-            image1OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
-        } else {
-            title1OnLibraryPage.setVisible(false);
-            image1OnLibraryPage.setVisible(false);
-        }
-        if (counter + 1 < listSize) {
-            counter++;
-            title2OnLibraryPage.setText(list.get(counter).getTitle());
-            image2OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
-        } else {
-            title2OnLibraryPage.setVisible(false);
-            image2OnLibraryPage.setVisible(false);
-        }
-        if (counter + 1 < listSize) {
-            counter++;
-            title3OnLibraryPage.setText(list.get(counter).getTitle());
-            image3OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
-        } else {
-            title3OnLibraryPage.setVisible(false);
-            image3OnLibraryPage.setVisible(false);
-        }
-        if (counter + 1 < listSize) {
-            counter++;
-            title4OnLibraryPage.setText(list.get(counter).getTitle());
-            image4OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
-        } else {
-            title4OnLibraryPage.setVisible(false);
-            image4OnLibraryPage.setVisible(false);
-        }
-        if (counter + 1 < listSize) {
-            counter++;
-            title5OnLibraryPage.setText(list.get(counter).getTitle());
-            image5OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
-        } else {
-            title5OnLibraryPage.setVisible(false);
-            image5OnLibraryPage.setVisible(false);
-        }
-        if (counter + 1 < listSize) {
-            counter++;
-            title6OnLibraryPage.setText(list.get(counter).getTitle());
-            image6OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
-        } else {
-            title6OnLibraryPage.setVisible(false);
-            image6OnLibraryPage.setVisible(false);
-        }
-        if (counter + 1 < listSize) {
-            counter++;
-            title7OnLibraryPage.setText(list.get(counter).getTitle());
-            image7OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
-        } else {
-            title7OnLibraryPage.setVisible(false);
-            image7OnLibraryPage.setVisible(false);
-        }
-        if (counter + 1 < listSize) {
-            counter++;
-            title8OnLibraryPage.setText(list.get(counter).getTitle());
-            image8OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
-        } else {
-            title8OnLibraryPage.setVisible(false);
-            image8OnLibraryPage.setVisible(false);
-        }
-        if (counter + 1 < listSize) {
-            counter++;
-            title9OnLibraryPage.setText(list.get(counter).getTitle());
-            image9OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
-        } else {
-            title9OnLibraryPage.setVisible(false);
-            image9OnLibraryPage.setVisible(false);
-        }
-        if (counter + 1 < listSize) {
-            counter++;
-            title10OnLibraryPage.setText(list.get(counter).getTitle());
-            image10OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
-        } else {
-            title10OnLibraryPage.setVisible(false);
-            image10OnLibraryPage.setVisible(false);
-        }
-        if (counter + 1 < listSize) {
-            counter++;
-            title11OnLibraryPage.setText(list.get(counter).getTitle());
-            image11OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
-        } else {
-            title11OnLibraryPage.setVisible(false);
-            image11OnLibraryPage.setVisible(false);
-        }
-        if (counter + 1 < listSize) {
-            counter++;
-            title12OnLibraryPage.setText(list.get(counter).getTitle());
-            image12OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
-        } else {
-            title12OnLibraryPage.setVisible(false);
-            image12OnLibraryPage.setVisible(false);
-        }
-        if (counter + 1 < listSize) {
-            counter++;
-            title13OnLibraryPage.setText(list.get(counter).getTitle());
-            image13OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
-        } else {
-            title13OnLibraryPage.setVisible(false);
-            image13OnLibraryPage.setVisible(false);
-        }
-        if (counter + 1 < listSize) {
-            counter++;
-            title14OnLibraryPage.setText(list.get(counter).getTitle());
-            image14OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
-        } else {
-            title14OnLibraryPage.setVisible(false);
-            image14OnLibraryPage.setVisible(false);
-        }
-        if (counter + 1 < listSize) {
-            counter++;
-            title15OnLibraryPage.setText(list.get(counter).getTitle());
-            image15OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
-        } else {
-            title15OnLibraryPage.setVisible(false);
-            image15OnLibraryPage.setVisible(false);
-        }
-        if (counter - sd.getLikeCounter() != 0) {
-            sd.setLikeLastCounterChange(counter - sd.getLikeCounter());
-        }
-        sd.setLikeCounter(counter);
-        libraryPageScroll.setVvalue(0);
-        if (counter >= listSize - 1) {
-            nextButtonOnLibraryPage.setDisable(true);
-        }
-        if (nextButtonOnLibraryPage.isDisable() && counter - sd.getLikeCounter() >= 0 && counter - sd.getLikeCounter() < 15) {
-            if (counter + 1 <= 6) {
-                nextButtonOnLibraryPage.setLayoutY(555);
-                backButtonOnLibraryPage.setLayoutY(555);
-                libraryPagePane.setMinHeight(670);
-                libraryPagePane.setMaxHeight(670);
-                libraryPagePane.setPrefHeight(670);
-            } else if (counter + 1 <= 9) {
-                libraryPagePane.setMinHeight(810);
-                libraryPagePane.setMaxHeight(810);
-                libraryPagePane.setPrefHeight(810);
-                nextButtonOnLibraryPage.setLayoutY(720);
-                backButtonOnLibraryPage.setLayoutY(720);
-            } else if (counter + 1 <= 12) {
-                libraryPagePane.setMinHeight(1015);
-                libraryPagePane.setMaxHeight(1015);
-                libraryPagePane.setPrefHeight(1015);
-                nextButtonOnLibraryPage.setLayoutY(935);
-                backButtonOnLibraryPage.setLayoutY(935);
-            }
-        }
-    }
-
-    private void likeBack(String filter) {
-        List<Dish> list = setFieldForLibraryDishViewVisibleAndFilter(filter);
-        int counter = sd.getLikeCounter();
-        if (counter == 0) counter = -1;
-        int listSize = list.size();
-        int lastCounterChange = sd.getLikeLastCounterChange();
-
-        if (lastCounterChange != 15 && counter - lastCounterChange - 14 >= 0) {
-            counter -= lastCounterChange + 14;
-        } else {
-            counter -= lastCounterChange;
-        }
-        counter--;
-        if (counter >= -1) {
             if (counter + 1 < listSize) {
                 counter++;
                 title1OnLibraryPage.setText(list.get(counter).getTitle());
@@ -1570,14 +1421,213 @@ public class AppController {
                 title15OnLibraryPage.setVisible(false);
                 image15OnLibraryPage.setVisible(false);
             }
-            sd.setLastCounterChange(15);
-            sd.setCounter(counter);
-            homeScroll.setVvalue(0);
-            if (counter == 14) {
-                backButtonOnHomePage.setDisable(true);
+            if (counter - sd.getLikeCounter() != 0) {
+                sd.setLikeLastCounterChange(counter - sd.getLikeCounter());
+            }
+            sd.setLikeCounter(counter);
+            libraryPageScroll.setVvalue(0);
+            if (counter >= listSize - 1) {
+                nextButtonOnLibraryPage.setDisable(true);
+            }
+            if (nextButtonOnLibraryPage.isDisable() && counter - sd.getLikeCounter() >= 0 && counter - sd.getLikeCounter() < 15) {
+                if (counter + 1 <= 6) {
+                    nextButtonOnLibraryPage.setLayoutY(555);
+                    backButtonOnLibraryPage.setLayoutY(555);
+                    libraryPagePane.setMinHeight(670);
+                    libraryPagePane.setMaxHeight(670);
+                    libraryPagePane.setPrefHeight(670);
+                } else if (counter + 1 <= 9) {
+                    libraryPagePane.setMinHeight(810);
+                    libraryPagePane.setMaxHeight(810);
+                    libraryPagePane.setPrefHeight(810);
+                    nextButtonOnLibraryPage.setLayoutY(720);
+                    backButtonOnLibraryPage.setLayoutY(720);
+                } else if (counter + 1 <= 12) {
+                    libraryPagePane.setMinHeight(1015);
+                    libraryPagePane.setMaxHeight(1015);
+                    libraryPagePane.setPrefHeight(1015);
+                    nextButtonOnLibraryPage.setLayoutY(935);
+                    backButtonOnLibraryPage.setLayoutY(935);
+                }
             }
         } else {
-            backButtonOnHomePage.setDisable(true);
+            title1OnLibraryPage.setVisible(false);
+            title2OnLibraryPage.setVisible(false);
+            title3OnLibraryPage.setVisible(false);
+            title4OnLibraryPage.setVisible(false);
+            title5OnLibraryPage.setVisible(false);
+            title6OnLibraryPage.setVisible(false);
+            title7OnLibraryPage.setVisible(false);
+            title8OnLibraryPage.setVisible(false);
+            title9OnLibraryPage.setVisible(false);
+            title10OnLibraryPage.setVisible(false);
+            title11OnLibraryPage.setVisible(false);
+            title12OnLibraryPage.setVisible(false);
+            title13OnLibraryPage.setVisible(false);
+            title14OnLibraryPage.setVisible(false);
+            title15OnLibraryPage.setVisible(false);
+            image1OnLibraryPage.setVisible(false);
+            image2OnLibraryPage.setVisible(false);
+            image3OnLibraryPage.setVisible(false);
+            image4OnLibraryPage.setVisible(false);
+            image5OnLibraryPage.setVisible(false);
+            image6OnLibraryPage.setVisible(false);
+            image7OnLibraryPage.setVisible(false);
+            image8OnLibraryPage.setVisible(false);
+            image9OnLibraryPage.setVisible(false);
+            image10OnLibraryPage.setVisible(false);
+            image11OnLibraryPage.setVisible(false);
+            image12OnLibraryPage.setVisible(false);
+            image13OnLibraryPage.setVisible(false);
+            image14OnLibraryPage.setVisible(false);
+            image15OnLibraryPage.setVisible(false);
+        }
+    }
+
+    private void likeBack(String filter) {
+        List<Dish> list = setFieldForLibraryDishViewVisibleAndFilter(filter);
+        if (list != null) {
+            int counter = sd.getLikeCounter();
+            if (counter == 0) counter = -1;
+            int listSize = list.size();
+            int lastCounterChange = sd.getLikeLastCounterChange();
+
+            if (lastCounterChange != 15 && counter - lastCounterChange - 14 >= 0) {
+                counter -= lastCounterChange + 14;
+            } else {
+                counter -= lastCounterChange;
+            }
+            counter--;
+            if (counter >= -1) {
+                if (counter + 1 < listSize) {
+                    counter++;
+                    title1OnLibraryPage.setText(list.get(counter).getTitle());
+                    image1OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
+                } else {
+                    title1OnLibraryPage.setVisible(false);
+                    image1OnLibraryPage.setVisible(false);
+                }
+                if (counter + 1 < listSize) {
+                    counter++;
+                    title2OnLibraryPage.setText(list.get(counter).getTitle());
+                    image2OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
+                } else {
+                    title2OnLibraryPage.setVisible(false);
+                    image2OnLibraryPage.setVisible(false);
+                }
+                if (counter + 1 < listSize) {
+                    counter++;
+                    title3OnLibraryPage.setText(list.get(counter).getTitle());
+                    image3OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
+                } else {
+                    title3OnLibraryPage.setVisible(false);
+                    image3OnLibraryPage.setVisible(false);
+                }
+                if (counter + 1 < listSize) {
+                    counter++;
+                    title4OnLibraryPage.setText(list.get(counter).getTitle());
+                    image4OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
+                } else {
+                    title4OnLibraryPage.setVisible(false);
+                    image4OnLibraryPage.setVisible(false);
+                }
+                if (counter + 1 < listSize) {
+                    counter++;
+                    title5OnLibraryPage.setText(list.get(counter).getTitle());
+                    image5OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
+                } else {
+                    title5OnLibraryPage.setVisible(false);
+                    image5OnLibraryPage.setVisible(false);
+                }
+                if (counter + 1 < listSize) {
+                    counter++;
+                    title6OnLibraryPage.setText(list.get(counter).getTitle());
+                    image6OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
+                } else {
+                    title6OnLibraryPage.setVisible(false);
+                    image6OnLibraryPage.setVisible(false);
+                }
+                if (counter + 1 < listSize) {
+                    counter++;
+                    title7OnLibraryPage.setText(list.get(counter).getTitle());
+                    image7OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
+                } else {
+                    title7OnLibraryPage.setVisible(false);
+                    image7OnLibraryPage.setVisible(false);
+                }
+                if (counter + 1 < listSize) {
+                    counter++;
+                    title8OnLibraryPage.setText(list.get(counter).getTitle());
+                    image8OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
+                } else {
+                    title8OnLibraryPage.setVisible(false);
+                    image8OnLibraryPage.setVisible(false);
+                }
+                if (counter + 1 < listSize) {
+                    counter++;
+                    title9OnLibraryPage.setText(list.get(counter).getTitle());
+                    image9OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
+                } else {
+                    title9OnLibraryPage.setVisible(false);
+                    image9OnLibraryPage.setVisible(false);
+                }
+                if (counter + 1 < listSize) {
+                    counter++;
+                    title10OnLibraryPage.setText(list.get(counter).getTitle());
+                    image10OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
+                } else {
+                    title10OnLibraryPage.setVisible(false);
+                    image10OnLibraryPage.setVisible(false);
+                }
+                if (counter + 1 < listSize) {
+                    counter++;
+                    title11OnLibraryPage.setText(list.get(counter).getTitle());
+                    image11OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
+                } else {
+                    title11OnLibraryPage.setVisible(false);
+                    image11OnLibraryPage.setVisible(false);
+                }
+                if (counter + 1 < listSize) {
+                    counter++;
+                    title12OnLibraryPage.setText(list.get(counter).getTitle());
+                    image12OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
+                } else {
+                    title12OnLibraryPage.setVisible(false);
+                    image12OnLibraryPage.setVisible(false);
+                }
+                if (counter + 1 < listSize) {
+                    counter++;
+                    title13OnLibraryPage.setText(list.get(counter).getTitle());
+                    image13OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
+                } else {
+                    title13OnLibraryPage.setVisible(false);
+                    image13OnLibraryPage.setVisible(false);
+                }
+                if (counter + 1 < listSize) {
+                    counter++;
+                    title14OnLibraryPage.setText(list.get(counter).getTitle());
+                    image14OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
+                } else {
+                    title14OnLibraryPage.setVisible(false);
+                    image14OnLibraryPage.setVisible(false);
+                }
+                if (counter + 1 < listSize) {
+                    counter++;
+                    title15OnLibraryPage.setText(list.get(counter).getTitle());
+                    image15OnLibraryPage.setImage(new Image(list.get(counter).getPhoto()));
+                } else {
+                    title15OnLibraryPage.setVisible(false);
+                    image15OnLibraryPage.setVisible(false);
+                }
+                sd.setLastCounterChange(15);
+                sd.setCounter(counter);
+                homeScroll.setVvalue(0);
+                if (counter == 14) {
+                    backButtonOnHomePage.setDisable(true);
+                }
+            } else {
+                backButtonOnHomePage.setDisable(true);
+            }
         }
     }
 

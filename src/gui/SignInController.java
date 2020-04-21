@@ -1,6 +1,5 @@
 package gui;
 
-import database.DatabaseHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -45,8 +44,14 @@ public class SignInController {
             String password = passwordField.getText();
             boolean b = savePasswordCheckBox.isSelected();
             if (!mail.equals("") && !password.equals("")) {
-                Account account = Login.signIn(mail, password, new DatabaseHandler(), b);
-                if (account != null) {
+                Login.signIn(mail, password, b);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Account account = new Account();
+                if (account.getIdUser() != -1) {
                     if (Account.getRole().equals("admin")) {
                         authSignInButton.getScene().getWindow().hide();
                         LoaderNewScene.load("/gui/app.fxml");//admin

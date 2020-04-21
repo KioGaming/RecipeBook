@@ -112,18 +112,4 @@ public class Dish {
                 getRecipe().equals(dish.getRecipe()) &&
                 getGroceryList().equals(dish.getGroceryList());
     }
-
-    @Override
-    public String toString() {
-        return "Dish{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", photo='" + photo + '\'' +
-                ", description='" + description + '\'' +
-                ", category='" + category + '\'' +
-                ", recipe=" + recipe +
-                ", groceryList=" + groceryList +
-                ", numberOfLikes=" + numberOfLikes +
-                '}';
-    }
 }

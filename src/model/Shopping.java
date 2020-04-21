@@ -12,6 +12,9 @@ public class Shopping {
         this.weight = weight;
     }
 
+    public Shopping() {
+    }
+
     public String getGrocery() {
         return grocery;
     }
@@ -26,14 +29,6 @@ public class Shopping {
 
     public void setWeight(String weight) {
         this.weight = weight;
-    }
-
-    @Override
-    public String toString() {
-        return "Shopping{" +
-                "grocery='" + grocery + '\'' +
-                ", weight='" + weight + '\'' +
-                '}';
     }
 
     @Override

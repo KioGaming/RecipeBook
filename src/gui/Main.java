@@ -1,6 +1,5 @@
 package gui;
 
-import database.DatabaseHandler;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import login.Login;
@@ -41,8 +40,10 @@ public class Main extends Application {
                     savedMail = scanner.nextLine();
                     if (scanner.hasNext()) {
                         savedPassword = scanner.nextLine();
-                        Account account = Login.signIn(savedMail, savedPassword, new DatabaseHandler(), true);
-                        if (account != null) {
+                        Login.signIn(savedMail, savedPassword, true);
+                        Thread.sleep(10000);
+                        Account account = new Account();
+                        if (account.getIdUser() != -1) {
                             if (Account.getRole().equals("admin")) {
                                 LoaderNewScene.load("/gui/app.fxml");//admin
                             } else {

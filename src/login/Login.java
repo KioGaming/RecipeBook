@@ -1,60 +1,30 @@
 package login;
 
-import database.DatabaseHandler;
-import model.Account;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.security.SecureRandom;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class Login {
 
-    public static Account signUp(String username, String mail, String originalPassword, String location, DatabaseHandler dbHandler, boolean savePassword) {
-        byte[] salt = new byte[16];
-        SecureRandom secureRandom = new SecureRandom();
-        secureRandom.nextBytes(salt);
-        String generatedSecuredPasswordHash = lambdaworks.crypto.SCryptUtil.scrypt(originalPassword + salt.toString(), 16, 16, 16);
-        dbHandler.signUpUser(username, mail, generatedSecuredPasswordHash, salt.toString(), location);
-        int iduser = dbHandler.maxIdUser();
+    public static void signUp(String username, String mail, String password, String location, boolean savePassword) {
+        Thread thread = new Thread(new ThreadForDB("signUp", username, mail, password, location), "Thread");
+        thread.start();
         if (savePassword) {
-            savePassword(mail, originalPassword);
+            savePassword(mail, password);
         } else {
             noSavePassword();
         }
-        return new Account(iduser, username, mail, generatedSecuredPasswordHash, location, "user");
     }
 
-    public static Account signIn(String mail, String password, DatabaseHandler dbHandler, boolean savePassword) {
-        Account account = null;
-        ResultSet resultSet = dbHandler.signInUser(mail);
-        try {
-            if (resultSet.next()) {
-                int iduser = Integer.parseInt(resultSet.getString("idusers"));
-                String username = resultSet.getString("username");
-                String location = resultSet.getString("location");
-                String role = resultSet.getString("rolename");
-                boolean matched = lambdaworks.crypto.SCryptUtil.check(password + resultSet.getString("salt"), resultSet.getString("password"));
-                if (matched) {
-                    account = new Account(iduser, username, mail, password, location, role);
-                    if (savePassword) {
-                        savePassword(mail, password);
-                    } else {
-                        noSavePassword();
-                    }
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+    public static void signIn(String mail, String password, boolean savePassword) {
+        Thread thread = new Thread(new ThreadForDB("signIn", mail, password), "Thread");
+        thread.start();
+        if (savePassword) {
+            savePassword(mail, password);
+        } else {
+            noSavePassword();
         }
-        return account;
-    }
-
-    private static Account signUpWithFacebook(String mail, String password, DatabaseHandler dbHandler, boolean savePassword) {
-        return null;
     }
 
     private static void savePassword(String mail, String password) {

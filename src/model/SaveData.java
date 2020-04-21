@@ -1,11 +1,13 @@
 package model;
 
-import saveload.SaveLoad;
+import login.SaveLoadRemote;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public final class SaveData {
+public final class SaveData implements Serializable {
 
     private static List<Dish> dishes;
     private static List<Dish> category1 = new ArrayList<>();
@@ -16,18 +18,17 @@ public final class SaveData {
     private static List<Dish> category6 = new ArrayList<>();
     private static List<Dish> category7 = new ArrayList<>();
 
-    private int counter = 0;
-    private int lastCounterChange = 5;
+    private static int counter = 0;
+    private static int lastCounterChange = 5;
 
     private static List<Playlist> playlists = new ArrayList<>();
     private static List<Dish> like = new ArrayList<>();
 
-    private int likeCounter = 0;
-    private int likeLastCounterChange = 15;
+    private static int likeCounter = 0;
+    private static int likeLastCounterChange = 15;
 
-    public SaveData(int idUser) {
-        SaveLoad.load(this, idUser);
-        reloadAllLists();
+    public SaveData() {
+        // reloadAllLists();
     }
 
     public void reloadAllLists() {
@@ -98,9 +99,9 @@ public final class SaveData {
     }
 
     public void setCounter(int counter) {
-        this.counter = counter;
-        if (this.counter < 0) {
-            this.counter = 0;
+        SaveData.counter = counter;
+        if (SaveData.counter < 0) {
+            SaveData.counter = 0;
         }
     }
 
@@ -109,7 +110,7 @@ public final class SaveData {
     }
 
     public void setLastCounterChange(int lastCounterChange) {
-        this.lastCounterChange = lastCounterChange;
+        SaveData.lastCounterChange = lastCounterChange;
     }
 
     public List<Dish> getLike() {
@@ -129,11 +130,11 @@ public final class SaveData {
     }
 
     public void saveLikedDishes(int iduser, int iddish) {
-        SaveLoad.saveLikedDishes(iduser, iddish);
+        SaveLoadRemote.saveLikedDishes(iduser, iddish);
     }
 
     public void removeLikedDishes(int idUser, int iddish) {
-        SaveLoad.removeLikedDishes(idUser, iddish);
+        SaveLoadRemote.removeLikedDishes(idUser, iddish);
     }
 
     public int getLikeCounter() {
@@ -141,9 +142,9 @@ public final class SaveData {
     }
 
     public void setLikeCounter(int likeCounter) {
-        this.likeCounter = likeCounter;
-        if (this.likeCounter < 0) {
-            this.likeCounter = 0;
+        SaveData.likeCounter = likeCounter;
+        if (SaveData.likeCounter < 0) {
+            SaveData.likeCounter = 0;
         }
     }
 
@@ -152,7 +153,7 @@ public final class SaveData {
     }
 
     public void setLikeLastCounterChange(int likeLastCounterChange) {
-        this.likeLastCounterChange = likeLastCounterChange;
+        SaveData.likeLastCounterChange = likeLastCounterChange;
     }
 
     @Override
@@ -162,6 +163,23 @@ public final class SaveData {
                 ", lastCounterChange=" + lastCounterChange +
                 ", likeCounter=" + likeCounter +
                 ", likeLastCounterChange=" + likeLastCounterChange +
+                "\nlikeLastCounterChange=" + dishes +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SaveData)) return false;
+        SaveData saveData = (SaveData) o;
+        return getCounter() == saveData.getCounter() &&
+                getLastCounterChange() == saveData.getLastCounterChange() &&
+                getLikeCounter() == saveData.getLikeCounter() &&
+                getLikeLastCounterChange() == saveData.getLikeLastCounterChange();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCounter(), getLastCounterChange(), getLikeCounter(), getLikeLastCounterChange());
     }
 }

@@ -1,6 +1,5 @@
 package gui;
 
-import database.DatabaseHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -60,10 +59,8 @@ public class SignUpController {
                 password = passwordField.getText();
                 locale = locationComboBox.getValue().toString();
                 savePassword = savePasswordCheckBox.isSelected();
-                DatabaseHandler dbHandler = new DatabaseHandler();
                 if (!username.equals("") && !mail.equals("") && !password.equals("") && !locale.equals("") && !locale.equals("Страна, язык")) {
-                    if (Filter.verifyUsername(username) && Filter.verifyMail(mail) && Filter.verifyPassword(password) && Filter.verifyLocation(locale) &&
-                            dbHandler.verifyUsernameDB(username) && dbHandler.verifyMailDB(mail)) {
+                    if (Filter.verifyUsername(username) && Filter.verifyMail(mail) && Filter.verifyPassword(password) && Filter.verifyLocation(locale)) {
                         usernameField.setVisible(false);
                         mailField.setVisible(false);
                         passwordField.setVisible(false);
@@ -85,7 +82,12 @@ public class SignUpController {
                 }
             } else {
                 if (confirmMail == Integer.parseInt(confirmField.getText().trim())) {
-                    Login.signUp(username, mail, password, locale, new DatabaseHandler(), savePassword);
+                    Login.signUp(username, mail, password, locale, savePassword);
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     signUpButton.getScene().getWindow().hide();
                     LoaderNewScene.load("/gui/app.fxml");
                 } else {
