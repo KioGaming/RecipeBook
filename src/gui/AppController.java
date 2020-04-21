@@ -391,7 +391,7 @@ public class AppController {
                                 }
                             }
                             if (b) {
-                                SaveLoadRemote.addDishInPlaylist(sd.getPlaylists().get(i).getId(), activeDish1.getId());
+                                SaveLoadRemote.addDishInPlaylist(sd.getPlaylists().get(i).getId(), activeDish1.getId(), account.getMail(), account.getPassword());
                                 sd.getPlaylists().get(i).getDishes().add(activeDish1);
                             }
                             break;
@@ -546,7 +546,7 @@ public class AppController {
             Optional<ButtonType> option = alert.showAndWait();
             if (option.get().equals(ButtonType.OK)) {
                 if (idActivePlaylist != -1) {
-                    SaveLoadRemote.removeDishInPlaylist(sd.getPlaylists().get(idActivePlaylist).getId(), activeDish2.getId());
+                    SaveLoadRemote.removeDishInPlaylist(sd.getPlaylists().get(idActivePlaylist).getId(), activeDish2.getId(), account.getMail(), account.getPassword());
                     sd.getPlaylists().get(idActivePlaylist).getDishes().remove(activeDish2);
                     libraryPageScroll.setVisible(true);
                     dishViewScrollOnLibraryPage.setVisible(false);
@@ -554,7 +554,7 @@ public class AppController {
                     sd.setLikeLastCounterChange(14);
                     likeNext("playlist" + (idActivePlaylist + 1));
                 } else {
-                    SaveLoadRemote.removeLikedDishes(account.getIdUser(), activeDish2.getId());
+                    SaveLoadRemote.removeLikedDishes(account.getIdUser(), activeDish2.getId(), account.getMail(), account.getPassword());
                     sd.getLike().remove(activeDish2);
                     libraryPageScroll.setVisible(true);
                     dishViewScrollOnLibraryPage.setVisible(false);
@@ -619,7 +619,7 @@ public class AppController {
             Optional<String> result = dialog.showAndWait();
             result.ifPresent(name -> {
                 if (sd.getPlaylists().size() < 5) {
-                    Playlist playlist = new Playlist(SaveLoadRemote.addPlaylist(account.getIdUser(), name), name, new ArrayList<>());
+                    Playlist playlist = new Playlist(SaveLoadRemote.addPlaylist(account.getIdUser(), name, account.getMail(), account.getPassword()), name, new ArrayList<>());
                     sd.getPlaylists().add(playlist);
                     playlistsPaneRedraw();
                 } else {
@@ -651,7 +651,7 @@ public class AppController {
                 if (!letter.equals("Виберіть список відтворення") && !letter.equals("У вас немає списків відтворення")) {
                     for (int i = 0; i < sd.getPlaylists().size(); i++) {
                         if (sd.getPlaylists().get(i).getTitle().equals(letter)) {
-                            SaveLoadRemote.removePlaylist(sd.getPlaylists().get(i).getId());
+                            SaveLoadRemote.removePlaylist(sd.getPlaylists().get(i).getId(), account.getMail(), account.getPassword());
                             sd.getPlaylists().remove(sd.getPlaylists().get(i));
                             playlistsPaneRedraw();
                             break;
@@ -688,7 +688,7 @@ public class AppController {
                                 }
                             }
                             if (b) {
-                                SaveLoadRemote.addDishInPlaylist(sd.getPlaylists().get(i).getId(), activeDish2.getId());
+                                SaveLoadRemote.addDishInPlaylist(sd.getPlaylists().get(i).getId(), activeDish2.getId(), account.getMail(), account.getPassword());
                                 sd.getPlaylists().get(i).getDishes().add(activeDish2);
                             }
                             break;
@@ -720,7 +720,7 @@ public class AppController {
                     if (!letter.equals("Виберіть страву") && !letter.equals("У цьому спискі немає страв")) {
                         for (int i = 0; i < sd.getPlaylists().get(idActivePlaylist).getDishes().size(); i++) {
                             if (sd.getPlaylists().get(idActivePlaylist).getDishes().get(i).getTitle().equals(letter)) {
-                                SaveLoadRemote.removeDishInPlaylist(sd.getPlaylists().get(idActivePlaylist).getId(), sd.getPlaylists().get(idActivePlaylist).getDishes().get(i).getId());
+                                SaveLoadRemote.removeDishInPlaylist(sd.getPlaylists().get(idActivePlaylist).getId(), sd.getPlaylists().get(idActivePlaylist).getDishes().get(i).getId(), account.getMail(), account.getPassword());
                                 sd.getPlaylists().get(idActivePlaylist).getDishes().remove(sd.getPlaylists().get(idActivePlaylist).getDishes().get(i));
                                 sd.setLikeCounter(0);
                                 sd.setLikeLastCounterChange(14);
@@ -750,7 +750,7 @@ public class AppController {
                     if (!letter.equals("Виберіть страву") && !letter.equals("У цьому спискі немає страв")) {
                         for (int i = 0; i < sd.getLike().size(); i++) {
                             if (sd.getLike().get(i).getTitle().equals(letter)) {
-                                SaveLoadRemote.removeLikedDishes(account.getIdUser(), sd.getLike().get(i).getId());
+                                SaveLoadRemote.removeLikedDishes(account.getIdUser(), sd.getLike().get(i).getId(), account.getMail(), account.getPassword());
                                 sd.getLike().remove(sd.getLike().get(i));
                                 sd.setLikeCounter(0);
                                 sd.setLikeLastCounterChange(14);
@@ -769,7 +769,7 @@ public class AppController {
             alert.setContentText("Ви справді хочете видалити цей список?");
             Optional<ButtonType> option = alert.showAndWait();
             if (option.get().equals(ButtonType.OK)) {
-                SaveLoadRemote.removePlaylist(sd.getPlaylists().get(idActivePlaylist).getId());
+                SaveLoadRemote.removePlaylist(sd.getPlaylists().get(idActivePlaylist).getId(), account.getMail(), account.getPassword());
                 sd.getPlaylists().remove(idActivePlaylist);
                 playlistsPaneOnLibraryPage.setVisible(true);
                 libraryPageScroll.setVisible(false);
@@ -814,7 +814,7 @@ public class AppController {
             if (passwordLabel.getText().equals(repeatPasswordLabel.getText()) && !passwordLabel.getText().equals("")) {
                 if (Filter.verifyPassword(passwordLabel.getText())) {
                     Login.noSavePassword();
-                    SaveLoadRemote.changePassword(account.getMail(), passwordLabel.getText());
+                    SaveLoadRemote.changePassword(passwordLabel.getText(), account.getMail(), account.getPassword());
                     changePasswordErrorField.setText(Text.get("SUCCESSFUL_REPLACEMENT_PASSWORD"));
                     account.setPassword(passwordLabel.getText());
                     passwordLabel.clear();
@@ -834,7 +834,7 @@ public class AppController {
         changeUsername.setOnAction(actionEvent -> {
             if (!usernameLabel.getText().equals("")) {
                 if (Filter.verifyUsername(usernameLabel.getText())) {
-                    SaveLoadRemote.changeUsername(account.getMail(), usernameLabel.getText());
+                    SaveLoadRemote.changeUsername(usernameLabel.getText(), account.getMail(), account.getPassword());
                     changePasswordErrorField.setText(Text.get("SUCCESSFUL_REPLACEMENT_PASSWORD"));
                     account.setUserName(usernameLabel.getText());
                     usernameLabel.clear();
@@ -848,7 +848,7 @@ public class AppController {
         changeLocation.setOnAction(actionEvent -> {
             if (!locationField.getValue().equals(null) && !locationField.getValue().equals("Виберіть країну")) {
                 if (Filter.verifyLocation(locationField.getValue())) {
-                    SaveLoadRemote.changeLocation(account.getMail(), locationField.getValue());
+                    SaveLoadRemote.changeLocation(locationField.getValue(), account.getMail(), account.getPassword());
                     changePasswordErrorField.setText(Text.get("SUCCESSFUL_REPLACEMENT_PASSWORD"));
                     account.setLocation(locationField.getValue());
                     locationField.setValue("Виберіть країну");
@@ -894,8 +894,8 @@ public class AppController {
         sd.getDishes().get(index).setNumberOfLikes(numberOfLike + 1);
         dish = sd.getDishes().get(index);
         sd.getLike().add(dish);
-        sd.saveLikedDishes(account.getIdUser(), dish.getId());
-        SaveLoadRemote.addOneLike(dish.getId());
+        sd.saveLikedDishes(account.getMail(), account.getPassword(), account.getIdUser(), dish.getId());
+        SaveLoadRemote.addOneLike(dish.getId(), account.getMail(), account.getPassword());
     }
 
     private void removeLikedDish(int numberOfLike, Dish dish) {
@@ -903,8 +903,8 @@ public class AppController {
         sd.getDishes().get(index).setNumberOfLikes(numberOfLike - 1);
         dish = sd.getDishes().get(index);
         sd.getLike().remove(dish);
-        sd.removeLikedDishes(account.getIdUser(), dish.getId());
-        SaveLoadRemote.removeOneLike(dish.getId());
+        sd.removeLikedDishes(account.getMail(), account.getPassword(), account.getIdUser(), dish.getId());
+        SaveLoadRemote.removeOneLike(dish.getId(), account.getMail(), account.getPassword());
     }
 
     private void playlistsPaneRedraw() {

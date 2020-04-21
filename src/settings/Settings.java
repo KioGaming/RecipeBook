@@ -3,6 +3,9 @@ package settings;
 import java.util.regex.Pattern;
 
 final public class Settings {
+
+    public static int idPlaylistTemp;
+
     public static final String SERVER_HOST = "127.0.0.1";
     public static final int SERVER_PORT = 5000;
     public static final String MAIL_ADDRESS = "olexienko.alex@gmail.com";

@@ -129,12 +129,12 @@ public final class SaveData implements Serializable {
         SaveData.playlists = playlists;
     }
 
-    public void saveLikedDishes(int iduser, int iddish) {
-        SaveLoadRemote.saveLikedDishes(iduser, iddish);
+    public void saveLikedDishes(String mail, String password, int iduser, int iddish) {
+        SaveLoadRemote.saveLikedDishes(iduser, iddish, mail, password);
     }
 
-    public void removeLikedDishes(int idUser, int iddish) {
-        SaveLoadRemote.removeLikedDishes(idUser, iddish);
+    public void removeLikedDishes(String mail, String password, int idUser, int iddish) {
+        SaveLoadRemote.removeLikedDishes(idUser, iddish, mail, password);
     }
 
     public int getLikeCounter() {
