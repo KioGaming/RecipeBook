@@ -1,7 +1,6 @@
 package login;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -38,8 +37,6 @@ public class Login {
             printWriter.println(mail);
             printWriter.println(password);
             printWriter.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -54,8 +51,6 @@ public class Login {
             PrintWriter printWriter = new PrintWriter(file);
             printWriter.println(false);
             printWriter.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

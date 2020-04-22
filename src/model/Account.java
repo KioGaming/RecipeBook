@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Account {
 
-    private static int id;
+    private static int id = -1;
     private static String username;
     private static String mail;
     private static String password;
@@ -79,11 +79,6 @@ public class Account {
 
     public void setSaveData(SaveData saveData) {
         Account.saveData = saveData;
-    }
-
-    @Override
-    public String toString() {
-        return id + "\n" + username + "\n" + mail + "\n" + password + "\n" + location + "\n" + role;
     }
 
     @Override

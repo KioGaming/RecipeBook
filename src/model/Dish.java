@@ -14,9 +14,6 @@ public class Dish {
     private List<Shopping> groceryList;
     private int numberOfLikes;
 
-    public Dish() {
-    }
-
     public Dish(int id, String title, String photo, String description, String category, List<String> recipe, List<Shopping> groceryList,
                 int numberOfLikes) {
         this.id = id;
@@ -27,6 +24,9 @@ public class Dish {
         this.recipe = recipe;
         this.groceryList = groceryList;
         this.numberOfLikes = numberOfLikes;
+    }
+
+    public Dish() {
     }
 
     public int getId() {

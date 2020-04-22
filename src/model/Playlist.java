@@ -15,6 +15,9 @@ public class Playlist {
         this.dishes = dishes;
     }
 
+    public Playlist() {
+    }
+
     public int getId() {
         return id;
     }
@@ -37,15 +40,6 @@ public class Playlist {
 
     public void setDishes(List<Dish> dishes) {
         this.dishes = dishes;
-    }
-
-    @Override
-    public String toString() {
-        return "Playlist{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", dishes=" + dishes +
-                '}';
     }
 
     @Override

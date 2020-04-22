@@ -26,11 +26,11 @@ public class Filter {
 
     public static boolean verifyLocation(String location){
         boolean b = false;
-        if (location == "Україна, ua") {
+        if (location.equals("Україна, ua")) {
             b = true;
-        } else if (location == "Россия, ru") {
+        } else if (location.equals("Россия, ru")) {
             b = true;
-        } else if (location == "England, uk") {
+        } else if (location.equals("England, uk")) {
             b = true;
         }
         return b;

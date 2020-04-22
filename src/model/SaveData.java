@@ -28,7 +28,6 @@ public final class SaveData implements Serializable {
     private static int likeLastCounterChange = 15;
 
     public SaveData() {
-        // reloadAllLists();
     }
 
     public void reloadAllLists() {

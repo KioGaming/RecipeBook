@@ -11,15 +11,15 @@ import java.util.List;
 @XmlRootElement(name = "data")
 public class Wrapper {
 
+    private static List<Dish> dishes;
+    private static List<Dish> like;
+    private static List<Playlist> playlists;
     private static int id;
     private static String username;
     private static String mail;
     private static String password;
     private static String location;
     private static String role;
-    List<Dish> dishes;
-    List<Dish> like;
-    List<Playlist> playlists;
 
     @XmlElement(name = "id")
     public int getId() {
@@ -81,7 +81,7 @@ public class Wrapper {
     }
 
     public void setDishes(List<Dish> dishes) {
-        this.dishes = dishes;
+        Wrapper.dishes = dishes;
     }
 
     @XmlElement(name = "like")
@@ -90,7 +90,7 @@ public class Wrapper {
     }
 
     public void setLike(List<Dish> like) {
-        this.like = like;
+        Wrapper.like = like;
     }
 
     @XmlElement(name = "playlists")
@@ -99,7 +99,7 @@ public class Wrapper {
     }
 
     public void setPlaylists(List<Playlist> playlists) {
-        this.playlists = playlists;
+        Wrapper.playlists = playlists;
     }
 }
 

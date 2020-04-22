@@ -10,8 +10,6 @@ import java.io.IOException;
 
 public class LoaderNewScene {
 
-    public static String dir = "";
-
     public static void load(String file) {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(LoaderNewScene.class.getResource(file));

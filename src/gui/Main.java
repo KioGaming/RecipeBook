@@ -41,14 +41,10 @@ public class Main extends Application {
                     if (scanner.hasNext()) {
                         savedPassword = scanner.nextLine();
                         Login.signIn(savedMail, savedPassword, true);
-                        Thread.sleep(10000);
+                        Thread.sleep(1000);
                         Account account = new Account();
                         if (account.getIdUser() != -1) {
-                            if (Account.getRole().equals("admin")) {
-                                LoaderNewScene.load("/gui/app.fxml");//admin
-                            } else {
-                                LoaderNewScene.load("/gui/app.fxml");
-                            }
+                            LoaderNewScene.load("/gui/app.fxml");//admin
                         } else {
                             LoaderNewScene.load("/gui/signIn.fxml");
                         }

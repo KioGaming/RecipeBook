@@ -619,6 +619,11 @@ public class AppController {
             Optional<String> result = dialog.showAndWait();
             result.ifPresent(name -> {
                 if (sd.getPlaylists().size() < 5) {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     Playlist playlist = new Playlist(SaveLoadRemote.addPlaylist(account.getIdUser(), name, account.getMail(), account.getPassword()), name, new ArrayList<>());
                     sd.getPlaylists().add(playlist);
                     playlistsPaneRedraw();
@@ -846,7 +851,7 @@ public class AppController {
             }
         });
         changeLocation.setOnAction(actionEvent -> {
-            if (!locationField.getValue().equals(null) && !locationField.getValue().equals("Виберіть країну")) {
+            if (locationField.getValue() != null && !locationField.getValue().equals("Виберіть країну")) {
                 if (Filter.verifyLocation(locationField.getValue())) {
                     SaveLoadRemote.changeLocation(locationField.getValue(), account.getMail(), account.getPassword());
                     changePasswordErrorField.setText(Text.get("SUCCESSFUL_REPLACEMENT_PASSWORD"));
@@ -1193,6 +1198,7 @@ public class AppController {
     }
 
     private void dishView(String title) {
+
         dishViewOnHomePageScroll.setVisible(true);
         dishViewOnHomePageScroll.setVvalue(0);
         Dish dish = null;

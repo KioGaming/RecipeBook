@@ -12,22 +12,30 @@ import java.util.ArrayList;
 
 public class SaveLoadRemote {
 
-    public static Account loadInXML(int id) {
+    public static Account loadInXML() {
         Account account = null;
         try {
             JAXBContext context = JAXBContext.newInstance(Wrapper.class);
             Unmarshaller um = context.createUnmarshaller();
-            Wrapper wrapper = (Wrapper) um.unmarshal(new File(System.getenv("APPDATA") + "/recipebook/account.rb"));
+            File file = new File(System.getenv("APPDATA") + "/recipebook/account.rb");
+            Wrapper wrapper = (Wrapper) um.unmarshal(file);
             account = new Account(wrapper.getId(), wrapper.getUsername(), wrapper.getMail(), wrapper.getPassword(), wrapper.getLocation(), wrapper.getRole());
             SaveData saveData = new SaveData();
-            saveData.setDishes(new ArrayList<>());
             saveData.setDishes(wrapper.getDishes());
-            saveData.setLike(new ArrayList<>());
+            if (saveData.getDishes() == null) {
+                saveData.setDishes(new ArrayList<>());
+            }
             saveData.setLike(wrapper.getLike());
-            saveData.setPlaylists(new ArrayList<>());
+            if (saveData.getLike() == null) {
+                saveData.setLike(new ArrayList<>());
+            }
             saveData.setPlaylists(wrapper.getPlaylists());
+            if (saveData.getPlaylists() == null) {
+                saveData.setPlaylists(new ArrayList<>());
+            }
             saveData.reloadAllLists();
             account.setSaveData(saveData);
+            file.delete();
         } catch (JAXBException e) {
             e.printStackTrace();
         }

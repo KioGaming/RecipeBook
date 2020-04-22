@@ -6,8 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import login.Filter;
 import login.Login;
-import login.MailSender;
-import settings.Settings;
+import login.ThreadForDB;
+import model.Account;
 import settings.Text;
 
 import java.net.URL;
@@ -70,8 +70,8 @@ public class SignUpController {
                         confirmField.setVisible(true);
                         backToRegistrationFormBuuton.setVisible(true);
                         confirmMail = (int) Math.floor(Math.random() * 1000000);
-                        MailSender sender = new MailSender(Settings.MAIL_ADDRESS, Settings.MAIL_PASSWORD);
-                        sender.send("Підтвердіть почту для реєстрації в додатку RecipeBook", "Ваш код: " + confirmMail, "recipebook@gmail.com", mail);
+                        Thread thread = new Thread(new ThreadForDB("sendMail", mail, password, confirmMail), "Thread");
+                        thread.start();
                     } else {
                         signUpErrorMessages.setVisible(true);
                         signUpErrorMessages.setText(Text.get("SIGN_UP_REPEAT_ERROR"));
@@ -81,26 +81,25 @@ public class SignUpController {
                     signUpErrorMessages.setText(Text.get("SIGN_UP_EMPTY_ERROR"));
                 }
             } else {
-                if (confirmMail == Integer.parseInt(confirmField.getText().trim())) {
+                if (String.valueOf(confirmMail).equals(confirmField.getText().trim())) {
                     Login.signUp(username, mail, password, locale, savePassword);
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    signUpButton.getScene().getWindow().hide();
-                    LoaderNewScene.load("/gui/app.fxml");
+                    Account account = new Account();
+                    if (account.getIdUser() != -1) {
+                        signUpButton.getScene().getWindow().hide();
+                        LoaderNewScene.load("/gui/app.fxml");
+                    }
                 } else {
                     signUpErrorMessages.setVisible(true);
                     signUpErrorMessages.setText("Неправильний код підтвердження");
                 }
             }
         });
-
-        backToRegistrationFormBuuton.setOnAction(event -> {
-            init();
-        });
-
+        backToRegistrationFormBuuton.setOnAction(event -> init());
         authSignInButton.setOnAction(event -> {
             authSignInButton.getScene().getWindow().hide();
             LoaderNewScene.load("/gui/signIn.fxml");

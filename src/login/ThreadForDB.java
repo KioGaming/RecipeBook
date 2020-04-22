@@ -26,7 +26,7 @@ public class ThreadForDB implements Runnable {
         this.password = password;
     }
 
-    public ThreadForDB(String command, String mail, String password, String username, String location) {
+    public ThreadForDB(String command, String username, String mail, String password, String location) {
         this.command = command;
         this.mail = mail;
         this.password = password;
@@ -87,6 +87,7 @@ public class ThreadForDB implements Runnable {
                 case "removePlaylist":
                 case "addOneLike":
                 case "removeOneLike":
+                case "sendMail":
                     toServer.println(command + "/" + mail + "/" + password + "/" + arg1);
                     break;
                 case "addPlaylist":
@@ -98,17 +99,22 @@ public class ThreadForDB implements Runnable {
                     toServer.println(command + "/" + mail + "/" + password + "/" + arg3);
                     break;
             }
+            //Прийом ответа
             PrintWriter outFile = new PrintWriter(System.getenv("APPDATA") + "/recipebook/account.rb");
             Scanner scanner = new Scanner(socket.getInputStream());
             switch (command) {
                 case "signIn":
                 case "signUp":
+                    int i = 0;
                     while (scanner.hasNextLine()) {
                         outFile.write(scanner.nextLine() + "\n");
+                        i++;
                     }
                     scanner.close();
                     outFile.close();
-                    SaveLoadRemote.loadInXML(22);
+                    if (i > 0) {
+                        SaveLoadRemote.loadInXML();
+                    }
                     break;
                 case "addPlaylist":
                     Settings.idPlaylistTemp = scanner.nextInt();
