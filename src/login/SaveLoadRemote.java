@@ -2,7 +2,6 @@ package login;
 
 import model.Account;
 import model.SaveData;
-import settings.Settings;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -35,6 +34,8 @@ public class SaveLoadRemote {
             }
             saveData.reloadAllLists();
             account.setSaveData(saveData);
+            System.out.println(saveData.getPlaylists() + "\n" + saveData.getLike() + "\n" + saveData.getDishes() + "\n" + account.getIdUser() + "\n" +
+                    account.getMail() + "\n" + account.getPassword() + "\n" + account.getUserName());
             file.delete();
         } catch (JAXBException e) {
             e.printStackTrace();
@@ -62,10 +63,9 @@ public class SaveLoadRemote {
         thread.start();
     }
 
-    public static int addPlaylist(int idUser, String playlistTitle, String mail, String password) {
+    public static void addPlaylist(int idUser, String playlistTitle, String mail, String password) {
         Thread thread = new Thread(new ThreadForDB("addPlaylist", mail, password, idUser, playlistTitle), "Thread");
         thread.start();
-        return Settings.idPlaylistTemp;
     }
 
     public static void removePlaylist(int idPlaylist, String mail, String password) {

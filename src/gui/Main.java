@@ -41,7 +41,7 @@ public class Main extends Application {
                     if (scanner.hasNext()) {
                         savedPassword = scanner.nextLine();
                         Login.signIn(savedMail, savedPassword, true);
-                        Thread.sleep(1000);
+                        Thread.sleep(3000);
                         Account account = new Account();
                         if (account.getIdUser() != -1) {
                             LoaderNewScene.load("/gui/app.fxml");//admin

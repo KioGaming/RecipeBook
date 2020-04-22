@@ -117,7 +117,10 @@ public class ThreadForDB implements Runnable {
                     }
                     break;
                 case "addPlaylist":
-                    Settings.idPlaylistTemp = scanner.nextInt();
+                    if (scanner.hasNextLine()) {
+                        String k = scanner.nextLine();
+                        Settings.idPlaylistTemp = Integer.parseInt(k);
+                    }
                     scanner.close();
                     outFile.close();
                     break;

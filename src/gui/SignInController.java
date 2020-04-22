@@ -46,7 +46,7 @@ public class SignInController {
             if (!mail.equals("") && !password.equals("")) {
                 Login.signIn(mail, password, b);
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

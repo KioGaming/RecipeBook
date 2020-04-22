@@ -13,6 +13,7 @@ import login.Filter;
 import login.Login;
 import login.SaveLoadRemote;
 import model.*;
+import settings.Settings;
 import settings.Text;
 
 import java.net.URL;
@@ -619,12 +620,13 @@ public class AppController {
             Optional<String> result = dialog.showAndWait();
             result.ifPresent(name -> {
                 if (sd.getPlaylists().size() < 5) {
+                    SaveLoadRemote.addPlaylist(account.getIdUser(), name, account.getMail(), account.getPassword());
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(3000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    Playlist playlist = new Playlist(SaveLoadRemote.addPlaylist(account.getIdUser(), name, account.getMail(), account.getPassword()), name, new ArrayList<>());
+                    Playlist playlist = new Playlist(Settings.idPlaylistTemp, name, new ArrayList<>());
                     sd.getPlaylists().add(playlist);
                     playlistsPaneRedraw();
                 } else {
