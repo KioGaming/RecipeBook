@@ -36,6 +36,7 @@ public class SignInController {
 
     @FXML
     void initialize() {
+        facebookIcon.setVisible(false);
         facebookIcon.setImage(new Image("https://cdn1.iconfinder.com/data/icons/logotypes/32/square-facebook-512.png"));
         loadProgress.setVisible(false);
         authSignInButton.setOnAction(event -> {

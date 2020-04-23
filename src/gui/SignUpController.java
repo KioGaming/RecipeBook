@@ -6,8 +6,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import login.Filter;
 import login.Login;
+import login.SaveLoadRemote;
 import login.ThreadForDB;
 import model.Account;
+import settings.Settings;
 import settings.Text;
 
 import java.net.URL;
@@ -61,17 +63,28 @@ public class SignUpController {
                 savePassword = savePasswordCheckBox.isSelected();
                 if (!username.equals("") && !mail.equals("") && !password.equals("") && !locale.equals("") && !locale.equals("Страна, язык")) {
                     if (Filter.verifyUsername(username) && Filter.verifyMail(mail) && Filter.verifyPassword(password) && Filter.verifyLocation(locale)) {
-                        usernameField.setVisible(false);
-                        mailField.setVisible(false);
-                        passwordField.setVisible(false);
-                        locationComboBox.setVisible(false);
-                        savePasswordCheckBox.setVisible(false);
-                        confirmLabel.setVisible(true);
-                        confirmField.setVisible(true);
-                        backToRegistrationFormBuuton.setVisible(true);
-                        confirmMail = (int) Math.floor(Math.random() * 1000000);
-                        Thread thread = new Thread(new ThreadForDB("sendMail", mail, password, confirmMail), "Thread");
-                        thread.start();
+                        SaveLoadRemote.verifyNoUsedUsernameOrMail(username, mail);
+                        try {
+                            Thread.sleep(3000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        if (Settings.verifyNoUsedUsernameOrMailTemp) {
+                            usernameField.setVisible(false);
+                            mailField.setVisible(false);
+                            passwordField.setVisible(false);
+                            locationComboBox.setVisible(false);
+                            savePasswordCheckBox.setVisible(false);
+                            confirmLabel.setVisible(true);
+                            confirmField.setVisible(true);
+                            backToRegistrationFormBuuton.setVisible(true);
+                            confirmMail = (int) Math.floor(Math.random() * 1000000);
+                            Thread thread = new Thread(new ThreadForDB("sendMail", mail, password, confirmMail), "Thread");
+                            thread.start();
+                        } else {
+                            signUpErrorMessages.setVisible(true);
+                            signUpErrorMessages.setText(Text.get("SIGN_UP_REPEAT_ERROR"));
+                        }
                     } else {
                         signUpErrorMessages.setVisible(true);
                         signUpErrorMessages.setText(Text.get("SIGN_UP_REPEAT_ERROR"));

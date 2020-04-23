@@ -64,6 +64,12 @@ public class ThreadForDB implements Runnable {
         this.arg1 = arg1;
     }
 
+    public ThreadForDB(String command, String username, String mail, boolean b) {
+        this.command = command;
+        this.mail = mail;
+        this.username = username;
+    }
+
     @Override
     public void run() {
         try {
@@ -98,6 +104,9 @@ public class ThreadForDB implements Runnable {
                 case "changeLocation":
                     toServer.println(command + "/" + mail + "/" + password + "/" + arg3);
                     break;
+                case "verifyNoUsedUsernameOrMail":
+                    toServer.println(command + "/" + username + "/" + mail);
+                    break;
             }
             //Прийом ответа
             PrintWriter outFile = new PrintWriter(System.getenv("APPDATA") + "/recipebook/account.rb");
@@ -124,6 +133,14 @@ public class ThreadForDB implements Runnable {
                     scanner.close();
                     outFile.close();
                     break;
+                case "verifyNoUsedUsernameOrMail":
+                    if (scanner.hasNextLine()) {
+                        String k = scanner.nextLine();
+                        System.out.println(k);
+                        Settings.verifyNoUsedUsernameOrMailTemp = k.equals("true");
+                    }
+                    scanner.close();
+                    outFile.close();
             }
         } catch (IOException e) {
             e.printStackTrace();

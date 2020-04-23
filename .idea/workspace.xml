@@ -8,23 +8,19 @@
   <component name="ChangeListManager">
     <list default="true" id="48ba578d-8e07-482c-9c8d-b5e1de7aa23d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/AppController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/LoaderNewScene.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/LoaderNewScene.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/RecipeBook_jar/RecipeBook.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/RecipeBook_jar/RecipeBook.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignInController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignUpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/gui/SignUpController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/Filter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/login/Filter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/login/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/MailSender$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/MailSender.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/SaveLoadRemote.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/login/SaveLoadRemote.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/ThreadForDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/login/ThreadForDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/login/Wrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/login/Wrapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/model/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/model/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/model/Playlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/model/Playlist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/model/SaveData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/model/SaveData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/settings/Settings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/settings/Settings.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeBook/model/Dish.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeBook/model/Dish.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignUpController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/login/SaveLoadRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/login/SaveLoadRemote.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/login/ThreadForDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/login/ThreadForDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/settings/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/settings/Settings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +90,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../RecipeBookServer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15234375" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -278,14 +274,10 @@
       <workItem from="1587363243711" duration="31033000" />
       <workItem from="1587450152915" duration="10445000" />
       <workItem from="1587485157138" duration="5101000" />
-      <workItem from="1587534531722" duration="14287000" />
-    </task>
-    <task id="LOCAL-00004" summary="Fix bug">
-      <created>1583654991992</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1583654991992</updated>
+      <workItem from="1587534531722" duration="14610000" />
+      <workItem from="1587574320623" duration="621000" />
+      <workItem from="1587661077047" duration="534000" />
+      <workItem from="1587662215770" duration="1618000" />
     </task>
     <task id="LOCAL-00005" summary="Create frame categories in app.fxml">
       <created>1583695945870</created>
@@ -623,7 +615,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587561264355</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="The program is divided into server and client part - fix bugs">
+      <created>1587566476150</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1587566476151</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -692,7 +691,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add playlist systems 8.0" />
     <MESSAGE value="Add playlist systems 9.0" />
     <MESSAGE value="Add playlist systems 10.0" />
     <MESSAGE value="Add playlist systems 11.0" />
@@ -717,7 +715,8 @@
     <MESSAGE value="The program is divided into server and client part" />
     <MESSAGE value="The program is divided into server and client part 2.0" />
     <MESSAGE value="The program is divided into server and client part 3.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="The program is divided into server and client part 3.0" />
+    <MESSAGE value="The program is divided into server and client part - fix bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="The program is divided into server and client part - fix bugs" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -751,34 +750,34 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587382710843" />
-    <state x="533" y="2" key="CommitChangelistDialog2" timestamp="1587561260246">
+    <state x="533" y="2" key="CommitChangelistDialog2" timestamp="1587566475244">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="533" y="2" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587561260246" />
+    <state x="533" y="2" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587566475244" />
     <state x="523" y="127" key="DetectedRootsChooserDialog" timestamp="1586547809498">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="523" y="127" key="DetectedRootsChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1586547809498" />
-    <state x="473" y="153" key="FileChooserDialogImpl" timestamp="1587485200464">
+    <state x="473" y="153" key="FileChooserDialogImpl" timestamp="1587661384254">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="473" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1587485200464" />
-    <state width="1493" height="178" key="GridCell.Tab.0.bottom" timestamp="1587566381801">
+    <state x="473" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1587661384254" />
+    <state width="1493" height="177" key="GridCell.Tab.0.bottom" timestamp="1587663836590">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="178" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587566381801" />
-    <state width="1493" height="178" key="GridCell.Tab.0.center" timestamp="1587566381801">
+    <state width="1493" height="177" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587663836590" />
+    <state width="1493" height="177" key="GridCell.Tab.0.center" timestamp="1587663836590">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="178" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587566381801" />
-    <state width="1493" height="178" key="GridCell.Tab.0.left" timestamp="1587566381801">
+    <state width="1493" height="177" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587663836590" />
+    <state width="1493" height="177" key="GridCell.Tab.0.left" timestamp="1587663836589">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="178" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587566381801" />
-    <state width="1493" height="178" key="GridCell.Tab.0.right" timestamp="1587566381801">
+    <state width="1493" height="177" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587663836589" />
+    <state width="1493" height="177" key="GridCell.Tab.0.right" timestamp="1587663836590">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="178" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587566381801" />
+    <state width="1493" height="177" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587663836590" />
     <state width="1493" height="260" key="GridCell.Tab.1.bottom" timestamp="1587414846963">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -799,18 +798,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1587556628530" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1587561367680">
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1587566480715">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587561367680" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587566480715" />
     <state x="573" y="280" key="classpath-attribute-editor" timestamp="1586541335750">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="573" y="280" key="classpath-attribute-editor/0.0.1536.824@0.0.1536.824" timestamp="1586541335750" />
-    <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1587485188823">
+    <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1587661085728">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1587485188823" />
+    <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1587661085728" />
     <state x="498" y="305" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1587491946253">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

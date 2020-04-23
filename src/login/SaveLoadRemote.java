@@ -34,8 +34,6 @@ public class SaveLoadRemote {
             }
             saveData.reloadAllLists();
             account.setSaveData(saveData);
-            System.out.println(saveData.getPlaylists() + "\n" + saveData.getLike() + "\n" + saveData.getDishes() + "\n" + account.getIdUser() + "\n" +
-                    account.getMail() + "\n" + account.getPassword() + "\n" + account.getUserName());
             file.delete();
         } catch (JAXBException e) {
             e.printStackTrace();
@@ -95,6 +93,11 @@ public class SaveLoadRemote {
 
     public static void addOneLike(int idDish, String mail, String password) {
         Thread thread = new Thread(new ThreadForDB("addOneLike", mail, password, idDish), "Thread");
+        thread.start();
+    }
+
+    public static void verifyNoUsedUsernameOrMail(String username, String mail) {
+        Thread thread = new Thread(new ThreadForDB("verifyNoUsedUsernameOrMail", username, mail, true), "Thread");
         thread.start();
     }
 }
